@@ -26,6 +26,7 @@ _attachments/   imágenes y PDFs
 | `lint` | Health check |
 | `save this` | Guardar conversación como nota |
 | `bunker init` | **Workflow Start**: Lee hot.md y handover. |
+| `bunker refresh` | **Re-align**: Re-lee pilares para evitar context drift. |
 | `bunker save` | **Checkpoint**: Commits rápidos de la wiki. |
 | `bunker close` | **Session End**: Handover, sync y push. |
 
