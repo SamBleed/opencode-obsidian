@@ -25,6 +25,9 @@ _attachments/   imágenes y PDFs
 | `search the wiki` | Buscar en el vault |
 | `lint` | Health check |
 | `save this` | Guardar conversación como nota |
+| `bunker init` | **Workflow Start**: Lee hot.md y handover. |
+| `bunker save` | **Checkpoint**: Commits rápidos de la wiki. |
+| `bunker close` | **Session End**: Handover, sync y push. |
 
 ## Cómo Usar
 
