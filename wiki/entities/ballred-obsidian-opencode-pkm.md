@@ -12,21 +12,21 @@ status: current
 related:
   - "[[LLM Wiki Pattern]]"
   - "[[cherry-picks]]"
-  - "[[claude-obsidian-ecosystem]]"
+  - "[[opencode-obsidian-ecosystem]]"
 sources:
-  - "[[claude-obsidian-ecosystem-research]]"
+  - "[[opencode-obsidian-ecosystem-research]]"
 ---
 
 # ballred/obsidian-claude-pkm
 
-**Type**: Claude Code plugin (skill-based PKM system)
+**Type**: OpenCode Code plugin (skill-based PKM system)
 **URL**: https://github.com/ballred/obsidian-claude-pkm
 **Version**: 3.1
 **Tagline**: "Not another PKM starter kit. An execution system."
 
 ## What It Does
 
-Connects a 3-year vision cascade to daily task execution, using Claude as an accountability partner. Every layer is linked — daily notes surface the weekly ONE Big Thing, which links to active projects, which link to yearly goals.
+Connects a 3-year vision cascade to daily task execution, using OpenCode as an accountability partner. Every layer is linked — daily notes surface the weekly ONE Big Thing, which links to active projects, which link to yearly goals.
 
 ## Goal Cascade
 
@@ -53,13 +53,13 @@ Scans an existing Obsidian vault, detects its organization method (PARA, Zettelk
 Uses `memory: project` so agents remember patterns across sessions.
 
 ### Productivity Coach Output Style
-`/output-style coach` transforms Claude into an accountability partner — challenges assumptions, asks powerful questions, points out goal-action misalignment.
+`/output-style coach` transforms OpenCode into an accountability partner — challenges assumptions, asks powerful questions, points out goal-action misalignment.
 
 ## Architecture
 
 Zero dependencies (bash + markdown only). Path-specific rules loaded contextually. Session init surfaces ONE Big Thing, active project count, days since last review.
 
-## Cherry-Picks for claude-obsidian
+## Cherry-Picks for opencode-obsidian
 
 - [[cherry-picks#2. Auto-Commit PostToolUse Hook]]
 - [[cherry-picks#7. /adopt — Import Existing Vault]]

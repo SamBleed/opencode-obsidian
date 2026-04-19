@@ -33,9 +33,9 @@ The [[LLM Wiki Pattern]] turns an LLM into a knowledge architect rather than a s
 
 ### The three layers
 
-1. **`.raw/`** — your source documents. Immutable. Claude reads, never modifies.
-2. **`wiki/`** — Claude-generated knowledge. Summaries, entities, concepts, synthesis.
-3. **`CLAUDE.md`** — the schema. Tells Claude how the wiki is structured and what to do.
+1. **`.raw/`** — your source documents. Immutable. OpenCode reads, never modifies.
+2. **`wiki/`** — OpenCode-generated knowledge. Summaries, entities, concepts, synthesis.
+3. **`CLAUDE.md`** — the schema. Tells OpenCode how the wiki is structured and what to do.
 
 ### Why it compounds
 

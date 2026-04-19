@@ -7,13 +7,13 @@ tags:
   - backlog
   - cherry-picks
   - product-roadmap
-  - claude-obsidian
+  - opencode-obsidian
 status: current
 related:
-  - "[[claude-obsidian-ecosystem]]"
+  - "[[opencode-obsidian-ecosystem]]"
   - "[[LLM Wiki Pattern]]"
 sources:
-  - "[[claude-obsidian-ecosystem-research]]"
+  - "[[opencode-obsidian-ecosystem-research]]"
 ---
 
 # Cherry-Picks: Feature Backlog
@@ -69,7 +69,7 @@ sources:
 ### 6. /wiki-ingest Vision Support
 **Source**: Ar9av/obsidian-wiki
 **What it is**: Ingest images, screenshots, whiteboard photos by passing the image to a vision-capable model.
-**How to add**: Detect image extension → read as base64 → pass to Claude with vision prompt asking for transcription/description → treat result as text source → standard ingest pipeline.
+**How to add**: Detect image extension → read as base64 → pass to OpenCode with vision prompt asking for transcription/description → treat result as text source → standard ingest pipeline.
 **Useful for**: Whiteboard photos from meetings, screenshots of web content, diagrams.
 
 ---
@@ -85,13 +85,13 @@ sources:
 ### 8. Productivity Wrapper (Daily/Weekly Reviews)
 **Source**: ballred/obsidian-claude-pkm
 **What it is**: Optional `/daily` and `/weekly` skills that connect goal tracking to the knowledge base.
-**Could be a separate plugin** rather than bundled into claude-obsidian.
+**Could be a separate plugin** rather than bundled into opencode-obsidian.
 **Goal cascade**: 3-Year Vision → Yearly Goals → Projects → Weekly → Daily.
 
 ### 9. Multi-Agent Compatibility (Cursor, Windsurf, Codex)
 **Source**: Ar9av/obsidian-wiki, kepano/obsidian-skills
 **What it is**: A `setup.sh` or `/wiki-convert` command that generates `.cursor/rules/`, `AGENTS.md`, `GEMINI.md` equivalents so the wiki skills work in other coding agents.
-**Note**: kepano already published skills in Agent Skills format — claude-obsidian is already in that format. Just needs the adapter files.
+**Note**: kepano already published skills in Agent Skills format — opencode-obsidian is already in that format. Just needs the adapter files.
 
 ### 10. Marp Presentation Output
 **Source**: rvk7895/llm-knowledge-bases, ekadetov/llm-wiki
@@ -104,13 +104,13 @@ sources:
 
 ### 11. obsidian-memory-mcp Integration
 **Source**: YuNaga224/obsidian-memory-mcp
-**What it is**: Connect the MCP server that stores Claude's memories as Markdown entities with `[[wikilinks]]` → they appear in Obsidian graph view automatically.
+**What it is**: Connect the MCP server that stores OpenCode's memories as Markdown entities with `[[wikilinks]]` → they appear in Obsidian graph view automatically.
 **How to add**: Point MEMORY_DIR to the wiki/entities/ directory — entity memory pages become proper wiki pages.
 
 ### 12. obsidian-bases Skill (from kepano)
 **Source**: kepano/obsidian-skills
-**What it is**: Teach Claude how to create and edit Obsidian Bases (.base files) for dynamic tables, views, and filters.
-**Why**: Obsidian Bases is a new core feature — no other LLM Wiki project teaches Claude about it yet.
+**What it is**: Teach OpenCode how to create and edit Obsidian Bases (.base files) for dynamic tables, views, and filters.
+**Why**: Obsidian Bases is a new core feature — no other LLM Wiki project teaches OpenCode about it yet.
 
 ### 13. Schema-Emergent Vault Mode
 **Source**: Ar9av/obsidian-wiki
@@ -121,7 +121,7 @@ sources:
 
 ## Competitive Positioning
 
-After this research, claude-obsidian's unique advantages remain:
+After this research, opencode-obsidian's unique advantages remain:
 - **Hot cache** — no one else has this session context mechanism
 - **Canvas visual layer** — unique in the LLM Wiki category
 - **/save conversation** — filing chat → wiki is a distinct workflow

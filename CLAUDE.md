@@ -1,29 +1,29 @@
-# claude-obsidian — Claude + Obsidian Wiki Vault
+# opencode-obsidian — OpenCode + Obsidian Wiki Vault
 
-This folder is both a Claude Code plugin and an Obsidian vault.
+This folder is both a OpenCode Code plugin and an Obsidian vault.
 
-**Plugin name:** `claude-obsidian`
+**Plugin name:** `opencode-obsidian`
 **Skills:** `/wiki`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`
 **Vault path:** This directory (open in Obsidian directly)
 
 ## What This Vault Is For
 
-This vault demonstrates the LLM Wiki pattern — a persistent, compounding knowledge base for Claude + Obsidian. Drop any source, ask any question, and the wiki grows richer with every session.
+This vault demonstrates the LLM Wiki pattern — a persistent, compounding knowledge base for OpenCode + Obsidian. Drop any source, ask any question, and the wiki grows richer with every session.
 
 ## Vault Structure
 
 ```
-.raw/           source documents — immutable, Claude reads but never modifies
-wiki/           Claude-generated knowledge base
+.raw/           source documents — immutable, OpenCode reads but never modifies
+wiki/           OpenCode-generated knowledge base
 _templates/     Obsidian Templater templates
 _attachments/   images and PDFs referenced by wiki pages
 ```
 
 ## How to Use
 
-Drop a source file into `.raw/`, then tell Claude: "ingest [filename]".
+Drop a source file into `.raw/`, then tell OpenCode: "ingest [filename]".
 
-Ask any question. Claude reads the index first, then drills into relevant pages.
+Ask any question. OpenCode reads the index first, then drills into relevant pages.
 
 Run `/wiki` to scaffold a new vault or check setup status.
 
@@ -31,7 +31,7 @@ Run "lint the wiki" every 10-15 ingests to catch orphans and gaps.
 
 ## Cross-Project Access
 
-To reference this wiki from another Claude Code project, add to that project's CLAUDE.md:
+To reference this wiki from another OpenCode Code project, add to that project's CLAUDE.md:
 
 ```markdown
 ## Wiki Knowledge Base
@@ -60,5 +60,5 @@ Do NOT read the wiki for general coding questions or things already in this proj
 
 ## MCP (Optional)
 
-If you configured the MCP server, Claude can read and write vault notes directly.
+If you configured the MCP server, OpenCode can read and write vault notes directly.
 See `skills/wiki/references/mcp-setup.md` for setup instructions.

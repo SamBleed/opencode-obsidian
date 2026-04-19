@@ -4,7 +4,7 @@ Este directorio es un vault de Obsidian con skills adaptados para OpenCode.
 
 ## Vault Path
 ```
-/home/sam/claude-obsidian
+/home/sam/opencode-obsidian
 ```
 
 ## Estructura
@@ -39,7 +39,7 @@ Para referenciar este wiki desde otro proyecto, agregar al AGENTS.md de ese proy
 
 ```markdown
 ## Wiki Knowledge Base
-Path: /home/sam/claude-obsidian
+Path: /home/sam/opencode-obsidian
 
 Cuando necesites contexto:
 1. Leé wiki/hot.md primero (~500 palabras)

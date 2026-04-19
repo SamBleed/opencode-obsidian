@@ -12,9 +12,9 @@ status: current
 related:
   - "[[LLM Wiki Pattern]]"
   - "[[cherry-picks]]"
-  - "[[claude-obsidian-ecosystem]]"
+  - "[[opencode-obsidian-ecosystem]]"
 sources:
-  - "[[claude-obsidian-ecosystem-research]]"
+  - "[[opencode-obsidian-ecosystem-research]]"
 ---
 
 # kepano/obsidian-skills
@@ -28,12 +28,12 @@ sources:
 
 This repo is from the creator of Obsidian. It:
 1. Validates that the Agent Skills standard is the right format for Obsidian AI tools
-2. Provides the canonical reference for how to teach Claude about Obsidian-specific syntax
+2. Provides the canonical reference for how to teach OpenCode about Obsidian-specific syntax
 3. Covers Obsidian Bases — a new core Obsidian feature that no other AI project supports yet
 
 ## Skills
 
-| Skill | What It Teaches Claude |
+| Skill | What It Teaches OpenCode |
 |-------|----------------------|
 | `obsidian-markdown` | Full Obsidian Flavored Markdown: wikilinks, embeds, callouts, properties, tags |
 | `obsidian-bases` | Obsidian Bases (.base files): views, filters, formulas, summaries |
@@ -48,13 +48,13 @@ The `defuddle` skill wraps `defuddle-cli`. When ingesting web content, running d
 - Reduces token usage ~40-60% on typical web pages
 - Produces cleaner Markdown that fits better in context window
 
-This is a direct cherry-pick for claude-obsidian's ingest pipeline.
+This is a direct cherry-pick for opencode-obsidian's ingest pipeline.
 
 ## Multi-Platform
 
-Works with Claude Code, Codex CLI, and OpenCode out of the box.
+Works with OpenCode Code, Codex CLI, and OpenCode out of the box.
 
-## Cherry-Picks for claude-obsidian
+## Cherry-Picks for opencode-obsidian
 
 - [[cherry-picks#1. URL Ingestion in /wiki-ingest]] (pair with defuddle)
 - [[cherry-picks#3. defuddle Web Cleaning Skill]]

@@ -58,7 +58,7 @@ LLMs don't get bored. They don't forget to update a cross-reference. The cost of
 
 ## In Practice
 
-One X user turned 383 scattered files and over 100 meeting transcripts into a compact wiki and dropped token usage by 95% when querying with Claude. The drop came from two sources: better navigation (index + hot cache vs. full document search) and pre-compiled synthesis (no re-deriving the same insights from scratch).
+One X user turned 383 scattered files and over 100 meeting transcripts into a compact wiki and dropped token usage by 95% when querying with OpenCode. The drop came from two sources: better navigation (index + hot cache vs. full document search) and pre-compiled synthesis (no re-deriving the same insights from scratch).
 
 ---
 

@@ -11,7 +11,7 @@ related:
   - "[[log]]"
   - "[[Wiki Map]]"
   - "[[getting-started]]"
-  - "[[claude-obsidian-v1.4-release-session]]"
+  - "[[opencode-obsidian-v1.4-release-session]]"
 ---
 
 # Recent Context
@@ -23,7 +23,7 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Plugin State
 - **Version**: 1.4.1 (installed, enabled, user scope)
-- **Install ID**: `claude-obsidian@claude-obsidian-marketplace`
+- **Install ID**: `opencode-obsidian@opencode-obsidian-marketplace`
 - **Releases**: v1.1, v1.4.0, v1.4.1 on GitHub
 - **Skills**: 10 (wiki, wiki-ingest, wiki-query, wiki-lint, save, autoresearch, canvas, defuddle, obsidian-bases, obsidian-markdown)
 - **Hooks**: 4 (SessionStart, PostCompact, PostToolUse, Stop)
@@ -31,11 +31,11 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Install Command (Correct Two-Step Flow)
 ```bash
-claude plugin marketplace add AgriciDaniel/claude-obsidian
-claude plugin install claude-obsidian@claude-obsidian-marketplace
+claude plugin marketplace add AgriciDaniel/opencode-obsidian
+claude plugin install opencode-obsidian@opencode-obsidian-marketplace
 ```
 
-There is no `claude plugin install github:owner/repo` shortcut. Both steps are required. Full session note: [[claude-obsidian-v1.4-release-session]].
+There is no `claude plugin install github:owner/repo` shortcut. Both steps are required. Full session note: [[opencode-obsidian-v1.4-release-session]].
 
 ## Recent Release Cycle (v1.1 → v1.4.1)
 - **v1.1**: URL ingestion, vision ingestion, delta tracking manifest, 3 new skills (defuddle, obsidian-bases, obsidian-markdown), multi-depth query modes, PostToolUse auto-commit, removed invalid `allowed-tools` frontmatter field
@@ -56,13 +56,13 @@ There is no `claude plugin install github:owner/repo` shortcut. Both steps are r
 - Parallel tool calls when independent.
 
 ## Ecosystem Research (Done 2026-04-08)
-16+ Claude + Obsidian projects mapped. Full feature matrix at [[claude-obsidian-ecosystem]]. Prioritized backlog at [[cherry-picks]]. Top competitors: [[Ar9av-obsidian-wiki]] (multi-agent + delta tracking), [[rvk7895-llm-knowledge-bases]] (multi-depth query), [[ballred-obsidian-claude-pkm]] (goal cascade + auto-commit), [[kepano-obsidian-skills]] (authoritative Obsidian skills from Obsidian's own creator).
+16+ OpenCode + Obsidian projects mapped. Full feature matrix at [[opencode-obsidian-ecosystem]]. Prioritized backlog at [[cherry-picks]]. Top competitors: [[Ar9av-obsidian-wiki]] (multi-agent + delta tracking), [[rvk7895-llm-knowledge-bases]] (multi-depth query), [[ballred-obsidian-claude-pkm]] (goal cascade + auto-commit), [[kepano-obsidian-skills]] (authoritative Obsidian skills from Obsidian's own creator).
 
 ## Active Threads
 - v1.5.0 backlog: `/adopt` command, vault graph analysis in wiki-lint, semantic search via qmd, Marp output
-- `community` remote (`avalonreset-pro/claude-obsidian`) still has pre-rewrite history. Force-push needed next time that remote is configured.
+- `community` remote (`avalonreset-pro/opencode-obsidian`) still has pre-rewrite history. Force-push needed next time that remote is configured.
 
 ## Repo Locations
-- Working: `~/Desktop/claude-obsidian/`
-- Public: https://github.com/AgriciDaniel/claude-obsidian
-- Community (private): https://github.com/avalonreset-pro/claude-obsidian
+- Working: `~/Desktop/opencode-obsidian/`
+- Public: https://github.com/AgriciDaniel/opencode-obsidian
+- Community (private): https://github.com/avalonreset-pro/opencode-obsidian

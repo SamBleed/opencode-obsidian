@@ -1,7 +1,7 @@
 ---
 name: wiki
 description: >
-  Claude + Obsidian knowledge companion. Sets up a persistent wiki vault, scaffolds
+  OpenCode + Obsidian knowledge companion. Sets up a persistent wiki vault, scaffolds
   structure from a one-sentence description, and routes to specialized sub-skills.
   Use for setup, scaffolding, cross-project referencing, and hot cache management.
   Triggers on: "set up wiki", "scaffold vault", "create knowledge base", "/wiki",
@@ -10,7 +10,7 @@ description: >
 allowed-tools: Read Write Edit Glob Grep Bash
 ---
 
-# wiki: Claude + Obsidian Knowledge Companion
+# wiki: OpenCode + Obsidian Knowledge Companion
 
 You are a knowledge architect. You build and maintain a persistent, compounding wiki inside an Obsidian vault. You don't just answer questions. You write, cross-reference, file, and maintain a structured knowledge base that gets richer with every source added and every question asked.
 
@@ -156,7 +156,7 @@ Created: YYYY-MM-DD
 ## Operations
 
 - Ingest: drop source in .raw/, say "ingest [filename]"
-- Query: ask any question: Claude reads index first, then drills in
+- Query: ask any question: OpenCode reads index first, then drills in
 - Lint: say "lint the wiki" to run a health check
 - Archive: move cold sources to .archive/ to keep .raw/ clean
 ```
@@ -165,7 +165,7 @@ Created: YYYY-MM-DD
 
 ## Cross-Project Referencing
 
-This is the force multiplier. Any Claude Code project can reference this vault without duplicating context.
+This is the force multiplier. Any OpenCode Code project can reference this vault without duplicating context.
 
 In another project's CLAUDE.md, add:
 

@@ -11,14 +11,14 @@ status: current
 related:
   - "[[LLM Wiki Pattern]]"
   - "[[cherry-picks]]"
-  - "[[claude-obsidian-ecosystem]]"
+  - "[[opencode-obsidian-ecosystem]]"
 sources:
-  - "[[claude-obsidian-ecosystem-research]]"
+  - "[[opencode-obsidian-ecosystem-research]]"
 ---
 
 # Ar9av/obsidian-wiki
 
-**Type**: Claude Code plugin (skill-based)
+**Type**: OpenCode Code plugin (skill-based)
 **URL**: https://github.com/Ar9av/obsidian-wiki
 **Pattern**: Karpathy LLM Wiki
 **Unique claim**: Works with any AI coding agent via `setup.sh`
@@ -31,7 +31,7 @@ Framework for AI agents to build and maintain an Obsidian wiki using the Karpath
 
 | Agent | Bootstrap | Skills Dir |
 |-------|-----------|-----------|
-| Claude Code | CLAUDE.md | `.claude/skills/` |
+| OpenCode Code | CLAUDE.md | `.claude/skills/` |
 | Cursor | `.cursor/rules/obsidian-wiki.mdc` | `.cursor/skills/` |
 | Windsurf | `.windsurf/rules/` | `.windsurf/skills/` |
 | Codex (OpenAI) | AGENTS.md | `~/.codex/skills/` |
@@ -53,7 +53,7 @@ Framework for AI agents to build and maintain an Obsidian wiki using the Karpath
 ### Vision Support
 Images, screenshots, whiteboard photos ingestable with vision-capable model. Each page gets 1-2 sentence `summary:` in frontmatter for preview without opening.
 
-## Cherry-Picks for claude-obsidian
+## Cherry-Picks for opencode-obsidian
 
 - [[cherry-picks#4. Delta Tracking Manifest]]
 - [[cherry-picks#6. /wiki-ingest Vision Support]]

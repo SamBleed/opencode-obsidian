@@ -11,12 +11,12 @@ tags:
 status: current
 related:
   - "[[cherry-picks]]"
-  - "[[claude-obsidian-ecosystem]]"
+  - "[[opencode-obsidian-ecosystem]]"
 sources:
-  - "[[claude-obsidian-ecosystem-research]]"
+  - "[[opencode-obsidian-ecosystem-research]]"
 ---
 
-# Nexus (formerly Claudesidian MCP)
+# Nexus (formerly OpenCodesidian MCP)
 
 **Type**: Native Obsidian plugin + MCP bridge
 **URL**: https://github.com/ProfSynapse/claudesidian-mcp
@@ -27,7 +27,7 @@ sources:
 
 Full Obsidian plugin with two modes:
 1. **Native chat inside Obsidian** — connect any AI provider
-2. **MCP bridge** — expose vault to Claude Desktop, Claude Code, Codex CLI, Gemini CLI, Cursor, Cline
+2. **MCP bridge** — expose vault to OpenCode Desktop, OpenCode Code, Codex CLI, Gemini CLI, Cursor, Cline
 
 ## Key Features
 
@@ -44,10 +44,10 @@ Full Obsidian plugin with two modes:
 
 Data stored as JSONL files in `.obsidian/plugins/nexus/data/`. This is included in Obsidian Sync automatically (unlike the `.nexus/` folder of v1). SQLite cache is local-only, rebuilt from JSONL on each device.
 
-## Relevance to claude-obsidian
+## Relevance to opencode-obsidian
 
-Nexus is in a different category — it's a native TypeScript Obsidian plugin, not a Claude Code skill plugin. The two don't compete directly, but its workspace memory and task management patterns are cherry-pickable.
+Nexus is in a different category — it's a native TypeScript Obsidian plugin, not a OpenCode Code skill plugin. The two don't compete directly, but its workspace memory and task management patterns are cherry-pickable.
 
-## Cherry-Picks for claude-obsidian
+## Cherry-Picks for opencode-obsidian
 
 - [[cherry-picks#11. obsidian-memory-mcp Integration]] (different implementation, same concept)

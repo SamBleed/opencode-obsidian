@@ -1,6 +1,6 @@
 ---
 type: session
-title: "claude-obsidian v1.2.0 Release Session"
+title: "opencode-obsidian v1.2.0 Release Session"
 created: 2026-04-07
 updated: 2026-04-07
 tags:
@@ -16,9 +16,9 @@ related:
   - "[[LLM Wiki Pattern]]"
 ---
 
-# claude-obsidian v1.2.0 Release Session
+# opencode-obsidian v1.2.0 Release Session
 
-Full build, audit, polish, and community release of the claude-obsidian plugin + vault kit. Previously named `cosmic-brain`.
+Full build, audit, polish, and community release of the opencode-obsidian plugin + vault kit. Previously named `cosmic-brain`.
 
 ---
 
@@ -49,13 +49,13 @@ Full build, audit, polish, and community release of the claude-obsidian plugin +
 
 ---
 
-## Rename: cosmic-brain → claude-obsidian
+## Rename: cosmic-brain → opencode-obsidian
 
 Full project rename executed:
-- GitHub repos renamed: `AgriciDaniel/cosmic-brain` → `AgriciDaniel/claude-obsidian` (public), `avalonreset-pro/cosmic-brain` → `avalonreset-pro/claude-obsidian` (private)
-- Local directory: `~/cosmic-brain/` → `~/claude-obsidian/`
+- GitHub repos renamed: `AgriciDaniel/cosmic-brain` → `AgriciDaniel/opencode-obsidian` (public), `avalonreset-pro/cosmic-brain` → `avalonreset-pro/opencode-obsidian` (private)
+- Local directory: `~/cosmic-brain/` → `~/opencode-obsidian/`
 - All text references updated across 14 files via sed
-- `wiki/meta/cosmic-brain-cover.gif` renamed to `wiki/meta/claude-obsidian-cover.gif`
+- `wiki/meta/cosmic-brain-cover.gif` renamed to `wiki/meta/opencode-obsidian-cover.gif`
 
 ---
 
@@ -79,12 +79,12 @@ Added rules to prevent future accidental commits of: video files (`*.mkv`, `*.mp
 ## Visual / README
 
 ### GIFs and Images
-- New Claude Obsidian branded assets added (16x9 cover GIF, 1x1 GIF, static PNGs)
+- New OpenCode Obsidian branded assets added (16x9 cover GIF, 1x1 GIF, static PNGs)
 - Compressed: `gif-cover-16x9.gif` 2.6MB→1.3MB (50%), `gif-1x1.gif` 2.6MB→848KB (68%) — via FFmpeg palette optimization, scaled to 960px/640px, 15fps, 128-color palette
 - Example screenshots added: `image-example-graph-view.png`, `image-example-wiki-map-view.png`
 
 ### README Structure (top to bottom)
-1. `claude-obsidian-gif-cover-16x9.gif` — header
+1. `opencode-obsidian-gif-cover-16x9.gif` — header
 2. Description text
 3. `welcome-canvas.gif` — What It Does demo (full width)
 4. Descriptive paragraphs
@@ -98,10 +98,10 @@ Added rules to prevent future accidental commits of: video files (`*.mkv`, `*.mp
 
 | Repo | Visibility | URL |
 |------|-----------|-----|
-| AgriciDaniel/claude-obsidian | Public | https://github.com/AgriciDaniel/claude-obsidian |
-| avalonreset-pro/claude-obsidian | Private | https://github.com/avalonreset-pro/claude-obsidian |
+| AgriciDaniel/opencode-obsidian | Public | https://github.com/AgriciDaniel/opencode-obsidian |
+| avalonreset-pro/opencode-obsidian | Private | https://github.com/avalonreset-pro/opencode-obsidian |
 
-Community install command: `claude plugin install github:AgriciDaniel/claude-obsidian`
+Community install command: `claude plugin install github:AgriciDaniel/opencode-obsidian`
 
 Future updates: `git push origin main && git push community main`
 
@@ -109,7 +109,7 @@ Future updates: `git push origin main && git push community main`
 
 ## Key Decisions
 
-- **Rename to claude-obsidian**: clearer branding, immediately communicates the Claude + Obsidian pairing
+- **Rename to opencode-obsidian**: clearer branding, immediately communicates the OpenCode + Obsidian pairing
 - **avalonreset-pro repo is private**: community members only, not public
 - **Excalidraw main.js excluded from git**: 8MB downloaded by `setup-vault.sh` at setup time
 - **Bundled plugin redistribution**: acceptable — all 4 plugins are publicly distributed through Obsidian's community plugin system

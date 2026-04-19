@@ -14,9 +14,9 @@ related:
   - "[[Wiki Map]]"
 ---
 
-# Getting Started with claude-obsidian
+# Getting Started with opencode-obsidian
 
-Welcome. This vault is your compounding knowledge base — a persistent second brain built with Claude and Obsidian.
+Welcome. This vault is your compounding knowledge base — a persistent second brain built with OpenCode and Obsidian.
 
 Every source you add gets processed into 8–15 cross-referenced wiki pages. Every question you ask pulls from everything that's been ingested. Knowledge compounds like interest.
 
@@ -28,17 +28,17 @@ Every source you add gets processed into 8–15 cross-referenced wiki pages. Eve
 
 Put any document into the `.raw/` folder:
 - PDFs, markdown files, transcripts, articles
-- Or paste a URL and ask Claude to fetch it
+- Or paste a URL and ask OpenCode to fetch it
 
 ### 2. Ingest it
 
-Tell Claude in any Claude Code session:
+Tell OpenCode in any OpenCode Code session:
 
 ```
 ingest [filename]
 ```
 
-Claude reads the source, creates 8–15 wiki pages under `wiki/`, cross-references everything, and updates `wiki/index.md`, `wiki/log.md`, and `wiki/hot.md`.
+OpenCode reads the source, creates 8–15 wiki pages under `wiki/`, cross-references everything, and updates `wiki/index.md`, `wiki/log.md`, and `wiki/hot.md`.
 
 ### 3. Ask questions
 
@@ -46,7 +46,7 @@ Claude reads the source, creates 8–15 wiki pages under `wiki/`, cross-referenc
 what do you know about [topic]?
 ```
 
-Claude reads the hot cache, scans the index, drills into relevant pages, and gives you a synthesized answer — citing specific wiki pages, not training data.
+OpenCode reads the hot cache, scans the index, drills into relevant pages, and gives you a synthesized answer — citing specific wiki pages, not training data.
 
 ---
 
@@ -54,7 +54,7 @@ Claude reads the hot cache, scans the index, drills into relevant pages, and giv
 
 `wiki/hot.md` is a ~500-word summary of recent vault context. It loads automatically at the start of every session (via the SessionStart hook).
 
-You don't need to recap. Claude starts every session knowing what you've been working on.
+You don't need to recap. OpenCode starts every session knowing what you've been working on.
 
 Update it manually at any time: `update hot cache`
 
@@ -63,9 +63,9 @@ Update it manually at any time: `update hot cache`
 ## Your First Ingest — Walkthrough
 
 1. Create a file in `.raw/` — copy a transcript, paste an article, or save a PDF
-2. Open Claude Code in this vault folder
+2. Open OpenCode Code in this vault folder
 3. Type: `ingest [your-filename]`
-4. Watch the wiki grow — Claude will report which pages it created
+4. Watch the wiki grow — OpenCode will report which pages it created
 5. Open `wiki/index.md` — you'll see the new pages listed
 6. Open Graph View in Obsidian — a new cluster of connected nodes appears
 
@@ -75,7 +75,7 @@ After 3–5 ingests, the graph starts to look like a real knowledge network. Cro
 
 ## Key Commands
 
-| You say | Claude does |
+| You say | OpenCode does |
 |---------|-------------|
 | `ingest [file]` | Creates 8–15 wiki pages from a source |
 | `what do you know about X?` | Queries the wiki, cites pages |

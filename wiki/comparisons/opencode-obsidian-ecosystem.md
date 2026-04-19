@@ -1,12 +1,12 @@
 ---
 type: comparison
-title: "Claude + Obsidian Ecosystem: Feature Matrix"
+title: "OpenCode + Obsidian Ecosystem: Feature Matrix"
 created: 2026-04-08
 updated: 2026-04-08
 tags:
   - ecosystem
   - competitive-analysis
-  - claude-obsidian
+  - opencode-obsidian
   - cherry-picks
 status: current
 related:
@@ -14,10 +14,10 @@ related:
   - "[[LLM Wiki Pattern]]"
   - "[[Andrej Karpathy]]"
 sources:
-  - "[[claude-obsidian-ecosystem-research]]"
+  - "[[opencode-obsidian-ecosystem-research]]"
 ---
 
-# Claude + Obsidian Ecosystem: Feature Matrix
+# OpenCode + Obsidian Ecosystem: Feature Matrix
 
 > Researched 2026-04-08 | 16+ projects analyzed | See [[cherry-picks]] for action items
 
@@ -31,9 +31,9 @@ sources:
 
 ---
 
-## LLM Wiki Pattern Projects (Claude Code Skills)
+## LLM Wiki Pattern Projects (OpenCode Code Skills)
 
-| Feature | claude-obsidian | claudesidian | llm-knowledge-bases | llm-wiki | obsidian-wiki | obsidian-claude-pkm |
+| Feature | opencode-obsidian | claudesidian | llm-knowledge-bases | llm-wiki | obsidian-wiki | obsidian-claude-pkm |
 |---------|:-:|:-:|:-:|:-:|:-:|:-:|
 | /wiki setup & scaffold | ✅ | 🟡 `/init-bootstrap` | 🟡 `/kb-init` | ✅ | ✅ setup.sh | 🟡 `/onboard` |
 | Source ingestion | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ |
@@ -88,8 +88,8 @@ sources:
 |--------|-------------------|----------|
 | obsidian-mcp-tools | Templater execution + SLSA attestation | Local REST API + Smart Connections |
 | obsidian-memory-mcp | AI memories as Markdown in graph view | Node 18+ |
-| obsidian-claude-code-mcp | WebSocket, auto-discovers vaults | Claude Code |
-| administrativetrick/obsidian-mcp | Minimal, simple | Claude Desktop |
+| obsidian-claude-code-mcp | WebSocket, auto-discovers vaults | OpenCode Code |
+| administrativetrick/obsidian-mcp | Minimal, simple | OpenCode Desktop |
 | MarkusPfundstein/mcp-obsidian | Via REST API | Local REST API |
 
 ---
@@ -107,7 +107,7 @@ Linus Kepano (Obsidian creator + Minimal theme) published official Agent Skills 
 | defuddle | Extract clean Markdown from web pages (saves tokens) |
 
 > **Key signal**: This project validates that the Agent Skills format is the right standard.
-> These skills are platform-agnostic (Claude Code, Codex, OpenCode).
+> These skills are platform-agnostic (OpenCode Code, Codex, OpenCode).
 
 ---
 
@@ -124,7 +124,7 @@ Linus Kepano (Obsidian creator + Minimal theme) published official Agent Skills 
 
 ---
 
-## Where claude-obsidian Wins
+## Where opencode-obsidian Wins
 
 1. **Hot cache** — session context mechanism is unique in the ecosystem
 2. **Canvas skill** — no other LLM Wiki project has a visual layer
@@ -133,7 +133,7 @@ Linus Kepano (Obsidian creator + Minimal theme) published official Agent Skills 
 5. **Pub quality docs** — README, install guide, demo GIFs
 6. **Dual repo** (public + community) — distribution model unique
 
-## Where claude-obsidian Has Gaps
+## Where opencode-obsidian Has Gaps
 
 See [[cherry-picks]] for prioritized list with implementation notes.
 

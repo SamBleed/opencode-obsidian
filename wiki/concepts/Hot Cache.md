@@ -86,7 +86,7 @@ Without the hot cache, every session starts cold: read the index (1000 tokens), 
 
 In practice, adding `hot.md` to an executive assistant vault dramatically reduces the token cost of session startup compared to crawling multiple wiki pages.
 
-The hot cache is especially valuable in cross-project setups: another Claude Code project can point at this vault and read `hot.md` first to get recent context at minimal token cost.
+The hot cache is especially valuable in cross-project setups: another OpenCode Code project can point at this vault and read `hot.md` first to get recent context at minimal token cost.
 
 ---
 

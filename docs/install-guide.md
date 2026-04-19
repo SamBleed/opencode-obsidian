@@ -1,13 +1,13 @@
-# claude-obsidian — Install Guide
+# opencode-obsidian — Install Guide
 
-**Claude + Obsidian Knowledge Companion**
-Version 1.2.0 · [github.com/AgriciDaniel/claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian)
+**OpenCode + Obsidian Knowledge Companion**
+Version 1.2.0 · [github.com/AgriciDaniel/opencode-obsidian](https://github.com/AgriciDaniel/opencode-obsidian)
 
 ---
 
-## What is claude-obsidian?
+## What is opencode-obsidian?
 
-claude-obsidian is a Claude Code plugin + Obsidian vault that builds and maintains a persistent, compounding knowledge base. Every source you add gets processed into cross-referenced wiki pages. Every question you ask pulls from everything that has been read. Knowledge compounds like interest.
+opencode-obsidian is a OpenCode Code plugin + Obsidian vault that builds and maintains a persistent, compounding knowledge base. Every source you add gets processed into cross-referenced wiki pages. Every question you ask pulls from everything that has been read. Knowledge compounds like interest.
 
 Built on Andrej Karpathy's LLM Wiki pattern.
 
@@ -17,7 +17,7 @@ Built on Andrej Karpathy's LLM Wiki pattern.
 
 | Tool | How to get it | Notes |
 |------|--------------|-------|
-| **Claude Code** | `npm install -g @anthropic-ai/claude-code` | Free tier available |
+| **OpenCode Code** | `npm install -g @anthropic-ai/claude-code` | Free tier available |
 | **Obsidian** | [obsidian.md](https://obsidian.md) | Free |
 | **Git** | Pre-installed on most systems | For Option 1 |
 
@@ -30,25 +30,25 @@ Built on Andrej Karpathy's LLM Wiki pattern.
 Full setup in under 2 minutes.
 
 ```bash
-git clone https://github.com/AgriciDaniel/claude-obsidian
-cd claude-obsidian
+git clone https://github.com/AgriciDaniel/opencode-obsidian
+cd opencode-obsidian
 bash bin/setup-vault.sh
 ```
 
-Then in Obsidian: **Manage Vaults → Open folder as vault → select `claude-obsidian/`**
+Then in Obsidian: **Manage Vaults → Open folder as vault → select `opencode-obsidian/`**
 
-Open Claude Code in the same folder and type `/wiki`.
+Open OpenCode Code in the same folder and type `/wiki`.
 
-### Option 2: Install as Claude Code plugin
+### Option 2: Install as OpenCode Code plugin
 
-Plugin installation in Claude Code is a two-step process. First add the marketplace catalog, then install the plugin from it.
+Plugin installation in OpenCode Code is a two-step process. First add the marketplace catalog, then install the plugin from it.
 
 ```bash
 # Step 1: add the marketplace
-claude plugin marketplace add AgriciDaniel/claude-obsidian
+claude plugin marketplace add AgriciDaniel/opencode-obsidian
 
 # Step 2: install the plugin
-claude plugin install claude-obsidian@claude-obsidian-marketplace
+claude plugin install opencode-obsidian@opencode-obsidian-marketplace
 ```
 
 Verify the install:
@@ -56,11 +56,11 @@ Verify the install:
 claude plugin list
 ```
 
-In any Claude Code session: type `/wiki` and Claude walks you through vault setup.
+In any OpenCode Code session: type `/wiki` and OpenCode walks you through vault setup.
 
 ### Option 3 — Add to an existing vault
 
-Copy `WIKI.md` from this repo into your vault root. Then paste into Claude:
+Copy `WIKI.md` from this repo into your vault root. Then paste into OpenCode:
 
 ```
 Read WIKI.md in this project. Then:
@@ -77,7 +77,7 @@ Then scaffold the full wiki structure.
 
 ### 1. Scaffold the vault
 
-Type `/wiki` in Claude Code. Claude will:
+Type `/wiki` in OpenCode Code. OpenCode will:
 - Detect your vault mode (website, GitHub, business, personal, research, or book/course)
 - Create the folder structure and core wiki pages
 - Set up `wiki/index.md`, `wiki/hot.md`, `wiki/log.md`, and `wiki/overview.md`
@@ -87,9 +87,9 @@ Type `/wiki` in Claude Code. Claude will:
 Put any document into `.raw/`:
 - PDFs, markdown files, transcripts, articles, URLs
 
-Tell Claude: `ingest [filename]`
+Tell OpenCode: `ingest [filename]`
 
-Claude reads the source and creates 8–15 cross-referenced wiki pages.
+OpenCode reads the source and creates 8–15 cross-referenced wiki pages.
 
 ### 3. Ask questions
 
@@ -97,13 +97,13 @@ Claude reads the source and creates 8–15 cross-referenced wiki pages.
 what do you know about [topic]?
 ```
 
-Claude reads the hot cache, scans the index, drills into relevant pages, and gives a synthesized answer — citing specific wiki pages, not training data.
+OpenCode reads the hot cache, scans the index, drills into relevant pages, and gives a synthesized answer — citing specific wiki pages, not training data.
 
 ---
 
 ## Commands Reference
 
-| Command | What Claude does |
+| Command | What OpenCode does |
 |---------|-----------------|
 | `/wiki` | Setup check, scaffold, or continue where you left off |
 | `ingest [file]` | Read source, create 8–15 wiki pages, update index and log |
@@ -172,7 +172,7 @@ Modes can be combined.
 
 ## MCP Setup (Optional)
 
-MCP lets Claude read and write vault notes directly without copy-paste.
+MCP lets OpenCode read and write vault notes directly without copy-paste.
 
 **Option A — REST API:**
 
@@ -210,7 +210,7 @@ claude mcp add-json obsidian-vault '{
 
 | Problem | Fix |
 |---------|-----|
-| `/wiki` says "not found" | Make sure `claude-obsidian` plugin is enabled: `claude plugin list` |
+| `/wiki` says "not found" | Make sure `opencode-obsidian` plugin is enabled: `claude plugin list` |
 | Graph colors reset after closing Obsidian | Open Graph view → gear → Color groups → re-add once. Permanent after that. |
 | Excalidraw not loading | Run `bash bin/setup-vault.sh` to download `main.js` (8MB, not in git) |
 | Dashboard shows no results | Install the **Dataview** plugin from Community Plugins |
@@ -220,11 +220,11 @@ claude mcp add-json obsidian-vault '{
 
 ## Cross-Project Power Move
 
-Point any Claude Code project at this vault. Add to that project's `CLAUDE.md`:
+Point any OpenCode Code project at this vault. Add to that project's `CLAUDE.md`:
 
 ```markdown
 ## Wiki Knowledge Base
-Path: ~/path/to/claude-obsidian
+Path: ~/path/to/opencode-obsidian
 
 When you need context not in this project:
 1. Read wiki/hot.md first (recent context cache)
@@ -240,8 +240,8 @@ Your executive assistant, coding projects, and content workflows all draw from t
 
 ## Support
 
-- **GitHub**: [github.com/AgriciDaniel/claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian)
-- **Issues**: [github.com/AgriciDaniel/claude-obsidian/issues](https://github.com/AgriciDaniel/claude-obsidian/issues)
+- **GitHub**: [github.com/AgriciDaniel/opencode-obsidian](https://github.com/AgriciDaniel/opencode-obsidian)
+- **Issues**: [github.com/AgriciDaniel/opencode-obsidian/issues](https://github.com/AgriciDaniel/opencode-obsidian/issues)
 - **Community**: [AI Marketing Hub on Skool](https://skool.com)
 
 ---

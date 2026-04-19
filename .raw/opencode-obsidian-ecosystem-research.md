@@ -1,6 +1,6 @@
 ---
 type: raw-research
-title: "Claude + Obsidian Ecosystem Research"
+title: "OpenCode + Obsidian Ecosystem Research"
 date: 2026-04-08
 queries:
   - "claude obsidian plugin github 2025 2026"
@@ -15,28 +15,28 @@ sources:
   - effortlessacademic.com
 ---
 
-# Claude + Obsidian Ecosystem Research
-> Researched: 2026-04-08 | Goal: cherry-pick best features for AgriciDaniel/claude-obsidian
+# OpenCode + Obsidian Ecosystem Research
+> Researched: 2026-04-08 | Goal: cherry-pick best features for AgriciDaniel/opencode-obsidian
 
 ---
 
 ## Summary
 
-16+ active projects found combining Claude/AI with Obsidian. Organized into 4 categories:
-1. **LLM Wiki Pattern plugins** (Claude Code skill-based, direct competitors)
+16+ active projects found combining OpenCode/AI with Obsidian. Organized into 4 categories:
+1. **LLM Wiki Pattern plugins** (OpenCode Code skill-based, direct competitors)
 2. **Native Obsidian plugins** (TypeScript, embedded UI)
 3. **MCP servers** (bridge protocols)
 4. **In-vault AI plugins** (traditional Obsidian community plugins)
 
 ---
 
-## Category 1: LLM Wiki Pattern (Claude Code Plugins)
+## Category 1: LLM Wiki Pattern (OpenCode Code Plugins)
 
-### AgriciDaniel/claude-obsidian ⭐ OUR PROJECT
-- URL: https://github.com/AgriciDaniel/claude-obsidian
+### AgriciDaniel/opencode-obsidian ⭐ OUR PROJECT
+- URL: https://github.com/AgriciDaniel/opencode-obsidian
 - Version: 1.2.0
 - Skills: /wiki, /wiki-ingest, /wiki-query, /wiki-lint, /save, /autoresearch, /canvas
-- Approach: Hot cache + compounding wiki + Claude Code skills
+- Approach: Hot cache + compounding wiki + OpenCode Code skills
 
 ### heyitsnoah/claudesidian
 - URL: https://github.com/heyitsnoah/claudesidian
@@ -76,7 +76,7 @@ sources:
 ### Ar9av/obsidian-wiki
 - URL: https://github.com/Ar9av/obsidian-wiki
 - Key features:
-  - Multi-agent compatibility: Claude Code, Cursor, Windsurf, Codex, Gemini CLI, OpenClaw, GitHub Copilot
+  - Multi-agent compatibility: OpenCode Code, Cursor, Windsurf, Codex, Gemini CLI, OpenClaw, GitHub Copilot
   - `setup.sh` auto-configures all agents simultaneously via symlinks
   - Delta tracking manifest (`.manifest.json`) — only ingests new/changed files
   - Vision support: ingest images, screenshots, whiteboard photos (requires vision model)
@@ -111,11 +111,11 @@ sources:
   - `json-canvas` — JSON Canvas spec for .canvas files
   - `obsidian-cli` — vault management via Obsidian CLI
   - `defuddle` — extract clean markdown from web pages (removes clutter, saves tokens)
-- Multi-platform: Claude Code, Codex CLI, OpenCode
+- Multi-platform: OpenCode Code, Codex CLI, OpenCode
 
 ### ussumant/llm-wiki-compiler
 - URL: https://github.com/ussumant/llm-wiki-compiler
-- Approach: Single-purpose Claude Code plugin — compiles markdown files into topic wiki
+- Approach: Single-purpose OpenCode Code plugin — compiles markdown files into topic wiki
 - Key features: Topic-based compilation, implements Karpathy pattern in minimal form
 
 ---
@@ -124,7 +124,7 @@ sources:
 
 ### YishenTu/claudian
 - URL: https://github.com/YishenTu/claudian
-- Approach: Embeds Claude Code/Codex CLI directly inside Obsidian as sidebar chat
+- Approach: Embeds OpenCode Code/Codex CLI directly inside Obsidian as sidebar chat
 - Key features:
   - **Inline Edit** — select text + hotkey → word-level diff preview → apply
   - **Plan Mode** (Shift+Tab) — agent plans before implementing
@@ -142,7 +142,7 @@ sources:
 - Approach: Full Obsidian plugin with both native chat AND MCP bridge
 - Key features:
   - Native chat inside Obsidian (any provider via settings)
-  - MCP bridge for: Claude Desktop, Claude Code, Codex CLI, Gemini CLI, Cursor, Cline
+  - MCP bridge for: OpenCode Desktop, OpenCode Code, Codex CLI, Gemini CLI, Cursor, Cline
   - **Workspace memory** — persistent context across sessions (JSONL, Obsidian Sync compatible)
   - **Task management** — projects, tasks, blockers, dependencies
   - **Semantic search** — search notes + past conversations by meaning
@@ -181,11 +181,11 @@ sources:
 
 ### iansinnott/obsidian-claude-code-mcp
 - URL: https://github.com/iansinnott/obsidian-claude-code-mcp
-- Key features: WebSocket-based MCP, auto-discovers Obsidian vaults via Claude Code
+- Key features: WebSocket-based MCP, auto-discovers Obsidian vaults via OpenCode Code
 
 ### administrativetrick/obsidian-mcp
 - URL: https://github.com/administrativetrick/obsidian-mcp
-- Minimal MCP server for Claude Desktop vault access
+- Minimal MCP server for OpenCode Desktop vault access
 
 ### dbmcco/obsidian-mcp
 - URL: https://github.com/dbmcco/obsidian-mcp
@@ -202,7 +202,7 @@ sources:
 | Plugin | Stars | Feature |
 |--------|-------|---------|
 | logancyang/obsidian-copilot | 5,776 | Multi-provider AI chat with vault context |
-| brianpetro/obsidian-smart-connections | 4,357 | Vector embeddings, semantic search, local models, Claude support |
+| brianpetro/obsidian-smart-connections | 4,357 | Vector embeddings, semantic search, local models, OpenCode support |
 | nhaouari/obsidian-textgenerator-plugin | 1,837 | Text generation |
 | bramses/chatgpt-md | 1,229 | Chat in markdown |
 | pfrankov/obsidian-local-gpt | 569 | Local LLM integration |
@@ -221,34 +221,34 @@ sources:
 ## Key Design Patterns Across Ecosystem
 
 ### Pattern 1: Delta Tracking
-Most mature projects (Ar9av/obsidian-wiki) use a `.manifest.json` to track ingested sources — hash, timestamp, which pages produced. Re-ingest only processes changed/new files. Claude-obsidian currently has no delta tracking.
+Most mature projects (Ar9av/obsidian-wiki) use a `.manifest.json` to track ingested sources — hash, timestamp, which pages produced. Re-ingest only processes changed/new files. opencode-obsidian currently has no delta tracking.
 
 ### Pattern 2: Multi-Depth Queries
-rvk7895 implements 3 tiers: Quick (index only), Standard (wiki + web), Deep (parallel agents). Current claude-obsidian has one depth level in wiki-query.
+rvk7895 implements 3 tiers: Quick (index only), Standard (wiki + web), Deep (parallel agents). Current opencode-obsidian has one depth level in wiki-query.
 
 ### Pattern 3: Goal Cascade Integration
-ballred's project connects personal productivity (daily/weekly reviews) with the knowledge base. No PKM projects do this today in claude-obsidian.
+ballred's project connects personal productivity (daily/weekly reviews) with the knowledge base. No PKM projects do this today in opencode-obsidian.
 
 ### Pattern 4: Auto-Commit Hooks
 ballred uses PostToolUse hooks for auto-git-commit on every file change. This keeps the vault in version control automatically.
 
 ### Pattern 5: Multi-Agent Compatibility
-Ar9av's setup.sh deploys skills to Claude Code + Cursor + Windsurf + Codex + Gemini CLI simultaneously. claude-obsidian is Claude Code only.
+Ar9av's setup.sh deploys skills to OpenCode Code + Cursor + Windsurf + Codex + Gemini CLI simultaneously. opencode-obsidian is OpenCode Code only.
 
 ### Pattern 6: Hybrid Search
 ekadetov uses qmd (BM25 + vector) instead of simple keyword/index search. Big quality improvement for large vaults.
 
 ### Pattern 7: Emerging Schema
-Ar9av's wiki has no fixed structure upfront — it emerges from the content. Claude-obsidian has a predefined structure.
+Ar9av's wiki has no fixed structure upfront — it emerges from the content. opencode-obsidian has a predefined structure.
 
 ### Pattern 8: Vision Ingestion
-Ar9av supports images/screenshots/whiteboards as ingestable sources (vision model required). Claude-obsidian has no image ingestion.
+Ar9av supports images/screenshots/whiteboards as ingestable sources (vision model required). opencode-obsidian has no image ingestion.
 
 ### Pattern 9: Output Formats
-rvk7895 and ekadetov export to Marp slides and matplotlib charts. Claude-obsidian outputs only Markdown.
+rvk7895 and ekadetov export to Marp slides and matplotlib charts. opencode-obsidian outputs only Markdown.
 
 ### Pattern 10: Vault Adoption
-Both claudesidian and ballred/pkm can be adopted onto existing vaults without destroying structure. Claude-obsidian requires starting fresh.
+Both claudesidian and ballred/pkm can be adopted onto existing vaults without destroying structure. opencode-obsidian requires starting fresh.
 
 ---
 
@@ -268,7 +268,7 @@ From kepano/obsidian-skills (Obsidian creator):
 
 ## Sources
 
-- https://github.com/AgriciDaniel/claude-obsidian
+- https://github.com/AgriciDaniel/opencode-obsidian
 - https://github.com/heyitsnoah/claudesidian
 - https://github.com/ProfSynapse/claudesidian-mcp
 - https://github.com/YishenTu/claudian

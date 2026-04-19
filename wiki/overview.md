@@ -24,7 +24,7 @@ Navigation: [[index]] | [[hot]] | [[log]] | [[dashboard]]
 
 ## Purpose
 
-This is the claude-obsidian demo vault. It demonstrates the [[LLM Wiki Pattern]] — a system for building persistent, compounding knowledge bases using Claude and Obsidian.
+This is the opencode-obsidian demo vault. It demonstrates the [[LLM Wiki Pattern]] — a system for building persistent, compounding knowledge bases using OpenCode and Obsidian.
 
 Run `/wiki` to scaffold this vault for your own domain and replace this overview.
 
@@ -42,7 +42,7 @@ Run `/wiki` to scaffold this vault for your own domain and replace this overview
 - [[Andrej Karpathy]] — originated the pattern
 
 **Sources seeded:**
-- [[claude-obsidian-ecosystem-research]] — 16+ projects, 13 cherry-picks identified (2026-04-08)
+- [[opencode-obsidian-ecosystem-research]] — 16+ projects, 13 cherry-picks identified (2026-04-08)
 
 ---
 
@@ -56,7 +56,7 @@ Run `/wiki` to scaffold this vault for your own domain and replace this overview
 
 ## Canvases
 
-- [[claude-obsidian-presentation]] — Full presentation: hero, overview, skills, architecture, Wiki vs RAG, visual demos (2026-04-07)
+- [[opencode-obsidian-presentation]] — Full presentation: hero, overview, skills, architecture, Wiki vs RAG, visual demos (2026-04-07)
 - [[AI Marketing Hub Cover Images Canvas]] — Cover image library for AI Marketing Hub brand assets
 
 ---
@@ -67,4 +67,4 @@ Run `/wiki` to scaffold this vault for your own domain and replace this overview
 
 **The hot cache is the force multiplier.** A ~500-word file captures recent context. New sessions start with full context at minimal token cost.
 
-**Obsidian is the IDE, Claude is the programmer.** The graph view shows what's connected. The human curates sources and asks questions. Claude writes and maintains everything else.
+**Obsidian is the IDE, OpenCode is the programmer.** The graph view shows what's connected. The human curates sources and asks questions. OpenCode writes and maintains everything else.
