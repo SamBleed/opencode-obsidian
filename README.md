@@ -1,7 +1,7 @@
 # opencode-obsidian
 
 <p align="center">
-  <img src="wiki/meta/opencode-obsidian-gif-cover-16x9.gif" alt="opencode-obsidian" width="100%" />
+  <img src="wiki/meta/banner-opencode-obsidian.svg" alt="opencode-obsidian" width="100%" />
 </p>
 
 [![GitHub stars](https://img.shields.io/github/stars/SamBleed/opencode-obsidian?style=flat&color=e8734a)](https://github.com/SamBleed/opencode-obsidian/stargazers)
