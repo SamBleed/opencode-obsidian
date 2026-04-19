@@ -35,5 +35,11 @@
 - **Incident Response Plan**: Refer to the [[BlueTeam-Tools]] collection for forensics and recovery procedures.
 - **Supply Chain Security**: Verify all external dependencies and tool versions before integration.
 
+## 7. Agentic Security (Inspired by [[Agentic-Security-OWASP]])
+- **Least Agency**: Grant the agent only the minimum autonomy required. Avoid "super-agents" with access to everything.
+- **Goal Guarding**: Implement intent-gates to prevent "Agent Goal Hijacking" (ASI01).
+- **Tool Sandbox**: Restrict tool usage based on the agent's active profile in [[PROMPTS]].
+- **Behavioral Monitoring**: Audit tool calls and cross-agent communication via [[Observability-MD]].
+
 ---
 **Last Updated**: 2026-04-19
