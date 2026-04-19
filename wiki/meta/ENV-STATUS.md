@@ -22,5 +22,10 @@
 - **Node 25** puede tener breaking changes con librerías legacy; preferir ESM.
 - **Go 1.26** soporta las últimas features de iterators y optimizaciones.
 
+## 4. MCP & Interoperability
+- **MCP Native**: This environment is optimized for MCP. All `skills/` should strive for MCP-compliance.
+- **Cross-Agent Awareness**: The vault is designed to be the "source of truth" for multiple agents (OpenCode, Goose, etc.).
+- **Local Sovereignty**: All tools and data reside locally on this Arch Linux machine.
+
 ---
 **Last Updated**: 2026-04-19
