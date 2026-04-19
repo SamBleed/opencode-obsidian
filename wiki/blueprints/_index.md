@@ -15,8 +15,8 @@
 
 ### [React Web Blueprint](wiki/blueprints/REACT-WEB-BLUEPRINT.md)
 - **Stack**: React 19, Vite, Tailwind 4.
-- **Patterns**: Atomic Design, Container-Presentational.
-- **Performance**: Islands Architecture (Astro compatible).
+- **Patterns**: Atomic Design, [[Design-System-MD]].
+- **Design System**: Refer to [[DESIGN-TEMPLATE.md]] for visual guardrails.
 
 ### [IaC Terraform Blueprint](wiki/blueprints/IAC-TERRAFORM-BLUEPRINT.md)
 - **Stack**: Terraform, AWS/GCP.
