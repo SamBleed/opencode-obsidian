@@ -1,6 +1,6 @@
 # opencode-obsidian — OpenCode + Obsidian Wiki Vault
 
-This folder is both a OpenCode Code plugin and an Obsidian vault.
+This folder is both a OpenCode plugin and an Obsidian vault.
 
 **Plugin name:** `opencode-obsidian`
 **Skills:** `/wiki`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`
@@ -31,7 +31,7 @@ Run "lint the wiki" every 10-15 ingests to catch orphans and gaps.
 
 ## Cross-Project Access
 
-To reference this wiki from another OpenCode Code project, add to that project's CLAUDE.md:
+To reference this wiki from another OpenCode project, add to that project's AGENTS.md:
 
 ```markdown
 ## Wiki Knowledge Base
