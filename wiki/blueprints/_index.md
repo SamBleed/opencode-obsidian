@@ -18,10 +18,10 @@
 - **Patterns**: Atomic Design, [[Design-System-MD]].
 - **Design System**: Refer to [[DESIGN-TEMPLATE.md]] for visual guardrails.
 
-### [Data Strategy Blueprint](wiki/blueprints/DATA-STRATEGY.md)
-- **Stack**: SQL (PG/SQLite), NoSQL (Redis).
-- **Patterns**: [[Data-Governance]], Automated Migrations, Deterministic Seeding.
-- **Goal**: AI-driven database management and testing.
+### [Messaging Strategy Blueprint](wiki/blueprints/MESSAGING-STRATEGY.md)
+- **Stack**: NATS, Redis Streams.
+- **Patterns**: [[Event-Driven]], Pub/Sub, CloudEvents.
+- **Goal**: Decoupled multi-agent collaboration.
 
 ## 🚀 Cómo usar un Blueprint
 1. El usuario elige un blueprint.
