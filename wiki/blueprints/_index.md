@@ -18,10 +18,10 @@
 - **Patterns**: Atomic Design, [[Design-System-MD]].
 - **Design System**: Refer to [[DESIGN-TEMPLATE.md]] for visual guardrails.
 
-### [Messaging Strategy Blueprint](wiki/blueprints/MESSAGING-STRATEGY.md)
-- **Stack**: NATS, Redis Streams.
-- **Patterns**: [[Event-Driven]], Pub/Sub, CloudEvents.
-- **Goal**: Decoupled multi-agent collaboration.
+### [Automation Strategy Blueprint](wiki/blueprints/AUTOMATION-STRATEGY.md)
+- **Stack**: n8n, CloudEvents, JSON.
+- **Patterns**: [[n8n]], Workflow-as-Code, AI-BOM Auditing.
+- **Goal**: Seamless connectivity between the Bunker and the external world.
 
 ## 🚀 Cómo usar un Blueprint
 1. El usuario elige un blueprint.
