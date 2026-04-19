@@ -5,7 +5,7 @@
       "x": 0, "y": 0, "width": 1920, "height": 1080, "color": "1"
     },
     {
-      "id": "z1-gif", "type": "file", "file": "claude-obsidian-gif-cover-16x9.gif",
+      "id": "z1-gif", "type": "file", "file": "opencode-obsidian-gif-cover-16x9.gif",
       "x": 20, "y": 20, "width": 960, "height": 540
     },
     {
@@ -15,12 +15,12 @@
     },
     {
       "id": "z1-bridge", "type": "text",
-      "text": "## What if Claude just... knew?\n\nAnd got smarter every session?\n\nThat is what **claude-obsidian** does.",
+      "text": "## What if Claude just... knew?\n\nAnd got smarter every session?\n\nThat is what **opencode-obsidian** does.",
       "x": 20, "y": 580, "width": 1880, "height": 480, "color": "3"
     },
     {
       "id": "z1-ref", "type": "text",
-      "text": "## SCRIPT — Beat 1: Hook (0:00–0:35)\n\n**Opening line:** \"Your AI forgets everything. Every single chat starts from zero.\"\n\n**Show:** animated GIF playing. Let it loop 2-3x.\n\n**Say:**\n- \"You know the feeling. You explain your project, your stack, your goals. Every. Single. Time.\"\n- \"What if Claude just knew? And got smarter every session?\"\n- \"That is what claude-obsidian does. Let me show you.\"\n\n**Transition:** pan down to Beat 2",
+      "text": "## SCRIPT — Beat 1: Hook (0:00–0:35)\n\n**Opening line:** \"Your AI forgets everything. Every single chat starts from zero.\"\n\n**Show:** animated GIF playing. Let it loop 2-3x.\n\n**Say:**\n- \"You know the feeling. You explain your project, your stack, your goals. Every. Single. Time.\"\n- \"What if Claude just knew? And got smarter every session?\"\n- \"That is what opencode-obsidian does. Let me show you.\"\n\n**Transition:** pan down to Beat 2",
       "x": 1960, "y": 0, "width": 600, "height": 1080, "color": "6"
     },
 
@@ -63,7 +63,7 @@
     },
     {
       "id": "z2-ref", "type": "text",
-      "text": "## SCRIPT — Beat 2: How it works (0:35–1:30)\n\n**Opening line:** \"Here is how it works.\"\n\n**Show:** the three-layer diagram image on the right\n\n**Say:**\n- \"claude-obsidian turns Obsidian into a wiki that Claude writes for itself.\"\n- \"Every chat you have, the good stuff gets filed. Next session Claude reads it first.\"\n- \"Three layers: hot.md loads every session — about 500 words, nearly free. Then index.md for the full map. Then individual wiki pages, only the ones that matter.\"\n- \"You stay in budget. The wiki keeps growing.\"\n\n**Show:** open wiki/hot.md — show it is small and focused\n\n**Transition:** \"So how do you actually build this wiki? Three commands.\"\n\n**Files to show:** `wiki/hot.md`, `wiki/index.md`",
+      "text": "## SCRIPT — Beat 2: How it works (0:35–1:30)\n\n**Opening line:** \"Here is how it works.\"\n\n**Show:** the three-layer diagram image on the right\n\n**Say:**\n- \"opencode-obsidian turns Obsidian into a wiki that Claude writes for itself.\"\n- \"Every chat you have, the good stuff gets filed. Next session Claude reads it first.\"\n- \"Three layers: hot.md loads every session — about 500 words, nearly free. Then index.md for the full map. Then individual wiki pages, only the ones that matter.\"\n- \"You stay in budget. The wiki keeps growing.\"\n\n**Show:** open wiki/hot.md — show it is small and focused\n\n**Transition:** \"So how do you actually build this wiki? Three commands.\"\n\n**Files to show:** `wiki/hot.md`, `wiki/index.md`",
       "x": 1960, "y": 1180, "width": 600, "height": 1080, "color": "6"
     },
 
@@ -129,7 +129,7 @@
     },
     {
       "id": "z4-ref", "type": "text",
-      "text": "## SCRIPT — Beat 4: /autoresearch (2:45–4:15)\n\n**Opening line:** \"Command two: /autoresearch. This one feels like magic.\"\n\n**Show:** type `/autoresearch claude-obsidian best practices` — let it start running\n\n**Say:**\n- \"It breaks the topic into research angles. Searches the web. Fetches real sources. Pulls out the key claims.\"\n- \"Then it runs a second pass to fill in the gaps it noticed the first time.\"\n- \"End result: 5 to 15 wiki pages. Cross-linked. With citations. In about 3 minutes.\"\n- \"You do not get a chat bubble that disappears. You get a permanent knowledge base.\"\n\n**Show:** Obsidian sidebar filling up with new pages while it runs\n\n**Transition:** \"And the third command is what you are actually watching right now.\"\n\n**Files to show:** `wiki/sources/`, `wiki/concepts/`\n**Skill source:** `skills/autoresearch/SKILL.md`",
+      "text": "## SCRIPT — Beat 4: /autoresearch (2:45–4:15)\n\n**Opening line:** \"Command two: /autoresearch. This one feels like magic.\"\n\n**Show:** type `/autoresearch opencode-obsidian best practices` — let it start running\n\n**Say:**\n- \"It breaks the topic into research angles. Searches the web. Fetches real sources. Pulls out the key claims.\"\n- \"Then it runs a second pass to fill in the gaps it noticed the first time.\"\n- \"End result: 5 to 15 wiki pages. Cross-linked. With citations. In about 3 minutes.\"\n- \"You do not get a chat bubble that disappears. You get a permanent knowledge base.\"\n\n**Show:** Obsidian sidebar filling up with new pages while it runs\n\n**Transition:** \"And the third command is what you are actually watching right now.\"\n\n**Files to show:** `wiki/sources/`, `wiki/concepts/`\n**Skill source:** `skills/autoresearch/SKILL.md`",
       "x": 1960, "y": 3540, "width": 600, "height": 1080, "color": "6"
     },
 
@@ -219,26 +219,26 @@
       "x": 20, "y": 7100, "width": 1880, "height": 80, "color": "5"
     },
     {
-      "id": "z7-gif", "type": "file", "file": "claude-obsidian-gif-1x1.gif",
+      "id": "z7-gif", "type": "file", "file": "opencode-obsidian-gif-1x1.gif",
       "x": 20, "y": 7200, "width": 480, "height": 480
     },
     {
-      "id": "z7-cover", "type": "file", "file": "claude-obsidian-cover-16x9.png",
+      "id": "z7-cover", "type": "file", "file": "opencode-obsidian-cover-16x9.png",
       "x": 520, "y": 7200, "width": 1380, "height": 480
     },
     {
       "id": "z7-cmd", "type": "text",
-      "text": "```bash\nclaude plugin marketplace add AgriciDaniel/claude-obsidian\nclaude plugin install claude-obsidian@claude-obsidian-marketplace\n```",
+      "text": "```bash\nclaude plugin marketplace add AgriciDaniel/opencode-obsidian\nclaude plugin install opencode-obsidian@opencode-obsidian-marketplace\n```",
       "x": 20, "y": 7700, "width": 920, "height": 160
     },
     {
       "id": "z7-links", "type": "text",
-      "text": "## Links\n\n- **GitHub**: github.com/AgriciDaniel/claude-obsidian\n- **Community**: skool.com/ai-marketing-hub (free tier)\n- **Website**: agricidaniel.com\n\n> [!tip] Subscribe\n> More Claude Code builds every week.",
+      "text": "## Links\n\n- **GitHub**: github.com/AgriciDaniel/opencode-obsidian\n- **Community**: skool.com/ai-marketing-hub (free tier)\n- **Website**: agricidaniel.com\n\n> [!tip] Subscribe\n> More Claude Code builds every week.",
       "x": 960, "y": 7700, "width": 940, "height": 440, "color": "5"
     },
     {
       "id": "z7-ref", "type": "text",
-      "text": "## SCRIPT — Beat 7: Install + CTA (6:30–8:00)\n\n**Opening line:** \"Installing takes literally two lines.\"\n\n**Show:** terminal — type both install commands live, slowly\n\n**Say:**\n- \"Copy these two lines. Paste. Done.\"\n- \"claude-obsidian is free, open source, and works with Claude Code right now.\"\n- \"GitHub link is in the description. Come join the Skool community — free tier, live sessions every week.\"\n- \"If this was useful, hit subscribe. I build with Claude Code every week.\"\n\n**End:** let the animated GIF loop while you close out.\n\n**Do NOT rush this beat.**",
+      "text": "## SCRIPT — Beat 7: Install + CTA (6:30–8:00)\n\n**Opening line:** \"Installing takes literally two lines.\"\n\n**Show:** terminal — type both install commands live, slowly\n\n**Say:**\n- \"Copy these two lines. Paste. Done.\"\n- \"opencode-obsidian is free, open source, and works with Claude Code right now.\"\n- \"GitHub link is in the description. Come join the Skool community — free tier, live sessions every week.\"\n- \"If this was useful, hit subscribe. I build with Claude Code every week.\"\n\n**End:** let the animated GIF loop while you close out.\n\n**Do NOT rush this beat.**",
       "x": 1960, "y": 7080, "width": 600, "height": 1080, "color": "6"
     }
   ],
