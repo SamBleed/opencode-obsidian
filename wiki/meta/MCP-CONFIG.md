@@ -10,8 +10,8 @@ Permite al agente realizar escaneos de vulnerabilidades y secretos en lenguaje n
 {
   "mcpServers": {
     "trivy": {
-      "command": "npx",
-      "args": ["-y", "@aquasecurity/mcp-server-trivy"]
+      "command": "trivy",
+      "args": ["mcp"]
     }
   }
 }
@@ -29,9 +29,9 @@ Permite al agente realizar escaneos de vulnerabilidades y secretos en lenguaje n
 - **Postgres MCP**: Para consultas directas a la base de datos de producción/staging.
 
 ## 📡 n8n (Advanced AI Orchestration - MCP)
-**Estado**: 🛠️ Pendiente de compatibilidad con la versión instalada de OpenCode
+**Estado**: deshabilitado en la config local
 
-**Nota**: la versión instalada en este entorno valida `mcp.n8n-mcp` como un servidor MCP local o deshabilitado. El bloque HTTP anterior rompe el arranque. Dejalo deshabilitado hasta tener soporte explícito para `type: "remote"` en tu binario.
+**Nota**: si `localhost:5678/mcp-server/http` no responde, OpenCode puede mostrar `SSE error: Non-200 status code (404)` o fallar por conexión cerrada. Dejalo deshabilitado hasta que el servicio n8n esté realmente escuchando en ese endpoint y el transporte sea compatible con tu binario.
 
 **Copia y pega este bloque en tu `opencode.json` local**:
 ```json
@@ -43,6 +43,9 @@ Permite al agente realizar escaneos de vulnerabilidades y secretos en lenguaje n
   }
 }
 ```
+
+## Observación sobre Trivy
+El bloque anterior que usaba `npx -y @aquasecurity/mcp-server-trivy` quedó obsoleto. El repositorio oficial actual de Aqua publica el plugin MCP en `aquasecurity/trivy-mcp`, y el arranque documentado es `trivy plugin install mcp` seguido de `trivy mcp`.
 
 ---
 **Last Updated**: 2026-04-19
