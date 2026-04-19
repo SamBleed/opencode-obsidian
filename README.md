@@ -8,114 +8,80 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![OpenCode](https://img.shields.io/badge/OpenCode-ready-8B5CF6)](https://opencode.ai)
 
-Wiki Vault adaptado para **OpenCode** basado en el patrón LLM Wiki de Karpathy.
+**opencode-obsidian** es un Bunker de Conocimiento Agentico (Wiki Vault) optimizado para **OpenCode**, basado en el patrón **LLM Wiki** de Andrej Karpathy. Es un sistema persistente que evoluciona en cada sesión de pair-programming.
 
 ---
 
-## Instalación Rápida
+## 🚀 Características Principales
+
+- **Hard Detach**: Totalmente independiente de dependencias o nombres de Anthropic/Claude.
+- **Compounding Knowledge**: La wiki "se vuelve más inteligente" con cada interacción.
+- **Agentic Infrastructure**: Incluye Blueprints de proyectos, ADRs y Protocolos de Handover.
+- **Sync Automatizado**: Script integrado para sincronización con Git (`bin/wiki-sync.sh`).
+- **Tech Stack 2026**: Guías de mejores prácticas para Go, React, Docker, Postgres y Redis.
+
+---
+
+## 📦 Instalación Rápida
 
 ```bash
-# Un comando instala todo
+# Un comando instala todo (Skills + Carpeta + Git)
 bash <(curl -sL https://raw.githubusercontent.com/SamBleed/opencode-obsidian/main/bin/setup-opencode.sh)
 ```
 
-O manual:
-
-```bash
-git clone https://github.com/SamBleed/opencode-obsidian.git ~/opencode-obsidian
-cd ~/opencode-obsidian
-chmod +x bin/setup-opencode.sh
-./bin/setup-opencode.sh
-```
-
 ---
 
-## Requisitos
+## 🛠️ Estructura del Bunker
 
-- [OpenCode](https://opencode.ai) instalado
-- [Obsidian](https://obsidian.md) instalado
-- Node.js (para el MCP)
-
----
-
-## Estructura
-
-```
+```text
 opencode-obsidian/
-├── .raw/           # Fuentes originales (nunca modificar)
-├── wiki/           # Knowledge base
-├── bin/            # Scripts de setup
-├── skills/         # Skills adaptados para OpenCode
-└── _templates/     # Templates de Obsidian
+├── .raw/           # Fuentes originales (PDFs, Logs, Research)
+├── wiki/           # Cerebro del proyecto (Markdown interconectado)
+│   ├── concepts/   # Patrones y docus técnicas
+│   ├── entities/   # Personas, herramientas, librerías
+│   ├── projects/   # Tracking de tus proyectos activos
+│   └── decisions/  # ADRs (Architecture Decision Records)
+├── bin/            # Scripts de automatización y sync
+├── skills/         # Skills nativos para OpenCode
+└── _templates/     # Templates para notas de Obsidian
 ```
 
 ---
 
-## Comandos
+## 🤖 Comandos del Agente
 
 | Comando | Descripción |
 |---------|-----------|
-| `ingest [archivo]` | Procesar fuente y crear notas wiki |
-| `query [tema]` | Buscar en el wiki |
-| `what do you know about X?` | Responder desde el conocimiento |
-| `save this` | Guardar conversación como nota |
-| `lint` | Health check del wiki |
+| `ingest [file]` | Procesa una fuente y crea notas vinculadas. |
+| `query [topic]` | Busca conocimiento específico en el wiki. |
+| `save this` | Guarda el insight de la charla como nota permanente. |
+| `lint` | Health check: busca notas huérfanas y limpia el vault. |
+| `/sync` | Ejecuta `bin/wiki-sync.sh` para guardar cambios. |
 
 ---
 
-## MCP
+## 🔗 Protocolo AI (Cross-Project)
 
-El MCP `obsidian-vault` permite acceso directo al vault desde OpenCode.
-
-Configuración automática via `setup-opencode.sh`.
-
-O manual:
-
-```bash
-# En opencode.json:
-"mcp": {
-  "obsidian-vault": {
-    "type": "stdio",
-    "command": "npx",
-    "args": ["-y", "@bitbonsai/mcpvault@latest", "~/opencode-obsidian"]
-  }
-}
-```
-
----
-
-## Cross-Project
-
-Para usar este wiki desde otro proyecto, agregar a su AGENTS.md:
+Para usar este conocimiento en otros repos, agrega esto al `AGENTS.md` de tu proyecto:
 
 ```markdown
 ## Wiki Knowledge Base
 Path: ~/opencode-obsidian
 
-Cuando necesites contexto:
-1. Leé wiki/hot.md primero (~500 palabras)
-2. Si no alcanza, leé wiki/index.md
-3. Solo entonces leé páginas individuales
+Protocolo de lectura:
+1. Leé wiki/hot.md (Contexto Activo)
+2. Si no es suficiente, consultá wiki/index.md
+3. Leé [[AI-PROTOCOL]] para más detalles.
 ```
 
 ---
 
-## Diferencias con opencode-obsidian
+## 📜 Créditos
 
-| Característica | opencode-obsidian | opencode-obsidian |
-|---------------|-----------------|-------------------|
-| Plataforma | OpenCode Code | OpenCode |
-| Skills | Formato OpenCode | Formato OpenCode |
-| MCP | Configuración CLAUDE.md | Configuración opencode.json |
-| Instalación | Plugin CLI | Script bash |
+- [Karpathy](https://github.com/karpathy) - Patrón LLM Wiki original.
+- [AgriciDaniel](https://github.com/AgriciDaniel/claude-obsidian) - Base inicial del proyecto.
+- **SamBleed** - Adaptación, Hard Detach y automatización para OpenCode.
 
 ---
 
-## Créditos
-
-- [Karpathy](https://github.com/karpathy) - LLM Wiki pattern
-- [AgriciDaniel](https://github.com/AgriciDaniel/opencode-obsidian) - Original opencode-obsidian
-
----
-
-MIT License
+MIT License © 2026
