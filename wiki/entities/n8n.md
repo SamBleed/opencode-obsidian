@@ -25,6 +25,10 @@ n8n acts as the **Central Nervous System**. It can trigger agent actions, sync t
 2. **AI-BOM Auditing**: Using security tools to ensure no secrets are hardcoded in automations.
 3. **Event-Triggered Agents**: Using n8n to listen to webhooks and wake up specialized agents (e.g., [[Decepticon]] or [[DeepTutor]]).
 
+## MCP Exposure Order
+
+For the current local setup, see [[n8n-mcp-exposure-plan]] for the recommended order to expose workflows to `n8n-mcp`.
+
 ## 🔗 Resources
 - **Repository**: https://github.com/Zie619/n8n-workflows
 - **Templates**: https://zie619.github.io/n8n-workflows/

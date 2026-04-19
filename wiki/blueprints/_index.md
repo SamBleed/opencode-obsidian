@@ -22,6 +22,7 @@
 - **Stack**: n8n, CloudEvents, JSON.
 - **Patterns**: [[n8n]], Workflow-as-Code, AI-BOM Auditing.
 - **Goal**: Seamless connectivity between the Bunker and the external world.
+- **Related**: [[n8n-mcp-exposure-plan]]
 
 ## 🚀 Cómo usar un Blueprint
 1. El usuario elige un blueprint.

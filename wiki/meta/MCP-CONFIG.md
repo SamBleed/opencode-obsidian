@@ -28,6 +28,9 @@ Permite al agente realizar escaneos de vulnerabilidades y secretos en lenguaje n
 - **GitHub MCP**: Para gestión avanzada de PRs e Issues.
 - **Postgres MCP**: Para consultas directas a la base de datos de producción/staging.
 
+## Orden Recomendado de Exposición
+Ver [[n8n-mcp-exposure-plan]] para decidir qué workflows abrir primero a `n8n-mcp`.
+
 ## 📡 n8n (Advanced AI Orchestration - MCP)
 **Estado**: deshabilitado en la config local
 

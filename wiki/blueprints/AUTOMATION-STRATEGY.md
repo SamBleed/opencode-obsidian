@@ -21,5 +21,9 @@
 - **Audit**: Correr un escaneo de seguridad antes de importar cualquier workflow de la comunidad.
 - **Isolation**: n8n debe correr en una red aislada con acceso restringido al sistema de archivos del Bunker.
 
+## MCP Exposure Order
+
+Para decidir qué flujos abrir primero a `n8n-mcp`, ver [[n8n-mcp-exposure-plan]].
+
 ---
 **Inspired by**: [[n8n]] and [[Zie619]]
