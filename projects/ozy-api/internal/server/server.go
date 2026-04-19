@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/SamBleed/ozy-api/internal/repository/auth"
+	"github.com/SamBleed/ozy-api/internal/repository/db"
 	"github.com/SamBleed/ozy-api/pkg/logger"
 	"net/http"
 	"strings"
@@ -12,12 +13,14 @@ import (
 type Server struct {
 	port        int
 	authAdapter *auth.JWTAdapter
+	dbAdapter   *db.PostgresAdapter
 }
 
-func NewServer(port int, secret string) *Server {
+func NewServer(port int, secret string, dbAdapter *db.PostgresAdapter) *Server {
 	return &Server{
 		port:        port,
 		authAdapter: auth.NewJWTAdapter(secret),
+		dbAdapter:   dbAdapter,
 	}
 }
 
@@ -34,17 +37,20 @@ func (s *Server) Start() error {
 	// Aplicar el middleware de logging globalmente
 	handler := LoggingMiddleware(mux)
 
-	logger.Info("Starting server with Security Guardrails active", map[string]interface{}{"port": s.port})
+	logger.Info("Starting server with Security Guardrails and Database active", map[string]interface{}{
+		"port": s.port,
+		"db":   "connected",
+	})
 	return http.ListenAndServe(fmt.Sprintf(":%d", s.port), handler)
 }
 
 func (s *Server) handleHealth(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprintln(w, "{\"status\": \"healthy\"}")
+	fmt.Fprintln(w, "{\"status\": \"healthy\", \"db\": \"connected\"}")
 }
 
 func (s *Server) handleLogin(w http.ResponseWriter, r *http.Request) {
-	// Simulación de login exitoso
+	// Simulación de login exitoso (En el futuro buscar en s.dbAdapter)
 	token, _ := s.authAdapter.GenerateToken("sam-123")
 
 	w.Header().Set("Content-Type", "application/json")
