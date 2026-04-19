@@ -18,9 +18,10 @@
 - **Patterns**: Atomic Design, [[Design-System-MD]].
 - **Design System**: Refer to [[DESIGN-TEMPLATE.md]] for visual guardrails.
 
-### [IaC Terraform Blueprint](wiki/blueprints/IAC-TERRAFORM-BLUEPRINT.md)
-- **Stack**: Terraform, AWS/GCP.
-- **Patterns**: Modular state, environment separation.
+### [Data Strategy Blueprint](wiki/blueprints/DATA-STRATEGY.md)
+- **Stack**: SQL (PG/SQLite), NoSQL (Redis).
+- **Patterns**: [[Data-Governance]], Automated Migrations, Deterministic Seeding.
+- **Goal**: AI-driven database management and testing.
 
 ## 🚀 Cómo usar un Blueprint
 1. El usuario elige un blueprint.
