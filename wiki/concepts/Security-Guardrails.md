@@ -22,5 +22,10 @@
 - Implement rate limiting on all public endpoints.
 - Use HTTPS/TLS for all communications in production.
 
+## 5. Red Team Patterns (Inspired by [[Decepticon]])
+- **Autonomous Auditing**: Treat every new feature as a target. Run automated recon on new endpoints before deployment.
+- **Persistent Session Audits**: Use persistent shells for security scanning to ensure interactive prompts are handled.
+- **Kill-Chain Thinking**: Don't just check for "bugs"; check how multiple small bugs could be chained for an exploit.
+
 ---
 **Last Updated**: 2026-04-19
