@@ -30,5 +30,10 @@
 - **OSINT Recon**: Use tools like [[Sherlock]] to map the digital footprint of a target (usernames, social profiles) before attempting technical exploitation.
 - **Data Anonymization**: When logging OSINT results, ensure that personal data is handled according to [[Ethics-Compliance]] standards.
 
+## 6. Blue Team Patterns (Inspired by [[Trivy]] & [[A-poc]])
+- **Continuous Vulnerability Scanning**: Run `trivy fs .` regularly to detect CVEs and secrets.
+- **Incident Response Plan**: Refer to the [[BlueTeam-Tools]] collection for forensics and recovery procedures.
+- **Supply Chain Security**: Verify all external dependencies and tool versions before integration.
+
 ---
 **Last Updated**: 2026-04-19
