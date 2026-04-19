@@ -1,5 +1,11 @@
 # OpenCode-Bunker — Wiki Vault
 
+> [!important] INSTRUCCIONES DE INICIO (MANDATORIO)
+> Al iniciar cualquier sesión en este repositorio, el agente DEBE:
+> 1. Leer `wiki/hot.md` inmediatamente para cargar el contexto activo.
+> 2. Leer el último archivo de handover en `wiki/meta/handovers/` para entender el estado de la última sesión.
+> 3. Actuar bajo el **Protocolo de Proactividad** detallado abajo.
+
 Este directorio es un vault de Obsidian con skills adaptados para OpenCode.
 
 ## Vault Path
