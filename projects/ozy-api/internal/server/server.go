@@ -3,6 +3,7 @@ package server
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/SamBleed/ozy-api/internal/domain"
 	"github.com/SamBleed/ozy-api/internal/repository/auth"
 	"github.com/SamBleed/ozy-api/internal/repository/db"
 	"github.com/SamBleed/ozy-api/pkg/logger"
@@ -13,53 +14,71 @@ import (
 type Server struct {
 	port        int
 	authAdapter *auth.JWTAdapter
-	dbAdapter   *db.PostgresAdapter
+	entityRepo  domain.EntityRepository
 }
 
 func NewServer(port int, secret string, dbAdapter *db.PostgresAdapter) *Server {
 	return &Server{
 		port:        port,
 		authAdapter: auth.NewJWTAdapter(secret),
-		dbAdapter:   dbAdapter,
+		entityRepo:  db.NewSqlEntityRepository(dbAdapter),
 	}
 }
 
 func (s *Server) Start() error {
 	mux := http.NewServeMux()
 
-	// Endpoints públicos
+	// Públicos
 	mux.HandleFunc("/health", s.handleHealth)
 	mux.HandleFunc("/login", s.handleLogin)
 
-	// Endpoints protegidos
-	mux.HandleFunc("/api/secure", s.AuthMiddleware(s.handleSecure))
+	// Entidades (Protegidos)
+	mux.HandleFunc("/api/entities", s.AuthMiddleware(s.handleEntities))
 
-	// Aplicar el middleware de logging globalmente
 	handler := LoggingMiddleware(mux)
 
-	logger.Info("Starting server with Security Guardrails and Database active", map[string]interface{}{
-		"port": s.port,
-		"db":   "connected",
-	})
+	logger.Info("Starting server: Entity Management Active", map[string]interface{}{"port": s.port})
 	return http.ListenAndServe(fmt.Sprintf(":%d", s.port), handler)
 }
 
 func (s *Server) handleHealth(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprintln(w, "{\"status\": \"healthy\", \"db\": \"connected\"}")
+	fmt.Fprintln(w, "{\"status\": \"healthy\"}")
 }
 
 func (s *Server) handleLogin(w http.ResponseWriter, r *http.Request) {
-	// Simulación de login exitoso (En el futuro buscar en s.dbAdapter)
 	token, _ := s.authAdapter.GenerateToken("sam-123")
-
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]string{"token": token})
 }
 
-func (s *Server) handleSecure(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	fmt.Fprintln(w, "{\"message\": \"Welcome to the Bunker Secure Area\"}")
+func (s *Server) handleEntities(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case http.MethodGet:
+		entities, err := s.entityRepo.List()
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(entities)
+
+	case http.MethodPost:
+		var e domain.Entity
+		if err := json.NewDecoder(r.Body).Decode(&e); err != nil {
+			http.Error(w, "Invalid request body", http.StatusBadRequest)
+			return
+		}
+		if err := s.entityRepo.Save(&e); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		w.WriteHeader(http.StatusCreated)
+		fmt.Fprintln(w, "{\"message\": \"Entity saved successfully\"}")
+
+	default:
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	}
 }
 
 func (s *Server) AuthMiddleware(next http.HandlerFunc) http.HandlerFunc {
@@ -69,14 +88,12 @@ func (s *Server) AuthMiddleware(next http.HandlerFunc) http.HandlerFunc {
 			http.Error(w, "Authorization header required", http.StatusUnauthorized)
 			return
 		}
-
 		token := strings.TrimPrefix(authHeader, "Bearer ")
 		_, err := s.authAdapter.ValidateToken(token)
 		if err != nil {
 			http.Error(w, "Invalid token", http.StatusUnauthorized)
 			return
 		}
-
 		next.ServeHTTP(w, r)
 	}
 }
