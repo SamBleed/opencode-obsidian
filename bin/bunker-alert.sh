@@ -17,12 +17,19 @@ fi
 
 echo "📡 Enviando alerta de seguridad a n8n..."
 
-curl -X POST "$N8N_WEBHOOK_URL" \
--H "Content-Type: application/json" \
--d "{
-  \"target\": \"$TARGET\",
-  \"level\": \"$LEVEL\",
-  \"message\": \"$MESSAGE\"
-}"
+JSON_PAYLOAD=$(python3 -c 'import json, sys; print(json.dumps({"target": sys.argv[1], "level": sys.argv[2], "message": sys.argv[3]}))' "$TARGET" "$LEVEL" "$MESSAGE")
+HTTP_RESPONSE=$(mktemp)
+HTTP_CODE=$(curl -sS -o "$HTTP_RESPONSE" -w "%{http_code}" -X POST "$N8N_WEBHOOK_URL" \
+  -H "Content-Type: application/json" \
+  -d "$JSON_PAYLOAD")
+
+if [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
+    echo "❌ Error al enviar la alerta. HTTP $HTTP_CODE"
+    cat "$HTTP_RESPONSE"
+    rm -f "$HTTP_RESPONSE"
+    exit 1
+fi
+
+rm -f "$HTTP_RESPONSE"
 
 echo -e "\n✅ Alerta enviada exitosamente."

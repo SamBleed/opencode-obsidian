@@ -28,7 +28,8 @@ Definir qué workflows conviene exponer primero a `n8n-mcp` para que OpenCode pu
 - Rol: alerta de seguridad por webhook con salida a Telegram.
 - Motivo: es el flujo más simple y más valioso para validación inicial.
 - Riesgo: medio, porque toca mensajería externa, pero la lógica es lineal y controlable.
-- Requisito previo: completar `chatId` y validar el webhook `bunker-security-alert`.
+- Estado: `chatId` configurado y workflow activo localmente.
+- Requisito previo: validar el webhook `bunker-security-alert` en una ejecución real.
 
 ### 3. Flujo de respuesta asistida para remediación
 
