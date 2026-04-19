@@ -21,5 +21,10 @@ Even in JavaScript/TypeScript, prefer returning errors or using explicit try-cat
 ## 4. Monitoring
 - Define key metrics (SRE Golden Signals): Latency, Traffic, Errors, Saturation.
 
+## 5. Deep Verification (Inspired by [[DeepTutor]])
+- **Logical Consistency Check**: Before concluding a task, run a dedicated "Critique" pass to ensure the solution matches the spec's intent, not just the syntax.
+- **Self-Correction Loop**: If a verification fail occurs, document *why* the logic failed, not just the error message.
+- **Cross-Source Validation**: When researching new tech, cross-reference at least 3 sources to avoid "hallucinated standards".
+
 ---
 **Last Updated**: 2026-04-19
