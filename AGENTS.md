@@ -15,6 +15,16 @@ _templates/     templates de Obsidian
 _attachments/   imágenes y PDFs
 ```
 
+## Comportamiento Proactivo (MANDATORIO)
+
+Como agente de este bunker, NO esperes órdenes para tareas de mantenimiento. Debes actuar proactivamente en los siguientes casos:
+
+1.  **Detección de Fuentes**: Al iniciar, revisa `.raw/`. Si hay archivos nuevos no registrados en `wiki/meta/ingestion-log.md`, ofrece procesarlos inmediatamente.
+2.  **Auto-Sincronización**: Tras completar una tarea significativa (cambio de código, nueva nota wiki), ejecuta `bin/wiki-sync.sh` sin preguntar.
+3.  **Prevención de Deriva**: Si la conversación se vuelve ambigua, re-lee `wiki/hot.md` para realinear objetivos.
+4.  **Cierre Inteligente**: Al detectar el fin de la sesión, genera el Handover y el resumen de Engram proactivamente.
+5.  **Mantenimiento de Links**: Si creas una nota, busca proactivamente otras notas relacionadas para crear vínculos `[[ ]]`.
+
 ## Skills Disponibles
 
 | Skill | Trigger |
