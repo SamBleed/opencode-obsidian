@@ -27,5 +27,8 @@
 - **Persistent Session Audits**: Use persistent shells for security scanning to ensure interactive prompts are handled.
 - **Kill-Chain Thinking**: Don't just check for "bugs"; check how multiple small bugs could be chained for an exploit.
 
+- **OSINT Recon**: Use tools like [[Sherlock]] to map the digital footprint of a target (usernames, social profiles) before attempting technical exploitation.
+- **Data Anonymization**: When logging OSINT results, ensure that personal data is handled according to [[Ethics-Compliance]] standards.
+
 ---
 **Last Updated**: 2026-04-19
