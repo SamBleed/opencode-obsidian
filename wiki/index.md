@@ -1,74 +1,77 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-04-07
+updated: 2026-04-19
 tags:
   - meta
   - index
 status: evergreen
 related:
   - "[[overview]]"
-  - "[[log]]"
   - "[[hot]]"
-  - "[[dashboard]]"
   - "[[Wiki Map]]"
-  - "[[concepts/_index]]"
-  - "[[entities/_index]]"
-  - "[[sources/_index]]"
-  - "[[LLM Wiki Pattern]]"
-  - "[[Hot Cache]]"
-  - "[[Compounding Knowledge]]"
-  - "[[Andrej Karpathy]]"
+  - "[[HANDOVER]]"
+  - "[[ENV-STATUS]]"
+  - "[[MCP-CONFIG]]"
 ---
 
-# Wiki Index
+# 🏛️ Bunker OS — Index
 
-Last updated: 2026-04-08 | Total pages: 26 | Sources ingested: 2
+Last updated: 2026-04-19 | Version: 1.4.1 | **Status**: Fully Operational
 
-Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
+Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]] | [[ENV-STATUS]]
 
 ---
 
-## Concepts
-
-- [[LLM Wiki Pattern]] — the pattern for building persistent, compounding knowledge bases using LLMs (status: mature)
-- [[Hot Cache]] — ~500-word session context file, updated after every ingest and session (status: mature)
-- [[Compounding Knowledge]] — why wiki knowledge grows more valuable over time, unlike RAG (status: mature)
-- [[cherry-picks]] — prioritized feature backlog from ecosystem research; 13 features to add to opencode-obsidian (status: current)
+## 🚀 Projects (Ecosistema Vivo)
+- **[[ozy-api]]** — Backend Go 1.26, Hexagonal, JWT, Postgres.
+- **[[ozy-web]]** — Frontend React 19, Tailwind 4, Agent-Native UI.
 
 ---
 
-## Entities
-
-- [[Andrej Karpathy]] — AI researcher, creator of the LLM Wiki pattern, former Tesla AI director (status: developing)
-- [[Ar9av-obsidian-wiki]] — multi-agent compatible LLM Wiki plugin; delta tracking manifest (status: current)
-- [[Nexus-claudesidian-mcp]] — native Obsidian plugin + MCP bridge; workspace memory, task management (status: current)
-- [[ballred-obsidian-claude-pkm]] — goal cascade PKM; auto-commit hooks, /adopt command (status: current)
-- [[rvk7895-llm-knowledge-bases]] — 3-depth query system, Marp slides, parallel deep research (status: current)
-- [[kepano-obsidian-skills]] — official skills from Obsidian creator; defuddle, obsidian-bases (status: current)
-- [[Claudian-YishenTu]] — native Obsidian plugin embedding OpenCode Code; plan mode, @mention (status: current)
+## 🧠 Core Concepts
+- [[LLM Wiki Pattern]] — Persistent, compounding knowledge base.
+- [[Domain-Specific-Vaults]] — Multi-vault architecture (Coding, Finance, etc.).
+- [[Design-System-MD]] — Markdown-based UI governance.
+- [[Observability-MD]] — Structured logging and agent tracing.
+- [[Event-Driven]] — Asynchronous agent communication.
+- [[Data-Governance]] — Schema management and AI-ready seeding.
 
 ---
 
-## Sources
-
-- [[opencode-obsidian-ecosystem-research]] — 2026-04-08 | web research across 16+ repos | 8 wiki pages created
-
----
-
-## Questions
-
-- [[How does the LLM Wiki pattern work]] — how the pattern works and why it outperforms RAG at human scale (status: developing)
+## 🛡️ Security & Governance
+- [[Security-Guardrails]] — The Bunker's Constitution.
+- [[Agentic-Security-OWASP]] — Mitigation of ASI risks (2026).
+- [[Offensive-Vaccine]] — Active auditing using real payloads.
+- [[Ethics-Compliance]] — Ethical boundaries for autonomous agents.
+- [[HANDOVER]] — standard for cross-agent context transfer.
 
 ---
 
-## Comparisons
-
-- [[Wiki vs RAG]] — when to use a wiki knowledge base versus RAG; verdict: wiki wins at <1000 pages
-- [[opencode-obsidian-ecosystem]] — feature matrix of 16+ OpenCode+Obsidian projects; where opencode-obsidian wins and gaps
+## 🤖 Agentic Entities
+- [[Hermes-Agent]] — Closed-loop learning and procedural memory.
+- [[Decepticon]] — Autonomous Red Team framework.
+- [[DeepTutor]] — Logic verification and deep research.
+- [[Goose]] — MCP-native infrastructure.
+- [[n8n]] — Orchestration and automation engine.
+- [[Trivy]] — Defensive shield and vulnerability scanning.
+- [[Sherlock]] — OSINT and identity reconnaissance.
+- [[PayloadsAllTheThings]] — Tactical security arsenal.
 
 ---
 
-## Domains
+## 🛠️ Infrastructure & Config
+- [[ENV-STATUS]] — Agent's power map (Arch Linux stack).
+- [[MCP-CONFIG]] — Tool connection manual (n8n, Trivy).
+- [[PROMPTS]] — Agent profiles and context anchors.
 
-<!-- Add domain entries here after scaffold -->
+---
+
+## 📐 Blueprints Engine
+- [[GO-API-BLUEPRINT]] — Standard for backend services.
+- [[DESIGN-TEMPLATE]] — Visual standard for frontend.
+- [[AUTOMATION-STRATEGY]] — n8n workflow patterns.
+
+---
+
+MIT License © 2026 | **SamBleed**
