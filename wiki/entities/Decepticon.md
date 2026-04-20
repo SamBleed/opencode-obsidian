@@ -17,6 +17,7 @@
 - **Sandboxed Execution**: Operates within isolated Kali Linux containers.
 
 ## 🧠 Connection to opencode-obsidian
+Decepticon is the "Force" of the Agentic Trident, utilizing tools like [[Trivy]] (Shield) and [[Sherlock]] (Recon).
 
 While opencode-obsidian is a knowledge base, Decepticon provides a blueprint for **autonomous execution**. 
 

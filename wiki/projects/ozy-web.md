@@ -6,7 +6,7 @@
 **Blueprint**: [[DESIGN-TEMPLATE]]
 
 ## 📝 Description
-The visual control center for the Bunker. A modern, dark-themed dashboard synchronized with the OZY-API.
+The visual control center for the Bunker. Implements [[Design-System-MD]] and provides a live view of all [[Agentic-Entities]].
 
 ## 🚀 Key Features
 - **Bunker UI**: Glassmorphism and glows following [[Design-System-MD]].

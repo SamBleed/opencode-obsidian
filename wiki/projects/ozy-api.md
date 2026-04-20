@@ -6,7 +6,7 @@
 **Blueprint**: [[GO-API-BLUEPRINT]]
 
 ## 📝 Description
-The core backend for the Bunker's ecosystem. Implements hexagonal architecture and secure identity management.
+The core backend for the Bunker's ecosystem. Implements [[opencode-obsidian-architecture]] and follows [[Agentic-Security-OWASP]] standards.
 
 ## 🚀 Key Features
 - **JWT Auth**: Secure access via [[Go-JWT]].

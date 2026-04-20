@@ -17,6 +17,7 @@
 - **Unified Workspace**: Integrated chat, Markdown co-writer, and code execution.
 
 ## 🧠 Connection to opencode-obsidian
+DeepTutor is the "Logic" of the Agentic Trident, often orchestrated by [[n8n]] for autonomous research loops.
 
 DeepTutor validates our approach of a **Persistent Learning Profile** (via Engram and `hot.md`). It provides a roadmap for **Logical Verification** beyond simple testing.
 

@@ -17,6 +17,7 @@
 - **Multi-Interface**: Supports Terminal, Telegram, Discord, and Slack.
 
 ## 🧠 Connection to opencode-obsidian
+Hermes is the "Memory" of the Agentic Trident, working alongside [[Decepticon]] (Force) and [[DeepTutor]] (Logic).
 
 Hermes Agent shares the same "Compounding Knowledge" DNA as this vault. While Hermes focuses on the *autonomous framework*, opencode-obsidian focuses on the *structured knowledge base* (LLM Wiki).
 

@@ -24,8 +24,8 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 ---
 
 ## 🚀 Projects (Ecosistema Vivo)
-- **[[ozy-api]]** — Backend Go 1.26, Hexagonal, JWT, Postgres.
-- **[[ozy-web]]** — Frontend React 19, Tailwind 4, Agent-Native UI.
+- **[[ozy-api]]** — Powered by [[GO-API-BLUEPRINT]].
+- **[[ozy-web]]** — Powered by [[DESIGN-TEMPLATE]].
 
 ---
 
