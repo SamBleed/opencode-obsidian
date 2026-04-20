@@ -12,6 +12,7 @@ The core backend for the Bunker's ecosystem. Implements hexagonal architecture a
 - **JWT Auth**: Secure access via [[Go-JWT]].
 - **Structured Logging**: AI-readable JSON logs via [[Observability-MD]].
 - **SQL Data Layer**: Powered by Postgres and [[Data-Governance]].
+- **CI/CD Ready**: Designed for automated [[CI-CD-Pipeline]] integration (Trivy scan + GitHub Actions).
 
 ## 🛠️ Commands
 ```bash
