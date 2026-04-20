@@ -28,6 +28,7 @@ Trivy provides the **Defensive Shield**. It complements the offensive logic of [
 ## 🔗 Resources
 - **GitHub**: https://github.com/aquasecurity/trivy
 - **Documentation**: https://aquasecurity.github.io/trivy/
+- **Parent**: [[index]]
 
 ---
 **Last Updated**: 2026-04-19

@@ -33,6 +33,7 @@ For the current local setup, see [[n8n-mcp-exposure-plan]] for the recommended o
 - **Repository**: https://github.com/Zie619/n8n-workflows
 - **Templates**: https://zie619.github.io/n8n-workflows/
 - **Official Site**: https://n8n.io
+- **Parent**: [[index]]
 
 ---
 **Last Updated**: 2026-04-19

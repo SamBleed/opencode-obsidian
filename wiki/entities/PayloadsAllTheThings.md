@@ -27,6 +27,7 @@ PayloadsAllTheThings serves as the **Tactical Intelligence Layer**. It provides 
 
 ## 🔗 Resources
 - **GitHub**: https://github.com/swisskyrepo/PayloadsAllTheThings
+- **Parent**: [[index]]
 
 ---
 **Last Updated**: 2026-04-19

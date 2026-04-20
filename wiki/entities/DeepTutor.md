@@ -29,6 +29,7 @@ DeepTutor validates our approach of a **Persistent Learning Profile** (via Engra
 ## 🔗 Resources
 - **GitHub**: https://github.com/HKUDS/DeepTutor
 - **Docs**: https://hkuds.github.io/DeepTutor
+- **Parent**: [[index]]
 
 ---
 **Last Updated**: 2026-04-19

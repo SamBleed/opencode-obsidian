@@ -27,6 +27,7 @@ Sherlock serves as the **Sensing Layer for Identity**. It provides the raw data 
 
 ## 🔗 Resources
 - **GitHub**: https://github.com/sherlock-project/sherlock
+- **Parent**: [[index]]
 
 ---
 **Last Updated**: 2026-04-19

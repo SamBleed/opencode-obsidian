@@ -29,6 +29,7 @@ Hermes Agent shares the same "Compounding Knowledge" DNA as this vault. While He
 ## 🔗 Resources
 - **GitHub**: https://github.com/NousResearch/Hermes-Agent
 - **Research Group**: Nous Research
+- **Parent**: [[index]]
 
 ---
 **Last Updated**: 2026-04-19

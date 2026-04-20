@@ -29,6 +29,7 @@ While opencode-obsidian is a knowledge base, Decepticon provides a blueprint for
 ## 🔗 Resources
 - **GitHub**: https://github.com/PurpleAILAB/Decepticon
 - **Developer**: PurpleAILAB
+- **Parent**: [[index]]
 
 ---
 **Last Updated**: 2026-04-19
