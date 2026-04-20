@@ -8,79 +8,72 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![OpenCode](https://img.shields.io/badge/OpenCode-ready-8B5CF6)](https://opencode.ai)
 
-**opencode-obsidian** es un Bunker de Conocimiento Agéntico y Ecosistema de Desarrollo Full-Stack optimizado para **OpenCode**. Basado en el patrón **LLM Wiki** de Andrej Karpathy, este sistema evoluciona y se autogestiona en cada sesión de pair-programming.
+**opencode-obsidian** es un Bunker de Conocimiento Agéntico y Ecosistema de Desarrollo Full-Stack optimizado para **OpenCode**. Basado en el patrón **LLM Wiki** de Andrej Karpathy, este sistema permite que la inteligencia artificial aprenda, documente y opere de forma autónoma en tu entorno local.
+
+---
+
+## ⚡ Quick Start
+
+### 1. Prerrequisitos
+Este ecosistema requiere tener instalado **Docker** y el orquestador **n8n** (MECO_Framework Lab). Consulta la [Guía de Setup de n8n](docs/N8N-SETUP.md).
+
+### 2. Instalación del Bunker
+```bash
+# Levanta el entorno y lanza el agente
+bunker-up
+```
+
+### 3. Ingestión de Conocimiento
+```bash
+# Dale una fuente (PDF, TXT, URL) y el Bunker la destilará solo
+bunker-ingest "https://articulo-tecnico.com"
+```
 
 ---
 
 ## 🚀 Características Principales
 
-- **Agentic Ecosystem**: No es solo una wiki, es un entorno con API (Go) y Web (React) integrados.
-- **Hard Detach**: Totalmente independiente de dependencias o nombres de Anthropic/Claude.
-- **Compounding Knowledge**: La wiki "se vuelve más inteligente" con cada interacción y registro en DB.
-- **Automated Security**: Auditoría nativa con **Trivy MCP** y **OWASP 2026** integrada.
-- **Live Notifications**: Alertas automáticas al celular (Telegram) vía **n8n**.
-- **Tech Stack 2026**: Go 1.26, React 19, Tailwind 4, PostgreSQL, Redis, Docker.
+- **Self-Documenting IA**: El sistema ingiere fuentes externas y crea notas estructuradas automáticamente.
+- **Agentic Full-Stack**: Incluye una API (Go 1.26) y un Dashboard (React 19) sincronizados en tiempo real.
+- **Security-First**: Auditoría nativa con **Trivy MCP** y mitigación de riesgos **OWASP ASI 2026**.
+- **Local Sovereignty**: Todo el conocimiento y los datos (PostgreSQL) residen en tu máquina.
+- **Live Feedback**: Alertas automáticas al celular vía n8n y Telegram.
 
 ---
 
-## 🏢 Ecosistema de Proyectos
+## 🏢 Ecosistema de Proyectos (/projects)
 
-El Bunker incluye una suite de aplicaciones "Agent-Native" en la carpeta `/projects`:
+El Bunker no es solo teoría; incluye implementaciones de referencia "Agent-Native":
 
-- **[OZY-API](projects/ozy-api/)**: Backend en Go 1.26. Arquitectura Hexagonal, JWT Auth, Logging JSON y PostgreSQL.
-- **[OZY-WEB](projects/ozy-web/)**: Frontend en React 19 + Tailwind 4. Dashboard visual sincronizado con la API.
-
----
-
-## 📦 Instalación y Control
-
-### Un comando para despertarlos a todos:
-```bash
-# Levanta n8n Lab, abre el Bunker y lanza el Agente
-bunker-up
-```
-
-### Sincronización Inteligente:
-```bash
-# Sincroniza Git y te avisa al celular si el push fue exitoso
-bunker-push "feat: descripción de tu hito"
-```
+- **[OZY-API](projects/ozy-api/)**: Backend robusto (Hexagonal, JWT, Postgres).
+- **[OZY-WEB](projects/ozy-web/)**: Frontend moderno (React 19, Tailwind 4).
 
 ---
 
-## 🛠️ Estructura del Bunker
-
-```text
-opencode-obsidian/
-├── projects/        # Aplicaciones vivas (Go, React, DB)
-├── wiki/            # Cerebro del proyecto (Markdown interconectado)
-│   ├── blueprints/  # Fábrica de arquitecturas (Templates reales)
-│   ├── concepts/    # Patrones técnicos y gobernanza
-│   ├── entities/    # Registro de agentes y herramientas
-│   └── decisions/   # ADRs (Architecture Decision Records)
-├── bin/             # Power Scripts (bunker-up, bunker-push, bunker-alert)
-├── docs/            # Manuales de Setup (N8N, MCP, etc.)
-└── skills/          # Skills nativos para OpenCode
-```
-
----
-
-## 🤖 Comandos del Agente
+## 🤖 Comandos del Sistema
 
 | Comando | Descripción |
 |---------|-----------|
-| `bunker-up` | Arranca todo el ecosistema (Docker + Agente). |
-| `bunker-push` | Sincroniza y notifica éxito vía n8n. |
-| `query [topic]` | Busca conocimiento en la wiki y en la DB. |
-| `/save` | Guarda el insight de la charla como nota permanente. |
-| `trivy scan` | Realiza una auditoría de seguridad nativa (MCP). |
+| `bunker-up` | Despierta todo el ecosistema (Docker + Agente). |
+| `bunker-ingest [fuente]` | Ingiere y destila archivos o URLs a la wiki. |
+| `bunker-push "[msg]"` | Sincroniza Git y te avisa al celular si hubo éxito. |
+| `/save` | Guarda el insight de la charla actual en la wiki. |
+| `trivy scan` | Realiza una auditoría de seguridad sobre el código. |
+
+---
+
+## 📖 Documentación Interna
+
+- [Manual de Conexión MCP](wiki/meta/MCP-CONFIG.md) — Cómo enchufar n8n y Trivy.
+- [Protocolo de Handover](wiki/meta/HANDOVER.md) — Estándar de transferencia entre agentes.
+- [Security Guardrails](wiki/concepts/Security-Guardrails.md) — La constitución del Bunker.
 
 ---
 
 ## 📜 Créditos
 
 - [Karpathy](https://github.com/karpathy) - Patrón LLM Wiki original.
-- **SamBleed** - Arquitectura Agéntica, Full-Stack integration y Automatización para OpenCode.
+- **SamBleed** - Arquitectura, Full-Stack y Automatización Agéntica.
 
 ---
 
