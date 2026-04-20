@@ -1,0 +1,1 @@
+Seguridad en servidores MCP: Siempre validar el origen del Bearer Token y restringir el acceso a localhost.
