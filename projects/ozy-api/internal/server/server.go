@@ -38,7 +38,7 @@ func (s *Server) Start() error {
 	handler := LoggingMiddleware(mux)
 
 	logger.Info("Starting server: Entity Management Active", map[string]interface{}{"port": s.port})
-	return http.ListenAndServe(fmt.Sprintf(":%d", s.port), handler)
+	return http.ListenAndServe(fmt.Sprintf("0.0.0.0:%d", s.port), handler)
 }
 
 func (s *Server) handleHealth(w http.ResponseWriter, r *http.Request) {

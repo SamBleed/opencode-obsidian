@@ -29,7 +29,20 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 
 ---
 
+## 📚 Sources
+- [[opencode-obsidian-ecosystem-research]] — 16+ AI+Obsidian projects researched 2026-04-08
+- [[awesome-claude-design]] — 68 DESIGN.md files for AI agents (VoltAgent)
+- [[BrowserMCP]] — Browser automation via MCP (6.4k stars)
+
+---
+
+## 🔬 Concepts
+- [[DESIGN-MD]] — AI-readable design system format (9 sections) → `concepts/tech-stack/`
+- [[AI-Analysis-Workflow]] — Análisis de requests antes de implementar (5 pasos + pregunta crítica)
+
 ## 🧠 Core Concepts
+- [[LLM Wiki Pattern]] — Persistent, compounding knowledge base.
+- [[Delta Tracking]] — Hash-based source change detection.
 - [[LLM Wiki Pattern]] — Persistent, compounding knowledge base.
 - [[Domain-Specific-Vaults]] — Multi-vault architecture (Coding, Finance, etc.).
 - [[Design-System-MD]] — Markdown-based UI governance.
@@ -45,6 +58,13 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 - [[Offensive-Vaccine]] — Active auditing using real payloads.
 - [[Ethics-Compliance]] — Ethical boundaries for autonomous agents.
 - [[HANDOVER]] — standard for cross-agent context transfer.
+- [[mcp-governance]] — framework for MCP tool orchestration.
+
+---
+
+## 🔬 Ecosystem Projects (Competidores y Referentes)
+- [[Claudesidian]] — PRE-configured vault + PARA by heyitsnoah
+- [[Ar9av-obsidian-wiki]] — Multi-agent wiki with delta tracking
 
 ---
 

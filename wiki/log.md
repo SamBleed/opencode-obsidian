@@ -25,6 +25,38 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-04-20] governance | MCP Tool Hierarchy
+- Type: governance framework
+- Description: Added Tool Governance to AGENTS.md and created [[mcp-governance]].
+- Created: [[mcp-governance]], `bin/audit-repo.sh`
+- Updated: [[AGENTS.md]], [[index]], [[hot]]
+- Learned: Managing cognitive load is key when scaling to 8+ MCP servers.
+
+## [2026-04-21] ingest | BrowserMCP
+- Source: URL https://github.com/BrowserMCP/mcp
+- Summary: [[BrowserMCP]]
+- Pages created: [[BrowserMCP]], [[MCP]]
+- Pages updated: [[index]]
+
+## [2026-04-21] pattern | AI Analysis Workflow
+- Type: workflow pattern
+- Description: [[AI-Analysis-Workflow]]
+- Pages created: [[AI-Analysis-Workflow]]
+- Pages updated: [[index]]
+- Learned: 5-step workflow + pregunta crítica antes de proceder
+
+## [2026-04-20] ingest | awesome-claude-design
+- Source: URL https://github.com/VoltAgent/awesome-claude-design
+- Summary: [[awesome-claude-design]]
+- Pages created: [[awesome-claude-design]], [[VoltAgent]], [[DESIGN-MD]]
+- Pages updated: [[index]]
+
+## [2026-04-20] ingest | opencode-obsidian-ecosystem-research
+- Source: .raw/opencode-ecosystem-research.md
+- Summary: [[opencode-obsidian-ecosystem-research]]
+- Pages created: [[opencode-obsidian-ecosystem-research]], [[Claudesidian]], [[Ar9av-obsidian-wiki]], [[Delta Tracking]]
+- Pages updated: [[index]]
+
 ## [2026-04-08] save | opencode-obsidian v1.4 Release Session
 - Type: session
 - Location: wiki/meta/opencode-obsidian-v1.4-release-session.md

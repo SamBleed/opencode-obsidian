@@ -11,34 +11,20 @@
             "id": "a31de1b302cdc5cf",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          },
-          {
-            "id": "1ddf905423a8598d",
-            "type": "leaf",
-            "state": {
-              "type": "thino_view",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "thino_view"
-            }
-          },
-          {
-            "id": "61749825e48e4b66",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Vista gráfica"
+              "type": "canvas",
+              "state": {
+                "file": "wiki/Wiki Map.canvas",
+                "viewState": {
+                  "x": 197.8894576498287,
+                  "y": -71.70251326833389,
+                  "zoom": -1.4
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Wiki Map"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -207,8 +193,25 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "61749825e48e4b66",
+  "active": "5565f1231fe95c42",
   "lastOpenFiles": [
+    "wiki/concepts/tech-stack/DESIGN-MD.md",
+    "wiki/entities/DeepTutor.md",
+    "wiki/entities/Lightpanda.md",
+    "wiki/concepts/CI-CD-Pipeline.md",
+    "wiki/concepts/Agentic-Security-OWASP.md",
+    "_index.md",
+    "wiki/concepts/DESIGN-MD.md",
+    "wiki/concepts/Design-System-MD.md",
+    "wiki/entities/n8n.md",
+    "wiki/entities/Decepticon.md",
+    "wiki/entities/Claudesidian.md",
+    "wiki/entities/Trivy.md",
+    "README.md",
+    "Sin título.canvas",
+    "projects/ozy-api/api.log",
+    "Excalidraw/Drawing 2026-04-19 19.20.44.excalidraw.md",
+    "Excalidraw",
     "wiki/meta/OBSIDIAN-PLUGINS.md",
     "wiki/Wiki Map.canvas",
     "wiki/meta/opencode-obsidian-cover.gif",
@@ -230,38 +233,22 @@
     "docs/install-guide.md",
     "README.md.tmp.224546.1775561616026",
     "wiki/meta/opencode-obsidian-gif-cover-16x9.gif",
-    "README.md.tmp.224546.1775561304170",
     "wiki/meta/cover.gif",
     "wiki/concepts/_index.md",
     "wiki/canvases/welcome.canvas",
-    "README.md.tmp.224546.1775561084699",
     "wiki/meta/welcome-canvas.gif",
     "wiki/canvases/main.canvas",
-    "README.md",
     "wiki/getting-started.md",
     "Demo Images.canvas",
     "Excalidraw/Drawing 2026-04-07 14.07.42.excalidraw.md",
     "wiki/concepts/LLM Wiki Pattern.md",
     "Obsidian vault with Claude Code - full integration and visual organization 2.md",
-    "Excalidraw/Drawing 2026-04-07 14.07.42_0.excalidraw.md",
     "_attachments/the-frontier.png",
     "_attachments/neural-voyager.png",
     "_attachments/code-genesis.png",
-    "wiki/concepts/Hot Cache.md",
-    "wiki/concepts/Compounding Knowledge.md",
-    "wiki/entities/_index.md",
-    "wiki/entities/Andrej Karpathy.md",
-    "wiki/questions/How does the LLM Wiki pattern work.md",
-    "wiki/hot.md",
-    "wiki/index.md",
-    "wiki/log.md",
     "Banana Images.canvas",
     "Untitled 1.canvas",
-    "Excalidraw/Drawing 2026-04-07 13.52.12.excalidraw.md",
     "Untitled.canvas",
-    "Excalidraw/Drawing 2026-04-07 13.51.04.excalidraw.md",
-    "Excalidraw/Drawing 2026-04-07 13.51.12.excalidraw.md",
-    "wiki/comparisons/Wiki vs RAG.md",
     "projects/visual-vault/design-ideas.canvas"
   ]
 }

@@ -5,7 +5,7 @@
   "showAttachments": false,
   "hideUnresolved": true,
   "showOrphans": false,
-  "collapse-color-groups": false,
+  "collapse-color-groups": true,
   "colorGroups": [
     {
       "query": "path:wiki/entities",
@@ -59,14 +59,14 @@
   ],
   "collapse-display": true,
   "showArrow": true,
-  "textFadeMultiplier": -1,
-  "nodeSizeMultiplier": 2,
-  "lineSizeMultiplier": 0.8,
+  "textFadeMultiplier": -2.1,
+  "nodeSizeMultiplier": 2.3203125,
+  "lineSizeMultiplier": 0.891145833333333,
   "collapse-forces": false,
-  "centerStrength": 0.25,
+  "centerStrength": 0.276041666666667,
   "repelStrength": 20,
   "linkStrength": 1,
-  "linkDistance": 80,
-  "scale": 0.34607326605459243,
+  "linkDistance": 172,
+  "scale": 0.15381034046870767,
   "close": true
 }

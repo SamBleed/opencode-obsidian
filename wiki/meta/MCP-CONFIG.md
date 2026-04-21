@@ -50,5 +50,15 @@ Ver [[n8n-mcp-exposure-plan]] para decidir qué workflows abrir primero a `n8n-m
 ## Observación sobre Trivy
 El bloque anterior que usaba `npx -y @aquasecurity/mcp-server-trivy` quedó obsoleto. El repositorio oficial actual de Aqua publica el plugin MCP en `aquasecurity/trivy-mcp`, y el arranque documentado es `trivy plugin install mcp` seguido de `trivy mcp`.
 
+## 💎 Obsidian REST API (Bridge)
+**Estado**: ✅ Conectado vía Localhost
+
+**Seguridad**: El API Key se gestiona mediante la variable de entorno `OBSIDIAN_REST_API_KEY` en el sistema host (Arch Linux).
+
+**Comando de Prueba**:
+```bash
+curl -H "Authorization: Bearer $OBSIDIAN_REST_API_KEY" http://127.0.0.1:27123/vault/PROJECT.md
+```
+
 ---
 **Last Updated**: 2026-04-19

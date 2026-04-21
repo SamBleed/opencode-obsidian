@@ -19,7 +19,7 @@ related:
 Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
-2026-04-08: v1.4.1 hotfix shipped, plugin confirmed installed and enabled
+2026-04-20: MCP Governance framework implemented. Tool hierarchy established in AGENTS.md. 8 active MCP servers managed.
 
 ## Plugin State
 - **Version**: 1.4.1 (installed, enabled, user scope)
@@ -59,6 +59,7 @@ There is no `claude plugin install github:owner/repo` shortcut. Both steps are r
 16+ OpenCode + Obsidian projects mapped. Full feature matrix at [[opencode-obsidian-ecosystem]]. Prioritized backlog at [[cherry-picks]]. Top competitors: [[Ar9av-obsidian-wiki]] (multi-agent + delta tracking), [[rvk7895-llm-knowledge-bases]] (multi-depth query), [[ballred-obsidian-claude-pkm]] (goal cascade + auto-commit), [[kepano-obsidian-skills]] (authoritative Obsidian skills from Obsidian's own creator).
 
 ## Active Threads
+- **n8n Ingest Pipeline**: n8n polling → Go server :9090 → wiki/inbox/ (debugging connection)
 - v1.5.0 backlog: `/adopt` command, vault graph analysis in wiki-lint, semantic search via qmd, Marp output
 - `community` remote (`avalonreset-pro/opencode-obsidian`) still has pre-rewrite history. Force-push needed next time that remote is configured.
 
