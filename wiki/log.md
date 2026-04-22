@@ -25,6 +25,45 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-04-22] session | MCP Resources Research Session
+- Type: session
+- Location: wiki/meta/handovers/2026-04-22-mcp-resources.md
+- Summary: Investigated and ingested 4 MCP resources (context-mode, GitNexus, awesome-mcp-servers, HexStrike AI)
+- Outcome: Success
+- Type: source ingestion
+- Description: Investigated cybersecurity automation platform with 150+ security tools.
+- Source: https://github.com/0x4m4/hexstrike-ai
+- Notes: MCP framework for pentesting. 12+ AI agents, integrates nmap/nuclei/sqlmap/etc. RED TEAM tool - not for daily use, but useful for security research.
+- Related: [[hexstrike-ai]], [[mcp-protocol]]
+
+## [2026-04-22] ingest | awesome-mcp-servers Research
+- Type: source ingestion
+- Description: Investigated MCP servers directory - 1000+ categorized servers.
+- Source: https://github.com/punkpeye/awesome-mcp-servers
+- Notes: Comprehensive list of MCP servers. Useful for discovering new tools and understanding the ecosystem. Web directory at glama.ai/mcp/servers.
+- Related: [[awesome-mcp-servers]], [[mcp-protocol]]
+
+## [2026-04-22] ingest | GitNexus Research
+- Type: source ingestion
+- Description: Investigated GitNexus repository for knowledge graph code analysis.
+- Source: https://github.com/abhigyanpatwari/GitNexus
+- Notes: Knowledge graph indexing for AI agents. Indexes codebase into graph (deps, call chains, clusters) and exposes via MCP tools. Like DeepWiki but deeper.
+- Related: [[gitnexus]], [[knowledge-graph-code]], [[tree-sitter]]
+
+## [2026-04-22] ingest | context-mode Research
+- Type: source ingestion
+- Description: Investigated context-mode repository for potential infrastructure improvements.
+- Source: https://github.com/mksglu/context-mode
+- Notes: Valuable for sandboxed code execution patterns. Our hot.md system already covers some functionality.
+- Related: [[context-mode]], [[sandboxed-execution]], [[fts5-search]]
+
+## [2026-04-20] research | Go Rate Limiting Patterns
+- Type: technical research
+- Description: Investigated top-tier rate limiting libraries for 2026.
+- Created: [[go-rate-limiting]]
+- Updated: [[index]], [[hot]]
+- Tool choice: Used Exa after Context7 returned no hits for `webriots/rate`.
+
 ## [2026-04-20] governance | MCP Tool Hierarchy
 - Type: governance framework
 - Description: Added Tool Governance to AGENTS.md and created [[mcp-governance]].

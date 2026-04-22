@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-04-08T19:00:00
+updated: 2026-04-22
 tags:
   - meta
   - hot-cache
@@ -18,8 +18,29 @@ related:
 
 Navigation: [[index]] | [[log]] | [[overview]]
 
+## Vault Flow (Para Nuevas Sesiones)
+
+El vault es un wiki persistente en `/home/sam/opencode-obsidian/wiki/`. Tres operaciones principales:
+
+| Operacion | Cuándo | CóMo |
+|----------|--------|------|
+| Guardar | Aprendí algo importante | `mem_save` + wiki page |
+| Consultar | Necesito contexto | `mem_search` o wiki-query |
+| Ingestar | Recurso nuevo | workflow de 7 pasos |
+
+Workflow de Ingestion (7 pasos):
+1. Crear source → `wiki/sources/[slug].md`
+2. Crear entidad → `wiki/entities/[name].md` (si aplica)
+3. Crear concepto → `wiki/concepts/[name].md`
+4. Incluir CÓDIGO — no solo descripción
+5. Actualizar `wiki/index.md`
+6. Actualizar `wiki/log.md`
+7. Vincular en `wiki/Wiki Map.canvas`
+
+Véase [[vault-flow]] para guia completa.
+
 ## Last Updated
-2026-04-20: MCP Governance framework implemented. Tool hierarchy established in AGENTS.md. 8 active MCP servers managed.
+2026-04-22: Vault flow documentado para nuevas sesiones. MCP Governance operativo.
 
 ## Plugin State
 - **Version**: 1.4.1 (installed, enabled, user scope)

@@ -30,6 +30,10 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 ---
 
 ## 📚 Sources
+- [[awesome-mcp-servers]] — 1000+ MCP servers directory
+- [[hexstrike-ai]] — AI-powered cybersecurity automation (150+ security tools)
+- [[gitnexus]] — Knowledge graph for AI agent context (codebase indexing)
+- [[context-mode]] — MCP plugin for context window optimization (sandboxed execution, FTS5)
 - [[opencode-obsidian-ecosystem-research]] — 16+ AI+Obsidian projects researched 2026-04-08
 - [[awesome-claude-design]] — 68 DESIGN.md files for AI agents (VoltAgent)
 - [[BrowserMCP]] — Browser automation via MCP (6.4k stars)
@@ -39,6 +43,8 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 ## 🔬 Concepts
 - [[DESIGN-MD]] — AI-readable design system format (9 sections) → `concepts/tech-stack/`
 - [[AI-Analysis-Workflow]] — Análisis de requests antes de implementar (5 pasos + pregunta crítica)
+- [[go-rate-limiting]] — High-performance rate limiting patterns for Go.
+- [[vault-flow]] — Workflow para ingestar recursos y consultar conocimiento en el vault.
 
 ## 🧠 Core Concepts
 - [[LLM Wiki Pattern]] — Persistent, compounding knowledge base.
