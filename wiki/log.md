@@ -23,6 +23,21 @@ Entry format: `## [YYYY-MM-DD] operation | Title`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
+## [2026-05-06] ingest | Recent Starred Repos (Top 5 New)
+- Type: source + entity ingestion
+- Sources: https://github.com/sipeed/picoclaw, https://github.com/QwenLM/qwen-code, https://github.com/Armur-Ai/Pentest-Swarm-AI, https://github.com/NousResearch/hermes-agent, https://github.com/onyx-dot-app/onyx
+- Summary: [[PicoClaw]], [[qwen-code]], [[Pentest-Swarm-AI]], [[NousResearch-hermes-agent]], [[onyx-dot-app-onyx]]
+- Pages created: [[PicoClaw]], [[qwen-code]], [[Pentest-Swarm-AI]], [[NousResearch-hermes-agent]], [[onyx-dot-app-onyx]]
+- Pages updated: [[index]], [[log]]
+- Notes: 
+  - PicoClaw (28K+) - Go, <10MB RAM, runs on $10 hardware, 400x faster boot
+  - qwen-code (24K+) - Open-source terminal agent optimized for Qwen models, Claude Code alternative
+  - Pentest-Swarm-AI (1K+) - First real swarm (not pipeline), Go + Claude API, stigmergic blackboard
+  - NousResearch/hermes-agent (135K+) - Self-improving agent, 40+ tools, built by Nous Research
+  - onyx-dot-app/onyx (29K+) - Open-source AI platform, RAG, web search, code execution
+- Status: ecosystem expanded with lightweight agents, swarm intelligence, and AI platforms.
+
+---
 ## [2026-05-06] ingest | Claude Code Ecosystem & AI Agents
 - Type: source + concept + entity ingestion
 - Sources: https://github.com/affaan-m/everything-claude-code, https://github.com/aaif-goose/goose
@@ -30,7 +45,7 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 - Pages created: [[affaan-m-everything-claude-code]], [[claude-code-harness]], [[aaif-goose-goose]]
 - Pages updated: [[index]], [[log]]
 - Notes: everything-claude-code (174K+ stars) - 16+ agents, 65+ skills, performance optimization. Goose (43K+ stars) - Rust-native AI agent, 70+ MCP extensions, part of AAIF/Linux Foundation.
-- Status: ecosystem expanded with agent harness patterns and MCP-native infrastructure
+- Status: ecosystem expanded with agent harness patterns and MCP-native infrastructure.
 
 ---
 ## [2026-05-05] ingest | AI-Powered Pentesting Ecosystem

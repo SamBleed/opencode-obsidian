@@ -41,6 +41,10 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 - [[BrowserMCP]] — Browser automation via MCP (6.4k stars)
 - [[zakirkun-deep-eye]] — AI-driven vulnerability scanner (OpenAI, Grok, Ollama, Claude)
 - [[affaan-m-everything-claude-code]] — Agent harness with 174K+ stars (16+ agents, 65+ skills)
+- [[PicoClaw]] — Ultra-lightweight AI assistant in Go, 28K+ stars, <10MB RAM
+- [[qwen-code]] — Open-source AI agent for terminal (Qwen3-Coder), 24K+ stars
+- [[Pentest-Swarm-AI]] — First real swarm pentesting tool, 1K+ stars, Go + Claude API
+- [[onyx-dot-app-onyx]] — Open-source AI platform with RAG, 29K+ stars
 
 ---
 
@@ -95,6 +99,9 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 - [[notebooklm-mcp-cli]] — Programmatic access to NotebookLM (CLI + MCP).
 - [[Muhammad-Zakir-Ramadhan]] — Author of Deep Eye AI-powered pentesting tool.
 - [[aaif-goose-goose]] — Native AI agent in Rust, 43K+ stars, 70+ MCP extensions.
+- [[NousResearch-hermes-agent]] — Self-improving AI agent by Nous Research, 135K+ stars
+- [[PicoClaw]] — Ultra-lightweight Go agent, runs on $10 hardware, 28K+ stars
+- [[onyx-dot-app-onyx]] — Open-source AI platform by Onyx, 29K+ stars
 
 ---
 
