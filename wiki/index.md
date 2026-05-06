@@ -24,12 +24,14 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 ---
 
 ## 🚀 Projects (Ecosistema Vivo)
+- **[[OzyZT]]** — Zero-Trust enforcement platform for developer security gates.
 - **[[ozy-api]]** — Powered by [[GO-API-BLUEPRINT]].
 - **[[ozy-web]]** — Powered by [[DESIGN-TEMPLATE]].
 
 ---
 
 ## 📚 Sources
+- [[notebooklm]] — Google research assistant with source grounding (FAQ, Study Guides)
 - [[awesome-mcp-servers]] — 1000+ MCP servers directory
 - [[hexstrike-ai]] — AI-powered cybersecurity automation (150+ security tools)
 - [[gitnexus]] — Knowledge graph for AI agent context (codebase indexing)
@@ -37,6 +39,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 - [[opencode-obsidian-ecosystem-research]] — 16+ AI+Obsidian projects researched 2026-04-08
 - [[awesome-claude-design]] — 68 DESIGN.md files for AI agents (VoltAgent)
 - [[BrowserMCP]] — Browser automation via MCP (6.4k stars)
+- [[zakirkun-deep-eye]] — AI-driven vulnerability scanner (OpenAI, Grok, Ollama, Claude)
 
 ---
 
@@ -68,7 +71,12 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 
 ---
 
-## 🔬 Ecosystem Projects (Competidores y Referentes)
+## 🔬 Concepts
+- [[DESIGN-MD]] — AI-readable design system format (9 sections) → `concepts/tech-stack/`
+- [[AI-Analysis-Workflow]] — Análisis de requests antes de implementar (5 pasos + pregunta crítica)
+- [[go-rate-limiting]] — High-performance rate limiting patterns for Go.
+- [[vault-flow]] — Workflow para ingestar recursos y consultar conocimiento en el vault.
+- [[ai-powered-pentesting]] — AI-driven pentesting with multi-provider LLM support
 - [[Claudesidian]] — PRE-configured vault + PARA by heyitsnoah
 - [[Ar9av-obsidian-wiki]] — Multi-agent wiki with delta tracking
 
@@ -83,6 +91,8 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 - [[Trivy]] — Defensive shield and vulnerability scanning.
 - [[Sherlock]] — OSINT and identity reconnaissance.
 - [[PayloadsAllTheThings]] — Tactical security arsenal.
+- [[notebooklm-mcp-cli]] — Programmatic access to NotebookLM (CLI + MCP).
+- [[Muhammad-Zakir-Ramadhan]] — Author of Deep Eye AI-powered pentesting tool.
 
 ---
 

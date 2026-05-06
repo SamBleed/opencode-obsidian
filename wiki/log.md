@@ -23,7 +23,33 @@ Entry format: `## [YYYY-MM-DD] operation | Title`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
+## [2026-05-05] ingest | AI-Powered Pentesting Ecosystem
+- Type: source + concept + entity ingestion
+- Source: https://github.com/zakirkun/deep-eye
+- Summary: [[zakirkun-deep-eye]], [[ai-powered-pentesting]], [[Muhammad-Zakir-Ramadhan]]
+- Pages created: [[zakirkun-deep-eye]], [[ai-powered-pentesting]], [[Muhammad-Zakir-Ramadhan]]
+- Pages updated: [[index]], [[log]], [[Wiki Map]]
+- Notes: Deep Eye v1.3.0 - 45+ attack vectors, multi-LLM (OpenAI/Grok/Ollama/Claude/OpenRouter), AI-generated payloads, plugin system, professional reporting. MIT license.
+- Status: ready for security research and OzyZT integration analysis
+
 ---
+## [2026-05-04] ingest | NotebookLM Ecosystem
+- Type: source + entity ingestion
+- Source: https://notebooklm.google.com + https://github.com/jacob-bd/notebooklm-mcp-cli
+- Summary: [[notebooklm]], [[notebooklm-mcp-cli]]
+- Pages created: [[notebooklm]], [[notebooklm-mcp-cli]]
+- Pages updated: [[index]], [[log]], [[hot]]
+- Notes: Installed notebooklm-mcp-cli v0.6.4 via pipx. Authenticated with Google Pro account (samuell.secure@gmail.com). MCP configured in opencode.json. 3 notebooks found active.
+- Auth: Cookies extracted from Chromium (43 cookies, CSRF token active)
+- Status: ready for vault-to-notebooklm pipelines
+
+---
+
+## [2026-04-22] save | OzyZT Transformation Session
+- Type: session
+- Location: wiki/meta/Session OzyZT Transformation.md
+- From: conversion from toolkit to platform
+- Summary: Renamed to [[OzyZT]], implemented [[OzyZT Architecture]], and hardened security.
 
 ## [2026-04-22] session | MCP Resources Research Session
 - Type: session

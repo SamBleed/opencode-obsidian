@@ -12,61 +12,64 @@ tags:
 status: mature
 related:
   - "[[Design-System-MD]]"
-  - "[[awesome-claude-design]]"
+  - "[[Awesome-DESIGN-md]]"
   - "[[VoltAgent]]"
 sources:
+  - "[[awesome-design-md]]"
 ---
 
 # DESIGN.md
 
-Archivo markdown que describe la identidad visual de una marca en formato que agentes IA pueden leer y actuar.
+Archivo markdown que describe la identidad visual de una marca en formato que agentes IA pueden leer y actuar. Este estándar fue popularizado por Google Stitch y expandido por la comunidad.
 
 ---
 
 ## Definition
 
-Un archivo markdown estructurado que define tokens de diseño (colors, typography, spacing, components) de manera que un agente IA puede interpretar y generar código de UI automáticamente.
+Un archivo markdown estructurado que define tokens de diseño (colors, typography, spacing, components) de manera que un agente IA puede interpretar y generar código de UI automáticamente. Es el "manual de marca" para la inteligencia artificial.
 
 ## How It Works
 
-1. Escribes un archivo `DESIGN.md` con secciones específicas
-2. Lo pasas a un agente de diseño (ej: Claude Design)
-3. El agente parsea el archivo y scaffoldea un design system completo
+1. **Definición**: Escribes un archivo `DESIGN.md` con secciones específicas (Tokens, Colores, Tipografía).
+2. **Contexto**: Lo incluyes en la raíz del proyecto junto a tu `AGENTS.md`.
+3. **Generación**: Le pides al agente (ej: OpenCode, Claude Design): "Crea una página siguiendo la especificación de DESIGN.md".
+4. **Resultado**: El agente genera código (React, Tailwind, etc.) que respeta los tokens y el estilo definido.
 
-## The 9 Sections
+## The 9 Sections (Standard)
 
 | # | Section | What Defines |
 |---|---------|-------------|
-| 1 | Visual Theme & Atmosphere | Tone, density, mood |
-| 2 | Color Palette & Roles | CSS variables + semantic names |
-| 3 | Typography Rules | Type scale, Google Fonts |
-| 4 | Component Stylings | Buttons, inputs, cards, nav |
-| 5 | Layout Principles | Spacing, grid, rhythm |
-| 6 | Depth & Elevation | Shadows, surface hierarchy |
-| 7 | Do's and Don'ts | Guardrails para el agente |
-| 8 | Responsive Behavior | Breakpoints, touch targets |
-| 9 | Agent Prompt Guide | Prompts reutilizables |
+| 1 | Visual Theme & Atmosphere | Tono, densidad, mood visual |
+| 2 | Color Palette & Roles | Variables CSS + nombres semánticos |
+| 3 | Typography Rules | Escala tipográfica, fuentes, pesos |
+| 4 | Component Stylings | Botones, inputs, cards, navegación |
+| 5 | Layout Principles | Spacing, grid, ritmo, márgenes |
+| 6 | Depth & Elevation | Sombras, jerarquía de superficies |
+| 7 | Do's and Don'ts | Guías y prohibiciones de diseño |
+| 8 | Responsive Behavior | Breakpoints, comportamiento en móviles |
+| 9 | Agent Prompt Guide | Prompts listos para usar |
 
 ## Comparison
 
 | File | Who Reads | What Defines |
 |------|----------|--------------|
-| AGENTS.md | Coding agents | Cómo construir el proyecto |
-| DESIGN.md | Design agents | Cómo se ve y siente el proyecto |
+| `AGENTS.md` | Coding agents | Cómo construir y operar el proyecto |
+| `DESIGN.md` | Design agents | Cómo se ve y siente el proyecto |
 
-## Tools Using This
+## Tools & Ecosystem
 
-- Claude Design (claude.ai/design)
-- Google Stitch
-- [[VoltAgent]]/awesome-claude-design (colección de 68 ejemplos)
+- **Google Stitch**: El origen del concepto.
+- **[[Awesome-DESIGN-md]]**: Colección curada de 69+ especificaciones de sitios reales (Stripe, Vercel, Apple, etc.).
+- **getdesign.md**: Interfaz web para explorar el catálogo.
 
-## Examples
+## Examples Categorized
 
-Los 68 ejemplos de awesome-claude-design incluyen:
-- AI/LLM: Claude, Cohere, ElevenLabs, Ollama
-- Developer Tools: Cursor, Vercel, Raycast
-- Fintech: Stripe, Coinbase, Revolut
-- E-commerce: Airbnb, Nike, Shopify
+Gracias a [[Awesome-DESIGN-md]], podemos imitar estilos de:
+- **AI/LLM**: Claude, Cohere, Ollama, OpenCode AI.
+- **Developer Tools**: Cursor, Vercel, Expo, Supabase.
+- **Fintech**: Stripe, Revolut, Binance.
+- **SaaS/Productivity**: Linear, Notion, Cal.com.
+- **High-End**: Tesla, Ferrari, Apple, Nike.
 
 ## Example DESIGN.md Template
 
@@ -99,14 +102,8 @@ Los 68 ejemplos de awesome-claude-design incluyen:
 - DON'T: Mix more than 3 accent colors
 ```
 
-## Patterns
+## Sources
 
-- **Token-based**: Colors as CSS variables, not hardcoded
-- **Semantic naming**: `bg-primary`, `text-accent` not `#fff`, `blue`
-- **Component tokens**: Button, Input, Card, Nav with variants
-
-## Source
-
-- https://github.com/VoltAgent/awesome-claude-design
-- https://getdesign.md/what-is-design-md
+- [Awesome DESIGN.md GitHub](https://github.com/VoltAgent/awesome-design-md)
+- [getdesign.md](https://getdesign.md)
 - [[Context7]]
