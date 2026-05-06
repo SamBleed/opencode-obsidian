@@ -40,6 +40,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 - [[awesome-claude-design]] — 68 DESIGN.md files for AI agents (VoltAgent)
 - [[BrowserMCP]] — Browser automation via MCP (6.4k stars)
 - [[zakirkun-deep-eye]] — AI-driven vulnerability scanner (OpenAI, Grok, Ollama, Claude)
+- [[affaan-m-everything-claude-code]] — Agent harness with 174K+ stars (16+ agents, 65+ skills)
 
 ---
 
@@ -93,6 +94,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 - [[PayloadsAllTheThings]] — Tactical security arsenal.
 - [[notebooklm-mcp-cli]] — Programmatic access to NotebookLM (CLI + MCP).
 - [[Muhammad-Zakir-Ramadhan]] — Author of Deep Eye AI-powered pentesting tool.
+- [[aaif-goose-goose]] — Native AI agent in Rust, 43K+ stars, 70+ MCP extensions.
 
 ---
 

@@ -23,6 +23,16 @@ Entry format: `## [YYYY-MM-DD] operation | Title`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
+## [2026-05-06] ingest | Claude Code Ecosystem & AI Agents
+- Type: source + concept + entity ingestion
+- Sources: https://github.com/affaan-m/everything-claude-code, https://github.com/aaif-goose/goose
+- Summary: [[affaan-m-everything-claude-code]], [[claude-code-harness]], [[aaif-goose-goose]]
+- Pages created: [[affaan-m-everything-claude-code]], [[claude-code-harness]], [[aaif-goose-goose]]
+- Pages updated: [[index]], [[log]]
+- Notes: everything-claude-code (174K+ stars) - 16+ agents, 65+ skills, performance optimization. Goose (43K+ stars) - Rust-native AI agent, 70+ MCP extensions, part of AAIF/Linux Foundation.
+- Status: ecosystem expanded with agent harness patterns and MCP-native infrastructure
+
+---
 ## [2026-05-05] ingest | AI-Powered Pentesting Ecosystem
 - Type: source + concept + entity ingestion
 - Source: https://github.com/zakirkun/deep-eye
