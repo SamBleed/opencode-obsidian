@@ -50,6 +50,10 @@ Do NOT read the wiki for general coding questions or things already in this proj
 
 | Skill | Trigger |
 |-------|---------|
+| `bunker init` | Workflow Start: Lee hot.md y handover. |
+| `bunker refresh` | Re-alinea: Re-lee pilares para evitar context drift. |
+| `bunker save` | Checkpoint: Commits rápidos de la wiki. |
+| `bunker close` | Session End: Handover, sync y push. |
 | `/wiki` | Setup, scaffold, route to sub-skills |
 | `ingest [source]` | Single or batch source ingestion |
 | `query: [question]` | Answer from wiki content |

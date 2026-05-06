@@ -57,8 +57,11 @@ El Bunker no es solo teoría; incluye implementaciones de referencia "Agent-Nati
 | `bunker-up` | Despierta todo el ecosistema (Docker + Agente). |
 | `bunker-ingest [fuente]` | Ingiere y destila archivos o URLs a la wiki. |
 | `bunker-push "[msg]"` | Sincroniza Git y te avisa al celular si hubo éxito. |
+| `bunker-close` | Cierre de sesión: Handover + sync + push. |
 | `/save` | Guarda el insight de la charla actual en la wiki. |
 | `trivy scan` | Realiza una auditoría de seguridad sobre el código. |
+| `bunker-init` | Workflow Start: Lee hot.md y handover. |
+| `bunker-refresh` | Re-alinea: Re-lee pilares para evitar context drift. |
 
 ---
 
