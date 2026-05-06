@@ -61,7 +61,6 @@ Do NOT read the wiki for general coding questions or things already in this proj
 | `/save` | File the current conversation as a structured wiki note |
 | `/autoresearch [topic]` | Autonomous research loop: search, fetch, synthesize, file |
 | `/canvas` | Visual layer: add images, PDFs, notes to Obsidian canvas |
-
 ## MCP (Optional)
 
 If you configured the MCP server, OpenCode can read and write vault notes directly.
