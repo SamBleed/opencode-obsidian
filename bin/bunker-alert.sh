@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # bunker-alert.sh — Dispara una alerta de seguridad al orquestador n8n
 # Uso: ./bunker-alert.sh <target> <level> <message>

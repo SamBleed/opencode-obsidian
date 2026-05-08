@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 # opencode-obsidian: Orchestrator script
 
 COMMAND=$1

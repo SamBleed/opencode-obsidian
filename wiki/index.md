@@ -17,13 +17,14 @@ related:
 
 # 🏛️ Bunker OS — Index
 
-Last updated: 2026-04-19 | Version: 1.4.1 | **Status**: Fully Operational
+Last updated: 2026-05-08 | Version: 1.5.0 | **Status**: Fully Operational (AgentMemory Active)
 
-Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]] | [[ENV-STATUS]]
+Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]] | [[ENV-STATUS]] | [[agentmemory]]
 
 ---
 
 ## 🚀 Projects (Ecosistema Vivo)
+- **[[agentmemory]]** — Persistent memory engine for the Bunker's agents.
 - **[[OzyZT]]** — Zero-Trust enforcement platform for developer security gates.
 - **[[ozy-api]]** — Powered by [[GO-API-BLUEPRINT]].
 - **[[ozy-web]]** — Powered by [[DESIGN-TEMPLATE]].

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # bunker-ingest.sh — Procesa una fuente y la integra al Bunker
 # Uso: ./bin/bunker-ingest.sh <ruta_al_archivo_o_url>

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 #
 # opencode-obsidian setup
 # Instala el vault + skills + MCP para OpenCode

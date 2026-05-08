@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 # bin/audit-repo.sh
 # Estandariza el uso de Trivy para auditorías de seguridad en el Bunker.
 

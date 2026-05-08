@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # bunker-push.sh — Sincroniza el Bunker y notifica vía n8n
 # Uso: ./bin/bunker-push.sh "mensaje del commit"
