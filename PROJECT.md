@@ -1,67 +1,53 @@
-# opencode-obsidian — OpenCode + Obsidian Wiki Vault
+# opencode-obsidian — Bunker OS v2.3.1
 
-This folder is both a OpenCode plugin and an Obsidian vault.
+This repository is an OpenCode agent environment and an Obsidian wiki vault.
 
-**Plugin name:** `opencode-obsidian`
-**Skills:** `/wiki`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`
+**Version:** 2.3.1 (Senior Architect Release)
+**Status:** Stable / Production Ready
 **Vault path:** This directory (open in Obsidian directly)
 
-## What This Vault Is For
+## 🏗️ Core Philosophy: "Deep Capacity"
+Bunker OS follows the **Deep Capacity** standard. All core technical notes must exceed 100 lines and include senior-level patterns, troubleshooting guides, and modern (2026) conventions.
 
-This vault demonstrates the LLM Wiki pattern — a persistent, compounding knowledge base for OpenCode + Obsidian. Drop any source, ask any question, and the wiki grows richer with every session.
+## 📂 Vault Structure
 
-## Vault Structure
-
+```text
+.
+├── .raw/               # Immutable source documents (articles, PDFs)
+├── bin/                # Operational tools (scaffold, integrity, sync)
+├── docs/               # Executive reports and briefings
+├── wiki/               # Structured knowledge base
+│   ├── blueprints/     # Executable architecture templates
+│   ├── concepts/       # Tech stack and domain patterns
+│   ├── entities/       # People, orgs, products
+│   └── meta/           # Log, Hot Cache, and Handovers
+└── BUNKER-OS.canvas    # Visual Mission Control
 ```
-.raw/           source documents — immutable, OpenCode reads but never modifies
-wiki/           OpenCode-generated knowledge base
-_templates/     Obsidian Templater templates
-_attachments/   images and PDFs referenced by wiki pages
-```
 
-## How to Use
+## 🛠️ Key Capabilities
 
-Drop a source file into `.raw/`, then tell OpenCode: "ingest [filename]".
+| Tool | Action | Description |
+|------|--------|-------------|
+| **Ingest** | `ingest [file]` | Process sources into cross-linked wiki pages. |
+| **Scaffold** | `bunker-scaffold` | Generate Go/React projects using v2.1 Blueprints. |
+| **Audit** | `wiki-integrity` | Detect knowledge debt (orphans/seeds). |
+| **Governance** | `ADR/AgDR` | Document and enforce architectural decisions. |
+| **Grounding** | `NotebookLM` | Deep research via 10+ connected notebooks. |
 
-Ask any question. OpenCode reads the index first, then drills into relevant pages.
+## 🚀 How to Use
 
-Run `/wiki` to scaffold a new vault or check setup status.
+1. **Initialize**: Read `wiki/hot.md` to get current context.
+2. **Build**: Use `./bin/bunker-scaffold.sh` to start a new service.
+3. **Research**: Drop URLs into `.raw/` and ingest them to expand the brain.
+4. **Govern**: Save every major decision as an `AgDR` in the wiki.
 
-Run "lint the wiki" every 10-15 ingests to catch orphans and gaps.
-
-## Cross-Project Access
-
-To reference this wiki from another OpenCode project, add to that project's AGENTS.md:
-
+## 🌐 Cross-Project Access
+To use this brain in another project, add to its `AGENTS.md`:
 ```markdown
 ## Wiki Knowledge Base
-Path: /path/to/this/vault
-
-When you need context not already in this project:
-1. Read wiki/hot.md first (recent context, ~500 words)
-2. If not enough, read wiki/index.md
-3. If you need domain specifics, read wiki/<domain>/_index.md
-4. Only then read individual wiki pages
-
-Do NOT read the wiki for general coding questions or things already in this project.
+Path: /home/sam/opencode-obsidian
+Follow the protocols in [[vault-flow]].
 ```
 
-## Plugin Skills
-
-| Skill | Trigger |
-|-------|---------|
-| `bunker init` | Workflow Start: Lee hot.md y handover. |
-| `bunker refresh` | Re-alinea: Re-lee pilares para evitar context drift. |
-| `bunker save` | Checkpoint: Commits rápidos de la wiki. |
-| `bunker close` | Session End: Handover, sync y push. |
-| `/wiki` | Setup, scaffold, route to sub-skills |
-| `ingest [source]` | Single or batch source ingestion |
-| `query: [question]` | Answer from wiki content |
-| `lint the wiki` | Health check |
-| `/save` | File the current conversation as a structured wiki note |
-| `/autoresearch [topic]` | Autonomous research loop: search, fetch, synthesize, file |
-| `/canvas` | Visual layer: add images, PDFs, notes to Obsidian canvas |
-## MCP (Optional)
-
-If you configured the MCP server, OpenCode can read and write vault notes directly.
-See `skills/wiki/references/mcp-setup.md` for setup instructions.
+---
+MIT License © 2026 | **SamBleed**

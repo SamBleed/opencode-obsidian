@@ -1,83 +1,68 @@
-# opencode-obsidian
+# 🏛️ opencode-obsidian (Bunker OS)
 
 <p align="center">
   <img src="wiki/meta/banner-opencode-obsidian.png" alt="opencode-obsidian" width="100%" />
 </p>
 
-[![GitHub stars](https://img.shields.io/github/stars/SamBleed/opencode-obsidian?style=flat&color=e8734a)](https://github.com/SamBleed/opencode-obsidian/stargazers)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![OpenCode](https://img.shields.io/badge/OpenCode-ready-8B5CF6)](https://opencode.ai)
+[![BunkerOS](https://img.shields.io/badge/BunkerOS-v2.3.1--Senior-purple?style=flat-square&logo=obsidian)](wiki/overview.md)
+[![AgentMemory](https://img.shields.io/badge/Memory-Active-success?style=flat-square&logo=brain)](https://github.com/rohitg00/agentmemory)
+[![Operational](https://img.shields.io/badge/Ops-Scaffolding--Ready-blue?style=flat-square&logo=go)](bin/bunker-scaffold.sh)
+[![OpenCode](https://img.shields.io/badge/OpenCode-Ready-8B5CF6?style=flat-square)](https://opencode.ai)
 
-**opencode-obsidian** es un Bunker de Conocimiento Agéntico y Ecosistema de Desarrollo Full-Stack optimizado para **OpenCode**. Basado en el patrón **LLM Wiki** de Andrej Karpathy, este sistema permite que la inteligencia artificial aprenda, documente y opere de forma autónoma en tu entorno local.
+**opencode-obsidian** (Bunker OS) is a **Senior Architect Command Center** and Agentic Knowledge Ecosystem. It is designed to transform ephemeral AI sessions into a compounding technical asset with **Zero-Trust Security**, **Agentic Workflows**, and **Operational Automation**.
 
 ---
 
-## ⚡ Quick Start
+## 🏗️ Intelligence Architecture v2.3.1
 
-### 1. Prerrequisitos
-Este ecosistema requiere tener instalado **Docker** y el orquestador **n8n** (MECO_Framework Lab). Consulta la [Guía de Setup de n8n](docs/N8N-SETUP.md).
-
-### 2. Instalación del Bunker
-```bash
-# Levanta el entorno y lanza el agente
-bunker-up
-```
-
-### 3. Ingestión de Conocimiento
-```bash
-# Dale una fuente (PDF, TXT, URL) y el Bunker la destilará solo
-bunker-ingest "https://articulo-tecnico.com"
+```text
+  USUARIO (Telegram/Web)           BUNKER MISSION CONTROL (Canvas)
+          │                            │
+          ▼                            ▼
+   [ Smart Ingest ] ───(Query)──▶ [ Obsidian Vault ] ◀── [ NotebookLM ]
+          │                            │                (Grounding)
+          └────(Scaffold)─▶ [ Real Code ] ◀── [ bin/bunker-scaffold.sh ]
+                                     │
+                                     └──────(Verify)──▶ [ OzyAudit / react-doctor ]
 ```
 
 ---
 
-## 🚀 Características Principales
+## 🚀 Key Features (Bunker v2.3.1)
 
-- **Self-Documenting IA**: El sistema ingiere fuentes externas y crea notas estructuradas automáticamente.
-- **Agentic Full-Stack**: Incluye una API (Go 1.26) y un Dashboard (React 19) sincronizados en tiempo real.
-- **Security-First**: Auditoría nativa con **Trivy MCP** y mitigación de riesgos **OWASP ASI 2026**.
-- **Local Sovereignty**: Todo el conocimiento y los datos (PostgreSQL) residen en tu máquina.
-- **Live Feedback**: Alertas automáticas al celular vía n8n y Telegram.
-
----
-
-## 🏢 Ecosistema de Proyectos (/projects)
-
-El Bunker no es solo teoría; incluye implementaciones de referencia "Agent-Native":
-
-- **[OZY-API](projects/ozy-api/)**: Backend robusto (Hexagonal, JWT, Postgres).
-- **[OZY-WEB](projects/ozy-web/)**: Frontend moderno (React 19, Tailwind 4).
+- **Deep Capacity Wiki**: Core tech pillars (Go, React, Postgres, Docker) expanded to Senior Architect standards (100+ lines, patterns 2026).
+- **Operational Scaffolding**: `bin/bunker-scaffold.sh` generates production-ready projects in seconds based on Bunker Blueprints.
+- **Mission Control**: Visual orchestration via `BUNKER-OS.canvas`.
+- **Strategic Domination**: Native support for **Vector Databases (RRF)**, **Tailwind 4**, **OpenTofu Zero-Trust IaC**, and **Agentic FinOps**.
+- **Self-Healing Integrity**: `bin/wiki-integrity.sh` automatically maintains knowledge graph health.
+- **Agent Decision Records (AgDR)**: Formal governance for autonomous decisions within the SDLC.
 
 ---
 
-## 🤖 Comandos del Sistema
+## 🛠️ Power Commands
 
-| Comando | Descripción |
-|---------|-----------|
-| `bunker-up` | Despierta todo el ecosistema (Docker + Agente). |
-| `bunker-ingest [fuente]` | Ingiere y destila archivos o URLs a la wiki. |
-| `bunker-push "[msg]"` | Sincroniza Git y te avisa al celular si hubo éxito. |
-| `bunker-close` | Cierre de sesión: Handover + sync + push. |
-| `/save` | Guarda el insight de la charla actual en la wiki. |
-| `trivy scan` | Realiza una auditoría de seguridad sobre el código. |
-| `bunker-init` | Workflow Start: Lee hot.md y handover. |
-| `bunker-refresh` | Re-alinea: Re-lee pilares para evitar context drift. |
+| Command | Domain | Purpose |
+|---------|--------|---------|
+| `./bin/bunker-scaffold.sh` | **Ops** | Generate a new project using Bunker standards. |
+| `./bin/wiki-integrity.sh` | **Hygiene** | Scan for orphan notes and broken links. |
+| `go run bin/ingest_server.go` | **Ingest** | Start the Smart Ingest Pipe (Port 9090). |
+| `./bin/wiki-sync.sh` | **Sync** | Global knowledge synchronization. |
 
 ---
 
-## 📖 Documentación Interna
+## ⚙️ Infrastructure & Grounding
 
-- [Manual de Conexión MCP](wiki/meta/MCP-CONFIG.md) — Cómo enchufar n8n y Trivy.
-- [Protocolo de Handover](wiki/meta/HANDOVER.md) — Estándar de transferencia entre agentes.
-- [Security Guardrails](wiki/concepts/Security-Guardrails.md) — La constitución del Bunker.
-
----
-
-## 📜 Créditos
-
-- [Karpathy](https://github.com/karpathy) - Patrón LLM Wiki original.
-- **SamBleed** - Arquitectura, Full-Stack y Automatización Agéntica.
+- **9090**: Smart Ingest API.
+- **3113**: Memory Viewer (AgentMemory).
+- **NotebookLM**: 10+ Research Notebooks connected via MCP.
+- **OzyZT**: Zero-Trust Security Control Plane.
 
 ---
 
-MIT License © 2026
+## 📖 Live Documentation
+- **[[overview]]**: High-level system summary.
+- **[[BUNKER-OS.canvas]]**: Visual map of the entire architecture.
+- **[[Security-Guardrails]]**: The Bunker's technical constitution.
+
+---
+MIT License © 2026 | **SamBleed** & **OpenCode Architect**
