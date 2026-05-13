@@ -1,20 +1,20 @@
 ---
 type: project
-title: "OzyZT"
+title: "ozy-policy-engine"
 stack: "Python"
 status: active
 created: 2026-05-08
 related: [[Bunker OS]]
 ---
 
-# Project: OzyZT
+# Project: ozy-policy-engine
 
 ## Overview
 Análisis automático realizado por el Bunker Sentinel v5.5.
 
 ## Tech Stack
 - **Primary:** Python
-- **Location:** `/home/sam/Proyectos/OzyZT`
+- **Location:** `/home/sam/Proyectos/ozy-policy-engine`
 
 ## Audit Status
 - **Memory Sync:** Pending

@@ -23,6 +23,16 @@ Entry format: `## [YYYY-MM-DD] operation | Title`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
+## [2026-05-13] ingest | Million.co - React Doctor
+- Type: source + entity + concept ingestion
+- Source: https://github.com/millionco/react-doctor
+- Summary: [[millionco-react-doctor-repo]], [[react-doctor]], [[million-co]]
+- Pages created: [[millionco-react-doctor-repo]], [[million-co]], [[react-doctor]], [[react-health-score]], [[coding-agent-integration]]
+- Pages updated: [[index]], [[log]], [[hot]]
+- Notes: React Doctor 9k+ stars. Catching "bad React" and teaching agents best practices. Health score formula (100 - rules weight).
+- Status: Ingested into Tech-Stack concepts.
+
+---
 ## [2026-05-06] ingest | Recent Starred Repos (Top 5 New)
 - Type: source + entity ingestion
 - Sources: https://github.com/sipeed/picoclaw, https://github.com/QwenLM/qwen-code, https://github.com/Armur-Ai/Pentest-Swarm-AI, https://github.com/NousResearch/hermes-agent, https://github.com/onyx-dot-app/onyx

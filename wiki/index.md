@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-04-19
+updated: 2026-05-13
 tags:
   - meta
   - index
@@ -17,7 +17,7 @@ related:
 
 # 🏛️ Bunker OS — Index
 
-Last updated: 2026-05-08 | Version: 1.5.0 | **Status**: Fully Operational (AgentMemory Active)
+Last updated: 2026-05-13 | Version: 1.5.1 | **Status**: Fully Operational (AgentMemory Active)
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]] | [[ENV-STATUS]] | [[agentmemory]]
 
@@ -32,6 +32,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 ---
 
 ## 📚 Sources
+- [[millionco-react-doctor-repo]] — React health diagnostics and agent integration (9k+ stars)
 - [[notebooklm]] — Google research assistant with source grounding (FAQ, Study Guides)
 - [[awesome-mcp-servers]] — 1000+ MCP servers directory
 - [[hexstrike-ai]] — AI-powered cybersecurity automation (150+ security tools)
@@ -50,15 +51,19 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 ---
 
 ## 🔬 Concepts
+- [[react-health-score]] — Metric for quantifying React codebase quality.
+- [[coding-agent-integration]] — Patterns for teaching agents React best practices.
 - [[DESIGN-MD]] — AI-readable design system format (9 sections) → `concepts/tech-stack/`
 - [[AI-Analysis-Workflow]] — Análisis de requests antes de implementar (5 pasos + pregunta crítica)
 - [[go-rate-limiting]] — High-performance rate limiting patterns for Go.
 - [[vault-flow]] — Workflow para ingestar recursos y consultar conocimiento en el vault.
+- [[ai-powered-pentesting]] — AI-driven pentesting with multi-provider LLM support
+- [[Claudesidian]] — PRE-configured vault + PARA by heyitsnoah
+- [[Ar9av-obsidian-wiki]] — Multi-agent wiki with delta tracking
 
 ## 🧠 Core Concepts
 - [[LLM Wiki Pattern]] — Persistent, compounding knowledge base.
 - [[Delta Tracking]] — Hash-based source change detection.
-- [[LLM Wiki Pattern]] — Persistent, compounding knowledge base.
 - [[Domain-Specific-Vaults]] — Multi-vault architecture (Coding, Finance, etc.).
 - [[Design-System-MD]] — Markdown-based UI governance.
 - [[Observability-MD]] — Structured logging and agent tracing.
@@ -77,18 +82,9 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 
 ---
 
-## 🔬 Concepts
-- [[DESIGN-MD]] — AI-readable design system format (9 sections) → `concepts/tech-stack/`
-- [[AI-Analysis-Workflow]] — Análisis de requests antes de implementar (5 pasos + pregunta crítica)
-- [[go-rate-limiting]] — High-performance rate limiting patterns for Go.
-- [[vault-flow]] — Workflow para ingestar recursos y consultar conocimiento en el vault.
-- [[ai-powered-pentesting]] — AI-driven pentesting with multi-provider LLM support
-- [[Claudesidian]] — PRE-configured vault + PARA by heyitsnoah
-- [[Ar9av-obsidian-wiki]] — Multi-agent wiki with delta tracking
-
----
-
 ## 🤖 Agentic Entities
+- [[react-doctor]] — Diagnostic product for React health and agent skills.
+- [[million-co]] — Organization focused on React performance (Million.js).
 - [[Hermes-Agent]] — Closed-loop learning and procedural memory.
 - [[Decepticon]] — Autonomous Red Team framework.
 - [[DeepTutor]] — Logic verification and deep research.

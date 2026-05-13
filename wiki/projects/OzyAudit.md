@@ -1,20 +1,20 @@
 ---
 type: project
-title: "OzyZT"
-stack: "Python"
+title: "OzyAudit"
+stack: "Node.js/TS"
 status: active
 created: 2026-05-08
 related: [[Bunker OS]]
 ---
 
-# Project: OzyZT
+# Project: OzyAudit
 
 ## Overview
 Análisis automático realizado por el Bunker Sentinel v5.5.
 
 ## Tech Stack
-- **Primary:** Python
-- **Location:** `/home/sam/Proyectos/OzyZT`
+- **Primary:** Node.js/TS
+- **Location:** `/home/sam/Proyectos/OzyAudit`
 
 ## Audit Status
 - **Memory Sync:** Pending

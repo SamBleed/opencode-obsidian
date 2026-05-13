@@ -1,20 +1,20 @@
 ---
 type: project
-title: "OzyZT"
-stack: "Python"
+title: "runtime"
+stack: "Unknown"
 status: active
 created: 2026-05-08
 related: [[Bunker OS]]
 ---
 
-# Project: OzyZT
+# Project: runtime
 
 ## Overview
 Análisis automático realizado por el Bunker Sentinel v5.5.
 
 ## Tech Stack
-- **Primary:** Python
-- **Location:** `/home/sam/Proyectos/OzyZT`
+- **Primary:** Unknown
+- **Location:** `/home/sam/Proyectos/runtime`
 
 ## Audit Status
 - **Memory Sync:** Pending

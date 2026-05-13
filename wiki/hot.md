@@ -40,6 +40,7 @@ Workflow de Ingestion (7 pasos):
 Véase [[vault-flow]] para guía completa.
 
 ## Last Updated
+2026-05-13: Ingestado [[millionco-react-doctor-repo]], [[react-doctor]], [[million-co]] para diagnóstico de React y mejores prácticas de agentes.
 2026-05-06: Ingestados 5 repos recientes: [[PicoClaw]], [[qwen-code]], [[Pentest-Swarm-AI]], [[NousResearch-hermes-agent]], [[onyx-dot-app-onyx]].
 2026-05-06: Ingestados [[affaan-m-everything-claude-code]], [[claude-code-harness]], [[aaif-goose-goose]] para ecosistema Claude Code.
 2026-05-05: Ingestado [[zakirkun-deep-eye]], [[ai-powered-pentesting]], [[Muhammad-Zakir-Ramadhan]] para AI pentesting.

@@ -21,7 +21,12 @@
  		{"id":"e-idx","type":"file","file":"wiki/entities/_index.md","x":-500,"y":235,"width":270,"height":80,"color":"6"},
 		{"id":"deep-eye","type":"file","file":"wiki/sources/zakirkun-deep-eye.md","x":-150,"y":-680,"width":280,"height":80,"color":"4"},
 		{"id":"ai-pentest","type":"file","file":"wiki/concepts/tech-stack/ai-powered-pentesting.md","x":700,"y":-100,"width":300,"height":80,"color":"2"},
-		{"id":"zakir","type":"file","file":"wiki/entities/Muhammad-Zakir-Ramadhan.md","x":-1100,"y":320,"width":280,"height":80,"color":"6"}
+		{"id":"zakir","type":"file","file":"wiki/entities/Muhammad-Zakir-Ramadhan.md","x":-1100,"y":320,"width":280,"height":80,"color":"6"},
+		{"id":"react-dr-src","type":"file","file":"wiki/sources/millionco-react-doctor-repo.md","x":-450,"y":-580,"width":280,"height":80,"color":"4"},
+		{"id":"react-dr-prod","type":"file","file":"wiki/entities/react-doctor.md","x":-700,"y":320,"width":260,"height":80,"color":"6"},
+		{"id":"million-org","type":"file","file":"wiki/entities/million-co.md","x":-900,"y":420,"width":260,"height":80,"color":"6"},
+		{"id":"react-health","type":"file","file":"wiki/concepts/tech-stack/react-health-score.md","x":800,"y":50,"width":280,"height":80,"color":"2"},
+		{"id":"agent-int","type":"file","file":"wiki/concepts/tech-stack/coding-agent-integration.md","x":900,"y":150,"width":300,"height":80,"color":"2"}
 	],
 	"edges":[
 		{"id":"e-hub-cidx","fromNode":"hub","fromSide":"right","toNode":"c-idx","toSide":"left","label":"concepts"},
@@ -43,6 +48,10 @@
 		{"id":"e-cidx-aipen","fromNode":"c-idx","fromSide":"right","toNode":"ai-pentest","toSide":"left","label":"tech-stack"},
 		{"id":"e-eidx-zakir","fromNode":"e-idx","fromSide":"left","toNode":"zakir","toSide":"right","label":"entities"},
 		{"id":"e-deep-aipen","fromNode":"deep-eye","fromSide":"right","toNode":"ai-pentest","toSide":"left","color":"2","label":"implements"},
-		{"id":"e-zakir-deep","fromNode":"zakir","fromSide":"right","toNode":"deep-eye","toSide":"left","color":"4","label":"author of"}
+		{"id":"e-zakir-deep","fromNode":"zakir","fromSide":"right","toNode":"deep-eye","toSide":"left","color":"4","label":"author of"},
+		{"id":"e-million-src","fromNode":"million-org","fromSide":"right","toNode":"react-dr-src","toSide":"left","color":"4","label":"owner of"},
+		{"id":"e-src-prod","fromNode":"react-dr-src","fromSide":"bottom","toNode":"react-dr-prod","toSide":"top","color":"6","label":"defines"},
+		{"id":"e-prod-health","fromNode":"react-dr-prod","fromSide":"right","toNode":"react-health","toSide":"left","color":"2","label":"implements"},
+		{"id":"e-prod-agent","fromNode":"react-dr-prod","fromSide":"right","toNode":"agent-int","toSide":"left","color":"2","label":"supports"}
 	]
 }
