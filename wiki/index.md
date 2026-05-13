@@ -58,6 +58,10 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 ## 🔬 Concepts
 - [[react-health-score]] — Metric for quantifying React codebase quality.
 - [[coding-agent-integration]] — Patterns for teaching agents React best practices.
+- [[Vector-Database-Patterns]] — Hybrid search, pgvector, and RAG strategies.
+- [[Terraform-OpenTofu-Senior-Patterns]] — Multi-layer IaC and Zero-Trust state.
+- [[Tailwind-CSS-4-Mastery]] — Advanced frontend styling and tokens.
+- [[ADR-Lifecycle]] — Governance for architectural and agentic decisions.
 - [[DESIGN-MD]] — AI-readable design system format (9 sections) → `concepts/tech-stack/`
 - [[AI-Analysis-Workflow]] — Análisis de requests antes de implementar (5 pasos + pregunta crítica)
 - [[go-rate-limiting]] — High-performance rate limiting patterns for Go.
