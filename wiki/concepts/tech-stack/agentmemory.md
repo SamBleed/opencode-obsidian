@@ -2,39 +2,60 @@
 type: concept
 title: "AgentMemory"
 domain: tech-stack
-created: 2026-05-08
-updated: 2026-05-08
-tags: [memory, ai, mcp, iii-engine]
-status: active
-related: [Engram, OpenCode, iii-engine]
-sources: [https://github.com/rohitg00/agentmemory]
+created: 2026-05-13
+updated: 2026-05-13
+tags: [ai, memory, persistence, go, sqlite]
+status: mature
 ---
 
 # AgentMemory
 
-## Definition
-AgentMemory es el motor de memoria persistente de largo plazo para el Bunker. Utiliza el patrón **LLM Wiki** con una arquitectura de 4 niveles (Working, Episodic, Semantic, Procedural) para eliminar la amnesia de los agentes de IA.
+AgentMemory is the persistent memory engine that powers the Bunker's agents. It allows agents to retain context across sessions, recall past decisions, and learn from project history.
 
-## How It Works
-Corre sobre el motor `iii-engine` y se comunica mediante un servidor **MCP (Model Context Protocol)**. Captura automáticamente el uso de herramientas, decisiones y bugs, indexándolos mediante búsqueda híbrida (BM25 + Vectores).
+## 🧠 Core Philosophy: "Compound Knowledge"
+Unlike standard RAG (Retrieval-Augmented Generation) which often pulls disjointed fragments, AgentMemory focuses on **Structured Experience**. It records not just *what* happened, but *why* and *what was learned*.
 
-## Example (Integration in Go)
-```go
-// Llamada al binario MCP desde el Bunker Ingest Server
-cmd := exec.Command("/home/sam/.npm-global/bin/agentmemory-mcp")
-cmd.Stdin = bytes.NewBuffer(jsonReq)
-// ... procesamiento de la respuesta semántica
-```
+## 🏗️ Technical Architecture
 
-## Patterns
-- **Reactive Auditing (Sentinel):** Escaneo de código en el momento de la ingesta de una decisión.
-- **Auto-Documentation (Pulse):** Reconstrucción automática de `BUNKER_RULES.md` basada en memorias de arquitectura.
+### Storage Layer
+- **SQLite (FTS5)**: Used for high-speed keyword and full-text search.
+- **Vector Store (Optional)**: For semantic similarity search.
+- **JSON Files**: For raw observation persistence.
 
-## Implementation in this Bunker
-- **Server Port:** 3111 (API), 3113 (Viewer)
-- **MCP Binary:** `/home/sam/.npm-global/bin/agentmemory-mcp`
-- **Integrations:** `ingest_server.go` (v2.1+), `bunker-pulse.sh` (v4.0+)
+### Data Model
+Every memory is an **Observation** with the following metadata:
+- **Title**: Searchable identifier.
+- **Content**: The core insight (**What, Why, Where, Learned**).
+- **Topic Key**: A stable identifier for evolving concepts (e.g., `architecture/auth`).
+- **Scope**: `project` or `personal`.
+- **Project**: Associated repository or initiative.
 
-## Source
-- [GitHub Repository](https://github.com/rohitg00/agentmemory)
-- [[Engram]] (Memoria complementaria)
+## 🛠️ Usage Patterns
+
+### Proactive Saving
+Agents are instructed to call `mem_save` after any significant event:
+- A bug fix with a non-obvious root cause.
+- An architectural decision with specific tradeoffs.
+- A user preference discovered during conversation.
+
+### Semantic Recall
+When a user asks "How did we solve X before?", the agent:
+1. Calls `mem_context` for recent session history.
+2. Calls `mem_search` with keywords for deep historical search.
+3. Synthesizes the answer using `mem_get_observation`.
+
+## ⚡ Integration with [[vault-flow]]
+AgentMemory and the Obsidian Wiki work together:
+- **AgentMemory**: Ephemeral, fast, and session-oriented.
+- **Obsidian Wiki**: Persistent, curated, and structural knowledge.
+*Pattern: High-value observations in AgentMemory should eventually be "promoted" to full Wiki pages.*
+
+## ⚠️ Known Gotchas
+- **Context Drift**: If multiple agents write to the same topic key without coordination, the memory can become fragmented.
+- **Token Usage**: Recalling too many large observations can exhaust the agent's context window.
+
+## Related
+- [[LLM Wiki Pattern]]
+- [[Delta-Tracking]]
+- [[vault-flow]]
+- [[fts5-search]]

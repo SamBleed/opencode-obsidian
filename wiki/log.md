@@ -23,6 +23,13 @@ Entry format: `## [YYYY-MM-DD] operation | Title`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
+## [2026-05-13] upgrade | Systemic Capacity Expansion (Bunker v1.6)
+- Type: wiki-refactor + deep-dive expansion
+- Scope: Entire core tech stack and project blueprints.
+- Pages expanded: [[Go]], [[React]], [[PostgreSQL]], [[Docker]], [[Redis]], [[OzyZT]], [[agentmemory]], [[GO-API-BLUEPRINT]], [[REACT-WEB-BLUEPRINT]], [[Security-Guardrails]].
+- Goal: Reach "Senior Architect" capacity (100+ lines per core pillar).
+- Notes: Injected React 19 patterns, Go 1.26 iterators, zero-downtime DB migrations, and Zero-Trust constitution.
+
 ## [2026-05-13] ingest | Million.co - React Doctor
 - Type: source + entity + concept ingestion
 - Source: https://github.com/millionco/react-doctor

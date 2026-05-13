@@ -1,39 +1,43 @@
-# n8n (Orchestration Engine)
-
-**Type**: Low-Code Automation / Orchestrator
-**Category**: Infrastructure / Workflow
-**Status**: Researching / Integration Reference
-**Parent**: [[_index]]
-
-## 📝 Overview
-
-**n8n** is a powerful, fair-code workflow automation tool. It allows for the creation of complex, multi-step processes by connecting hundreds of apps and APIs. The [[Zie619]] repository provides 2,000+ community templates to accelerate adoption.
-
-## 🚀 Key Features
-
-- **Fair-Code & Self-Hosted**: Privacy-first, runs locally or in the cloud.
-- **AI-Agent Nodes**: Native support for LangChain-style AI chains and agents.
-- **JSON Based**: Workflows are stored as portable JSON files.
-- **Infinite Extensibility**: Custom JS nodes for logic that goes beyond standard integrations.
-
-## 🧠 Connection to opencode-obsidian
-
-n8n acts as the **Central Nervous System**. It can trigger agent actions, sync the wiki to external databases, or send alerts based on [[Observability-MD]] events.
-
-### Patterns to Adopt:
-1. **Workflow-as-Code**: Storing n8n JSON templates in the bunker for version control.
-2. **AI-BOM Auditing**: Using security tools to ensure no secrets are hardcoded in automations.
-3. **Event-Triggered Agents**: Using n8n to listen to webhooks and wake up specialized agents (e.g., [[Decepticon]] or [[DeepTutor]]).
-
-## MCP Exposure Order
-
-For the current local setup, see [[n8n-mcp-exposure-plan]] for the recommended order to expose workflows to `n8n-mcp`.
-
-## 🔗 Resources
-- **Repository**: https://github.com/Zie619/n8n-workflows
-- **Templates**: https://zie619.github.io/n8n-workflows/
-- **Official Site**: https://n8n.io
-- **Parent**: [[index]]
-
 ---
-**Last Updated**: 2026-04-19
+type: entity
+title: "n8n"
+domain: automation
+created: 2026-05-13
+updated: 2026-05-13
+tags: [automation, workflow, low-code, nodejs]
+status: mature
+---
+
+# n8n
+
+n8n is an extendable workflow automation tool that enables connecting various applications and services. In the Bunker, n8n acts as the **central nervous system** for asynchronous operations and external integrations.
+
+## 🚀 Key Roles in the Bunker
+
+### 1. Data Ingestion Pipeline
+n8n polls external sources (RSS, GitHub, Slack) and pushes them to the [[vault-flow]] for ingestion.
+- **Path**: `External Source` → `n8n Webhook/Cron` → `Go Ingest Server (:9090)` → `Wiki Inbox`.
+
+### 2. Event Orchestration
+Triggers security scans or notifications based on events.
+- **Example**: A new PR in GitHub triggers a [[Trivy]] scan via n8n, which then posts the results back to the PR and the wiki.
+
+### 3. Agent Tooling (MCP)
+n8n can expose its workflows as **MCP Tools**, allowing agents to execute complex, multi-step automations with a single natural language command.
+
+## 🏗️ Best Practices
+
+- **Atomic Workflows**: Keep workflows small and focused on one task. Use "Execute Workflow" node for composition.
+- **Error Handling**: Always use "Error Trigger" nodes to catch and log failures to the wiki's `log.md`.
+- **Credential Security**: Never hardcode API keys. Use n8n's native credential management.
+- **Version Control**: Export workflows as JSON and commit them to the `automation/` folder in the repo.
+
+## ⚠️ Gotchas
+- **Memory Usage**: Complex workflows with large data sets can crash the n8n container if memory limits aren't set.
+- **Execution Mode**: Use `queue` mode for high-volume production environments to avoid blocking the main process.
+
+## Related
+- [[AUTOMATION-STRATEGY]]
+- [[n8n-mcp-exposure-plan]]
+- [[vault-flow]]
+- [[OzyZT Architecture]] (Uses n8n for alerts)
