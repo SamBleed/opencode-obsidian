@@ -1,0 +1,36 @@
+{
+	"nodes":[
+		{"id":"bunker-title","type":"text","text":"# 🏛️ BUNKER OS v2.2\n## Mission Control — Senior Architect Environment","x":-200,"y":-400,"width":600,"height":120,"color":"1"},
+		
+		{"id":"domain-core","type":"text","text":"### 🏗️ CORE PILLARS","x":-500,"y":-200,"width":200,"height":40,"color":"2"},
+		{"id":"node-go","type":"file","file":"wiki/concepts/tech-stack/Go.md","x":-550,"y":-120,"width":250,"height":60,"color":"2"},
+		{"id":"node-react","type":"file","file":"wiki/concepts/tech-stack/React.md","x":-550,"y":-40,"width":250,"height":60,"color":"2"},
+		{"id":"node-db","type":"file","file":"wiki/concepts/tech-stack/PostgreSQL.md","x":-550,"y":40,"width":250,"height":60,"color":"2"},
+		
+		{"id":"domain-advanced","type":"text","text":"### 🚀 ADVANCED TECH","x":-150,"y":-200,"width":250,"height":40,"color":"3"},
+		{"id":"node-vector","type":"file","file":"wiki/concepts/tech-stack/Vector-Database-Patterns.md","x":-150,"y":-120,"width":300,"height":60,"color":"3"},
+		{"id":"node-tw4","type":"file","file":"wiki/concepts/tech-stack/Tailwind-CSS-4-Mastery.md","x":-150,"y":-40,"width":300,"height":60,"color":"3"},
+		{"id":"node-iac","type":"file","file":"wiki/concepts/tech-stack/Terraform-OpenTofu-Senior-Patterns.md","x":-150,"y":40,"width":300,"height":60,"color":"3"},
+		
+		{"id":"domain-ops","type":"text","text":"### ⚙️ OPERATIONS & GOVERNANCE","x":250,"y":-200,"width":300,"height":40,"color":"4"},
+		{"id":"node-sec","type":"file","file":"wiki/concepts/Security-Guardrails.md","x":250,"y":-120,"width":300,"height":60,"color":"4"},
+		{"id":"node-adr","type":"file","file":"wiki/concepts/ADR-Lifecycle.md","x":250,"y":-40,"width":300,"height":60,"color":"4"},
+		{"id":"node-finops","type":"file","file":"wiki/concepts/tech-stack/Agentic-FinOps-Patterns.md","x":250,"y":40,"width":300,"height":60,"color":"4"},
+		
+		{"id":"domain-projects","type":"text","text":"### 🛠️ ACTIVE PROJECTS","x":-150,"y":200,"width":250,"height":40,"color":"5"},
+		{"id":"node-ozy","type":"file","file":"wiki/projects/OzyZT.md","x":-250,"y":280,"width":250,"height":60,"color":"5"},
+		{"id":"node-mem","type":"file","file":"wiki/concepts/tech-stack/agentmemory.md","x":50,"y":280,"width":250,"height":60,"color":"5"},
+		
+		{"id":"node-scaffold","type":"text","text":"**OPERATIONAL TOOL**\n`bin/bunker-scaffold.sh`","x":-100,"y":450,"width":400,"height":80,"color":"1"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"bunker-title","fromSide":"bottom","toNode":"domain-core","toSide":"top"},
+		{"id":"e2","fromNode":"bunker-title","fromSide":"bottom","toNode":"domain-advanced","toSide":"top"},
+		{"id":"e3","fromNode":"bunker-title","fromSide":"bottom","toNode":"domain-ops","toSide":"top"},
+		{"id":"e4","fromNode":"node-go","fromSide":"right","toNode":"node-iac","toSide":"left"},
+		{"id":"e5","fromNode":"node-react","fromSide":"right","toNode":"node-tw4","toSide":"left"},
+		{"id":"e6","fromNode":"node-db","fromSide":"right","toNode":"node-vector","toSide":"left"},
+		{"id":"e7","fromNode":"node-iac","fromSide":"bottom","toNode":"node-ozy","toSide":"top"},
+		{"id":"e8","fromNode":"node-ozy","fromSide":"bottom","toNode":"node-scaffold","toSide":"top"}
+	]
+}

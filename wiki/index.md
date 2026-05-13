@@ -19,7 +19,14 @@ related:
 
 Last updated: 2026-05-13 | Version: 1.5.1 | **Status**: Fully Operational (AgentMemory Active)
 
-Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]] | [[ENV-STATUS]] | [[agentmemory]]
+Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[BUNKER-OS.canvas|Mission Control]] | [[HANDOVER]] | [[ENV-STATUS]] | [[agentmemory]]
+
+---
+
+## 🎮 Operational Center
+- **[[BUNKER-OS.canvas]]** — Visual Mission Control for the Senior Architect.
+- **`bin/bunker-scaffold.sh`** — Automated project generator (Go/React).
+- **[[AGENT-OBSERVABILITY-BLUEPRINT]]** — Active tracing and logging standards.
 
 ---
 

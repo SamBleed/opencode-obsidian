@@ -31,6 +31,13 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 - Goal: Make the Bunker economically sustainable and local-first ready.
 - Results: Injected patterns for SQLite WASM sync (PowerSync/Replicache) and Budget-as-Code for agents.
 
+## [2026-05-13] release | Visual Mission Control & Executive Briefing (v2.3)
+- Type: visualization + communication
+- Created: [[BUNKER-OS.canvas]] — A high-level visual map of the Bunker's core domains.
+- Updated: [[index]] with a new "Operational Center" section.
+- Artifacts: Generated NotebookLM "Architecture Briefing" report for executive review.
+- Status: Full system operationalization complete.
+
 ## [2026-05-13] release | Operational Scaffolding Tool (v2.2)
 - Type: automation + operationalization
 - Tool created: `bin/bunker-scaffold.sh`.

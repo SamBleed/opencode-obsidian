@@ -40,6 +40,7 @@ Workflow de Ingestion (7 pasos):
 Véase [[vault-flow]] para guía completa.
 
 ## Last Updated
+2026-05-13: **Visual Control (v2.3)**: Implementado [[BUNKER-OS.canvas]] como centro de mando visual. Generado reporte ejecutivo en NotebookLM. Sistema 100% operacional.
 2026-05-13: **Operationalization (v2.2)**: Lanzado `bunker-scaffold.sh` para automatizar la creación de proyectos basados en los Blueprints del Bunker. La teoría ahora es ejecutable.
 2026-05-13: **The Final Circle (v2.1)**: Cerrado el círculo de arquitectura con Local-First (Edge) y FinOps Agéntico (Economics). El Bunker es ahora sostenible y ultrarrápido.
 2026-05-13: **Expansion Quadrant (v2.0)**: Ingestados 4 grandes dominios: Vector Databases (RRF), IaC Pro (OpenTofu), Tailwind 4 Mastery y Gobernanza de Decisiones (AgDR).
