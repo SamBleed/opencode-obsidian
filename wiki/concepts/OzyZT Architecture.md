@@ -1,70 +1,68 @@
 ---
 type: concept
 title: "OzyZT Architecture"
-created: 2026-04-22
-updated: 2026-04-22
-tags:
-  - architecture
-  - design-patterns
-  - security
-  - software-engineering
-status: solid
-related:
-  - "[[OzyZT]]"
-  - "[[Security Gates]]"
+domain: security
+created: 2026-05-13
+updated: 2026-05-13
+tags: [security, zero-trust, architecture, hexagonal]
+status: mature
 ---
 
 # OzyZT Architecture
 
-The architecture of [[OzyZT]] is designed around the principles of **Modularity**, **Extensibility**, and **Zero-Trust Enforcement**. It separates the execution logic from the delivery interfaces.
+OzyZT is designed as a **Security Control Plane** that enforces Zero-Trust principles across the entire software development lifecycle (SDLC). It leverages a hexagonal architecture to remain agnostic to specific scanning tools while providing a unified governance layer.
 
-## Layered Design
+## 🏗️ High-Level Design
 
-### 1. Core Engine (`engine/core/`)
-Defines the fundamental contracts of the system:
-- **Gate Protocol**: Common interface for all security checks.
-- **Scoring Model**: Deterministic risk calculation (0-100).
-- **Tool Checker**: Centralized availability detection for external binaries.
+### 1. The Core Engine (Go)
+The central orchestrator that manages:
+- **Identity Context**: Maps developers, agents, and service accounts to specific permissions.
+- **Policy Engine**: Executes [[Policy-as-Code]] (OPA) to determine if a gate should be opened.
+- **Audit Ledger**: A tamper-proof log of all security decisions and findings.
 
-### 2. Execution Layer (`engine/execution/`)
-The **Orchestrator** coordinates the pipeline:
-- Supports **Sequential**, **Parallel**, and **Async** execution modes.
-- Manages scan lifecycle and result aggregation.
-- Includes a **Coverage Tracker** to identify skipped or reduced scans.
+### 2. Security Gates (The Interceptors)
+Interceptors are placed at critical transition points in the pipeline:
+- **Pre-commit Interceptor**: Prevents secrets from being committed local-first.
+- **CI/CD Interceptor**: Injects [[Trivy]] and [[react-doctor]] scans. Generates [[Supply-Chain-Security]] attestations (SLSA).
+- **Deployment Interceptor**: Verifies image signatures and SBOMs before allowing a K8s deployment.
 
-### 3. Security Gates (`engine/gates/`)
-A collection of 7 gates, each using the **Provider Pattern**:
-- **Gate**: High-level logic (e.g., "Scan Source Code").
-- **Providers**: Specialized wrappers for tools (e.g., `TrivyProvider`, `SemgrepProvider`).
-- This allows swapping or adding tools without modifying the core gate logic.
+## 🚀 Advanced Capabilities (2026)
 
-### 4. Policy Engine (`engine/policy/`)
-Evaluates findings against user-defined rules:
-- **Policy Packs**: Preset configurations (`default`, `strict`, `reduced-coverage`).
-- **Waiver Manager**: Handles temporary "Accepted Risk" exceptions with expiration and ownership.
-- **Enforcement**: Can elevate "Reduced Coverage" to "FAIL" in strict environments.
+### Agentic AppSec Integration
+OzyZT supports "Agentic Remediation". When a vulnerability is found:
+1. An autonomous agent is spawned to verify the exploitability.
+2. If verified, the agent generates a PR with the fix.
+3. OzyZT marks the finding as "Verified & Remediation Pending".
 
-### 5. Normalization & Adapters (`engine/normalization/`, `engine/adapters/`)
-Translates disparate tool outputs into a unified format:
-- **NormalizedFinding**: Common schema for all vulnerabilities.
-- **Adapters**: Connectors for external systems like [[OzyAudit]] and [[Slack]].
+### Drift Detection & Runtime Correlation
+OzyZT doesn't stop at deployment. It continuously monitors the runtime (K8s/Cloud) to ensure:
+- **No manual changes**: If someone modifies a security group manually, OzyZT alerts and triggers a GitOps resync.
+- **Runtime Vulnerability Correlation**: If a new CVE is discovered for a library already in production, OzyZT calculates the "Blast Radius" based on actual traffic flows.
 
-## Security Hardening
-- **Path Sanitization**: Prevention of "Tar Bomb" / "Zip Slip" attacks during code upload.
-- **Secret Masking**: All findings are automatically scanned for patterns to mask sensitive data before DB persistence.
-- **Resource Limits**: Configurable upload size limits and per-gate timeouts.
+## 🛡️ Data Flow
 
-## Data Flow
-```mermaid
-graph TD
-    CLI[CLI/API] -->|tar.gz| EXT[Safe Extractor]
-    EXT --> ORCH[Orchestrator]
-    ORCH --> GATES[Gates]
-    GATES --> PROV[Providers/Tools]
-    PROV --> RES[Gate Results]
-    RES --> POL[Policy Engine]
-    POL --> VER[Verdict: PASS/FAIL/WARN]
-    VER --> NORM[Normalizer]
-    NORM --> AUDIT[OzyAudit Adapter]
-    NORM --> SLACK[Slack Notifier]
+```text
+[Dev/Agent] ──▶ [Git Commit] ──▶ [OzyZT Commit Gate]
+                                       │
+                                       ▼
+[Build Artifact] ◀── [OzyZT CI Gate] ◀── [Trivy/Linter]
+       │
+       ▼
+[Attestation Signed] ──▶ [Deployment Gate] ──▶ [Runtime]
+                                                  │
+                                                  ▼
+                                         [Drift Detection]
 ```
+
+## 🛠️ Stack Components
+- **Language**: Go 1.26 (for performance and concurrency).
+- **Database**: PostgreSQL (Relational audit trails) + Redis (Real-time gate state).
+- **Orchestration**: [[n8n]] for complex alert flows and external integrations.
+- **Policies**: Rego (OPA).
+
+## Related
+- [[OzyZT]] (Project Page)
+- [[Policy-as-Code]]
+- [[Supply-Chain-Security]]
+- [[Trivy]]
+- [[Security-Guardrails]]

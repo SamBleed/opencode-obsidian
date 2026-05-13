@@ -40,6 +40,7 @@ Workflow de Ingestion (7 pasos):
 Véase [[vault-flow]] para guía completa.
 
 ## Last Updated
+2026-05-13: **NotebookLM Integration (v1.7)**: Ingestados patrones avanzados de Workflows Agénticos, AI Swarms, Policy-as-Code y Seguridad de Supply Chain desde notebooks de investigación.
 2026-05-13: **Systemic Capacity Upgrade (v1.6)**: Todas las notas core (Go, React, Postgres, Docker, Security) expandidas a capacidad de Arquitecto Senior (100+ líneas, patterns 2026).
 2026-05-13: Ingestado [[millionco-react-doctor-repo]], [[react-doctor]], [[million-co]] para diagnóstico de React y mejores prácticas de agentes.
 2026-05-06: Ingestados 5 repos recientes: [[PicoClaw]], [[qwen-code]], [[Pentest-Swarm-AI]], [[NousResearch-hermes-agent]], [[onyx-dot-app-onyx]].

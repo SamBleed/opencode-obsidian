@@ -23,6 +23,14 @@ Entry format: `## [YYYY-MM-DD] operation | Title`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
+## [2026-05-13] upgrade | NotebookLM Insight Ingestion (v1.7)
+- Type: deep-research + wiki-expansion
+- Sources: Notebooks "AI Engineering 2026" and "Modern AppSec".
+- Pages created: [[Agentic-Workflows]], [[AI-Swarms]], [[Policy-as-Code]], [[Supply-Chain-Security]].
+- Pages expanded: [[OzyZT Architecture]], [[AI-Analysis-Workflow]], [[Security-Guardrails]].
+- Goal: Inject "Senior Architect" level patterns into the Bunker's core documentation.
+- Notes: Integrated State Machine orchestration, Swarm division of labor, NIST SSDF compliance, and SLSA attestations.
+
 ## [2026-05-13] upgrade | Systemic Capacity Expansion (Bunker v1.6)
 - Type: wiki-refactor + deep-dive expansion
 - Scope: Entire core tech stack and project blueprints.

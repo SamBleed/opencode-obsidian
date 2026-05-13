@@ -1,78 +1,61 @@
 ---
 type: concept
 title: "AI Analysis Workflow"
-complexity: intermediate
-domain: ai-project-management
-created: 2026-04-21
-updated: 2026-04-21
-tags:
-  - concept
-  - workflow
-  - analysis
-status: active
-related:
-  - "[[LLM Wiki Pattern]]"
-  - "[[SDD-Workflow]]"
-sources:
+domain: ai
+created: 2026-05-13
+updated: 2026-05-13
+tags: [workflow, ai, logic, analysis]
+status: mature
 ---
 
 # AI Analysis Workflow
 
-Patrón de análisis para requests de nuevos proyectos antes de implementar.
+The AI Analysis Workflow is the fundamental protocol for all agent operations within the Bunker. It ensures that agents do not execute commands blindly, but instead reason through the request, the context, and the security implications first.
 
----
+## 🚀 The 5-Step Protocol
 
-## Definition
+### 1. Requirement Deconstruction
+Break the user's prompt into atomic requirements.
+- What is the primary goal?
+- What are the constraints (language, stack, performance)?
+- Is there any ambiguous terminology?
 
-Flujo estructurado que el agente sigue para entender un request antes de escribir código. Evita trabajar sin contexto claro.
+### 2. Context Discovery (The "Search First" Rule)
+Never assume the state of the codebase.
+- Use `grep` and `glob` to find relevant files.
+- Read existing implementations to follow conventions.
+- Check `wiki/hot.md` for recent project context.
 
-## The 5 Steps
+### 3. Technical Reasoning & Planning
+Formulate a step-by-step plan before touching a single file.
+- Propose the plan to the user.
+- Identify potential breaking changes or security risks.
+- Design the verification path (tests).
 
-| Step | Action | Output |
-|------|--------|-------|
-| 1 | Analizar | Tipo, funcionalidad, complejidad |
-| 2 | Buscar | Memorias, wiki, skills |
-| 3 | Identificar stack | Qué existe |
-| 4 | Identificar recursos | Wiki, concepts, entities |
-| 5 | **Preguntar** | Pregunta crítica |
+### 4. Implementation with "Agentic AppSec"
+While implementing, the agent acts as its own security reviewer.
+- **Sanitization**: Validate all user-controlled inputs.
+- **Best Practices**: Adhere to [[coding-standards]] and [[React]] patterns.
+- **Audit**: Every significant change must be logged in the [[agentmemory]].
 
-## Pregunta Crítica
+### 5. Multi-Layer Verification
+Prove the implementation works and is secure.
+1. **Linter/Type-Check**: Run `npm run lint` or `go vet`.
+2. **Unit Tests**: Verify logic.
+3. **Security Gate**: Run [[react-doctor]] or [[Trivy]].
+4. **Final Diff**: Review the final changes against the original intent.
 
-Una pregunta **clara y compleja** que el usuario debe responder para definir la solución.
+## 🛡️ Governance & AI-BOM
 
-> Ejemplo: "quiero un agent que monitoree servidores"
-> 
-> Pregunta: "¿Cómo decides que algo Falló?"
-> - Solo up/down?
-> - Métricas (CPU > 90%)?
-> - Errores en logs?
-> - IA que detecte anomalías?
+In a mature agentic environment, we track the provenance of decisions:
+- **Decision Record**: High-level choices are saved to [[agentmemory]].
+- **AI-BOM**: We keep a log of which agent/model version performed which action to ensure accountability.
 
-## Por qué funciona
+## 🧠 The "Critical Question" Rule
+Before executing any high-impact or ambiguous task, the agent must ask **exactly one** clarifying question to the user. This prevents expensive mistakes and ensures alignment.
 
-- Evita assumptions incorrectas
-- El usuario define la solución
-- Stack = basado en decisiones, no en suposiciones
-- Wiki pages = contexto compilado
-
-## Regla
-
-> NUNCA proceder sin la pregunta crítica respondida
-
-Primero entender, después codificar.
-
-## Ejemplo Aplicado
-
-Request: "quiero un AI agent que alerte por Telegram"
-
-1. Analizar → AI Agent + Alerts + Telegram
-2. Buscar → tengo n8n, Telegram Bot, Hermes-Agent
-3. Stack existente → Go API, n8n, Telegram configurado
-4. Recursos → wiki pages para el nuevo proyecto
-5. Preguntar → "¿Qué constituye una 'falla'?"
-
----
-
-## Source
-
-- Workflow desarrollado 2026-04-21 con el usuario
+## Related
+- [[Agentic-Workflows]]
+- [[vault-flow]]
+- [[Security-Guardrails]]
+- [[coding-standards]]
