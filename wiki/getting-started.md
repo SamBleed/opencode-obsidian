@@ -91,6 +91,7 @@ After 3–5 ingests, the graph starts to look like a real knowledge network. Cro
 - **[[Wiki Map]]** — visual Fibonacci graph of all wiki pages
 - **[[index]]** — master catalog, all pages by type
 - **[[overview]]** — executive summary of vault contents
+- **[[FAQ]]** — answers to common questions about the Bunker
 - **[[LLM Wiki Pattern]]** — the pattern this vault is built on
 - **[[Wiki vs RAG]]** — why a wiki beats RAG at human scale
 - **[[dashboard]]** — live Dataview queries (requires Dataview plugin)

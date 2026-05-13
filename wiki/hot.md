@@ -40,6 +40,7 @@ Workflow de Ingestion (7 pasos):
 Véase [[vault-flow]] para guía completa.
 
 ## Last Updated
+2026-05-13: **Graph Health & Connectivity (v1.9)**: Reducida la deuda técnica del wiki. Fusionadas notas de performance, corregidos huérfanos core (Comparativas, FAQ, Blueprints) y expandidos motores de OzyZT.
 2026-05-13: **System Hardening & Observability (v1.8)**: Implementado Blueprint de Observabilidad de Agentes y Gobernanza MCP v2026. Script de integridad operativo.
 2026-05-13: **NotebookLM Integration (v1.7)**: Ingestados patrones avanzados de Workflows Agénticos, AI Swarms, Policy-as-Code y Seguridad de Supply Chain desde notebooks de investigación.
 2026-05-13: **Systemic Capacity Upgrade (v1.6)**: Todas las notas core (Go, React, Postgres, Docker, Security) expandidas a capacidad de Arquitecto Senior (100+ líneas, patterns 2026).

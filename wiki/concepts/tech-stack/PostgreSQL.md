@@ -63,6 +63,7 @@ Postgres uses MVCC (Multi-Version Concurrency Control), which leaves "dead" rows
 Use **Testcontainers** or **Docker Compose** to run ephemeral instances. Avoid mocking; test against the real engine.
 
 ## Related
+- [[PostgreSQL-v-SQLite-v-Redis]] (Comparison)
 - [[GO-API-BLUEPRINT]]
 - [[Data-Governance]]
 - [[Trivy]]

@@ -1,36 +1,77 @@
 ---
 type: concept
-title: "Performance Optimization Standard"
+title: "Performance Optimization Master Standard"
 domain: tech-stack
-created: 2026-05-08
-updated: 2026-05-08
-tags: [performance, profiling, optimization, staff-engineer]
-status: active
-related: [Bunker OS, AgentMemory, n8n-lab]
+created: 2026-05-13
+updated: 2026-05-13
+tags: [performance, profiling, optimization, staff-engineer, scalability]
+status: mature
 ---
 
-# Performance Optimization Standard
+# Performance Optimization Master Standard
 
-## Definition
-Estándar metódico para diagnosticar y resolver problemas de rendimiento basado en el principio: **Medir primero, optimizar después.**
+Performance optimization is the methodical practice of diagnosing and resolving system bottlenecks based on empirical data (profiling) rather than assumptions. In the Bunker, we prioritize efficiency to minimize token usage, latency, and infrastructure costs.
 
-## The Three Axioms
-1. **Medir antes de optimizar:** La suposición es el enemigo.
-2. **Regla 90/10:** El 90% del tiempo se gasta en el 10% del código.
-3. **Trade-offs obligatorios:** Cada mejora tiene un costo (Memoria, Complejidad, Consistencia).
+## 🏛️ The Three Axioms of Performance
 
-## Optimization Layers (Order of Impact)
-1. **Algoritmos y Estructuras:** O(n²) -> O(n log n).
-2. **DB e I/O:** N+1 queries, falta de índices, carga masiva en RAM.
-3. **Cache:** LRU, Redis, Caching de resultados costosos.
-4. **Concurrencia:** Async/Await para I/O, Multiprocessing para CPU.
+1. **Measure Before You Optimize**: "Premature optimization is the root of all evil." Always identify the bottleneck using profilers before changing a single line of code.
+2. **The 90/10 Rule**: 90% of execution time is typically spent in 10% of the code. Focus your energy only on that "Hot Path".
+3. **Mandatory Trade-offs**: Every optimization is an exchange. You usually trade **Code Complexity** or **Memory** for **Execution Speed**.
 
-## Implementation in the Bunker
-- **n8n:** Monitoreo de `durationMs` en el Audit Log.
-- **AgentMemory:** Uso de local embeddings optimizados.
-- **Scripts:** Hardening con `set -euo pipefail` para evitar procesos zombie.
+## 🚀 Optimization Layers (The Order of Attack)
 
-## Tools
-- **Go:** `pprof`, `benchmarks`.
-- **Node.js:** `clinic.js`, `performance.now()`.
-- **SQL:** `EXPLAIN ANALYZE`.
+| Layer | Impact | Strategy |
+|-------|--------|----------|
+| **1. Algorithms** | Massive | Change O(n²) to O(n log n) or O(1). |
+| **2. I/O & DB** | High | Fix N+1 queries, add missing indexes, use connection pooling. |
+| **3. Caching** | Medium | Implement LRU, Redis, or local memoization for expensive results. |
+| **4. Concurrency** | Medium | Use `errgroup` in Go or Worker Threads in Node.js for CPU-bound tasks. |
+
+## 🛠️ Senior Troubleshooting Guide
+
+### 1. The "N+1" Database Trap
+**Problem**: Fetching 100 users, then making 100 separate queries to fetch their roles.
+**Solution**: Use an `IN` clause or a `JOIN`.
+```sql
+-- BAD
+SELECT * FROM roles WHERE user_id = 1; -- x100
+
+-- GOOD
+SELECT r.* FROM roles r JOIN users u ON r.user_id = u.id; -- x1
+```
+
+### 2. Go Profiling (pprof)
+Use `net/http/pprof` to visualize CPU and Memory usage.
+```go
+import _ "net/http/pprof"
+go func() {
+    log.Println(http.ListenAndServe("localhost:6060", nil))
+}()
+```
+Command to analyze: `go tool pprof -http=:8080 http://localhost:6060/debug/pprof/profile`
+
+### 3. React Rendering Optimization
+Avoid "Cascading Renders" by keeping state close to where it's used.
+- **Pattern**: Use `useDeferredValue` for heavy UI updates.
+- **Tool**: [[react-doctor]] to catch expensive `useEffect` synchronizations.
+
+## 📦 Implementation in the Bunker
+
+- **Batching**: Our `ingest_server.go` uses body limiters and could be expanded to support batch processing of multiple files.
+- **Streaming**: Large file reads must use `io.Reader` (Go) or `fs.createReadStream` (Node) to maintain constant memory O(1).
+- **Concurrency Control**: Use [[mcp-governance]] to prevent too many parallel tool calls from overwhelming the LLM's context.
+
+## 🧪 Benchmarking Checklist
+
+- [ ] Does the change reduce `duration_ms` in a reproducible way?
+- [ ] Have you checked for memory leaks using a heap profiler?
+- [ ] Is the code still readable/maintainable?
+- [ ] Did you add a regression benchmark test?
+
+## Related
+- [[Go]]
+- [[React]]
+- [[PostgreSQL]]
+- [[Redis]]
+- [[react-health-score]]
+- [[agentmemory]]

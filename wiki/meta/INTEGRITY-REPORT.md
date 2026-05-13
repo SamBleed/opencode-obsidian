@@ -1,38 +1,10 @@
 # 🔍 Wiki Integrity Report
-Generated: mié 13 may 2026 10:24:14 -05
+Generated: mié 13 may 2026 10:32:36 -05
 
 ## 🕸️ Orphan Notes (No incoming links)
-- [[React-v-Astro]]
-- [[Go-v-Rust]]
-- [[Wiki]]
-- [[vs]]
-- [[RAG]]
-- [[Hermes-Patterns]]
-- [[Andrej]]
-- [[Karpathy]]
 - [[Mert-Koseoglu]]
 - [[Akonlabs]]
 - [[Abhigyan-Patwari]]
-- [[FAQ]]
-- [[How]]
-- [[does]]
-- [[the]]
-- [[LLM]]
-- [[Wiki]]
-- [[pattern]]
-- [[work]]
-- [[Hot]]
-- [[Cache]]
-- [[MCP-Browser]]
-- [[perf-optimization]]
-- [[Zig]]
-- [[Wiki]]
-- [[Pattern]]
-- [[Visual]]
-- [[Flow]]
-- [[Compounding]]
-- [[Knowledge]]
-- [[Architecture]]
 - [[memo-1778254123]]
 - [[memo-1778253978]]
 - [[memo-1778253930]]
@@ -43,18 +15,11 @@ Generated: mié 13 may 2026 10:24:14 -05
 - [[memo-1778253961]]
 - [[runtime]]
 - [[ozy-sandbox-runner]]
-- [[OzyRecon]]
 - [[docs]]
-- [[ozy-policy-engine]]
 - [[ozy-asset-inventory]]
-- [[ozy-platform]]
-- [[ozy-risk-engine]]
 - [[ozy-secrets-vault]]
-- [[ozy-mcp]]
 - [[ozy-api-registry]]
-- [[MESSAGING-STRATEGY]]
 - [[IAC-TERRAFORM-BLUEPRINT]]
-- [[DATA-STRATEGY]]
 - [[llm-wiki-pattern-research]]
 - [[bugfaltaunlinken]]
 - [[bugelarchivoingestservergoest]]
@@ -83,11 +48,9 @@ Generated: mié 13 may 2026 10:24:14 -05
 - [[docs]] (24 lines)
 - [[ozy-api-registry]] (24 lines)
 - [[ozy-asset-inventory]] (24 lines)
-- [[OzyAudit]] (24 lines)
 - [[ozy-mcp]] (24 lines)
 - [[ozy-platform]] (24 lines)
 - [[ozy-policy-engine]] (24 lines)
-- [[OzyRecon]] (24 lines)
 - [[ozy-risk-engine]] (24 lines)
 - [[ozy-sandbox-runner]] (24 lines)
 - [[ozy-secrets-vault]] (24 lines)
@@ -105,5 +68,47 @@ Generated: mié 13 may 2026 10:24:14 -05
 - [[AUTOMATION-STRATEGY]] (29 lines)
 - [[Awesome-DESIGN-md]] (29 lines)
 
-## 🚩 Broken Links (Pending implementation)
-Check manually for [[ ]] that don't point to a file.
+## 🚩 Broken Links (WikiLinks to non-existent files)
+- [[_]] (Target file not found)
+- [[a]] (Target file not found)
+- [[A]] (Target file not found)
+- [[b]] (Target file not found)
+- [[B]] (Target file not found)
+- [[c]] (Target file not found)
+- [[C]] (Target file not found)
+- [[d]] (Target file not found)
+- [[D]] (Target file not found)
+- [[e]] (Target file not found)
+- [[E]] (Target file not found)
+- [[f]] (Target file not found)
+- [[F]] (Target file not found)
+- [[g]] (Target file not found)
+- [[G]] (Target file not found)
+- [[h]] (Target file not found)
+- [[H]] (Target file not found)
+- [[i]] (Target file not found)
+- [[I]] (Target file not found)
+- [[k]] (Target file not found)
+- [[l]] (Target file not found)
+- [[L]] (Target file not found)
+- [[m]] (Target file not found)
+- [[M]] (Target file not found)
+- [[n]] (Target file not found)
+- [[N]] (Target file not found)
+- [[o]] (Target file not found)
+- [[O]] (Target file not found)
+- [[p]] (Target file not found)
+- [[P]] (Target file not found)
+- [[q]] (Target file not found)
+- [[r]] (Target file not found)
+- [[R]] (Target file not found)
+- [[s]] (Target file not found)
+- [[S]] (Target file not found)
+- [[t]] (Target file not found)
+- [[T]] (Target file not found)
+- [[v]] (Target file not found)
+- [[V]] (Target file not found)
+- [[w]] (Target file not found)
+- [[W]] (Target file not found)
+- [[z]] (Target file not found)
+- [[Z]] (Target file not found)

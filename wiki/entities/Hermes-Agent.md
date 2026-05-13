@@ -26,6 +26,11 @@ Hermes Agent shares the same "Compounding Knowledge" DNA as this vault. While He
 2. **Procedure Evaluation**: The "critique" phase where the agent decides if a task was successful.
 3. **Environment Modeling**: How it stores technical details of the user's local setup.
 
+## Related
+- [[Hermes-Patterns]]
+- [[Agentic-Workflows]]
+- [[agentmemory]]
+
 ## 🔗 Resources
 - **GitHub**: https://github.com/NousResearch/Hermes-Agent
 - **Research Group**: Nous Research

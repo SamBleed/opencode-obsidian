@@ -52,6 +52,7 @@ To prevent runaway "hallucination loops" that exhaust tokens and budget, every a
 
 ## Related
 - [[AI-Swarms]]
+- [[Hermes-Patterns]]
 - [[agentmemory]]
 - [[AI-Analysis-Workflow]]
 - [[MCP]]

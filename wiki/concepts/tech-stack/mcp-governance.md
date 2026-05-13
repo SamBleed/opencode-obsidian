@@ -52,6 +52,7 @@ MCP solves the tool-integration problem, while A2A protocols manage how agents h
 - **Context Exhaustion**: Too many tools in the context window. *Mitigation*: **On-Demand Activation** (Load tools only when needed).
 
 ## Related
+- [[MCP-Browser]]
 - [[MCP-CONFIG]]
 - [[AGENTS.md]]
 - [[Agent-Observability-Blueprint]]

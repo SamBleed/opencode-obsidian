@@ -112,7 +112,8 @@ logger.Info("user_login",
 - **Ignored Errors**: Never use `_ = doSomething()`. Wrap and return: `fmt.Errorf("doing thing: %w", err)`.
 
 ## Related
+- [[Go-v-Rust]] (Comparison)
 - [[GO-API-BLUEPRINT]]
 - [[go-rate-limiting]]
-- [[Trivy]] (Security scanning for Go binaries)
-- [[agentmemory]] (Implemented in Go)
+- [[Trivy]]
+- [[agentmemory]]

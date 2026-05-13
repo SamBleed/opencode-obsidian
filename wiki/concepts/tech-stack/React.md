@@ -114,6 +114,7 @@ We combine these patterns for maximum reusability.
 - **Prop Drilling**: Overusing props for deep trees. Use **Context** or **Composition**.
 
 ## Related
+- [[React-v-Astro]] (Comparison)
 - [[react-doctor]]
 - [[react-health-score]]
 - [[DESIGN-TEMPLATE]]

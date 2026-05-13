@@ -49,6 +49,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 - [[affaan-m-everything-claude-code]] — Agent harness with 174K+ stars (16+ agents, 65+ skills)
 - [[PicoClaw]] — Ultra-lightweight AI assistant in Go, 28K+ stars, <10MB RAM
 - [[qwen-code]] — Open-source AI agent for terminal (Qwen3-Coder), 24K+ stars
+- [[Zig]] — General-purpose, statically typed, compiled system programming language.
 - [[Pentest-Swarm-AI]] — First real swarm pentesting tool, 1K+ stars, Go + Claude API
 - [[onyx-dot-app-onyx]] — Open-source AI platform with RAG, 29K+ stars
 
@@ -117,6 +118,8 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 - [[GO-API-BLUEPRINT]] — Standard for backend services.
 - [[REACT-WEB-BLUEPRINT]] — Standard for Next.js 15+ apps.
 - [[DESIGN-TEMPLATE]] — Visual standard for frontend.
+- [[DATA-STRATEGY]] — Data modeling and persistence rules.
+- [[MESSAGING-STRATEGY]] — Async communication patterns.
 - [[AGENT-OBSERVABILITY-BLUEPRINT]] — Standard for agent tracing and logging.
 - [[AUTOMATION-STRATEGY]] — n8n workflow patterns.
 

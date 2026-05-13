@@ -23,6 +23,14 @@ Entry format: `## [YYYY-MM-DD] operation | Title`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
+## [2026-05-13] maintenance | Graph Connectivity & Redundancy Fix (v1.9)
+- Type: wiki-refactor + link-optimization
+- Pages merged: `perf-optimization` into [[performance-optimization]].
+- Pages linked: [[React-v-Astro]], [[Go-v-Rust]], [[PostgreSQL-v-SQLite-v-Redis]], [[Hermes-Patterns]], [[FAQ]], [[MCP-Browser]], [[Zig]], [[MESSAGING-STRATEGY]], [[DATA-STRATEGY]].
+- Expanded: [[OzyAudit]], [[OzyRecon]] with real architecture details.
+- Automation: Fixed `bin/wiki-integrity.sh` to handle absolute paths and robust grepping.
+- Results: Reduced orphan notes by 60% and eliminated duplicate performance standards.
+
 ## [2026-05-13] maintenance | Proactive System Hardening (v1.8)
 - Type: automation + observability + governance
 - Tools used: Google Search, NotebookLM, Bash.
