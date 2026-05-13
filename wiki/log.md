@@ -31,6 +31,13 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 - Goal: Make the Bunker economically sustainable and local-first ready.
 - Results: Injected patterns for SQLite WASM sync (PowerSync/Replicache) and Budget-as-Code for agents.
 
+## [2026-05-13] release | Operational Scaffolding Tool (v2.2)
+- Type: automation + operationalization
+- Tool created: `bin/bunker-scaffold.sh`.
+- Capabilities: Automated scaffolding for Go and React projects based on v2.1 Blueprints.
+- Standards included: Multi-stage Dockerfiles, slog/satoshi integration, and security checklists.
+- Usage: `./bin/bunker-scaffold.sh name --blueprint type`.
+
 ## [2026-05-13] upgrade | Strategic Expansion Quadrant (v2.0)
 - Type: deep-research + notebook-creation + wiki-expansion
 - Tools: Exa, NotebookLM, Context7.
