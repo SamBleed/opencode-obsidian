@@ -17,7 +17,7 @@ related:
 
 # 🏛️ Bunker OS — Index
 
-Last updated: 2026-05-13 | Version: 1.5.1 | **Status**: Fully Operational (AgentMemory Active)
+Last updated: 2026-05-13 | Version: 1.5.2 | **Status**: Fully Operational (AgentMemory Active)
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[BUNKER-OS.canvas|Mission Control]] | [[HANDOVER]] | [[ENV-STATUS]] | [[agentmemory]]
 
@@ -26,6 +26,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[BUNKER-OS
 ## 🎮 Operational Center
 - **[[BUNKER-OS.canvas]]** — Visual Mission Control for the Senior Architect.
 - **`bin/bunker-scaffold.sh`** — Automated project generator (Go/React).
+- **`bin/wiki-integrity.sh`** — Automated graph health and orphan detection.
 - **[[AGENT-OBSERVABILITY-BLUEPRINT]]** — Active tracing and logging standards.
 
 ---
@@ -33,32 +34,28 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[BUNKER-OS
 ## 🚀 Projects (Ecosistema Vivo)
 - **[[agentmemory]]** — Persistent memory engine for the Bunker's agents.
 - **[[OzyZT]]** — Zero-Trust platform for developer security gates.
-    - [[ozy-api]] / [[ozy-web]]
-    - [[OzyAudit]] / [[OzyRecon]]
-    - [[ozy-platform]] / [[ozy-mcp]]
-    - [[ozy-risk-engine]] / [[ozy-policy-engine]]
-- **[[ozy-api]]** — Powered by [[GO-API-BLUEPRINT]].
-- **[[ozy-web]]** — Powered by [[DESIGN-TEMPLATE]].
+- **Sub-Projects**:
+    - [[ozy-api]] (Go Core) | [[ozy-web]] (Next.js Frontend)
+    - [[OzyAudit]] (Security Analysis) | [[OzyRecon]] (Asset Discovery)
+    - [[ozy-platform]] | [[ozy-mcp]] | [[ozy-api-registry]]
+    - [[ozy-risk-engine]] | [[ozy-policy-engine]] | [[ozy-secrets-vault]]
+    - [[ozy-sandbox-runner]] | [[ozy-asset-inventory]]
+    - [[runtime]] | [[docs]]
 
 ---
 
 ## 📚 Sources
 - [[millionco-react-doctor-repo]] — React health diagnostics and agent integration (9k+ stars)
 - [[notebooklm]] — Google research assistant with source grounding (FAQ, Study Guides)
-- [[awesome-mcp-servers]] — 1000+ MCP servers directory
-- [[hexstrike-ai]] — AI-powered cybersecurity automation (150+ security tools)
 - [[gitnexus]] — Knowledge graph for AI agent context (codebase indexing)
 - [[context-mode]] — MCP plugin for context window optimization (sandboxed execution, FTS5)
-- [[opencode-obsidian-ecosystem-research]] — 16+ AI+Obsidian projects researched 2026-04-08
-- [[awesome-claude-design]] — 68 DESIGN.md files for AI agents (VoltAgent)
 - [[BrowserMCP]] — Browser automation via MCP (6.4k stars)
-- [[zakirkun-deep-eye]] — AI-driven vulnerability scanner (OpenAI, Grok, Ollama, Claude)
-- [[affaan-m-everything-claude-code]] — Agent harness with 174K+ stars (16+ agents, 65+ skills)
-- [[PicoClaw]] — Ultra-lightweight AI assistant in Go, 28K+ stars, <10MB RAM
-- [[qwen-code]] — Open-source AI agent for terminal (Qwen3-Coder), 24K+ stars
-- [[Zig]] — General-purpose, statically typed, compiled system programming language.
-- [[Pentest-Swarm-AI]] — First real swarm pentesting tool, 1K+ stars, Go + Claude API
-- [[onyx-dot-app-onyx]] — Open-source AI platform with RAG, 29K+ stars
+- [[zakirkun-deep-eye]] — AI-driven vulnerability scanner
+- [[affaan-m-everything-claude-code]] — Agent harness with 174K+ stars
+- [[PicoClaw]] — Ultra-lightweight AI assistant in Go
+- [[qwen-code]] — Open-source AI agent for terminal (Qwen3-Coder)
+- [[Pentest-Swarm-AI]] — First real swarm pentesting tool
+- [[onyx-dot-app-onyx]] — Open-source AI platform with RAG
 
 ---
 
@@ -69,40 +66,40 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[BUNKER-OS
 - [[Terraform-OpenTofu-Senior-Patterns]] — Multi-layer IaC and Zero-Trust state.
 - [[Tailwind-CSS-4-Mastery]] — Advanced frontend styling and tokens.
 - [[ADR-Lifecycle]] — Governance for architectural and agentic decisions.
-- [[DESIGN-MD]] — AI-readable design system format (9 sections) → `concepts/tech-stack/`
-- [[AI-Analysis-Workflow]] — Análisis de requests antes de implementar (5 pasos + pregunta crítica)
-- [[go-rate-limiting]] — High-performance rate limiting patterns for Go.
-- [[vault-flow]] — Workflow para ingestar recursos y consultar conocimiento en el vault.
-- [[ai-powered-pentesting]] — AI-driven pentesting with multi-provider LLM support
-- [[Claudesidian]] — PRE-configured vault + PARA by heyitsnoah
-- [[Ar9av-obsidian-wiki]] — Multi-agent wiki with delta tracking
+- [[Agentic-Workflows]] — Multi-agent orchestration and state machines.
+- [[AI-Swarms]] — Parallel autonomous agents and stigmergy.
+- [[Claude-Code-Harness]] — Configuration system for code agents.
+- [[DESIGN-MD]] — AI-readable design system format.
+- [[AI-Analysis-Workflow]] — Analysis protocol before implementation.
+- [[go-rate-limiting]] — High-performance rate limiting patterns.
+- [[vault-flow]] — Ingestion and query workflows.
 
 ## 🧠 Core Concepts
 - [[LLM Wiki Pattern]] — Persistent, compounding knowledge base.
 - [[Local-First-Architecture]] — Offline-first and synchronization patterns.
 - [[Agentic-FinOps-Patterns]] — AI economics and token budget governance.
 - [[Delta Tracking]] — Hash-based source change detection.
-- [[Domain-Specific-Vaults]] — Multi-vault architecture (Coding, Finance, etc.).
+- [[Domain-Specific-Vaults]] — Multi-vault architecture.
 - [[Design-System-MD]] — Markdown-based UI governance.
 - [[Observability-MD]] — Structured logging and agent tracing.
-- [[Event-Driven]] — Asynchronous agent communication.
-- [[Data-Governance]] — Schema management and AI-ready seeding.
 
 ---
 
 ## 🛡️ Security & Governance
 - [[Security-Guardrails]] — The Bunker's Constitution.
-- [[Agentic-Security-OWASP]] — Mitigation of ASI risks (2026).
+- [[Policy-as-Code]] — OPA/Rego and compliance automation.
+- [[Supply-Chain-Security]] — SBOM, SLSA, and provenance.
+- [[Agentic-Security-OWASP]] — Mitigation of ASI risks.
 - [[Offensive-Vaccine]] — Active auditing using real payloads.
 - [[Ethics-Compliance]] — Ethical boundaries for autonomous agents.
-- [[HANDOVER]] — standard for cross-agent context transfer.
-- [[mcp-governance]] — framework for MCP tool orchestration.
+- [[HANDOVER]] — Standard for cross-agent context transfer.
+- [[mcp-governance]] — Framework for MCP tool orchestration.
 
 ---
 
 ## 🤖 Agentic Entities
-- [[react-doctor]] — Diagnostic product for React health and agent skills.
-- [[million-co]] — Organization focused on React performance (Million.js).
+- [[react-doctor]] — Diagnostic product for React health.
+- [[million-co]] — Organization focused on React performance.
 - [[Hermes-Agent]] — Closed-loop learning and procedural memory.
 - [[Decepticon]] — Autonomous Red Team framework.
 - [[DeepTutor]] — Logic verification and deep research.
@@ -111,29 +108,17 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[BUNKER-OS
 - [[Trivy]] — Defensive shield and vulnerability scanning.
 - [[Sherlock]] — OSINT and identity reconnaissance.
 - [[PayloadsAllTheThings]] — Tactical security arsenal.
-- [[notebooklm-mcp-cli]] — Programmatic access to NotebookLM (CLI + MCP).
-- [[Muhammad-Zakir-Ramadhan]] — Author of Deep Eye AI-powered pentesting tool.
-- [[aaif-goose-goose]] — Native AI agent in Rust, 43K+ stars, 70+ MCP extensions.
-- [[NousResearch-hermes-agent]] — Self-improving AI agent by Nous Research, 135K+ stars
-- [[PicoClaw]] — Ultra-lightweight Go agent, runs on $10 hardware, 28K+ stars
-- [[onyx-dot-app-onyx]] — Open-source AI platform by Onyx, 29K+ stars
-
----
-
-## 🛠️ Infrastructure & Config
-- [[ENV-STATUS]] — Agent's power map (Arch Linux stack).
-- [[MCP-CONFIG]] — Tool connection manual (n8n, Trivy).
-- [[PROMPTS]] — Agent profiles and context anchors.
+- [[Mert-Koseoglu]] | [[Abhigyan-Patwari]] | [[Akonlabs]]
 
 ---
 
 ## 📐 Blueprints Engine
 - [[GO-API-BLUEPRINT]] — Standard for backend services.
 - [[REACT-WEB-BLUEPRINT]] — Standard for Next.js 15+ apps.
+- [[IAC-TERRAFORM-BLUEPRINT]] — Cloud infrastructure standards.
 - [[DESIGN-TEMPLATE]] — Visual standard for frontend.
-- [[DATA-STRATEGY]] — Data modeling and persistence rules.
-- [[MESSAGING-STRATEGY]] — Async communication patterns.
-- [[AGENT-OBSERVABILITY-BLUEPRINT]] — Standard for agent tracing and logging.
+- [[DATA-STRATEGY]] | [[MESSAGING-STRATEGY]]
+- [[AGENT-OBSERVABILITY-BLUEPRINT]] — Standard for agent tracing.
 - [[AUTOMATION-STRATEGY]] — n8n workflow patterns.
 
 ---

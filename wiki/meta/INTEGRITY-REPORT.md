@@ -1,38 +1,17 @@
 # 🔍 Wiki Integrity Report
-Generated: mié 13 may 2026 10:32:36 -05
+Generated: mié 13 may 2026 11:04:11 -05
 
 ## 🕸️ Orphan Notes (No incoming links)
-- [[Mert-Koseoglu]]
-- [[Akonlabs]]
-- [[Abhigyan-Patwari]]
-- [[memo-1778254123]]
-- [[memo-1778253978]]
-- [[memo-1778253930]]
-- [[regladeorosiempredocumentar]]
-- [[arquitecturadescriptstodoslos]]
-- [[reportedefalloelmotor]]
-- [[memo-1778253824]]
-- [[memo-1778253961]]
 - [[runtime]]
 - [[ozy-sandbox-runner]]
 - [[docs]]
 - [[ozy-asset-inventory]]
 - [[ozy-secrets-vault]]
 - [[ozy-api-registry]]
-- [[IAC-TERRAFORM-BLUEPRINT]]
 - [[llm-wiki-pattern-research]]
-- [[bugfaltaunlinken]]
-- [[bugelarchivoingestservergoest]]
-- [[bugelmotordebsqueda]]
-- [[decidimosprohibirioutilporseguridad]]
-- [[buglalgicaenbunkerpulsesh]]
-- [[bugelarchivobunkerpulseshest]]
-- [[buglalgicadeescaneo]]
-- [[bugelcomandoseteuo]]
-- [[estndaresgo]]
-- [[elservidordeingestaest]]
 
 ## 🛠️ Short Notes (Seed candidates < 30 lines)
+- [[INTEGRITY-REPORT]] (13 lines)
 - [[MCP-CONFIG]] (14 lines)
 - [[ingestion-log]] (16 lines)
 - [[WATCHLIST]] (18 lines)
@@ -61,7 +40,6 @@ Generated: mié 13 may 2026 10:32:36 -05
 - [[Design-System-MD]] (26 lines)
 - [[ADR-TEMPLATE]] (26 lines)
 - [[PROJECT-TEMPLATE]] (26 lines)
-- [[IAC-TERRAFORM-BLUEPRINT]] (27 lines)
 - [[millionco-react-doctor-repo]] (27 lines)
 - [[Muhammad-Zakir-Ramadhan]] (28 lines)
 - [[react-doctor]] (28 lines)

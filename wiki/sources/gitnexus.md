@@ -93,5 +93,5 @@ TypeScript, JavaScript, Python, Java, Kotlin, C#, Go, Rust, PHP, Ruby, Swift, C,
 
 ## Related Entities
 
-- [[abhigyan-patwari]] — Author
-- [[akonlabs]] — Enterprise offering
+- [[Abhigyan-Patwari]] — Author
+- [[Akonlabs]] — Enterprise offering

@@ -85,4 +85,6 @@ According to BENCHMARK.md, the plugin promises to save up to **98% of the contex
 
 ## Related
 
-- Author: [[mert-koseoglu]]
+- Author: [[Mert-Koseoglu]]
+- Concept: [[fts5-search]]
+- Concept: [[sandboxed-execution]]
