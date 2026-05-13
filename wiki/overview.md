@@ -1,70 +1,53 @@
 ---
 type: overview
-title: "Wiki Overview"
+title: "Bunker OS — Executive Overview"
 created: 2026-04-07
-updated: 2026-04-07
-tags:
-  - meta
-  - overview
-status: developing
+updated: 2026-05-13
+tags: [meta, overview, architecture, platform]
+status: mature
 related:
   - "[[index]]"
   - "[[hot]]"
   - "[[log]]"
-  - "[[dashboard]]"
-  - "[[LLM Wiki Pattern]]"
-sources:
+  - "[[BUNKER-OS.canvas]]"
+  - "[[Security-Guardrails]]"
 ---
 
-# Wiki Overview
+# 🏛️ Bunker OS — Executive Overview
 
-Navigation: [[index]] | [[hot]] | [[log]] | [[dashboard]]
+Bunker OS is a **Senior Architect Command Center** and persistent knowledge engine built on the [[LLM Wiki Pattern]]. It transforms ephemeral AI sessions into a compounding technical asset, specialized in **Zero-Trust Security**, **Agentic Workflows**, and **Cloud Native Infrastructure**.
 
----
+## 🎯 Purpose
+The Bunker provides a structured, high-capacity environment for AI agents and human architects to co-design, document, and operationalize complex systems. It enforces senior-level standards automatically through blueprints and governance gates.
 
-## Purpose
+## 🧱 Core Domains
 
-This is the opencode-obsidian demo vault. It demonstrates the [[LLM Wiki Pattern]] — a system for building persistent, compounding knowledge bases using OpenCode and Obsidian.
+### 1. The Technology Trident
+- **[[Go]] & [[React]]**: Modern, high-performance stack following hexagonal architecture and Server Component patterns.
+- **[[Vector-Database-Patterns]]**: Hybrid search (RRF) and pgvector for advanced RAG.
+- **[[Local-First-Architecture]]**: Edge computing and offline-first synchronization.
 
-Run `/wiki` to scaffold this vault for your own domain and replace this overview.
+### 2. Security & Governance (The Constitution)
+- **[[OzyZT]]**: A Zero-Trust enforcement platform for CI/CD and deployment.
+- **[[Security-Guardrails]]**: Hardened policies for secrets, supply chain, and agents.
+- **[[ADR-Lifecycle]]**: Formalizing both human and agentic architectural decisions (AgDR).
 
----
+### 3. Agentic Intelligence
+- **[[Agentic-Workflows]] & [[AI-Swarms]]**: Specialized multi-agent orchestration for complex engineering tasks.
+- **[[agentmemory]]**: Long-term contextual memory and procedural learning.
+- **[[Agentic-FinOps-Patterns]]**: Token economics and budget-aware AI execution.
 
-## Current Seed Content
-
-
-**Concepts seeded:**
-- [[LLM Wiki Pattern]] — the core architecture
-- [[Hot Cache]] — session context mechanism
-- [[Compounding Knowledge]] — why the pattern works
-
-**Entities seeded:**
-- [[Andrej Karpathy]] — originated the pattern
-
-**Sources seeded:**
-- [[opencode-obsidian-ecosystem-research]] — 16+ projects, 13 cherry-picks identified (2026-04-08)
-
----
-
-## Current State
-
-- Sources ingested: 2
-- Wiki pages: 26
-- Last activity: 2026-04-08 (v1.4.1 shipped, release session filed)
+## 🎮 Operational Capabilities
+- **Scaffolding**: `bin/bunker-scaffold.sh` generates production-ready projects in seconds.
+- **Integrity**: `bin/wiki-integrity.sh` maintains graph health and identifies knowledge gaps.
+- **Grounding**: 10+ NotebookLM notebooks providing deep technical context for every domain.
 
 ---
 
-## Canvases
-
-- [[opencode-obsidian-presentation]] — Full presentation: hero, overview, skills, architecture, Wiki vs RAG, visual demos (2026-04-07)
-- [[AI Marketing Hub Cover Images Canvas]] — Cover image library for AI Marketing Hub brand assets
+## 📈 Current State (v2.3)
+- **Total Knowledge**: +9,000 lines of curated documentation.
+- **Network Health**: 150+ interconnected nodes in the [[Wiki Map]].
+- **Status**: **Fully Operational**. All core pillars are expanded to Senior Architect capacity.
 
 ---
-
-## Key Themes
-
-**Knowledge compounds.** Unlike RAG, the wiki pre-compiles synthesis. Cross-references are already there. Contradictions are flagged. Every ingest enriches existing pages rather than adding isolated chunks.
-
-**The hot cache is the force multiplier.** A ~500-word file captures recent context. New sessions start with full context at minimal token cost.
-
-**Obsidian is the IDE, OpenCode is the programmer.** The graph view shows what's connected. The human curates sources and asks questions. OpenCode writes and maintains everything else.
+*Built for the 2026 Agentic Era. Knowledge is the ultimate infrastructure.*

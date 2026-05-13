@@ -1,101 +1,60 @@
 ---
 type: meta
 title: "Getting Started"
-updated: 2026-04-07
-tags:
-  - meta
-  - onboarding
+updated: 2026-05-13
+tags: [meta, onboarding, quickstart]
 status: evergreen
 related:
   - "[[index]]"
   - "[[overview]]"
+  - "[[BUNKER-OS.canvas]]"
   - "[[LLM Wiki Pattern]]"
-  - "[[Wiki vs RAG]]"
-  - "[[Wiki Map]]"
 ---
 
-# Getting Started with opencode-obsidian
+# Getting Started with Bunker OS
 
-Welcome. This vault is your compounding knowledge base — a persistent second brain built with OpenCode and Obsidian.
+Welcome to the **Bunker**. This is more than a wiki; it's a persistent second brain and operational toolkit designed for Senior Architects and AI Agents.
 
-Every source you add gets processed into 8–15 cross-referenced wiki pages. Every question you ask pulls from everything that's been ingested. Knowledge compounds like interest.
+## 🚀 Three-Step Quick Start
 
----
-
-## Three-Step Quick Start
-
-### 1. Drop a source
-
-Put any document into the `.raw/` folder:
-- PDFs, markdown files, transcripts, articles
-- Or paste a URL and ask OpenCode to fetch it
-
-### 2. Ingest it
-
-Tell OpenCode in any OpenCode Code session:
-
-```
+### 1. Ingest Knowledge
+Drop any technical resource (PDF, URL, Transcript) into `.raw/` and run:
+```bash
 ingest [filename]
 ```
+The system will create 8-15 cross-linked pages, updating the index and graph automatically.
 
-OpenCode reads the source, creates 8–15 wiki pages under `wiki/`, cross-references everything, and updates `wiki/index.md`, `wiki/log.md`, and `wiki/hot.md`.
-
-### 3. Ask questions
-
+### 2. Scaffold a Project
+Turn theory into code. Use the operational command center to start a new service:
+```bash
+./bin/bunker-scaffold [project-name] --blueprint [go|react]
 ```
-what do you know about [topic]?
+This generates a production-grade folder structure, Dockerfiles, and security checklists.
+
+### 3. Maintain Integrity
+Ensure your knowledge graph stays healthy by running the integrity script:
+```bash
+./bin/wiki-integrity.sh
 ```
+Check `wiki/meta/INTEGRITY-REPORT.md` for orphans or knowledge gaps.
 
-OpenCode reads the hot cache, scans the index, drills into relevant pages, and gives you a synthesized answer — citing specific wiki pages, not training data.
+## 🛠️ Key Commands
 
----
+| Action | Command | Purpose |
+|--------|---------|---------|
+| **Ingest** | `ingest [file]` | Process new sources into the wiki. |
+| **Query** | `what do you know about X?` | Synthesize answers from vault context. |
+| **Scaffold** | `bunker-scaffold` | Create projects based on standards. |
+| **Lint** | `wiki-integrity.sh` | Find orphans and broken links. |
+| **Sync** | `bin/wiki-sync.sh` | Persist and push all changes. |
+| **Save** | `/save` | File a conversation as a wiki note. |
 
-## How the Hot Cache Works
-
-`wiki/hot.md` is a ~500-word summary of recent vault context. It loads automatically at the start of every session (via the SessionStart hook).
-
-You don't need to recap. OpenCode starts every session knowing what you've been working on.
-
-Update it manually at any time: `update hot cache`
-
----
-
-## Your First Ingest — Walkthrough
-
-1. Create a file in `.raw/` — copy a transcript, paste an article, or save a PDF
-2. Open OpenCode Code in this vault folder
-3. Type: `ingest [your-filename]`
-4. Watch the wiki grow — OpenCode will report which pages it created
-5. Open `wiki/index.md` — you'll see the new pages listed
-6. Open Graph View in Obsidian — a new cluster of connected nodes appears
-
-After 3–5 ingests, the graph starts to look like a real knowledge network. Cross-references emerge automatically.
+## 🗺️ Navigation Hub
+- **[[BUNKER-OS.canvas]]** — Visual center of the whole system.
+- **[[index]]** — Master catalog of all projects, concepts, and sources.
+- **[[hot]]** — Current focus and recent context summary.
+- **[[Security-Guardrails]]** — The rules of the game.
+- **[[FAQ]]** — Common questions about the Bunker.
 
 ---
-
-## Key Commands
-
-| You say | OpenCode does |
-|---------|-------------|
-| `ingest [file]` | Creates 8–15 wiki pages from a source |
-| `what do you know about X?` | Queries the wiki, cites pages |
-| `/save` | Files this conversation as a wiki note |
-| `/autoresearch [topic]` | Searches the web, ingests results autonomously |
-| `lint the wiki` | Health check — finds orphans, gaps, stale links |
-| `update hot cache` | Refreshes the session context summary |
-
----
-
-## Navigate the Vault
-
-- **[[Wiki Map]]** — visual Fibonacci graph of all wiki pages
-- **[[index]]** — master catalog, all pages by type
-- **[[overview]]** — executive summary of vault contents
-- **[[FAQ]]** — answers to common questions about the Bunker
-- **[[LLM Wiki Pattern]]** — the pattern this vault is built on
-- **[[Wiki vs RAG]]** — why a wiki beats RAG at human scale
-- **[[dashboard]]** — live Dataview queries (requires Dataview plugin)
-
----
-
 *Built on the [LLM Wiki pattern](https://github.com/karpathy) by Andrej Karpathy.*

@@ -18,7 +18,7 @@
 		{"id":"comp","type":"file","file":"wiki/concepts/Compounding Knowledge.md","x":521,"y":355,"width":280,"height":80,"color":"2"},
 		{"id":"mcp-gov","type":"file","file":"wiki/concepts/tech-stack/mcp-governance.md","x":521,"y":18,"width":260,"height":257,"color":"2"},
 		{"id":"c-idx","type":"file","file":"wiki/concepts/_index.md","x":150,"y":18,"width":270,"height":114,"color":"2"},
- 		{"id":"e-idx","type":"file","file":"wiki/entities/_index.md","x":-500,"y":235,"width":270,"height":80,"color":"6"},
+		{"id":"e-idx","type":"file","file":"wiki/entities/_index.md","x":-500,"y":235,"width":270,"height":80,"color":"6"},
 		{"id":"deep-eye","type":"file","file":"wiki/sources/zakirkun-deep-eye.md","x":-150,"y":-680,"width":280,"height":80,"color":"4"},
 		{"id":"ai-pentest","type":"file","file":"wiki/concepts/tech-stack/ai-powered-pentesting.md","x":700,"y":-100,"width":300,"height":80,"color":"2"},
 		{"id":"zakir","type":"file","file":"wiki/entities/Muhammad-Zakir-Ramadhan.md","x":-1100,"y":320,"width":280,"height":80,"color":"6"},
