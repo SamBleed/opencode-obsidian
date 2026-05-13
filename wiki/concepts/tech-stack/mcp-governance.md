@@ -3,38 +3,56 @@ type: concept
 title: "MCP Governance"
 domain: tech-stack
 created: 2026-04-20
-updated: 2026-04-20
-tags:
-  - mcp
-  - governance
-  - tech-stack
-status: seed
-related:
-  - "[[index]]"
-  - "[[MCP-CONFIG]]"
-sources:
-  - "[[opencode-obsidian/AGENTS.md]]"
+updated: 2026-05-13
+tags: [mcp, governance, policy, security]
+status: mature
 ---
 
-# MCP Governance
+# MCP Governance (v2026)
 
-## Definition
-Marco de trabajo para la gestión y orquestación de múltiples servidores Model Context Protocol (MCP) evitando solapación de herramientas y fatiga cognitiva del agente.
+MCP Governance is the framework for managing, securing, and orchestrating multiple **Model Context Protocol (MCP)** servers. As the ecosystem has grown to 9,000+ servers, governance has shifted from simple tool management to protecting **Privileged Execution Environments**.
 
-## How It Works
-Se basa en la jerarquía de herramientas definida en `AGENTS.md` y la delegación de tareas a agentes especializados. El objetivo es que el orquestador sepa exactamente qué herramienta es la más eficiente para cada tipo de tarea (Búsqueda, Ingestión, Acción o Seguridad).
+## 🛡️ The Zero-Trust MCP Model
 
-## Example
-### Jerarquía de Búsqueda
-1. **Context7**: Documentación oficial de librerías.
-2. **Exa**: Noticias y tendencias.
-3. **Browser**: Interacción humana.
+In the Bunker, we treat every MCP server as a potential attack vector. Governance is enforced through the following layers:
 
-## Patterns
-- **Abstraction Layer**: No llamar a herramientas complejas directamente si existe un script en `bin/` que estandarice los flags.
-- **Agent Segmentation**: Limitar las herramientas visibles para cada sub-agente según su propósito.
-- **On-Demand Activation**: Mantener desactivados los servidores MCP de uso esporádico (ej. Trivy) en `opencode.json` hasta que sean necesarios.
+### 1. The 5 Core Primitives
+We categorize tool capabilities into the standard MCP primitives to ensure predictable agent behavior:
+- **Tools**: Executable functions (e.g., `bash`, `edit`).
+- **Resources**: Static data/files (e.g., `read_note`).
+- **Prompts**: Pre-defined templates for specific tasks.
+- **Sampling**: Allowing the server to request completions from the LLM.
+- **Roots**: Defining the boundaries of the file system the agent can see.
 
-## Source
-- [[AGENTS.md]]
+### 2. Transport Security
+- **Local (STDIO)**: Used for high-trust, local development tools.
+- **Remote (HTTP/SSE)**: Mandatory **OAuth 2.1** for all remote tool connections.
+- **Auditing**: Every request-response pair is logged in the [[Agent-Observability-Blueprint]].
+
+### 3. Tool Hierarchy & Deduplication
+To avoid "tool fatigue", agents follow a strict lookup order:
+1. **Primary**: [[Context7]] (Technical Docs).
+2. **Secondary**: [[Exa]] (Web Intelligence).
+3. **Tertiary**: [[BrowserMCP]] (Visual Interaction).
+
+## 🚀 Patterns for 2026
+
+### MCP-as-a-Service
+Instead of each agent having its own set of tools, the Bunker uses a **Central Tool Registry**. Agents query the registry to find the most appropriate server for a task.
+
+### Bounded Roots
+Agents are restricted to specific "roots" in the filesystem. For example, a "Frontend Agent" has root access to `src/components` but not to `wiki/meta/secrets`.
+
+### Agent-to-Agent (A2A) Orchestration
+MCP solves the tool-integration problem, while A2A protocols manage how agents hand over tasks.
+- **Pattern**: `Orchestrator` → `MCP Query` → `Task Delegation` → `A2A Handover`.
+
+## ⚠️ Risks & Mitigations
+- **Tool Poisoning**: Malicious MCP servers returning biased data. *Mitigation*: Only use verified servers from the [[WATCHLIST]].
+- **Context Exhaustion**: Too many tools in the context window. *Mitigation*: **On-Demand Activation** (Load tools only when needed).
+
+## Related
 - [[MCP-CONFIG]]
+- [[AGENTS.md]]
+- [[Agent-Observability-Blueprint]]
+- [[OzyZT Architecture]]

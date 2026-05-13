@@ -23,6 +23,15 @@ Entry format: `## [YYYY-MM-DD] operation | Title`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
+## [2026-05-13] maintenance | Proactive System Hardening (v1.8)
+- Type: automation + observability + governance
+- Tools used: Google Search, NotebookLM, Bash.
+- Pages created: [[AGENT-OBSERVABILITY-BLUEPRINT]].
+- Pages expanded: [[mcp-governance]], [[index]].
+- Automation: Created `bin/wiki-integrity.sh` for orphan detection.
+- Artifacts: Triggered NotebookLM Audio Briefing for "Bunker OS: Senior Architect Upgrade".
+- Goal: Align the Bunker with 2026 "Agentic Knowledge Management" patterns.
+
 ## [2026-05-13] upgrade | NotebookLM Insight Ingestion (v1.7)
 - Type: deep-research + wiki-expansion
 - Sources: Notebooks "AI Engineering 2026" and "Modern AppSec".

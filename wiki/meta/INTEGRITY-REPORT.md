@@ -1,0 +1,109 @@
+# 🔍 Wiki Integrity Report
+Generated: mié 13 may 2026 10:24:14 -05
+
+## 🕸️ Orphan Notes (No incoming links)
+- [[React-v-Astro]]
+- [[Go-v-Rust]]
+- [[Wiki]]
+- [[vs]]
+- [[RAG]]
+- [[Hermes-Patterns]]
+- [[Andrej]]
+- [[Karpathy]]
+- [[Mert-Koseoglu]]
+- [[Akonlabs]]
+- [[Abhigyan-Patwari]]
+- [[FAQ]]
+- [[How]]
+- [[does]]
+- [[the]]
+- [[LLM]]
+- [[Wiki]]
+- [[pattern]]
+- [[work]]
+- [[Hot]]
+- [[Cache]]
+- [[MCP-Browser]]
+- [[perf-optimization]]
+- [[Zig]]
+- [[Wiki]]
+- [[Pattern]]
+- [[Visual]]
+- [[Flow]]
+- [[Compounding]]
+- [[Knowledge]]
+- [[Architecture]]
+- [[memo-1778254123]]
+- [[memo-1778253978]]
+- [[memo-1778253930]]
+- [[regladeorosiempredocumentar]]
+- [[arquitecturadescriptstodoslos]]
+- [[reportedefalloelmotor]]
+- [[memo-1778253824]]
+- [[memo-1778253961]]
+- [[runtime]]
+- [[ozy-sandbox-runner]]
+- [[OzyRecon]]
+- [[docs]]
+- [[ozy-policy-engine]]
+- [[ozy-asset-inventory]]
+- [[ozy-platform]]
+- [[ozy-risk-engine]]
+- [[ozy-secrets-vault]]
+- [[ozy-mcp]]
+- [[ozy-api-registry]]
+- [[MESSAGING-STRATEGY]]
+- [[IAC-TERRAFORM-BLUEPRINT]]
+- [[DATA-STRATEGY]]
+- [[llm-wiki-pattern-research]]
+- [[bugfaltaunlinken]]
+- [[bugelarchivoingestservergoest]]
+- [[bugelmotordebsqueda]]
+- [[decidimosprohibirioutilporseguridad]]
+- [[buglalgicaenbunkerpulsesh]]
+- [[bugelarchivobunkerpulseshest]]
+- [[buglalgicadeescaneo]]
+- [[bugelcomandoseteuo]]
+- [[estndaresgo]]
+- [[elservidordeingestaest]]
+
+## 🛠️ Short Notes (Seed candidates < 30 lines)
+- [[MCP-CONFIG]] (14 lines)
+- [[ingestion-log]] (16 lines)
+- [[WATCHLIST]] (18 lines)
+- [[redhat-cicd-pipeline]] (19 lines)
+- [[llm-wiki-pattern-research]] (20 lines)
+- [[Offensive-Vaccine]] (21 lines)
+- [[Zig]] (21 lines)
+- [[Mert-Koseoglu]] (23 lines)
+- [[AI-PROTOCOL]] (23 lines)
+- [[LEARNING-LOOP]] (23 lines)
+- [[Ethics-Compliance]] (24 lines)
+- [[OBSIDIAN-PLUGINS]] (24 lines)
+- [[docs]] (24 lines)
+- [[ozy-api-registry]] (24 lines)
+- [[ozy-asset-inventory]] (24 lines)
+- [[OzyAudit]] (24 lines)
+- [[ozy-mcp]] (24 lines)
+- [[ozy-platform]] (24 lines)
+- [[ozy-policy-engine]] (24 lines)
+- [[OzyRecon]] (24 lines)
+- [[ozy-risk-engine]] (24 lines)
+- [[ozy-sandbox-runner]] (24 lines)
+- [[ozy-secrets-vault]] (24 lines)
+- [[ozy-web]] (24 lines)
+- [[runtime]] (24 lines)
+- [[INGEST-PROTOCOL]] (25 lines)
+- [[ozy-api]] (25 lines)
+- [[Design-System-MD]] (26 lines)
+- [[ADR-TEMPLATE]] (26 lines)
+- [[PROJECT-TEMPLATE]] (26 lines)
+- [[IAC-TERRAFORM-BLUEPRINT]] (27 lines)
+- [[millionco-react-doctor-repo]] (27 lines)
+- [[Muhammad-Zakir-Ramadhan]] (28 lines)
+- [[react-doctor]] (28 lines)
+- [[AUTOMATION-STRATEGY]] (29 lines)
+- [[Awesome-DESIGN-md]] (29 lines)
+
+## 🚩 Broken Links (Pending implementation)
+Check manually for [[ ]] that don't point to a file.

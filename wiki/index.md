@@ -25,7 +25,11 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 
 ## 🚀 Projects (Ecosistema Vivo)
 - **[[agentmemory]]** — Persistent memory engine for the Bunker's agents.
-- **[[OzyZT]]** — Zero-Trust enforcement platform for developer security gates.
+- **[[OzyZT]]** — Zero-Trust platform for developer security gates.
+    - [[ozy-api]] / [[ozy-web]]
+    - [[OzyAudit]] / [[OzyRecon]]
+    - [[ozy-platform]] / [[ozy-mcp]]
+    - [[ozy-risk-engine]] / [[ozy-policy-engine]]
 - **[[ozy-api]]** — Powered by [[GO-API-BLUEPRINT]].
 - **[[ozy-web]]** — Powered by [[DESIGN-TEMPLATE]].
 
@@ -111,7 +115,9 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 
 ## 📐 Blueprints Engine
 - [[GO-API-BLUEPRINT]] — Standard for backend services.
+- [[REACT-WEB-BLUEPRINT]] — Standard for Next.js 15+ apps.
 - [[DESIGN-TEMPLATE]] — Visual standard for frontend.
+- [[AGENT-OBSERVABILITY-BLUEPRINT]] — Standard for agent tracing and logging.
 - [[AUTOMATION-STRATEGY]] — n8n workflow patterns.
 
 ---
