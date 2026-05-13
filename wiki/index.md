@@ -72,6 +72,8 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[HANDOVER]
 
 ## 🧠 Core Concepts
 - [[LLM Wiki Pattern]] — Persistent, compounding knowledge base.
+- [[Local-First-Architecture]] — Offline-first and synchronization patterns.
+- [[Agentic-FinOps-Patterns]] — AI economics and token budget governance.
 - [[Delta Tracking]] — Hash-based source change detection.
 - [[Domain-Specific-Vaults]] — Multi-vault architecture (Coding, Finance, etc.).
 - [[Design-System-MD]] — Markdown-based UI governance.

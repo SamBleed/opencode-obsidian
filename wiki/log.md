@@ -23,6 +23,14 @@ Entry format: `## [YYYY-MM-DD] operation | Title`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
+## [2026-05-13] upgrade | The Final Architecture Circle (v2.1)
+- Type: efficiency-upgrade + economics
+- Tools: Exa, NotebookLM, Context7.
+- Notebooks created: "Local-First Architecture & Sync 2026", "Agentic FinOps & AI Economics 2026".
+- Pages created: [[Local-First-Architecture]], [[Agentic-FinOps-Patterns]].
+- Goal: Make the Bunker economically sustainable and local-first ready.
+- Results: Injected patterns for SQLite WASM sync (PowerSync/Replicache) and Budget-as-Code for agents.
+
 ## [2026-05-13] upgrade | Strategic Expansion Quadrant (v2.0)
 - Type: deep-research + notebook-creation + wiki-expansion
 - Tools: Exa, NotebookLM, Context7.
