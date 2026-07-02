@@ -30,7 +30,7 @@
 ```
 
 <p align="center">
-  <img src="wiki/meta/bunker-workflow-diagram.jpg" alt="Bunker OS Workflow" width="100%" />
+  <img src="wiki/meta/descripcion.png" alt="Bunker OS Workflow" width="100%" />
 </p>
 
 ---
