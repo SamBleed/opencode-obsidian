@@ -1,6 +1,6 @@
 # Bunker OS Integrity Report
 
-Generated: 2026-07-02T18:09:40.653782+00:00
+Generated: 2026-07-02T19:11:37.763495+00:00
 
 ## Summary
 
@@ -12,7 +12,7 @@ Generated: 2026-07-02T18:09:40.653782+00:00
 - missing_frontmatter: 0
 - unprocessed_raw: 0
 - plugins_missing: 0
-- local_config_files: 4
+- local_config_files: 5
 - absolute_path_files: 0
 
 ## Broken Links
@@ -40,6 +40,7 @@ Generated: 2026-07-02T18:09:40.653782+00:00
 - `.obsidian/plugins/obsidian-excalidraw-plugin/data.json`
 - `.obsidian/plugins/obsidian-local-rest-api/data.json`
 - `.obsidian/plugins/thino/data.json`
+- `automation/n8n-lab/workflows/.env`
 
 ## Absolute Path References
 - None detected.

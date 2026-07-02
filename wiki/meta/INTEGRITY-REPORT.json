@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T18:09:40.653782+00:00",
+  "generated_at": "2026-07-02T19:11:37.763495+00:00",
   "root": "/home/sam/opencode-obsidian",
   "vault": "/home/sam/opencode-obsidian/wiki",
   "counts": {
@@ -11,7 +11,7 @@
     "missing_frontmatter": 0,
     "unprocessed_raw": 0,
     "plugins_missing": 0,
-    "local_config_files": 4,
+    "local_config_files": 5,
     "absolute_path_files": 0
   },
   "broken_links": [],
@@ -37,7 +37,8 @@
     ".obsidian/plugins/calendar/data.json",
     ".obsidian/plugins/obsidian-excalidraw-plugin/data.json",
     ".obsidian/plugins/obsidian-local-rest-api/data.json",
-    ".obsidian/plugins/thino/data.json"
+    ".obsidian/plugins/thino/data.json",
+    "automation/n8n-lab/workflows/.env"
   ],
   "absolute_path_files": []
 }
