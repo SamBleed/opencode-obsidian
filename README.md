@@ -13,22 +13,6 @@
 
 ---
 
-## 🏗️ Intelligence Architecture v3.0
-
-```text
-  USUARIO (Telegram/Web)           BUNKER MISSION CONTROL (Canvas)
-          │                            │
-          ▼                            ▼
-   [ Smart Ingest ] ───(Query)──▶ [ Obsidian Vault ] ◀── [ NotebookLM ]
-          │                            │                (Grounding)
-          └────(Scaffold)─▶ [ Real Code ] ◀── [ bin/bunker-scaffold.sh ]
-                                     │
-                                     ├──────(Verify)──▶ [ OzyAudit / react-doctor ]
-                                     │
-                                     └──────(Event/MCP)─▶ [ n8n Orchestrator ]
-                                                             (Actions & Alerts)
-```
-
 <p align="center">
   <img src="wiki/meta/descripcion.png" alt="Bunker OS Workflow" width="100%" />
 </p>
