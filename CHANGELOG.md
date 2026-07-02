@@ -1,37 +1,37 @@
 # Changelog
 
-## v1.3.1 — Feature Port desde claude-obsidian v1.9 — 2026-07-02
+## v1.3.1 — Feature Port from claude-obsidian v1.9 — 2026-07-02
 
 ### Added
 
 **Skills**
-- **Autoresearch**: Research loop autónomo de 3 rondas con Exa + webfetch + filing a wiki. Porteado de claude-obsidian v1.9.2 y adaptado a OpenCode.
-- **wiki-retrieve**: BM25 index (211 chunks, 6.544 términos) + cosine rerank vía ollama nomic-embed-text. Búsqueda híbrida por significado.
-- **/think**: Framework de 10 principios (OBSERVE-OBSERVE-LISTEN-THINK-CONNECT-CONNECT-FEEL-ACCEPT-CREATE-GROW) para decisiones arquitectónicas. En español.
+- **Autoresearch**: 3-round autonomous research loop with Exa + webfetch + wiki filing. Ported from claude-obsidian v1.9.2, adapted to OpenCode.
+- **wiki-retrieve**: BM25 index (211 chunks, 6,544 terms) + cosine rerank via ollama nomic-embed-text. Hybrid semantic search.
+- **/think**: 10-principle framework (OBSERVE-OBSERVE-LISTEN-THINK-CONNECT-CONNECT-FEEL-ACCEPT-CREATE-GROW) for architectural decisions.
 
 **Testing**
-- **Makefile** con 5 targets: workflows n8n, wiki integrity, scripts, YAML, retrieve
-- **test_workflow_connections.py**: 344 tests, valida nodos y conexiones de todos los workflows n8n
-- **test_wiki_integrity.sh**: 21 tests, archivos esenciales, frontmatter, docker status
-- **test_scripts.sh**: 61 tests, sintaxis bash, shebang, secretos hardcodeados, go vet
-- **GitHub Actions CI** (`.github/workflows/test.yml`): 5 suites en cada push/PR a main
+- **Makefile** with 5 targets: n8n workflows, wiki integrity, scripts, YAML, retrieve
+- **test_workflow_connections.py**: 344 tests validating all n8n workflow nodes and connections
+- **test_wiki_integrity.sh**: 21 tests for essential files, frontmatter, docker status
+- **test_scripts.sh**: 61 tests for bash syntax, shebang, hardcoded secrets, go vet
+- **GitHub Actions CI** (`.github/workflows/test.yml`): 5 suites on every push/PR to main
 
-**Automatización n8n**
-- **Dead Letter Queue**: Error trigger global que atrapa errores de todos los workflows y persiste en staticData
-- **AOC v4 Enterprise**: 37 nodos con AI triage (OpenRouter/Mistral), idempotencia Redis, GitHub issues + Slack/Telegram/Discord
+**n8n Automation**
+- **Dead Letter Queue**: Global error trigger that catches errors from all workflows and persists to staticData
+- **AOC v4 Enterprise**: 37 nodes with AI triage (OpenRouter/Mistral), Redis idempotency, GitHub issues + Slack/Telegram/Discord
 - Docker tuning: `N8N_CONCURRENCY_PRODUCTION_LIMIT`, `EXECUTIONS_DATA_PRUNE`, `N8N_METRICS`, `N8N_LOG_FORMAT=json`
-- Limpieza de 5 workflows zombies del repo
+- Cleaned 5 zombie workflows from the repo
 
-**Infraestructura**
-- `.env` saneado: removidas API keys muertas, agregadas vars del AOC v3, dry-run por defecto
-- docker-compose: removido `version:` deprecado, agregado production tuning
-- Hooks mejorados: PostCompact con `cat` command, Stop con prompt auto-update hot.md, PostToolUse con stage de tests
-- Token n8n actualizado, Excalidraw MCP eliminado
+**Infrastructure**
+- `.env` cleaned: removed dead API keys, added AOC v3 vars, dry-run by default
+- docker-compose: removed deprecated `version:`, added production tuning
+- Hooks improved: PostCompact with `cat` command, Stop with auto-update hot.md prompt, PostToolUse stages tests
+- n8n token updated, Excalidraw MCP removed
 
 ### Changed
-- README.md actualizado con tabla de características, comparativa vs claude-obsidian, badges de CI
-- PROJECT.md actualizado a v3.1, 13 skills, nueva arquitectura
-- n8n reiniciado con nueva configuración de entorno
+- README updated with feature comparison table, claude-obsidian comparison, CI badges
+- PROJECT updated to v1.3.1, 13 skills, new architecture
+- n8n restarted with new environment configuration
 
 ## v3.0 — Local Knowledge Operating System — 2026-05-14
 
