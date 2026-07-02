@@ -61,7 +61,7 @@ Visualization → dashboard, canvases, Obsidian graph
 
 ### Infrastructure
 - docker-compose: production tuning (concurrency, metrics, log format, data prune)
-- `.env`: AOC v3 variables, removed dead API keys
+- `.env`: AOC v4 variables, removed dead API keys
 - n8n: MCP endpoint configured, concurrency limit
 - PostCompact hook improved with `cat` command
 - Stop hook with auto-update hot.md prompt
@@ -72,7 +72,9 @@ Visualization → dashboard, canvases, Obsidian graph
 
 ---
 
-## Skills (13)
+## Skills (13 repo + 6 ECC global)
+
+### Bundled in this repo
 
 | Skill | Description |
 |-------|-------------|
@@ -83,6 +85,17 @@ Visualization → dashboard, canvases, Obsidian graph
 | `wiki-query` | Query the wiki |
 | `wiki-lint` | Vault health check |
 | `save` | Save conversation as note |
+| `wiki` | Wiki orchestrator |
+| `canvas` | Visual canvas layer |
+| `defuddle` | Web extraction wrapper |
+| `evidence-index` | Evidence indexing |
+| `obsidian-bases` | Bases schema reference |
+| `obsidian-markdown` | OFM syntax reference |
+
+### Provided by ECC global config
+
+| Skill | Description |
+|-------|-------------|
 | `code-review` | Code quality review |
 | `security-review` | Security review |
 | `infra-design` | Infrastructure design |

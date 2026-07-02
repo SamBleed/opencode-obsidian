@@ -1,4 +1,4 @@
-# 🛡️ Bunker Rules (v2.3.1)
+# 🛡️ Bunker Rules (v1.3.1)
 *Autonomous governance and technical standards for the Bunker OS.*
 
 ## 🏛️ General Protocol
@@ -40,4 +40,4 @@ When a new resource is provided:
 - **Budgeting**: Hard loop limits (max 15 steps) per agent task.
 
 ---
-*Last Updated: 2026-05-13 — Bunker OS Genesis.*
+*Last Updated: 2026-07-02 — Bunker OS v1.3.1.*

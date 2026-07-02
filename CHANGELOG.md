@@ -23,7 +23,7 @@
 - Cleaned 5 zombie workflows from the repo
 
 **Infrastructure**
-- `.env` cleaned: removed dead API keys, added AOC v3 vars, dry-run by default
+- `.env` cleaned: removed dead API keys, added AOC v4 vars, dry-run by default
 - docker-compose: removed deprecated `version:`, added production tuning
 - Hooks improved: PostCompact with `cat` command, Stop with auto-update hot.md prompt, PostToolUse stages tests
 - n8n token updated, Excalidraw MCP removed

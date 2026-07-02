@@ -62,7 +62,7 @@ docker ps --filter name=n8n
 
 ---
 
-## 1 — Estructura del Vault
+## 1 — Vault Structure
 
 ```
 .raw/           → fuentes inmutables — nunca modificar
@@ -236,12 +236,12 @@ sources: []
 
 ---
 
-## 5 — Query (consulta)
+## 5 — Query
 
-Tres modos de profundidad:
+Three depth modes:
 
-| Modo | Trigger | Lectura | Costo tokens | Mejor para |
-|------|---------|---------|-------------|------------|
+| Mode | Trigger | Reads | Token cost | Best for |
+|------|---------|-------|------------|---------|
 | **Quick** | Simple factual question | hot.md + index.md | ~1,500 | "What is X?", dates, lookups |
 | **Standard** | Default (no flag) | hot.md + index + 3-5 pages | ~3,000 | Most questions |
 | **Deep** | "thorough", "exhaustive" | Full wiki + optional retrieve | ~8,000+ | Synthesis, gaps, comparisons |
@@ -292,7 +292,7 @@ python3 scripts/retrieve.py status  # Verify BM25 index is up to date
 
 ## 7 — Autoresearch
 
-Ver `skills/autoresearch/SKILL.md` para instrucciones completas.
+See `skills/autoresearch/SKILL.md` for full instructions.
 
 ### Summary
 
@@ -329,7 +329,7 @@ Edit `skills/autoresearch/references/program.md` to change:
 
 ## 8 — Think Framework
 
-Ver `skills/think/SKILL.md` para instrucciones completas.
+See `skills/think/SKILL.md` for full instructions.
 
 ```
 /think <problema>
@@ -352,15 +352,15 @@ Do NOT use for one-line fixes or trivial lookups.
 
 ## 9 — Hybrid Retrieval (BM25 + ollama)
 
-Ver `skills/wiki-retrieve/SKILL.md` para instrucciones completas.
+See `skills/wiki-retrieve/SKILL.md` for full instructions.
 
 ### Pipeline
 
 ```
-query → BM25 (candidatos) → ollama nomic-embed-text (embeddings) → cosine rerank → top 5
+query → BM25 (candidates) → ollama nomic-embed-text (embeddings) → cosine rerank → top 5
 ```
 
-### Mantenimiento
+### Maintenance
 
 ```bash
 python3 scripts/retrieve.py build     # Build/update index
