@@ -1,36 +1,36 @@
 # WIKI.md — Bunker OS Wiki Schema
 
-> Los skills de OpenCode manejan todo esto automáticamente.
-> Este archivo es la referencia. Leelo para entender cómo funciona el sistema.
-> Basado en el patrón LLM Wiki de Andrej Karpathy.
+> OpenCode skills handle all of this automatically.
+> This file is the reference. Read it to understand how the system works.
+> Based on the LLM Wiki pattern by Andrej Karpathy.
 
 ---
 
-## ¿Qué es esto?
+## What This Is
 
-Estás manteniendo una wiki persistente que compone dentro de un vault de Obsidian.
-No solo respondés preguntas. Construís y mantenés una base de conocimiento
-estructurada que se hace más rica con cada fuente agregada y cada pregunta
-respondida. El humano cura fuentes y hace preguntas. Vos hacés toda la
-escritura, cross-referencing, filing y mantenimiento.
+You are maintaining a persistent, compounding wiki inside an Obsidian vault.
+You don't just answer questions. You build and maintain a structured knowledge
+base that gets richer with every source added and every question asked.
+The human curates sources and asks questions. You do all the writing,
+cross-referencing, filing, and maintenance.
 
-La wiki es el producto. El chat es solo la interfaz.
+The wiki is the product. Chat is just the interface.
 
-La diferencia clave con RAG: la wiki es un artefacto persistente. Las
-cross-references ya están ahí. Las contradicciones están señaladas. La
-síntesis ya refleja todo lo que se leyó. El conocimiento compone como interés.
+The key difference from RAG: the wiki is a persistent artifact. Cross-references
+are already there. Contradictions have been flagged. Synthesis already reflects
+everything that was read. Knowledge compounds like interest.
 
 ---
 
 ## 0 — Bootstrap
 
-### 0.1 Verificar OpenCode
+### 0.1 Verify OpenCode
 
 ```bash
-which opencode 2>/dev/null && echo "OpenCode instalado" || echo "Instalá OpenCode: https://opencode.ai"
+which opencode 2>/dev/null && echo "OpenCode installed" || echo "Install OpenCode: https://opencode.ai"
 ```
 
-### 0.2 Verificar Obsidian
+### 0.2 Verify Obsidian
 
 ```bash
 # Linux
@@ -38,26 +38,26 @@ flatpak list 2>/dev/null | grep -i obsidian && echo "FOUND via flatpak" || \
 which obsidian 2>/dev/null && echo "FOUND in PATH" || echo "NOT FOUND"
 ```
 
-### 0.3 Abrir el vault en Obsidian
+### 0.3 Open the vault in Obsidian
 
-1. Abrí Obsidian
+1. Open Obsidian
 2. Manage Vaults → Open folder as vault
-3. Seleccioná la carpeta del repositorio
+3. Select the repository folder
 
-### 0.4 Primeros pasos en OpenCode
+### 0.4 First steps in OpenCode
 
 ```
-ingest .raw/algun-archivo.md    # Ingestar una fuente
-/autoresearch [tema]             # Investigar un tema nuevo
-/think [decisión]                # Framework de 10 principios
-lint the wiki                    # Health check del vault
+ingest .raw/some-file.md     # Ingest a source
+/autoresearch [topic]         # Research a new topic
+/think [decision]             # 10-principle framework
+lint the wiki                 # Vault health check
 ```
 
-### 0.5 Verificar n8n (opcional)
+### 0.5 Verify n8n (optional)
 
 ```bash
 docker ps --filter name=n8n
-# Debería mostrar n8n_meco_lab corriendo
+# Should show n8n_meco_lab running
 ```
 
 ---
@@ -67,72 +67,68 @@ docker ps --filter name=n8n
 ```
 .raw/           → fuentes inmutables — nunca modificar
 wiki/           → base de conocimiento generada por IA
-_templates/     → templates de Obsidian Templater
-_attachments/   → imágenes y PDFs referenciados por la wiki
+_templates/     → Obsidian Templater templates
 ```
 
-Estructura estándar de wiki:
+Standard wiki structure:
 
 ```
 wiki/
-├── index.md            → catálogo maestro de todas las páginas
-├── log.md              → registro cronológico de operaciones (append-only)
-├── hot.md              → hot cache: contexto reciente (~500 palabras)
-├── overview.md         → resumen ejecutivo de toda la wiki
-├── sources/            → un resumen por fuente externa
-│   └── _index.md       → subíndice de sources
-├── entities/           → personas, orgs, productos, repos
+├── index.md            → master catalog of all pages
+├── log.md              → chronological operation log (append-only)
+├── hot.md              → hot cache: recent context (~500 words)
+├── overview.md         → executive summary of the whole wiki
+├── sources/            → one summary per external source
+│   └── _index.md       → sub-index
+├── entities/           → people, orgs, products, repos
 │   └── _index.md
-├── concepts/           → ideas, patrones, frameworks
+├── concepts/           → ideas, patterns, frameworks
 │   └── _index.md
-│   └── tech-stack/     → conceptos técnicos con código
-├── comparisons/        → análisis comparativos
-├── blueprints/         → planos de arquitectura ejecutables
-├── projects/           → proyectos vivos
-├── questions/          → respuestas archivadas a preguntas del usuario
+│   └── tech-stack/     → technical concepts with code
+├── comparisons/        → side-by-side analyses
+├── blueprints/         → executable architecture blueprints
+├── projects/           → live projects
+├── questions/          → archived answers to user queries
 ├── decisions/          → ADR / AgDR
-├── meta/               → dashboard, handovers, inteligencia, reports
-├── canvases/           → canvases de Obsidian
-└── domains/            → áreas temáticas de alto nivel
+├── meta/               → dashboard, handovers, intelligence, reports
+└── canvases/           → Obsidian canvases
 ```
 
-Las carpetas con prefijo `.` (`.raw/`) están ocultas en el explorador de
-Obsidian y en la vista de grafo.
+Dot-prefixed folders (`.raw/`) are hidden in Obsidian's file explorer and graph view.
 
 ---
 
-## 2 — Transporte (obsidian-vault MCP)
+## 2 — Transport (obsidian-vault MCP)
 
-Todos los skills escriben y leen usando los tools MCP del vault:
+All skills read and write using the vault MCP tools:
 
-| Operación | Tool MCP |
+| Operation | MCP Tool |
 |-----------|----------|
-| Leer nota | `obsidian-vault_read_note` |
-| Buscar notas | `obsidian-vault_search_notes` |
-| Crear/actualizar | `obsidian-vault_write_note` |
-| Edición quirúrgica | `obsidian-vault_patch_note` |
-| Actualizar frontmatter | `obsidian-vault_update_frontmatter` |
-| Obtener metadata | `obsidian-vault_get_notes_info` |
-| Listar estructura | `obsidian-vault_list_directory` |
+| Read note | `obsidian-vault_read_note` |
+| Search notes | `obsidian-vault_search_notes` |
+| Create/update | `obsidian-vault_write_note` |
+| Surgical edit | `obsidian-vault_patch_note` |
+| Update frontmatter | `obsidian-vault_update_frontmatter` |
+| Get metadata | `obsidian-vault_get_notes_info` |
+| List structure | `obsidian-vault_list_directory` |
 
-No uses Write/Edit para archivos dentro de `wiki/`. Siempre usá los tools
-MCP para mantener la consistencia con Obsidian.
+Do NOT use Write/Edit for files inside `wiki/`. Always use MCP tools to maintain consistency with Obsidian.
 
 ---
 
 ## 3 — Hot Cache
 
-`wiki/hot.md` es un resumen de ~500 palabras del contexto más reciente.
-Existe para que cualquier sesión (o cualquier otro proyecto que apunte al
-vault) pueda obtener contexto reciente sin recorrer toda la wiki.
+`wiki/hot.md` is a ~500-word summary of the most recent context. It exists
+so any session (or another project pointing at this vault) can get recent
+context without crawling the full wiki.
 
-Actualizar hot.md:
-- Después de cada ingest
-- Después de cualquier intercambio significativo de preguntas
-- Al final de cada sesión
-- Después de `/autoresearch`
+Update hot.md:
+- After every ingest
+- After any significant query exchange
+- At the end of every session
+- After `/autoresearch`
 
-Formato:
+Format:
 
 ```markdown
 ---
@@ -147,62 +143,61 @@ related: []
 # Recent Context — Bunker OS v1.3.1
 
 ## Current Focus
-[Una línea sobre en qué se está trabajando]
+[One line on what is being worked on]
 
 ## Key Recent Facts
-- [Hecho relevante 1]
-- [Hecho relevante 2]
+- [Relevant fact 1]
+- [Relevant fact 2]
 
 ## Recent Changes
 - Created: [[Page 1]], [[Page 2]]
 - Updated: [[Page 3]]
 
 ## Active Threads
-- Tema actual de investigación
-- Próximo paso planificado
+- Current research topic
+- Next planned step
 ```
 
-Mantenelo bajo 500 palabras. Es un cache, no un diario. Sobreescribilo
-completamente cada vez.
+Keep it under 500 words. It is a cache, not a journal. Overwrite it completely each time.
 
 ---
 
 ## 4 — Ingestion
 
-### Flujo de ingesta simple
+### Single source ingest flow
 
-1. Leé la fuente completamente. No la skimmees.
-2. Preguntá al usuario: "¿Qué querés que enfatice?"
-3. Creá resumen en `wiki/sources/` con frontmatter completo.
-4. Creá o actualizá páginas de entidades (personas, orgs, productos).
-5. Creá o actualizá páginas de conceptos.
-6. Actualizá el `wiki/index.md` con las páginas nuevas.
-7. Actualizá `wiki/hot.md` con el contexto de la ingesta.
-8. Agregá entrada en `wiki/log.md` al PRINCIPIO.
-9. Verificá contradicciones con páginas existentes.
-10. Si hay contradicciones: agregá `> [!contradiction]` callouts en ambas páginas.
+1. Read the source completely. Do not skim.
+2. Ask the user: "What should I emphasize?"
+3. Create summary in `wiki/sources/` with full frontmatter.
+4. Create or update entity pages (people, orgs, products).
+5. Create or update concept pages.
+6. Update `wiki/index.md` with new pages.
+7. Update `wiki/hot.md` with ingest context.
+8. Prepend entry to `wiki/log.md` (newest at TOP).
+9. Check for contradictions with existing pages.
+10. If contradictions found: add `> [!contradiction]` callouts on both pages.
 
-### Frontmatter de fuente
+### Source frontmatter
 
 ```markdown
 ---
 type: source
-title: "Título de la fuente"
-source_type: article
-author: "Autor"
+title: "Source Title"
+source_type: article|paper|doc|url
+author: "Author Name"
 date_published: YYYY-MM-DD
 url: "https://..."
-confidence: high
-tags: [investigación, tema]
+confidence: high|medium|low
+tags: [research, topic]
 ---
 ```
 
-### Frontmatter de entidad
+### Entity frontmatter
 
 ```markdown
 ---
 type: entity
-title: "Nombre"
+title: "Entity Name"
 domain: tech-stack
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
@@ -213,12 +208,12 @@ sources: []
 ---
 ```
 
-### Frontmatter de concepto
+### Concept frontmatter
 
 ```markdown
 ---
 type: concept
-title: "Concepto"
+title: "Concept Name"
 domain: tech-stack
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
@@ -247,50 +242,50 @@ Tres modos de profundidad:
 
 | Modo | Trigger | Lectura | Costo tokens | Mejor para |
 |------|---------|---------|-------------|------------|
-| **Quick** | Pregunta factual simple | hot.md + index.md | ~1.500 | "¿Qué es X?", fechas, datos |
-| **Standard** | Default (sin flag) | hot.md + index + 3-5 páginas | ~3.000 | La mayoría de preguntas |
-| **Deep** | "thorough", "exhaustive" | Full wiki + retrieve opcional | ~8.000+ | Síntesis, gaps, comparaciones |
+| **Quick** | Simple factual question | hot.md + index.md | ~1,500 | "What is X?", dates, lookups |
+| **Standard** | Default (no flag) | hot.md + index + 3-5 pages | ~3,000 | Most questions |
+| **Deep** | "thorough", "exhaustive" | Full wiki + optional retrieve | ~8,000+ | Synthesis, gaps, comparisons |
 
-### Si retrieve está disponible
+### If retrieve is available
 
-1. Intentá `python3 scripts/retrieve.py status` para ver si el índice existe
-2. Si existe: `python3 scripts/retrieve.py "consulta" --top 5`
-3. Leé las páginas top con `obsidian-vault_read_note`
-4. Sintetizá con citas a las fuentes
+1. Try `python3 scripts/retrieve.py status` to check if the index exists
+2. If it exists: `python3 scripts/retrieve.py "query" --top 5`
+3. Read top pages with `obsidian-vault_read_note`
+4. Synthesize with citations
 
-### Si retrieve NO está disponible (legacy)
+### If retrieve is NOT available (legacy)
 
-1. Leé `wiki/hot.md`
-2. Si no alcanza: leé `wiki/index.md`
-3. Si necesitás más: leé páginas relevantes del dominio
-4. Sintetizá con citas
+1. Read `wiki/hot.md`
+2. If not enough: read `wiki/index.md`
+3. If more is needed: read relevant domain pages
+4. Synthesize with citations
 
-### Respuesta con citas
+### Citations
 
-Siempre citá la fuente exacta: `(Fuente: [[Page Name]])`.
-No cites datos de training. Si no está en la wiki, no lo sabés.
+Always cite the exact source: `(Source: [[Page Name]])`.
+Do not cite training data. If it is not in the wiki, you do not know it.
 
 ---
 
-## 6 — Lint (mantenimiento)
+## 6 — Lint (maintenance)
 
-Correr cada 10-15 ingestas o cuando el usuario pida "lint the wiki".
+Run every 10-15 ingests or when the user says "lint the wiki".
 
-### Categorías de health check
+### Health check categories
 
-1. **Orphans**: páginas sin links entrantes ni salientes
-2. **Dead links**: wikilinks que apuntan a páginas que no existen
-3. **Short notes**: páginas con menos de 3 líneas de contenido
-4. **Missing frontmatter**: páginas sin YAML frontmatter
-5. **Stale claims**: claims marcados como `[!contradiction]` no resueltos
-6. **Unlinked sources**: fuentes en `.raw/` no referenciadas en la wiki
-7. **Broken cross-references**: páginas que mencionan entidades sin link
+1. **Orphans**: pages with no incoming or outgoing links
+2. **Dead links**: wikilinks pointing to non-existent pages
+3. **Short notes**: pages with fewer than 3 lines of content
+4. **Missing frontmatter**: pages without YAML frontmatter
+5. **Stale claims**: unresolved `[!contradiction]` markers
+6. **Unlinked sources**: `.raw/` files not referenced in the wiki
+7. **Broken cross-references**: pages mentioning entities without links
 
-También usar:
+Also use:
 
 ```bash
-./bin/wiki-integrity.sh        # Script automatizado de integridad
-python3 scripts/retrieve.py status  # Verificar que el índice BM25 esté actualizado
+./bin/wiki-integrity.sh        # Automated integrity script
+python3 scripts/retrieve.py status  # Verify BM25 index is up to date
 ```
 
 ---
@@ -299,36 +294,36 @@ python3 scripts/retrieve.py status  # Verificar que el índice BM25 esté actual
 
 Ver `skills/autoresearch/SKILL.md` para instrucciones completas.
 
-### Resumen
+### Summary
 
 ```
-Input: tema
+Input: topic
 
-Ronda 1. Búsqueda amplia: 3-5 ángulos × 2-3 queries × 2-3 fetches
-Ronda 2. Gap fill: búsquedas específicas para contradicciones
-Ronda 3. Síntesis: un pase más si persisten gaps → filing a wiki
+Round 1. Broad search: 3-5 angles × 2-3 queries × 2-3 fetches
+Round 2. Gap fill: targeted searches for contradictions
+Round 3. Synthesis: one more pass if gaps remain → file to wiki
 
 Filing:
-  wiki/sources/ — una página por fuente encontrada
-  wiki/concepts/ — conceptos significativos
-  wiki/entities/ — personas, orgs, productos
-  Página de síntesis: "Investigación: [Tema]"
+  wiki/sources/ — one page per source found
+  wiki/concepts/ — significant concepts
+  wiki/entities/ — people, orgs, products
+  Synthesis page: "Research: [Topic]"
 ```
 
-### Configuración
+### Configuration
 
-Editar `skills/autoresearch/references/program.md` para cambiar:
-- Preferencia de fuentes (académicas, oficiales, news)
+Edit `skills/autoresearch/references/program.md` to change:
+- Source preference (academic, official, news)
 - Confidence scoring (high/medium/low)
-- Máx rondas (default 3) y máx páginas (default 15)
-- Reglas por dominio
+- Max rounds (default 3) and max pages (default 15)
+- Domain-specific rules
 
 ### Web egress hygiene
 
-- Rechazar `file://`, `javascript:`, datos RFC1918
-- Escapar `[[` en fuentes externas
-- Rechazar delimitadores `---` de frontmatter en contenido descargado
-- Truncar a 50KB
+- Reject `file://`, `javascript:`, RFC1918 addresses
+- Escape `[[` in external sources
+- Reject `---` frontmatter delimiters in fetched content
+- Truncate to 50KB
 
 ---
 
@@ -339,20 +334,19 @@ Ver `skills/think/SKILL.md` para instrucciones completas.
 ```
 /think <problema>
 
-1. OBSERVE (externo)  → leer inputs crudos antes de interpretar
-2. OBSERVE (interno)  → bias log, metacognición
-3. LISTEN             → escuchar al usuario, señales en el ruido
-4. THINK              → primeros principios, experimento más barato
-5. CONNECT (lateral)  → patrones en dominios vecinos
-6. CONNECT (sistémico) → integración con hooks/scripts/tests
-7. FEEL               → cómo cae en el usuario, intuición
-8. ACCEPT             → humildad, no inflar findings
-9. CREATE             → shippear el artefacto más chico
-10. GROW              → guardar la lección para que componga
-```
+1. OBSERVE (external)  → read raw inputs before interpreting
+2. OBSERVE (internal)  → bias log, metacognition
+3. LISTEN             → listen to the user, signals in the noise
+4. THINK              → first principles, cheapest experiment
+5. CONNECT (lateral)  → patterns in neighboring domains
+6. CONNECT (system)   → integration with hooks/scripts/tests
+7. FEEL               → how it lands on the user, intuition
+8. ACCEPT             → humility, do not inflate findings
+9. CREATE             → ship the smallest artifact
+10. GROW              → save the lesson so it compounds
 
-Usar para decisiones arquitectónicas, auditorías, post-mortems.
-NO usar para fixes de una línea ni búsquedas triviales.
+Use for architectural decisions, audits, post-mortems.
+Do NOT use for one-line fixes or trivial lookups.
 
 ---
 
@@ -369,57 +363,57 @@ query → BM25 (candidatos) → ollama nomic-embed-text (embeddings) → cosine 
 ### Mantenimiento
 
 ```bash
-python3 scripts/retrieve.py build     # Construir/actualizar índice
-python3 scripts/retrieve.py status    # Ver estado
-python3 scripts/retrieve.py "query" --top 5  # Buscar
+python3 scripts/retrieve.py build     # Build/update index
+python3 scripts/retrieve.py status    # Check status
+python3 scripts/retrieve.py "query" --top 5  # Search
 ```
 
-### Estados del índice
+### Index states
 
-- **build**: construye el índice desde cero (206 páginas → 211 chunks)
-- **query**: busca en el índice con BM25 + rerank opcional
-- **status**: muestra estado actual (páginas, chunks, términos)
+- **build**: builds the index from scratch (206 pages → 211 chunks)
+- **query**: searches the index with BM25 + optional rerank
+- **status**: shows current index state (pages, chunks, terms)
 
 ---
 
-## 10 — Contradicciones
+## 10 — Contradictions
 
-Cuando nueva info contradice una página wiki existente:
+When new information contradicts an existing wiki page:
 
-En la página existente:
+On the existing page:
 ```markdown
-> [!contradiction] Conflicto con [[Nueva Fuente]]
-> [[Página Existente]] dice X. [[Nueva Fuente]] dice Y.
-> Necesita resolución. Verificar fechas y fuentes primarias.
+> [!contradiction] Conflict with [[New Source]]
+> [[Existing Page]] says X. [[New Source]] says Y.
+> Needs resolution. Check dates and primary sources.
 ```
 
-En la página nueva:
+On the new page:
 ```markdown
-> [!contradiction] Contradice [[Página Existente]]
-> Esta fuente dice Y, pero la wiki existente dice X.
+> [!contradiction] Contradicts [[Existing Page]]
+> This source says Y, but existing wiki says X.
 ```
 
-No sobrescribas claims en silencio. Señalá y dejá que el usuario decida.
+Do not silently overwrite claims. Flag and let the user decide.
 
 ---
 
-## 11 — Operaciones con n8n
+## 11 — n8n Operations
 
-Ver `automation/n8n-lab/` para los archivos de workflows.
+See `automation/n8n-lab/` for workflow files.
 
-### Workflows disponibles
+### Available workflows
 
-| Workflow | Archivo | Estado |
-|----------|---------|--------|
-| Health Check | `bunker-health-check.json` | 🟢 Activo |
-| Ultimate Alerter | `bunker-ultimate-alerter.json` | 🟢 Activo |
-| Dead Letter Queue | `bunker-dead-letter-queue.json` | ⚪ Inactivo |
-| AOC v4 Enterprise | `bunker-aoc-v3-enterprise-pack/` | ⚪ Inactivo |
+| Workflow | File | Status |
+|----------|------|--------|
+| Health Check | `bunker-health-check.json` | 🟢 Active |
+| Ultimate Alerter | `bunker-ultimate-alerter.json` | 🟢 Active |
+| Dead Letter Queue | `bunker-dead-letter-queue.json` | ⚪ Inactive |
+| AOC v4 Enterprise | `bunker-aoc-v4-enterprise.json` | ⚪ Inactive |
 
 ### AOC v4 Enterprise
 
-Pipeline completo de 37 nodos:
-1. Webhook Entry → Ingress Guard → IF Válido
+Complete 37-node pipeline:
+1. Webhook Entry → Ingress Guard → IF Valid
 2. Redis Idempotency → IF Replay
 3. AI Triage (OpenRouter) → Parse AI Decision
 4. IF Create → GitHub Issue / IF Review → Issue HITL / IF Emergency → Emergency Queue
@@ -428,12 +422,12 @@ Pipeline completo de 37 nodos:
 
 ### Dead Letter Queue
 
-Error trigger global que atrapa errores de todos los workflows:
+Global error trigger that catches errors from all workflows:
 1. Error Trigger → Normalize Error → IF Critical?
 2. CRITICAL → Notify → Store in DLQ
 3. WARNING → Store in DLQ
 
-Persiste últimos 200 errores en staticData.
+Persists last 200 errors in staticData.
 
 ---
 
@@ -442,36 +436,35 @@ Persiste últimos 200 errores en staticData.
 ### Suites
 
 ```bash
-make test                    # 429 tests, 5 suites
-make test-workflows          # 344 tests de conexiones n8n
-make test-wiki               # 21 tests de integridad del vault
-make test-scripts            # 61 tests de scripts
-make test-yaml               # 2 tests de YAML
-make test-retrieve           # 3 tests de BM25
+make test                    # 431 tests, 5 suites
+make test-workflows          # 344 n8n connection tests
+make test-wiki               # 21 vault integrity tests
+make test-scripts            # 61 script tests
+make test-yaml               # 2 YAML tests
+make test-retrieve           # 3 BM25 tests
 ```
 
 ### CI
 
-`.github/workflows/test.yml`: corre todas las suites en cada push/PR a main.
+`.github/workflows/test.yml`: runs all suites on every push/PR to main.
 
 ---
 
-## 13 — Conocimiento que Compone
+## 13 — Compounding Knowledge
 
-Reglas de oro:
+Golden rules:
 
-1. **Siempre actualizá index, log y hot cache** después de cada operación
-2. **Siempre usá frontmatter y wikilinks** — `[[Note Name]]`, no paths
-3. **Nunca modifiques `.raw/`** — las fuentes son inmutables
-4. **Las páginas nuevas van al TOP de log.md** (append, no prepend)
-5. **hot.md se sobreescribe completamente** — es un cache, no un diario
-6. **No crees páginas duplicadas** — siempre revisá el index primero
-7. **Páginas cortas: 100-300 líneas** — si crece, dividíla
-8. **Contradicciones se señalan, no se silencian**
-9. **Usá los tools MCP** para todas las operaciones de escritura en wiki
-10. **Corré `make test` antes de commitear** cambios en skills/scripts/tests
+1. **Always update index, log, and hot cache** after every operation
+2. **Always use frontmatter and wikilinks** — `[[Note Name]]`, not paths
+3. **Never modify `.raw/`** — sources are immutable
+4. **New entries go to the TOP of log.md** (prepend, not append)
+5. **hot.md is overwritten completely** — it is a cache, not a journal
+6. **Do not create duplicate pages** — always check the index first
+7. **Keep pages short: 100-300 lines** — if it grows, split it
+8. **Flag contradictions, do not silence them**
+9. **Use MCP tools** for all wiki write operations
+10. **Run `make test` before committing** changes to skills/scripts/tests
 
 ---
 
-> El conocimiento que compone es el hábito de más alto apalancamiento
-> que una persona pensante puede construir.
+> Compounding knowledge is the highest-leverage habit a thinking person can build.

@@ -61,6 +61,6 @@ make test-scripts
 # Verify vault integrity
 ./bin/bunker-check.sh
 
-# Verify n8n is not exposed
-ss -tlnp | grep 5678  # Should show 127.0.0.1:5678 or 0.0.0.0:5678
+# Verify n8n is not exposed (should only show 127.0.0.1:5678)
+ss -tlnp 2>/dev/null | grep 5678 | grep -v 0.0.0.0 || netstat -tlnp 2>/dev/null | grep 5678 | grep -v 0.0.0.0
 ```

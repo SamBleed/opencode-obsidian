@@ -14,23 +14,24 @@ related:
   - "[[log]]"
 ---
 
-# Recent Context — Bunker OS v3.0
+# Recent Context — Bunker OS v1.3.1
 
 This is the active context loaded at the start of each session.
 
 ## Current Focus
 
-Bunker OS has been evolved from v2.3.1 into **v3.0 Local Knowledge Operating System** without a destructive rewrite. The vault remains an Obsidian-first knowledge system, not a traditional web app.
+Bunker OS has been evolved from v1.2.4 into **v1.3.1** with ported skills from claude-obsidian v1.9, a full test suite, GitHub Actions CI, n8n Dead Letter Queue, and AOC v4 Enterprise.
 
 ## Completed Upgrade Chain
 
-- **v2.4 Hardening**: Local REST API secret file removed from distributable tree, safe example added, scripts made portable through `BUNKER_HOME`, external-effect scripts made dry-run by default, ingest server hardened.
-- **v2.5 Integrity Engine**: `bin/wiki-integrity.sh` now emits Markdown and JSON reports.
-- **v2.6 Evidence Vault**: `report.zip` and `security-audit-report.json` indexed with SHA256 checksums.
-- **v2.7 Agent Operating Layer**: evidence-indexer agent, evidence skill/command, and `wiki/meta/agent-queue.md` added.
-- **v2.8 Command Center**: `wiki/meta/dashboard.md` rebuilt as the operational entry point.
-- **v2.9 Knowledge Supply Chain**: source-to-handover workflow documented.
-- **v3.0 Local Knowledge OS**: `bin/bunker-check.sh` validates scripts, Go build, secret policy, path portability, evidence index, and integrity report.
+- **v1.2.4 Hardening**: Local REST API secret file removed from distributable tree, scripts made portable, dry-run by default.
+- **v1.2.5 Integrity Engine**: Automated vault health scripts with Markdown + JSON reports.
+- **v1.2.6 Evidence Vault**: Evidence indexed with SHA256 checksums.
+- **v1.2.7 Agent Operating Layer**: evidence-indexer agent, evidence skill, agent queue.
+- **v1.2.8 Command Center**: Dashboard rebuilt as operational entry point.
+- **v1.2.9 Knowledge Supply Chain**: source-to-handover workflow documented.
+- **v1.3.0 Local Knowledge OS**: Full local health check, governance, workflows.
+- **v1.3.1 Feature Port**: Autoresearch, wiki-retrieve, think framework, 431 tests, CI, DLQ, AOC v4.
 
 ## Start Here
 

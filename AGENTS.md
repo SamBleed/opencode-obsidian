@@ -177,7 +177,7 @@ Skills porteados de claude-obsidian y adaptados para OpenCode:
 ## Test Suite
 
 ```bash
-make test        # 429 tests, 5 suites
+make test        # 431 tests, 5 suites
 make test-wiki   # Integridad del vault
 make test-scripts # Sintaxis bash + secretos
 make test-workflows # Conexiones n8n

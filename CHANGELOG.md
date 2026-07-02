@@ -41,7 +41,7 @@
 - `wiki/meta/knowledge-supply-chain.md`.
 - `wiki/meta/workflows.md`.
 - `wiki/meta/governance.md`.
-- Release notes under `docs/releases/`.
+- Release notes under `docs/releases/v1.3.0-local-knowledge-os.md`.
 
 ### Changed
 

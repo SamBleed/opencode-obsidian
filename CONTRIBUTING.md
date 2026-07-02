@@ -4,6 +4,21 @@ PRs welcome. Please read this before opening one.
 
 ---
 
+## Prerequisites
+
+| Dependency | Required for | Notes |
+|------------|-------------|-------|
+| Python 3.10+ | BM25 index, retrieve scripts | `pip install numpy` |
+| Go 1.22+ | `ingest_server.go` | Optional |
+| Docker | n8n workflow testing | Optional |
+| ollama + nomic-embed-text | Semantic rerank in retrieve | Optional |
+| OpenCode | Running skills | Required |
+| ECC skill bundle | code-review, security-review, etc. | `~/.config/opencode/skills/`
+
+Some skills listed in the README (`code-review`, `security-review`, `infra-design`, etc.) are provided by the ECC global skill bundle, not bundled in this repo. Install them separately. All repo-bundled skills are under `skills/`.<｜end▁of▁thinking｜>
+
+---
+
 ## Workflow
 
 1. Fork the repo and create a branch from `main`

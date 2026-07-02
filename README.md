@@ -198,23 +198,38 @@ Use for non-trivial architectural decisions, audits, post-mortems.
 
 ---
 
-## 🧠 Skills (13)
+## 🧠 Skills (13 repo + 6 ECC global)
 
-| Skill | Description | Status |
-|-------|-------------|--------|
-| `autoresearch` | 3-round web research with Exa + webfetch | ✅ Active |
-| `wiki-retrieve` | BM25 + semantic rerank via ollama | ✅ Active |
-| `think` | 10-principle decision framework | ✅ Active |
-| `wiki-ingest` | Ingest sources into the wiki | ✅ Active |
-| `wiki-query` | Query the wiki with synthesis | ✅ Active |
-| `wiki-lint` | Vault health check | ✅ Active |
-| `save` | Save conversation as wiki note | ✅ Active |
-| `code-review` | Code quality review | ✅ Active |
-| `security-review` | OWASP security review | ✅ Active |
-| `infra-design` | Infrastructure design | ✅ Active |
-| `tdd-workflow` | TDD with red-green-refactor | ✅ Active |
-| `verification-loop` | Build + test + lint + security pre-PR | ✅ Active |
-| `work-unit-commits` | Commits organized by work unit | ✅ Active |
+### Bundled in this repo
+
+| Skill | Description |
+|-------|-------------|
+| `autoresearch` | 3-round web research with Exa + webfetch |
+| `wiki-retrieve` | BM25 + semantic rerank via ollama |
+| `think` | 10-principle decision framework |
+| `wiki-ingest` | Ingest sources into the wiki |
+| `wiki-query` | Query the wiki with synthesis |
+| `wiki-lint` | Vault health check |
+| `save` | Save conversation as wiki note |
+| `wiki` | Wiki orchestrator (setup, scaffold, routing) |
+| `canvas` | Obsidian canvas visual layer |
+| `defuddle` | Web extraction wrapper |
+| `evidence-index` | Evidence indexing with SHA256 |
+| `obsidian-bases` | Obsidian Bases schema reference |
+| `obsidian-markdown` | Obsidian Flavored Markdown reference |
+
+### Provided by ECC global config (~/.config/opencode/skills/)
+
+These skills are not bundled in the repo but are available when the ECC skill bundle is installed:
+
+| Skill | Description |
+|-------|-------------|
+| `code-review` | Code quality review |
+| `security-review` | OWASP security review |
+| `infra-design` | Infrastructure design |
+| `tdd-workflow` | TDD with red-green-refactor |
+| `verification-loop` | Build + test + lint + security pre-PR |
+| `work-unit-commits` | Commits organized by work unit |
 
 ---
 
@@ -397,13 +412,15 @@ The test suite automatically checks for:
 - Google API keys (`AIza...`)
 - Slack tokens (`xox[baprs]-...`)
 
+See [SECURITY.md](SECURITY.md) for the full security policy.
+
 ---
 
 ## 📁 Repository Structure
 
 ```
 opencode-obsidian/
-├── skills/                       # 13 OpenCode skills (v1.3.1)
+├── skills/                       # 13 repo skills + 6 ECC global (v1.3.1)
 │   ├── autoresearch/             # 3-round autonomous research
 │   ├── wiki-retrieve/            # BM25 + semantic rerank
 │   ├── think/                    # 10-principle framework
@@ -411,12 +428,12 @@ opencode-obsidian/
 │   ├── wiki-query/               # Wiki querying
 │   ├── wiki-lint/                # Vault health check
 │   ├── save/                     # Save conversation
-│   ├── code-review/              # Code review
-│   ├── security-review/          # Security review
-│   ├── infra-design/             # Infrastructure design
-│   ├── tdd-workflow/             # TDD red-green-refactor
-│   ├── verification-loop/        # Pre-PR checklist
-│   └── work-unit-commits/        # Work-unit commits
+│   ├── wiki/                     # Wiki orchestrator
+│   ├── canvas/                   # Visual canvas
+│   ├── defuddle/                 # Web extraction
+│   ├── evidence-index/           # Evidence indexing
+│   ├── obsidian-bases/           # Bases schema
+│   └── obsidian-markdown/        # OFM reference
 ├── agents/                       # 3 OpenCode agents
 ├── commands/                     # Slash commands
 ├── hooks/
@@ -429,8 +446,8 @@ opencode-obsidian/
 │   ├── test_workflow_connections.py
 │   ├── test_wiki_integrity.sh
 │   ├── test_scripts.sh
-│   └── Makefile
-├── bin/                          # 18 operational scripts
+├── Makefile                       # 5 test targets (root)
+├── bin/                          # 15 shell scripts + Go source + binary
 │   ├── bunker-check.sh           # Full health check
 │   ├── wiki-integrity.sh         # Integrity scan
 │   ├── evidence-index.sh         # Evidence indexing
