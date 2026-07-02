@@ -1,29 +1,29 @@
 {
-  "nodes":[
-    {"id":"opencode","type":"text","text":"**OpenCode**\n🤖 AI Coding Agent","x":0,"y":0,"width":200,"height":80,"color":"4"},
-    {"id":"skills","type":"text","text":"**Skills**\n⚡ Patrones reusables","x":250,"y":-80,"width":180,"height":70,"color":"5"},
-    {"id":"sdd","type":"text","text":"**SDD Workflow**\n📋 Spec-Driven Dev","x":250,"y":0,"width":180,"height":70,"color":"3"},
-    {"id":"engram","type":"text","text":"**Engram**\n💾 Memoria persistente","x":250,"y":80,"width":180,"height":70,"color":"2"},
-    {"id":"wiki","type":"text","text":"**Wiki Vault**\n📚 Conocimiento","x":500,"y":0,"width":180,"height":70,"color":"1"},
-    {"id":"blueprints","type":"text","text":"**Blueprints**\n📐 Templates","x":500,"y":-80,"width":160,"height":60,"color":"4"},
-    {"id":"adr","type":"text","text":"**ADRs**\n📝 Decisions","x":500,"y":80,"width":160,"height":60,"color":"5"},
-    {"id":"concepts","type":"text","text":"**Concepts**\n🧠 Patrones","x":750,"y":-80,"width":160,"height":60,"color":"3"},
-    {"id":"entities","type":"text","text":"**Entities**\n👤 Tech stack","x":750,"y":0,"width":160,"height":60,"color":"2"},
-    {"id":"projects","type":"text","text":"**Projects**\n📁 Tracking","x":750,"y":80,"width":160,"height":60,"color":"1"},
-    {"id":"mcp","type":"text","text":"**MCP**\n🔌 Obsidian Plugin","x":0,"y":120,"width":180,"height":70,"color":"5"}
-  ],
-  "edges":[
-    {"id":"e1","fromNode":"opencode","fromSide":"right","toNode":"skills","toSide":"left"},
-    {"id":"e2","fromNode":"opencode","fromSide":"right","toNode":"sdd","toSide":"left"},
-    {"id":"e3","fromNode":"opencode","fromSide":"right","toNode":"engram","toSide":"left"},
-    {"id":"e4","fromNode":"opencode","fromSide":"right","toNode":"mcp","toSide":"left"},
-    {"id":"e5","fromNode":"skills","fromSide":"right","toNode":"concepts","toSide":"left"},
-    {"id":"e6","fromNode":"sdd","fromSide":"right","toNode":"blueprints","toSide":"left"},
-    {"id":"e7","fromNode":"sdd","fromSide":"right","toNode":"adr","toSide":"left"},
-    {"id":"e8","fromNode":"engram","fromSide":"right","toNode":"wiki","toSide":"left"},
-    {"id":"e9","fromNode":"wiki","fromSide":"right","toNode":"concepts","toSide":"left"},
-    {"id":"e10","fromNode":"wiki","fromSide":"right","toNode":"entities","toSide":"left"},
-    {"id":"e11","fromNode":"wiki","fromSide":"right","toNode":"projects","toSide":"left"}
-  ],
-  "viewport":{"x":0,"y":0,"width":1000,"height":400}
+	"nodes":[
+		{"id":"opencode","type":"text","text":"**OpenCode**\n🤖 AI Coding Agent","x":0,"y":0,"width":200,"height":80,"color":"4"},
+		{"id":"skills","type":"text","text":"**Skills**\n⚡ Patrones reusables","x":250,"y":-80,"width":180,"height":70,"color":"5"},
+		{"id":"sdd","type":"text","text":"**SDD Workflow**\n📋 Spec-Driven Dev","x":250,"y":0,"width":180,"height":70,"color":"3"},
+		{"id":"engram","type":"text","text":"**Engram**\n💾 Memoria persistente","x":250,"y":80,"width":180,"height":70,"color":"2"},
+		{"id":"wiki","type":"text","text":"**Wiki Vault**\n📚 Conocimiento","x":500,"y":0,"width":180,"height":70,"color":"1"},
+		{"id":"blueprints","type":"text","text":"**Blueprints**\n📐 Templates","x":500,"y":-80,"width":160,"height":60,"color":"4"},
+		{"id":"adr","type":"text","text":"**ADRs**\n📝 Decisions","x":500,"y":80,"width":160,"height":60,"color":"5"},
+		{"id":"concepts","type":"text","text":"**Concepts**\n🧠 Patrones","x":750,"y":-80,"width":160,"height":60,"color":"3"},
+		{"id":"entities","type":"text","text":"**Entities**\n👤 Tech stack","x":750,"y":0,"width":160,"height":60,"color":"2"},
+		{"id":"projects","type":"text","text":"**Projects**\n📁 Tracking","x":750,"y":80,"width":160,"height":60,"color":"1"},
+		{"id":"mcp","type":"text","text":"**MCP**\n🔌 Obsidian Plugin","x":0,"y":120,"width":180,"height":70,"color":"5"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"opencode","fromSide":"right","toNode":"skills","toSide":"left"},
+		{"id":"e2","fromNode":"opencode","fromSide":"right","toNode":"sdd","toSide":"left"},
+		{"id":"e3","fromNode":"opencode","fromSide":"right","toNode":"engram","toSide":"left"},
+		{"id":"e4","fromNode":"opencode","fromSide":"right","toNode":"mcp","toSide":"left"},
+		{"id":"e5","fromNode":"skills","fromSide":"right","toNode":"concepts","toSide":"left"},
+		{"id":"e6","fromNode":"sdd","fromSide":"right","toNode":"blueprints","toSide":"left"},
+		{"id":"e7","fromNode":"sdd","fromSide":"right","toNode":"adr","toSide":"left"},
+		{"id":"e8","fromNode":"engram","fromSide":"right","toNode":"wiki","toSide":"left"},
+		{"id":"e9","fromNode":"wiki","fromSide":"right","toNode":"concepts","toSide":"left"},
+		{"id":"e10","fromNode":"wiki","fromSide":"right","toNode":"entities","toSide":"left"},
+		{"id":"e11","fromNode":"wiki","fromSide":"right","toNode":"projects","toSide":"left"}
+	],
+	"viewport":{"x":0,"y":0,"width":1000,"height":400}
 }

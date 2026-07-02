@@ -1,3 +1,10 @@
+---
+type: concept
+title: "Observability MD"
+updated: 2026-05-14
+status: active
+---
+
 # Observability-MD
 
 **Status**: Core Standard

@@ -1,18 +1,18 @@
 ---
 type: concept
-title: "Claude Code Harness"
+title: "Agent Code Harness"
 domain: tech-stack
 created: 2026-05-06
 updated: 2026-05-06
-tags: [claude-code, agent-harness, ai, skills, memory]
+tags: [agent-code, agent-harness, ai, skills, memory]
 status: active
 related: [[affaan-m-everything-claude-code], [ai-powered-pentesting]]
 ---
 
-# Claude Code Harness
+# Agent Code Harness
 
 ## Definition
-Sistema de configuración y orquestación para agentes de código (Claude Code, OpenCode, Cursor) que provee agents especializados, skills reutilizables y gestión de memoria.
+Sistema de configuración y orquestación para agentes de código (OpenCode, Cursor) que provee agents especializados, skills reutilizables y gestión de memoria.
 
 ## How It Works
 Un "harness" es una capa de configuración que define:

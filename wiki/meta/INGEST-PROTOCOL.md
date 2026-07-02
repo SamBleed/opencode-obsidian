@@ -1,3 +1,10 @@
+---
+type: meta
+title: "INGEST PROTOCOL"
+updated: 2026-05-14
+status: active
+---
+
 # Ingestion Protocol (Bunker Core)
 
 **Status**: Core Standard

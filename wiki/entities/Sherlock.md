@@ -1,3 +1,10 @@
+---
+type: entity
+title: "Sherlock"
+updated: 2026-05-14
+status: active
+---
+
 # Sherlock (OSINT Project)
 
 **Type**: OSINT Tool / Reconnaissance

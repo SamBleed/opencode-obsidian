@@ -1,3 +1,10 @@
+---
+type: project
+title: "ozy web"
+updated: 2026-05-14
+status: active
+---
+
 # OZY-WEB
 
 **Type**: Project / Frontend

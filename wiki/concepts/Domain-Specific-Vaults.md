@@ -1,3 +1,10 @@
+---
+type: concept
+title: "Domain Specific Vaults"
+updated: 2026-05-14
+status: active
+---
+
 # Domain-Specific Vaults
 
 **Status**: Emerging Pattern

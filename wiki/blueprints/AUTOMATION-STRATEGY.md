@@ -1,3 +1,10 @@
+---
+type: blueprint
+title: "AUTOMATION STRATEGY"
+updated: 2026-05-14
+status: active
+---
+
 # Automation Strategy Blueprint
 
 > Blueprint para la orquestación de flujos de trabajo autónomos y automatizaciones low-code.

@@ -1,3 +1,10 @@
+---
+type: blueprint
+title: "DATA STRATEGY"
+updated: 2026-05-14
+status: active
+---
+
 # Data Strategy Blueprint (SQL/NoSQL)
 
 > Blueprint para implementar persistencia robusta y compatible con agentes.

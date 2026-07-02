@@ -1,3 +1,10 @@
+---
+type: entity
+title: "PayloadsAllTheThings"
+updated: 2026-05-14
+status: active
+---
+
 # PayloadsAllTheThings
 
 **Type**: Security Arsenal / Methodology Guide

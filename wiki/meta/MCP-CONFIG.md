@@ -1,3 +1,10 @@
+---
+type: meta
+title: "MCP CONFIG"
+updated: 2026-05-14
+status: active
+---
+
 # Model Context Protocol (MCP) Configuration
 
 > Este documento detalla cómo "enchufar" herramientas externas al cerebro de los agentes para que operen de forma nativa sobre el Bunker.

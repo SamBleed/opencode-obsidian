@@ -1,3 +1,10 @@
+---
+type: comparison
+title: "React v Astro"
+updated: 2026-05-14
+status: active
+---
+
 # React vs Astro para Websites
 
 > ¿Cuándo usar React (SPA) vs Astro (Multi-Page)?

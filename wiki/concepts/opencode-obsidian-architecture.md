@@ -1,3 +1,10 @@
+---
+type: concept
+title: "opencode obsidian architecture"
+updated: 2026-05-14
+status: active
+---
+
 # OpenCode-Obsidian Architecture
 
 **Status**: Active / Core
@@ -11,7 +18,7 @@
 
 ### 1. Hard Detach & Identity
 - **Absolute Independence**: Removal of all Anthropic/Claude-specific dependencies and naming.
-- **Project Path**: `/home/sam/opencode-obsidian`.
+- **Project Path**: `${BUNKER_HOME:-<path-to-opencode-obsidian>}`.
 - **Primary Agent**: OpenCode.
 
 ### 2. Multi-Layer Knowledge (LLM Wiki Pattern)

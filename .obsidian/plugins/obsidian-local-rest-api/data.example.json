@@ -1,0 +1,12 @@
+{
+  "port": 27124,
+  "insecurePort": 27123,
+  "enableInsecureServer": false,
+  "apiKey": "REPLACE_WITH_LOCAL_ONLY_SECRET_DO_NOT_COMMIT",
+  "crypto": {
+    "cert": "REPLACE_WITH_LOCAL_CERT_OR_LEAVE_PLUGIN_TO_GENERATE",
+    "privateKey": "REPLACE_WITH_LOCAL_PRIVATE_KEY_DO_NOT_COMMIT",
+    "publicKey": "REPLACE_WITH_LOCAL_PUBLIC_KEY_OR_LEAVE_PLUGIN_TO_GENERATE"
+  },
+  "notes": "This is a safe example. Real data.json is ignored and must stay local."
+}

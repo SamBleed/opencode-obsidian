@@ -1,3 +1,10 @@
+---
+type: meta
+title: "ENV STATUS"
+updated: 2026-05-14
+status: active
+---
+
 # Environment Status (Poderes del Agente)
 
 > Este archivo es la "conciencia del entorno" del agente. Se actualiza cada vez que el stack cambia para asegurar que las sugerencias de código sean compatibles.

@@ -2,7 +2,7 @@ package main
 
 import (
 	"bytes"
-	"encoding/json"
+	"crypto/subtle"
 	"fmt"
 	"io"
 	"net/http"
@@ -14,110 +14,144 @@ import (
 	"time"
 )
 
-// MCP JSON-RPC structures
-type MCPRequest struct {
-	JSONRPC string      `json:"jsonrpc"`
-	Method  string      `json:"method"`
-	Params  interface{} `json:"params"`
-	ID      int         `json:"id"`
+const maxBodyBytes = 10 << 20 // 10 MiB
+
+func envDefault(key, fallback string) string {
+	if value := strings.TrimSpace(os.Getenv(key)); value != "" {
+		return value
+	}
+	return fallback
 }
 
-type CallToolParams struct {
-	Name      string      `json:"name"`
-	Arguments interface{} `json:"arguments"`
+func unauthorized(w http.ResponseWriter) {
+	http.Error(w, "unauthorized", http.StatusUnauthorized)
 }
 
-type SmartSearchArgs struct {
-	Query string `json:"query"`
-	Limit int    `json:"limit"`
+func requireToken(w http.ResponseWriter, r *http.Request) bool {
+	token := os.Getenv("BUNKER_INGEST_TOKEN")
+	if token == "" {
+		return true
+	}
+	provided := r.Header.Get("X-Bunker-Token")
+	if provided == "" {
+		provided = strings.TrimPrefix(r.Header.Get("Authorization"), "Bearer ")
+	}
+	if subtle.ConstantTimeCompare([]byte(provided), []byte(token)) != 1 {
+		unauthorized(w)
+		return false
+	}
+	return true
 }
 
-type MCPResponse struct {
-	Result struct {
-		Content []struct {
-			Text string `json:"text"`
-		} `json:"content"`
-	} `json:"result"`
+func safeSlug(raw string) string {
+	words := strings.Fields(raw)
+	if len(words) == 0 {
+		return fmt.Sprintf("memo-%d", time.Now().Unix())
+	}
+	limit := 5
+	if len(words) < limit {
+		limit = len(words)
+	}
+	reg := regexp.MustCompile(`[^a-zA-Z0-9]+`)
+	slug := strings.Trim(reg.ReplaceAllString(strings.ToLower(strings.Join(words[:limit], "-")), "-"), "-")
+	if slug == "" {
+		return fmt.Sprintf("memo-%d", time.Now().Unix())
+	}
+	if len(slug) > 80 {
+		slug = slug[:80]
+	}
+	return slug
+}
+
+func categorize(raw string) (tag string, isArchitecture bool) {
+	lower := strings.ToLower(raw)
+	switch {
+	case strings.Contains(lower, "error"), strings.Contains(lower, "bug"), strings.Contains(lower, "fallo"), strings.Contains(lower, "falla"):
+		return "bug", false
+	case strings.Contains(lower, "decidimos"), strings.Contains(lower, "estándar"), strings.Contains(lower, "estandar"), strings.Contains(lower, "arquitectura"), strings.Contains(lower, "regla"):
+		return "decision", true
+	case strings.Contains(lower, "todo"), strings.Contains(lower, "tarea"), strings.Contains(lower, "revisar"):
+		return "task", false
+	default:
+		return "memo", false
+	}
 }
 
 func main() {
 	cwd, err := os.Getwd()
 	if err != nil {
-		fmt.Printf("Error getting CWD: %v\n", err)
+		fmt.Printf("error getting cwd: %v\n", err)
 		os.Exit(1)
 	}
 
+	bind := envDefault("BUNKER_INGEST_BIND", "127.0.0.1:9090")
+	inboxDir := envDefault("BUNKER_INBOX_DIR", filepath.Join(cwd, "wiki", "inbox"))
+
+	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte(`{"status":"ok","service":"bunker-ingest"}` + "\n"))
+	})
+
 	http.HandleFunc("/ingest", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
-			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+			return
+		}
+		if !requireToken(w, r) {
 			return
 		}
 
-		// --- FIX ISSUE #1: Limitar tamaño del cuerpo para evitar hangs ---
-		r.Body = http.MaxBytesReader(w, r.Body, 10<<20) // 10MB max
-
+		r.Body = http.MaxBytesReader(w, r.Body, maxBodyBytes)
 		body, err := io.ReadAll(r.Body)
 		if err != nil {
-			http.Error(w, "Body too large or read failed", http.StatusRequestEntityTooLarge)
+			http.Error(w, "body too large or read failed", http.StatusRequestEntityTooLarge)
+			return
+		}
+		rawContent := strings.TrimSpace(string(body))
+		if rawContent == "" {
+			http.Error(w, "empty body", http.StatusBadRequest)
 			return
 		}
 
-		rawContent := string(body)
-
-		// --- CATEGORIZACIÓN MEJORADA ---
-		tag := "memo"
-		isArchitecture := false
+		tag, isArchitecture := categorize(rawContent)
 		lowerContent := strings.ToLower(rawContent)
-		if strings.Contains(lowerContent, "error") || strings.Contains(lowerContent, "bug") || strings.Contains(lowerContent, "fallo") || strings.Contains(lowerContent, "falla") {
-			tag = "bug"
-		} else if strings.Contains(lowerContent, "decidimos") || strings.Contains(lowerContent, "estándar") || strings.Contains(lowerContent, "arquitectura") || strings.Contains(lowerContent, "regla") {
-			tag = "decision"
-			isArchitecture = true
-		} else if strings.Contains(lowerContent, "todo") || strings.Contains(lowerContent, "tarea") || strings.Contains(lowerContent, "revisar") {
-			tag = "task"
-		}
+		titleSlug := safeSlug(rawContent)
 
-		// --- GENERACIÓN DE TÍTULO ---
-		words := strings.Fields(rawContent)
-		titleSlug := fmt.Sprintf("memo-%d", time.Now().Unix())
-		if len(words) > 0 {
-			limit := 5
-			if len(words) < limit { limit = len(words) }
-			reg, _ := regexp.Compile("[^a-zA-Z0-9]+")
-			titleSlug = reg.ReplaceAllString(strings.ToLower(strings.Join(words[:limit], "-")), "")
-		}
-
-		// --- SENTINEL (v3.5) ---
 		complianceReport := ""
 		if isArchitecture && strings.Contains(lowerContent, "ioutil") {
 			cmd := exec.Command("grep", "-r", "ioutil", "bin/")
 			var out bytes.Buffer
 			cmd.Stdout = &out
-			cmd.Run()
-			violations := strings.TrimSpace(out.String())
-			if violations != "" {
-				complianceReport = "\n\n## 🛡️ Bunker Sentinel: Compliance Report\n⚠️ **Non-Compliant detected.**\n"
+			_ = cmd.Run()
+			if strings.TrimSpace(out.String()) != "" {
+				complianceReport = "\n\n## Bunker Sentinel: Compliance Report\nNon-compliant pattern detected: `ioutil`.\n"
 			}
 		}
 
-		// --- SOLUCIÓN MCP CON TIMEOUT ---
-		contextInfo := ""
-		// Simulamos llamada con timeout de 10s para el proceso externo
-		// (Implementación real usaría context.WithTimeout)
+		if err := os.MkdirAll(inboxDir, 0o755); err != nil {
+			http.Error(w, "failed to create inbox", http.StatusInternalServerError)
+			return
+		}
 
-		// --- ESCRITURA FINAL ---
-		filename := filepath.Join(cwd, "wiki", "inbox", fmt.Sprintf("%s.md", titleSlug))
-		os.MkdirAll(filepath.Dir(filename), 0755)
+		filename := filepath.Join(inboxDir, fmt.Sprintf("%s.md", titleSlug))
+		frontmatter := fmt.Sprintf("---\ntype: %s\ncreated: %s\nsource: smart-ingest-local\ntags: [%s]\n---\n\n", tag, time.Now().Format(time.RFC3339), tag)
+		fullContent := frontmatter + rawContent + complianceReport + "\n"
 
-		frontmatter := fmt.Sprintf("---\ntype: %s\ncreated: %s\nsource: smart-ingest-v4.1-healing\ntags: [%s]\n---\n\n", tag, time.Now().Format(time.RFC3339), tag)
-		fullContent := frontmatter + rawContent + complianceReport + contextInfo
-
-		os.WriteFile(filename, []byte(fullContent), 0644)
-		w.WriteHeader(http.StatusOK)
-		fmt.Fprintf(w, "Saved as %s (Self-Healing Active)\n", titleSlug)
+		if err := os.WriteFile(filename, []byte(fullContent), 0o644); err != nil {
+			http.Error(w, "failed to write note", http.StatusInternalServerError)
+			return
+		}
+		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+		fmt.Fprintf(w, "saved as %s\n", filepath.Base(filename))
 	})
 
-	port := ":9090"
-	fmt.Printf("Bunker Smart-Ingest Server v4.1 (HEALING) running on %s\n", port)
-	http.ListenAndServe(port, nil)
+	fmt.Printf("Bunker Smart-Ingest Server running on http://%s\n", bind)
+	fmt.Printf("Inbox: %s\n", inboxDir)
+	if os.Getenv("BUNKER_INGEST_TOKEN") == "" {
+		fmt.Println("Warning: BUNKER_INGEST_TOKEN is not set; local clients do not need a token.")
+	}
+	if err := http.ListenAndServe(bind, nil); err != nil {
+		fmt.Printf("server error: %v\n", err)
+		os.Exit(1)
+	}
 }

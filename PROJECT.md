@@ -1,53 +1,86 @@
-# opencode-obsidian — Bunker OS v2.3.1
+# opencode-obsidian — Bunker OS v3.0
 
 This repository is an OpenCode agent environment and an Obsidian wiki vault.
 
-**Version:** 2.3.1 (Senior Architect Release)
-**Status:** Stable / Production Ready
-**Vault path:** This directory (open in Obsidian directly)
+**Version:** 3.0  
+**Status:** Local-first operational knowledge system  
+**Vault path:** current repository root. Use `BUNKER_HOME` to override script resolution.
 
-## 🏗️ Core Philosophy: "Deep Capacity"
-Bunker OS follows the **Deep Capacity** standard. All core technical notes must exceed 100 lines and include senior-level patterns, troubleshooting guides, and modern (2026) conventions.
+## Core identity
 
-## 📂 Vault Structure
+Bunker OS is not a traditional application. It is a local-first knowledge operating system for:
+
+- AI session continuity
+- structured research
+- audit evidence preservation
+- project intelligence
+- agent-guided workflows
+- governance and decisions
+- visual command center operations
+
+## Architecture layers
 
 ```text
-.
-├── .raw/               # Immutable source documents (articles, PDFs)
-├── bin/                # Operational tools (scaffold, integrity, sync)
-├── docs/               # Executive reports and briefings
-├── wiki/               # Structured knowledge base
-│   ├── blueprints/     # Executable architecture templates
-│   ├── concepts/       # Tech stack and domain patterns
-│   ├── entities/       # People, orgs, products
-│   └── meta/           # Log, Hot Cache, and Handovers
-└── BUNKER-OS.canvas    # Visual Mission Control
+Capture       → wiki/inbox, .raw, ingest server, handovers
+Normalize     → _templates, skills/wiki-ingest
+Classify      → wiki/sources, entities, concepts, projects, comparisons
+Evidence      → report.zip, security-audit-report.json, evidence index
+Governance    → BUNKER_RULES, ADR template, knowledge supply chain
+Automation    → bin/ (Sync ops) + n8n (Async flows & MCP)
+Agent Runtime → agents, commands, skills, hooks
+Visualization → dashboard, canvases, Obsidian graph
 ```
 
-## 🛠️ Key Capabilities
+## Release state
 
-| Tool | Action | Description |
-|------|--------|-------------|
-| **Ingest** | `ingest [file]` | Process sources into cross-linked wiki pages. |
-| **Scaffold** | `bunker-scaffold` | Generate Go/React projects using v2.1 Blueprints. |
-| **Audit** | `wiki-integrity` | Detect knowledge debt (orphans/seeds). |
-| **Governance** | `ADR/AgDR` | Document and enforce architectural decisions. |
-| **Grounding** | `NotebookLM` | Deep research via 10+ connected notebooks. |
+v3.0 includes the completed sequence:
 
-## 🚀 How to Use
+- v2.4 Hardening
+- v2.5 Integrity Engine
+- v2.6 Evidence Vault
+- v2.7 Agent Operating Layer
+- v2.8 Command Center Dashboard
+- v2.9 Knowledge Supply Chain
+- v3.0 Local Knowledge Operating System
 
-1. **Initialize**: Read `wiki/hot.md` to get current context.
-2. **Build**: Use `./bin/bunker-scaffold.sh` to start a new service.
-3. **Research**: Drop URLs into `.raw/` and ingest them to expand the brain.
-4. **Govern**: Save every major decision as an `AgDR` in the wiki.
+## The n8n Orchestrator Role
 
-## 🌐 Cross-Project Access
-To use this brain in another project, add to its `AGENTS.md`:
-```markdown
-## Wiki Knowledge Base
-Path: /home/sam/opencode-obsidian
-Follow the protocols in [[vault-flow]].
-```
+n8n acts as the asynchronous execution engine and "nervous system" of the Bunker:
+- **Security & Decoupling**: API keys and external integrations (GitHub, Telegram) live in n8n, keeping bash scripts clean and secure. Scripts just fire webhooks to `localhost:5678`.
+- **Agentic MCP Bridge**: Gives OpenCode "hands" to trigger complex pipelines (e.g., assisted remediation) in a sandboxed manner without arbitrary code execution.
+- **Complex Pipelines**: Manages retries, conditional logic, and LLM evaluations via visually orchestrable flows stored in `automation/n8n-lab`.
+
+## Operational entry points
+
+| Purpose | File/Command |
+|---|---|
+| Active context | `wiki/hot.md` |
+| Main map | `wiki/index.md` |
+| Dashboard | `wiki/meta/dashboard.md` |
+| Agent queue | `wiki/meta/agent-queue.md` |
+| Integrity scan | `./bin/wiki-integrity.sh` |
+| Evidence indexing | `./bin/evidence-index.sh` |
+| Full local check | `./bin/bunker-check.sh` |
+| Safe orchestrator | `./bin/bunker.sh` |
+
+## Safety model
+
+- Scripts resolve the vault through `BUNKER_HOME` or repository root.
+- External-effect scripts default to dry-run.
+- Obsidian Local REST API secrets stay local.
+- Ingest server binds to `127.0.0.1:9090` by default.
+- Evidence artifacts are indexed, not modified.
+
+## Cross-project access
+
+To use this brain from another project, point that project to the vault root and follow the read order:
+
+1. `wiki/hot.md`
+2. latest `wiki/meta/handovers/*`
+3. `wiki/index.md`
+4. specific notes only when needed
+
+Avoid hard-coded absolute paths. Use `BUNKER_HOME` or project-local configuration.
 
 ---
 MIT License © 2026 | **SamBleed**

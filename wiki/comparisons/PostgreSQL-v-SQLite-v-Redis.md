@@ -1,3 +1,10 @@
+---
+type: comparison
+title: "PostgreSQL v SQLite v Redis"
+updated: 2026-05-14
+status: active
+---
+
 # PostgreSQL vs SQLite vs Redis
 
 > ¿Cuándo usar cada base de datos?

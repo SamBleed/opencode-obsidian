@@ -1,3 +1,10 @@
+---
+type: project
+title: "ozy api"
+updated: 2026-05-14
+status: active
+---
+
 # OZY-API
 
 **Type**: Project / Backend

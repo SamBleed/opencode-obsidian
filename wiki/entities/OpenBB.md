@@ -1,3 +1,10 @@
+---
+type: entity
+title: "OpenBB"
+updated: 2026-05-14
+status: active
+---
+
 # OpenBB
 
 **Type**: Financial Data Platform / Infrastructure

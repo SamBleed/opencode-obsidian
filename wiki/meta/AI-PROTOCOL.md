@@ -1,3 +1,10 @@
+---
+type: meta
+title: "AI PROTOCOL"
+updated: 2026-05-14
+status: active
+---
+
 # AI Protocol: How to Read this Wiki
 
 > [!info] For External Agents

@@ -1,3 +1,10 @@
+---
+type: blueprint
+title: "MESSAGING STRATEGY"
+updated: 2026-05-14
+status: active
+---
+
 # Messaging Strategy Blueprint
 
 > Blueprint para implementar comunicación asíncrona robusta entre agentes y servicios.

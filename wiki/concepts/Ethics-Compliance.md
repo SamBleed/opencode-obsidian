@@ -1,3 +1,10 @@
+---
+type: concept
+title: "Ethics Compliance"
+updated: 2026-05-14
+status: active
+---
+
 # Ethics & Compliance Guardrails
 
 **Status**: Governance / Safety

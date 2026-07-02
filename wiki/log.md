@@ -12,6 +12,18 @@ Navigation: [[index]] | [[hot]] | [[overview]]
 
 Append-only. New entries go at the TOP.
 
+## [2026-05-19] ingest | CocoIndex Code — AST Semantic Search Integration
+- Type: source + entity + concept ingestion
+- Source: https://github.com/cocoindex-io/cocoindex-code
+- Pages created: [[cocoindex-code]], [[cocoindex-io]]
+- Summary: Ingested and configured CocoIndex Code as a high-fidelity local MCP semantic search engine. Wired to Gemini API via LiteLLM with customized concurrency rate-limiting.
+
+## [2026-05-15] ingest | InsForge — Agentic Backend Platform
+- Type: source + entity + concept ingestion
+- Source: https://github.com/InsForge/insforge
+- Pages created: [[insforge]], [[InsForge]], [[agentic-backend-platform]]
+- Canvas updated: added source, entity, and concept nodes
+
 ## [2026-05-13] release | Full System Operationalization (Bunker v2.3)
 - **Summary**: Transformed the vault into a Senior Architect Command Center.
 - **Milestones**:

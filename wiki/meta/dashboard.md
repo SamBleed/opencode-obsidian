@@ -1,68 +1,112 @@
 ---
 type: meta
-title: "Dashboard"
-updated: 2026-04-08
+title: "Bunker OS Command Center"
+updated: 2026-05-14
 tags:
   - meta
   - dashboard
+  - command-center
+  - bunker-os
 status: evergreen
 related:
   - "[[index]]"
   - "[[overview]]"
+  - "[[hot]]"
   - "[[log]]"
-  - "[[concepts/_index]]"
-  - "[[Compounding Knowledge]]"
+  - "[[agent-queue]]"
+  - "[[evidence-index]]"
+  - "[[INTEGRITY-REPORT]]"
+  - "[[knowledge-supply-chain]]"
 ---
 
-# Wiki Dashboard
+# Bunker OS Command Center
 
-Navigation: [[index]] | [[overview]] | [[log]] | [[hot]]
+Navigation: [[index]] | [[overview]] | [[hot]] | [[log]] | [[agent-queue]] | [[evidence-index]] | [[INTEGRITY-REPORT]]
 
-The dashboard uses **Obsidian Bases**. A core Obsidian feature shipped in v1.9.10 (August 2025). No plugin install required.
+This is the operational entry point for Bunker OS. Use it to understand active context, vault health, evidence, agent work, and governance state.
 
-> [!tip] Embedded Bases view
-> The interactive dashboard lives in [[dashboard.base]]. Open that file directly, or use the embed below.
+## 1. Active Context
 
-![[dashboard.base]]
+- Current context cache: [[hot]]
+- Main map: [[index]]
+- Activity log: [[log]]
+- Latest handovers: `wiki/meta/handovers/`
 
----
+## 2. Knowledge Health
 
-## Legacy Dataview Dashboard (Optional)
+Run:
 
-If you are on Obsidian < 1.9.10 or prefer Dataview, the queries below still work. Just install the Dataview community plugin.
-
-### Recent Activity
-
-```dataview
-TABLE type, status, updated FROM "wiki" SORT updated DESC LIMIT 15
+```bash
+./bin/wiki-integrity.sh
 ```
 
-### Seed Pages (Need Development)
+Review:
 
-```dataview
-LIST FROM "wiki" WHERE status = "seed" SORT updated ASC
+- [[INTEGRITY-REPORT]]
+- `wiki/meta/INTEGRITY-REPORT.json`
+
+Health categories:
+
+- broken active links
+- orphan notes
+- short notes
+- notes missing frontmatter
+- raw files not mentioned in ingestion log
+- plugin drift
+- local plugin config files
+- hard-coded local paths
+
+## 3. Evidence Vault
+
+- Evidence index: [[evidence-index]]
+- Evidence manifest: `wiki/meta/evidence-manifest.json`
+- Original artifacts remain in place, including `report.zip` and `security-audit-report.json`.
+
+Rules:
+
+- Do not edit original evidence in place.
+- Notes may interpret evidence only if they link back to the evidence index or manifest.
+- Historical audit output must not be treated as current truth without validation.
+
+## 4. Agent Queue
+
+- Queue: [[agent-queue]]
+- Ingest agent: `agents/wiki-ingest.md`
+- Lint agent: `agents/wiki-lint.md`
+- Evidence agent: `agents/evidence-indexer.md`
+
+## 5. Governance
+
+- Rules: `BUNKER_RULES.md`
+- Agent instructions: `AGENTS.md`
+- ADR template: [[ADR-TEMPLATE]]
+- Knowledge supply chain: [[knowledge-supply-chain]]
+- Workflows: [[workflows]]
+- Governance model: [[governance]]
+
+## 6. Safe Operations
+
+Default safe commands:
+
+```bash
+./bin/bunker-check.sh
+./bin/wiki-integrity.sh
+./bin/evidence-index.sh
+./bin/bunker.sh init
+./bin/bunker.sh save
 ```
 
-### Entities Missing Sources
+Commands with external effects require explicit `--apply`:
 
-```dataview
-LIST FROM "wiki/entities" WHERE !sources OR length(sources) = 0
+```bash
+./bin/wiki-sync.sh --apply
+./bin/bunker-push.sh --apply "commit message"
+./bin/bunker-alert.sh --apply "target" "LEVEL" "message"
+./bin/bunker-pulse.sh --apply
 ```
 
-### Open Questions
+## 7. Obsidian Bases
 
-```dataview
-LIST FROM "wiki/questions" WHERE status = "developing" OR status = "seed" SORT updated DESC
-```
+The interactive Bases dashboard remains available in [[meta/dashboard.base]].
 
-### Comparisons
-
-```dataview
-TABLE verdict FROM "wiki/comparisons" SORT updated DESC
-```
-
-### Sources
-
-```dataview
-TABLE author, date_published, updated FROM "wiki/sources" WHERE type = "source" SORT updated DESC LIMIT 10
-```
+![[meta/dashboard.base]]

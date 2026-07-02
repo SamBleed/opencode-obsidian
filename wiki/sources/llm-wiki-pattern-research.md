@@ -1,3 +1,10 @@
+---
+type: source
+title: "llm wiki pattern research"
+updated: 2026-05-14
+status: active
+---
+
 # Source: LLM Wiki Pattern Research
 
 **Date**: 2026-04-19

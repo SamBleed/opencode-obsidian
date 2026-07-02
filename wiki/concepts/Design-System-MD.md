@@ -1,3 +1,10 @@
+---
+type: concept
+title: "Design System MD"
+updated: 2026-05-14
+status: active
+---
+
 # Design-System-MD (VoltAgent Pattern)
 
 **Status**: Core Standard

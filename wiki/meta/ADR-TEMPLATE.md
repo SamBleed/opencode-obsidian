@@ -1,3 +1,10 @@
+---
+type: meta
+title: "ADR TEMPLATE"
+updated: 2026-05-14
+status: active
+---
+
 # ADR-XXX: [Title]
 
 **Status**: [Proposed | Accepted | Superseded]

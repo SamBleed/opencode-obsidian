@@ -1,3 +1,10 @@
+---
+type: comparison
+title: "Hermes Patterns"
+updated: 2026-05-14
+status: active
+---
+
 # Adopción de Patrones: Hermes Agent vs opencode-obsidian
 
 > Análisis de qué conceptos de Hermes podemos integrar en nuestro flujo de trabajo para hacerlo más "autónomo" y "persistente".

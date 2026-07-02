@@ -1,3 +1,10 @@
+---
+type: concept
+title: "Agentic Security OWASP"
+updated: 2026-05-14
+status: active
+---
+
 # OWASP Top 10 for Agentic Applications (2026)
 
 **Status**: Core Governance

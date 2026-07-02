@@ -1,3 +1,10 @@
+---
+type: entity
+title: "Goose"
+updated: 2026-05-14
+status: active
+---
+
 # Goose (AAIF / Linux Foundation)
 
 **Type**: General-Purpose AI Agent / Infrastructure

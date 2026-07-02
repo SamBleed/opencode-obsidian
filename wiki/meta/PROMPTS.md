@@ -1,3 +1,10 @@
+---
+type: meta
+title: "PROMPTS"
+updated: 2026-05-14
+status: active
+---
+
 # Prompt & Context Library
 
 **Status**: Governance

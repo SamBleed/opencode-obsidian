@@ -1,3 +1,10 @@
+---
+type: source
+title: "redhat cicd pipeline"
+updated: 2026-05-14
+status: active
+---
+
 # Source: What is a CI/CD pipeline? (Red Hat)
 
 **Type**: Source / Documentation

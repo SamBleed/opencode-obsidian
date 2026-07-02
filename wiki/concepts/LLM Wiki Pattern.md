@@ -45,7 +45,7 @@ The wiki pattern is different. When a new source arrives, the LLM reads it, extr
 ```
 .raw/       Layer 1 — immutable source documents
 wiki/       Layer 2 — LLM-generated knowledge base
-CLAUDE.md   Layer 3 — schema that tells the LLM how to maintain it
+AGENTS.md   Layer 3 — schema that tells the LLM how to maintain it
 ```
 
 The LLM owns Layer 2 entirely. It creates pages, updates them when new sources arrive, maintains cross-references, and keeps everything consistent. The human reads; the LLM writes.

@@ -1,3 +1,10 @@
+---
+type: entity
+title: "Trivy"
+updated: 2026-05-14
+status: active
+---
+
 # Trivy (Aqua Security)
 
 **Type**: Vulnerability Scanner / Security Audit

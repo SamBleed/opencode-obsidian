@@ -1,92 +1,51 @@
-# 🔍 Wiki Integrity Report
-Generated: mié 13 may 2026 11:04:11 -05
+# Bunker OS Integrity Report
 
-## 🕸️ Orphan Notes (No incoming links)
-- [[runtime]]
-- [[ozy-sandbox-runner]]
-- [[docs]]
-- [[ozy-asset-inventory]]
-- [[ozy-secrets-vault]]
-- [[ozy-api-registry]]
-- [[llm-wiki-pattern-research]]
+Generated: 2026-07-02T18:09:40.653782+00:00
 
-## 🛠️ Short Notes (Seed candidates < 30 lines)
-- [[INTEGRITY-REPORT]] (13 lines)
-- [[MCP-CONFIG]] (14 lines)
-- [[ingestion-log]] (16 lines)
-- [[WATCHLIST]] (18 lines)
-- [[redhat-cicd-pipeline]] (19 lines)
-- [[llm-wiki-pattern-research]] (20 lines)
-- [[Offensive-Vaccine]] (21 lines)
-- [[Zig]] (21 lines)
-- [[Mert-Koseoglu]] (23 lines)
-- [[AI-PROTOCOL]] (23 lines)
-- [[LEARNING-LOOP]] (23 lines)
-- [[Ethics-Compliance]] (24 lines)
-- [[OBSIDIAN-PLUGINS]] (24 lines)
-- [[docs]] (24 lines)
-- [[ozy-api-registry]] (24 lines)
-- [[ozy-asset-inventory]] (24 lines)
-- [[ozy-mcp]] (24 lines)
-- [[ozy-platform]] (24 lines)
-- [[ozy-policy-engine]] (24 lines)
-- [[ozy-risk-engine]] (24 lines)
-- [[ozy-sandbox-runner]] (24 lines)
-- [[ozy-secrets-vault]] (24 lines)
-- [[ozy-web]] (24 lines)
-- [[runtime]] (24 lines)
-- [[INGEST-PROTOCOL]] (25 lines)
-- [[ozy-api]] (25 lines)
-- [[Design-System-MD]] (26 lines)
-- [[ADR-TEMPLATE]] (26 lines)
-- [[PROJECT-TEMPLATE]] (26 lines)
-- [[millionco-react-doctor-repo]] (27 lines)
-- [[Muhammad-Zakir-Ramadhan]] (28 lines)
-- [[react-doctor]] (28 lines)
-- [[AUTOMATION-STRATEGY]] (29 lines)
-- [[Awesome-DESIGN-md]] (29 lines)
+## Summary
 
-## 🚩 Broken Links (WikiLinks to non-existent files)
-- [[_]] (Target file not found)
-- [[a]] (Target file not found)
-- [[A]] (Target file not found)
-- [[b]] (Target file not found)
-- [[B]] (Target file not found)
-- [[c]] (Target file not found)
-- [[C]] (Target file not found)
-- [[d]] (Target file not found)
-- [[D]] (Target file not found)
-- [[e]] (Target file not found)
-- [[E]] (Target file not found)
-- [[f]] (Target file not found)
-- [[F]] (Target file not found)
-- [[g]] (Target file not found)
-- [[G]] (Target file not found)
-- [[h]] (Target file not found)
-- [[H]] (Target file not found)
-- [[i]] (Target file not found)
-- [[I]] (Target file not found)
-- [[k]] (Target file not found)
-- [[l]] (Target file not found)
-- [[L]] (Target file not found)
-- [[m]] (Target file not found)
-- [[M]] (Target file not found)
-- [[n]] (Target file not found)
-- [[N]] (Target file not found)
-- [[o]] (Target file not found)
-- [[O]] (Target file not found)
-- [[p]] (Target file not found)
-- [[P]] (Target file not found)
-- [[q]] (Target file not found)
-- [[r]] (Target file not found)
-- [[R]] (Target file not found)
-- [[s]] (Target file not found)
-- [[S]] (Target file not found)
-- [[t]] (Target file not found)
-- [[T]] (Target file not found)
-- [[v]] (Target file not found)
-- [[V]] (Target file not found)
-- [[w]] (Target file not found)
-- [[W]] (Target file not found)
-- [[z]] (Target file not found)
-- [[Z]] (Target file not found)
+- markdown_files: 243
+- wikilinks: 935
+- broken_links: 0
+- orphans: 0
+- short_notes: 0
+- missing_frontmatter: 0
+- unprocessed_raw: 0
+- plugins_missing: 0
+- local_config_files: 4
+- absolute_path_files: 0
+
+## Broken Links
+- None detected.
+
+## Orphan Notes
+- None detected.
+
+## Short Notes (< 30 lines)
+- None detected.
+
+## Missing Frontmatter
+- None detected.
+
+## Raw Files Not Mentioned in Ingestion Log
+- None detected.
+
+## Plugin Drift
+- Declared plugins: obsidian-banners, calendar, thino, obsidian-local-rest-api, obsidian-excalidraw-plugin
+- Missing declared plugins: none
+- Installed but undeclared plugins: none
+
+## Local Plugin Config Files
+- `.obsidian/plugins/calendar/data.json`
+- `.obsidian/plugins/obsidian-excalidraw-plugin/data.json`
+- `.obsidian/plugins/obsidian-local-rest-api/data.json`
+- `.obsidian/plugins/thino/data.json`
+
+## Absolute Path References
+- None detected.
+
+## Next Actions
+- Resolve broken links that point to active notes, or document them as accepted archive debt.
+- Expand short notes that are active knowledge assets.
+- Keep plugin `data.json` files local only.
+- Replace hard-coded local paths with `BUNKER_HOME` or relative paths.

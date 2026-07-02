@@ -1,3 +1,10 @@
+---
+type: concept
+title: "Zig"
+updated: 2026-05-14
+status: active
+---
+
 # Zig Patterns (2026)
 
 **Status**: Emerging Standard

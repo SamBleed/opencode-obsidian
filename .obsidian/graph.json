@@ -5,7 +5,7 @@
   "showAttachments": false,
   "hideUnresolved": true,
   "showOrphans": false,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
       "query": "path:wiki/entities",
@@ -55,6 +55,13 @@
         "a": 1,
         "rgb": 4473924
       }
+    },
+    {
+      "query": "path:wiki/projects  ",
+      "color": {
+        "a": 1,
+        "rgb": 11621088
+      }
     }
   ],
   "collapse-display": true,
@@ -63,10 +70,10 @@
   "nodeSizeMultiplier": 2.3203125,
   "lineSizeMultiplier": 0.891145833333333,
   "collapse-forces": false,
-  "centerStrength": 0.276041666666667,
+  "centerStrength": 0,
   "repelStrength": 20,
   "linkStrength": 1,
-  "linkDistance": 172,
-  "scale": 0.34607326605459227,
+  "linkDistance": 500,
+  "scale": 0.058556461596874124,
   "close": true
 }

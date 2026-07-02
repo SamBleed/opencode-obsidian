@@ -1,3 +1,10 @@
+---
+type: question
+title: "FAQ"
+updated: 2026-05-14
+status: active
+---
+
 # FAQ — Preguntas Frecuentes
 
 > Colección de preguntas recurrentes en sesiones de pair-programming. El agente consulta este archivo antes de responder preguntas comunes.

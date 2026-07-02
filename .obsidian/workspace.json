@@ -1,24 +1,24 @@
 {
   "main": {
-    "id": "cb698273c33e48de",
+    "id": "7cea4f368b6ecef8",
     "type": "split",
     "children": [
       {
-        "id": "47d299d8d860a017",
+        "id": "f3469b680f510a9c",
         "type": "tabs",
         "children": [
           {
-            "id": "1eaf84399c975d17",
+            "id": "5e0a8ee4c07d6614",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/sources/opencode-obsidian-ecosystem-research.md",
+                "file": "wiki/blueprints/AGENT-OBSERVABILITY-BLUEPRINT.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "opencode-obsidian-ecosystem-research"
+              "title": "AGENT-OBSERVABILITY-BLUEPRINT"
             }
           }
         ]
@@ -27,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "db8d83ac47ae599f",
+    "id": "0d4e7c967b2f478b",
     "type": "split",
     "children": [
       {
-        "id": "554fd2b4fa6f8741",
+        "id": "28dd972dc627c852",
         "type": "tabs",
         "children": [
           {
-            "id": "5565f1231fe95c42",
+            "id": "305fcf5063e97070",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,7 +48,7 @@
             }
           },
           {
-            "id": "832ab43d08cf9e30",
+            "id": "3aef8b29b0ffb41c",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,17 +61,17 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "Search"
+              "title": "Buscar"
             }
           },
           {
-            "id": "097e8347bb8aa054",
+            "id": "45d9e2c13831a094",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
               "state": {},
               "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "title": "Marcadores"
             }
           }
         ]
@@ -81,19 +81,20 @@
     "width": 300
   },
   "right": {
-    "id": "7092b65be1e76349",
+    "id": "f7313db4b1bdf0b8",
     "type": "split",
     "children": [
       {
-        "id": "9f4de9402eae371b",
+        "id": "94ff47df8999500b",
         "type": "tabs",
         "children": [
           {
-            "id": "a32b7215b7814fbb",
+            "id": "5fe56972978fb7ff",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
+                "file": "wiki/entities/million-co.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,24 +104,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Enlaces entrantes de million-co"
             }
           },
           {
-            "id": "7936f8ba26007091",
+            "id": "202cc353cf1e5104",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "auditoria.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Enlaces salientes de auditoria"
             }
           },
           {
-            "id": "ed8ccb323a603d61",
+            "id": "1dab911600836331",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -131,11 +133,11 @@
                 "searchQuery": ""
               },
               "icon": "lucide-tags",
-              "title": "Tags"
+              "title": "Etiquetas"
             }
           },
           {
-            "id": "b140a331162907cf",
+            "id": "0cde3265c95c6313",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -145,25 +147,26 @@
                 "searchQuery": ""
               },
               "icon": "lucide-archive",
-              "title": "All properties"
+              "title": "Todas las propiedades"
             }
           },
           {
-            "id": "111a21e12ab1a293",
+            "id": "4b90e0f0e10996e7",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
+                "file": "auditoria.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Esquema de auditoria"
             }
           },
           {
-            "id": "20a272e103b5d792",
+            "id": "004404fb5fab15e1",
             "type": "leaf",
             "state": {
               "type": "calendar",
@@ -191,63 +194,58 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1eaf84399c975d17",
+  "active": "5e0a8ee4c07d6614",
   "lastOpenFiles": [
-    "tes.md",
-    "wiki/sources/llm-wiki-pattern-research.md",
-    "wiki/sources/notebooklm.md",
-    "wiki/index.md",
-    "wiki/entities/DeepTutor.md",
-    "wiki/entities/Hermes-Agent.md",
-    "wiki/sources/BrowserMCP.md",
-    "wiki/OzyZT Ecosystem.canvas",
-    "wiki/Wiki Map.canvas",
-    "projects/ozy-web/node_modules/@babel/code-frame/README.md",
-    "projects/ozy-web/README.md",
-    "projects/ozy-web/src/assets/vite.svg",
-    "projects/ozy-web/src/assets/react.svg",
-    "projects/ozy-web/src/assets/hero.png",
-    "skills/obsidian-markdown/SKILL.md",
-    "Excalidraw/Drawing 2026-04-19 19.20.44.excalidraw.md",
-    "wiki/meta/banner-opencode-obsidian.svg",
-    "wiki/meta/dashboard.base",
-    "wiki/meta/HANDOVER.md",
-    "wiki/meta/image-example-graph-view.png",
-    "wiki/meta/knowledge-map.canvas",
-    "wiki/meta/opencode-obsidian-gif-cover-16x9.gif",
-    "wiki/meta/opencode-obsidian-gif-1x1.gif",
-    "wiki/meta/workflow-loop.gif",
-    "wiki/meta/wiki-graph-grow.gif",
-    "wiki/meta/welcome-canvas.gif",
-    "wiki/hot.md",
-    "WIKI.md",
-    "PROJECT.md",
-    "wiki/meta/Session OzyZT Transformation.md",
-    "wiki/concepts/OzyZT Visual Flow.md",
-    "wiki/concepts/tech-stack/DESIGN-MD.md",
-    "wiki/entities/Lightpanda.md",
-    "wiki/concepts/CI-CD-Pipeline.md",
-    "wiki/concepts/Agentic-Security-OWASP.md",
-    "_index.md",
-    "wiki/concepts/DESIGN-MD.md",
-    "wiki/concepts/Design-System-MD.md",
-    "wiki/entities/n8n.md",
-    "wiki/entities/Decepticon.md",
-    "Sin título.canvas",
-    "projects/ozy-api/api.log",
-    "Excalidraw",
-    "README.md.tmp.224546.1775562198004",
-    "README.md.tmp.224546.1775562190155",
-    "README.md.tmp.224546.1775562092499",
-    "ATTRIBUTION.md.tmp.224546.1775561977773",
-    "Untitled 2.canvas",
-    "LICENSE",
-    "LICENSE.tmp.224546.1775561946460",
-    "Untitled.base",
-    "wiki/canvases/welcome.canvas",
+    "wiki/canvases/youtube-explainer.canvas",
+    "wiki/canvases/knowledge-graph.canvas",
     "wiki/canvases/main.canvas",
-    "Demo Images.canvas",
-    "Banana Images.canvas",
-    "Untitled 1.canvas"
+    "Excalidraw/Drawing 2026-04-19 19.20.44.excalidraw.md",
+    "commands/evidence.md",
+    "commands/autoresearch.md",
+    "wiki/entities/n8n.md",
+    "WIKI.md",
+    "README.md",
+    "_index.md",
+    "wiki/concepts/CI-CD-Pipeline.md",
+    "wiki/entities/million-co.md",
+    "wiki/index.md",
+    "wiki/projects/ozy-mcp.md",
+    "wiki/blueprints/IAC-TERRAFORM-BLUEPRINT.md",
+    "wiki/entities/PayloadsAllTheThings.md",
+    "wiki/entities/OpenBB.md",
+    "wiki/entities/Lightpanda.md",
+    "wiki/meta/INTEGRITY-REPORT.md",
+    "wiki/meta/knowledge-map.canvas",
+    "wiki/meta/OBSIDIAN-PLUGINS.md",
+    "wiki/meta/opencode-obsidian-cover-16x9.png",
+    "wiki/meta/opencode-obsidian-cover-square.png",
+    "wiki/meta/opencode-obsidian-gif-1x1.gif",
+    "wiki/meta/ingestion-log.md",
+    "wiki/meta/image-example-graph-view.png",
+    "wiki/meta/image-example-wiki-map-view.png",
+    "wiki/sources/redhat-cicd-pipeline.md",
+    "wiki/concepts/tech-stack/claude-code-harness.md",
+    "PROJECT.md",
+    "OPENCODE_MCP_GUIDE.md",
+    "BUNKER_RULES.md",
+    "ATTRIBUTION.md",
+    "AGENTS.md",
+    "wiki/Wiki Map.canvas",
+    "wiki/OzyZT Ecosystem.canvas",
+    "Pasted image 20260508195840.png",
+    "report.zip",
+    "report.zip.fpkh2x.part",
+    "report/E09_moodle.png",
+    "report/E08_webmail.png",
+    "report/E07_cpanel.png",
+    "report/E08_wp_users.txt",
+    "report/E06_whatweb_moodle.txt",
+    "report/E05_whatweb_wordpress.txt",
+    "report/E04_nmap_host2.txt",
+    "report/E03_nmap_host1.txt",
+    "report/E02_gobuster_subdominios.txt",
+    "report/E01_nslookup_whois.txt",
+    "report",
+    "E09_moodle.png"
   ]
 }

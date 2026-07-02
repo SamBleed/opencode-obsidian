@@ -52,7 +52,7 @@ To prevent runaway "hallucination loops" that exhaust tokens and budget, every a
 
 ## Related
 - [[AI-Swarms]]
-- [[claude-code-harness]] (Configuration system)
+- [[agent-code-harness]] (Configuration system)
 - [[Hermes-Patterns]]
 - [[agentmemory]]
 - [[AI-Analysis-Workflow]]

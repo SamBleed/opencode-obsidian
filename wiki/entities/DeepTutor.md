@@ -1,3 +1,10 @@
+---
+type: entity
+title: "DeepTutor"
+updated: 2026-05-14
+status: active
+---
+
 # DeepTutor (HKUDS)
 
 **Type**: Agent-Native Learning Assistant

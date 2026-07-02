@@ -1,3 +1,10 @@
+---
+type: meta
+title: "LEARNING LOOP"
+updated: 2026-05-14
+status: active
+---
+
 # Learning Loop Protocol (Estilo Hermes)
 
 > Protocolo para transformar conversaciones exitosas en procedimientos reusables (Skills). 

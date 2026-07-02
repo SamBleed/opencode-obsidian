@@ -1,0 +1,23 @@
+# Bunker OS v3.0 — Local Knowledge Operating System
+
+## Goal
+
+Close the incremental evolution into a local-first operational knowledge system.
+
+## Delivered
+
+- Safety baseline from v2.4.
+- Integrity engine from v2.5.
+- Evidence vault from v2.6.
+- Agent operating layer from v2.7.
+- Command center from v2.8.
+- Knowledge supply chain from v2.9.
+- One-command local check: `bin/bunker-check.sh`.
+
+## Definition of done
+
+```bash
+./bin/bunker-check.sh
+```
+
+The system is considered locally operable when the check completes with no critical failures.

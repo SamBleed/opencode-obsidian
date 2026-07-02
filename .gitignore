@@ -87,3 +87,7 @@ claude-obsidian-archive/
 
 # User-specific attachments
 _attachments/
+# Local Pi runtime state
+.atl/
+# CocoIndex Code (ccc)
+/.cocoindex_code/

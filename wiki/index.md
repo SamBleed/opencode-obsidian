@@ -56,6 +56,8 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[BUNKER-OS
 - [[qwen-code]] — Open-source AI agent for terminal (Qwen3-Coder)
 - [[Pentest-Swarm-AI]] — First real swarm pentesting tool
 - [[onyx-dot-app-onyx]] — Open-source AI platform with RAG
+- [[insforge]] — Agentic backend platform for coding agents (9.9k stars)
+- [[cocoindex-code]] — AST-based semantic code search engine optimized for AI agents
 
 ---
 
@@ -68,11 +70,12 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[BUNKER-OS
 - [[ADR-Lifecycle]] — Governance for architectural and agentic decisions.
 - [[Agentic-Workflows]] — Multi-agent orchestration and state machines.
 - [[AI-Swarms]] — Parallel autonomous agents and stigmergy.
-- [[Claude-Code-Harness]] — Configuration system for code agents.
+- [[agent-code-harness]] — Configuration system for code agents.
 - [[DESIGN-MD]] — AI-readable design system format.
 - [[AI-Analysis-Workflow]] — Analysis protocol before implementation.
 - [[go-rate-limiting]] — High-performance rate limiting patterns.
 - [[vault-flow]] — Ingestion and query workflows.
+- [[cocoindex-code]] — AST-aware semantic codebase search integration.
 
 ## 🧠 Core Concepts
 - [[LLM Wiki Pattern]] — Persistent, compounding knowledge base.
@@ -109,6 +112,17 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[getting-started]] | [[BUNKER-OS
 - [[Sherlock]] — OSINT and identity reconnaissance.
 - [[PayloadsAllTheThings]] — Tactical security arsenal.
 - [[Mert-Koseoglu]] | [[Abhigyan-Patwari]] | [[Akonlabs]]
+- [[InsForge]] — Organization behind the InsForge backend platform
+
+## 🧩 Cleanup Links
+- [[Zig]] — Tech-stack note pending deeper expansion.
+- [[ai-powered-pentesting]] — Source note for offensive automation patterns.
+- [[Claudesidian]] — Historical vault reference.
+- [[agentic-backend-platform]] — Backend platforms designed for AI agent operation, not human UIs
+- [[aaif-goose-goose]] — Historical entity reference.
+- [[awesome-mcp-servers]] — Source note on MCP ecosystem.
+- [[hexstrike-ai]] — Source note on security automation.
+- [[llm-wiki-pattern-research]] — Source note for the compounding knowledge pattern.
 
 ---
 

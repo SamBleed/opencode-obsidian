@@ -1,3 +1,10 @@
+---
+type: comparison
+title: "Go v Rust"
+updated: 2026-05-14
+status: active
+---
+
 # Go vs Rust para CLI Tools
 
 > ¿Cuándo elegir uno u otro para herramientas de línea de comando?

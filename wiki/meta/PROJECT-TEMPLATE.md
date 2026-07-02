@@ -1,3 +1,10 @@
+---
+type: meta
+title: "PROJECT TEMPLATE"
+updated: 2026-05-14
+status: active
+---
+
 # Project: [Name]
 
 **Status**: [Backlog | In Progress | Paused | Done]

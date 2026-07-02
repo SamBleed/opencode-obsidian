@@ -4,16 +4,16 @@
   <img src="wiki/meta/banner-opencode-obsidian.png" alt="opencode-obsidian" width="100%" />
 </p>
 
-[![BunkerOS](https://img.shields.io/badge/BunkerOS-v2.3.1--Senior-purple?style=flat-square&logo=obsidian)](wiki/overview.md)
+[![BunkerOS](https://img.shields.io/badge/BunkerOS-v3.0--Local--Knowledge--OS-purple?style=flat-square&logo=obsidian)](wiki/overview.md)
 [![AgentMemory](https://img.shields.io/badge/Memory-Active-success?style=flat-square&logo=brain)](https://github.com/rohitg00/agentmemory)
 [![Operational](https://img.shields.io/badge/Ops-Scaffolding--Ready-blue?style=flat-square&logo=go)](bin/bunker-scaffold.sh)
 [![OpenCode](https://img.shields.io/badge/OpenCode-Ready-8B5CF6?style=flat-square)](https://opencode.ai)
 
-**opencode-obsidian** (Bunker OS) is a **Senior Architect Command Center** and Agentic Knowledge Ecosystem. It is designed to transform ephemeral AI sessions into a compounding technical asset with **Zero-Trust Security**, **Agentic Workflows**, and **Operational Automation**.
+**opencode-obsidian** (Bunker OS) is a **local-first knowledge operating system** and OpenCode-oriented command center. It transforms AI sessions, research, audits, evidence, and decisions into persistent operational assets.
 
 ---
 
-## 🏗️ Intelligence Architecture v2.3.1
+## 🏗️ Intelligence Architecture v3.0
 
 ```text
   USUARIO (Telegram/Web)           BUNKER MISSION CONTROL (Canvas)
@@ -23,19 +23,27 @@
           │                            │                (Grounding)
           └────(Scaffold)─▶ [ Real Code ] ◀── [ bin/bunker-scaffold.sh ]
                                      │
-                                     └──────(Verify)──▶ [ OzyAudit / react-doctor ]
+                                     ├──────(Verify)──▶ [ OzyAudit / react-doctor ]
+                                     │
+                                     └──────(Event/MCP)─▶ [ n8n Orchestrator ]
+                                                             (Actions & Alerts)
 ```
+
+<p align="center">
+  <img src="wiki/meta/bunker-workflow-diagram.jpg" alt="Bunker OS Workflow" width="100%" />
+</p>
 
 ---
 
-## 🚀 Key Features (Bunker v2.3.1)
+## 🚀 Key Features (Bunker v3.0)
 
-- **Deep Capacity Wiki**: Core tech pillars (Go, React, Postgres, Docker) expanded to Senior Architect standards (100+ lines, patterns 2026).
+- **Deep Capacity Wiki**: Core tech pillars expanded to senior patterns and reusable operational notes.
+- **Async Automation Brain (n8n)**: Decouples API credentials, handles webhooks from scripts, and provides an MCP bridge for agentic execution.
 - **Operational Scaffolding**: `bin/bunker-scaffold.sh` generates production-ready projects in seconds based on Bunker Blueprints.
-- **Mission Control**: Visual orchestration via `BUNKER-OS.canvas`.
-- **Strategic Domination**: Native support for **Vector Databases (RRF)**, **Tailwind 4**, **OpenTofu Zero-Trust IaC**, and **Agentic FinOps**.
-- **Self-Healing Integrity**: `bin/wiki-integrity.sh` automatically maintains knowledge graph health.
-- **Agent Decision Records (AgDR)**: Formal governance for autonomous decisions within the SDLC.
+- **Command Center**: `wiki/meta/dashboard.md` is the operational entry point.
+- **Evidence Vault**: `report.zip` and `security-audit-report.json` are indexed with checksums, not edited in place.
+- **Self-Healing Integrity**: `bin/wiki-integrity.sh` produces Markdown + JSON health reports.
+- **Knowledge Supply Chain**: source-to-handover workflow, agent queue, and governance notes.
 
 ---
 
@@ -45,17 +53,18 @@
 |---------|--------|---------|
 | `./bin/bunker-scaffold.sh` | **Ops** | Generate a new project using Bunker standards. |
 | `./bin/wiki-integrity.sh` | **Hygiene** | Scan for orphan notes and broken links. |
-| `go run bin/ingest_server.go` | **Ingest** | Start the Smart Ingest Pipe (Port 9090). |
-| `./bin/wiki-sync.sh` | **Sync** | Global knowledge synchronization. |
+| `./bin/bunker-check.sh` | **Health** | Run the local definition-of-done check. |
+| `go run bin/ingest_server.go` | **Ingest** | Start the Smart Ingest Pipe locally. |
+| `./bin/wiki-sync.sh --apply` | **Sync** | Commit reviewed knowledge changes. |
 
 ---
 
 ## ⚙️ Infrastructure & Grounding
 
 - **9090**: Smart Ingest API.
-- **3113**: Memory Viewer (AgentMemory).
-- **NotebookLM**: 10+ Research Notebooks connected via MCP.
-- **OzyZT**: Zero-Trust Security Control Plane.
+- **NotebookLM**: research grounding.
+- **Evidence index**: `wiki/meta/evidence-index.md`.
+- **Agent queue**: `wiki/meta/agent-queue.md`.
 
 ---
 

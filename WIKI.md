@@ -1,11 +1,11 @@
-# WIKI.md — LLM Wiki Schema (Bunker v2.3.1)
+# WIKI.md — LLM Wiki Schema (Bunker v3.0)
 
 > This file is the reference for maintaining the Bunker OS Knowledge Engine.
 > Based on Andrej Karpathy's LLM Wiki pattern, optimized for **Senior Architects**.
 
 ---
 
-## 🏛️ Architecture v2.3.1
+## 🏛️ Architecture v3.0
 
 The Bunker is structured as a 3-layer cognitive engine:
 

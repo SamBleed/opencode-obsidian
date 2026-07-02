@@ -1,3 +1,10 @@
+---
+type: entity
+title: "Hermes Agent"
+updated: 2026-05-14
+status: active
+---
+
 # Hermes Agent (Nous Research)
 
 **Type**: AI Agent Framework / Entity

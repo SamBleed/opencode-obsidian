@@ -1,3 +1,10 @@
+---
+type: concept
+title: "Event Driven"
+updated: 2026-05-14
+status: active
+---
+
 # Event-Driven Architecture (EDA)
 
 **Status**: Core Standard

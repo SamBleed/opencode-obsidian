@@ -1,3 +1,10 @@
+---
+type: concept
+title: "Data Governance"
+updated: 2026-05-14
+status: active
+---
+
 # Data Governance & Strategy
 
 **Status**: Core Standard

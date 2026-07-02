@@ -28,7 +28,7 @@ Workflow completo para ingestar recursos y consultar conocimiento en el Obsidian
 
 | Tipo | Path |
 |------|------|
-| Vault completo | `/home/sam/opencode-obsidian/` |
+| Vault completo | `${BUNKER_HOME:-<path-to-opencode-obsidian>}/` |
 | Wiki pages | `wiki/` |
 | Hot cache | `wiki/hot.md` |
 | Handovers | `wiki/meta/handovers/` |

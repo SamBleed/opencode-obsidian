@@ -1,3 +1,10 @@
+---
+type: meta
+title: "HANDOVER"
+updated: 2026-05-14
+status: active
+---
+
 # Agent Handover Protocol (AHP)
 
 **Status**: Core Standard

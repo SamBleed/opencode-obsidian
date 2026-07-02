@@ -1,3 +1,10 @@
+---
+type: concept
+title: "CI CD Pipeline"
+updated: 2026-05-14
+status: active
+---
+
 # CI/CD Pipeline
 
 **Status**: Core Standard

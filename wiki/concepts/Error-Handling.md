@@ -1,3 +1,10 @@
+---
+type: concept
+title: "Error Handling"
+updated: 2026-05-14
+status: active
+---
+
 # Error Handling & Observability
 
 **Status**: Core Standard

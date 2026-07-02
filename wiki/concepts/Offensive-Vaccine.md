@@ -1,3 +1,10 @@
+---
+type: concept
+title: "Offensive Vaccine"
+updated: 2026-05-14
+status: active
+---
+
 # Offensive Vaccine (Active Auditing)
 
 **Status**: Core Standard

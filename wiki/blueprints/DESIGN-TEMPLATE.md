@@ -1,3 +1,10 @@
+---
+type: blueprint
+title: "DESIGN TEMPLATE"
+updated: 2026-05-14
+status: active
+---
+
 # DESIGN.md Template (Bunker Style)
 
 > Copia este archivo en la raíz de tu proyecto frontend para que el agente siga el sistema de diseño del Bunker.

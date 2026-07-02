@@ -1,3 +1,10 @@
+---
+type: meta
+title: "WATCHLIST"
+updated: 2026-05-14
+status: active
+---
+
 # Technology Watchlist
 
 **Status**: Monitoring

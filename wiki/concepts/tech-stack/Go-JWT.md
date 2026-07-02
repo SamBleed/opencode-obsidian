@@ -1,3 +1,10 @@
+---
+type: concept
+title: "Go JWT"
+updated: 2026-05-14
+status: active
+---
+
 # JWT Implementation (Go 1.26 + Hexagonal)
 
 **Status**: Core Standard (2026)

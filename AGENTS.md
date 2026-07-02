@@ -10,7 +10,7 @@ Este directorio es un vault de Obsidian con skills adaptados para OpenCode.
 
 ## Vault Path
 ```
-/home/sam/opencode-obsidian
+${BUNKER_HOME:-<path-to-opencode-obsidian>}
 ```
 
 ## Estructura
@@ -130,7 +130,7 @@ Para referenciar este wiki desde otro proyecto, agregar al AGENTS.md de ese proy
 
 ```markdown
 ## Wiki Knowledge Base
-Path: /home/sam/opencode-obsidian
+Path: ${BUNKER_HOME:-<path-to-opencode-obsidian>}
 
 Cuando necesites contexto:
 1. Leé wiki/hot.md primero (~500 palabras)
@@ -140,14 +140,12 @@ Cuando necesites contexto:
 NO leer el wiki para preguntas de coding generales.
 ```
 
-## MCP (Configurado)
+## MCP (Configurados)
 
-El MCP `obsidian-vault` está configurado en `~/.config/opencode/opencode.json`.
-Herramientas disponibles cuando esté activo:
-- `list_notes`
-- `read_note`
-- `search_notes`
-- `write_note`
+1. **obsidian-vault** (`~/.config/opencode/opencode.json`):
+   - `list_notes`, `read_note`, `search_notes`, `write_note`
+2. **n8n-mcp**:
+   - Expone flujos de `/automation/n8n-lab` a OpenCode para ejecución segura y asíncrona.
 
 ## Tool Governance (MANDATORIO)
 
@@ -160,6 +158,7 @@ Para evitar solapación y confusión cognitiva entre herramientas MCP:
 2.  **Acción y Estado**:
     - **BrowserMCP**: SOLO para interactuar con la UI (clics, formularios) o validar visualmente.
     - **GitHub MCP**: Para gestión de repo (PRs, Issues, Estructura). No usar bash para esto si el MCP puede hacerlo.
+    - **n8n MCP**: Para disparar webhooks o flujos asíncronos (alertas, remediación asistida). NUNCA hardcodear bash scripts para tareas que n8n ya resuelve.
 3.  **Seguridad y Auditoría**:
     - **Trivy**: Usar SOLO bajo demanda explícita de "Auditoría de Seguridad" o mediante el script `bin/audit-repo.sh`.
 4.  **Memoria**:

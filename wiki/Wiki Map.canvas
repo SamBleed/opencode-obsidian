@@ -26,7 +26,10 @@
 		{"id":"react-dr-prod","type":"file","file":"wiki/entities/react-doctor.md","x":-700,"y":320,"width":260,"height":80,"color":"6"},
 		{"id":"million-org","type":"file","file":"wiki/entities/million-co.md","x":-900,"y":420,"width":260,"height":80,"color":"6"},
 		{"id":"react-health","type":"file","file":"wiki/concepts/tech-stack/react-health-score.md","x":800,"y":50,"width":280,"height":80,"color":"2"},
-		{"id":"agent-int","type":"file","file":"wiki/concepts/tech-stack/coding-agent-integration.md","x":900,"y":150,"width":300,"height":80,"color":"2"}
+		{"id":"agent-int","type":"file","file":"wiki/concepts/tech-stack/coding-agent-integration.md","x":900,"y":150,"width":300,"height":80,"color":"2"},
+		{"id":"insf-src","type":"file","file":"wiki/sources/insforge.md","x":-450,"y":-490,"width":280,"height":80,"color":"4"},
+		{"id":"insf-org","type":"file","file":"wiki/entities/insforge.md","x":-1100,"y":420,"width":280,"height":80,"color":"6"},
+		{"id":"insf-concept","type":"file","file":"wiki/concepts/tech-stack/agentic-backend-platform.md","x":700,"y":-200,"width":300,"height":80,"color":"2"}
 	],
 	"edges":[
 		{"id":"e-hub-cidx","fromNode":"hub","fromSide":"right","toNode":"c-idx","toSide":"left","label":"concepts"},
@@ -52,6 +55,8 @@
 		{"id":"e-million-src","fromNode":"million-org","fromSide":"right","toNode":"react-dr-src","toSide":"left","color":"4","label":"owner of"},
 		{"id":"e-src-prod","fromNode":"react-dr-src","fromSide":"bottom","toNode":"react-dr-prod","toSide":"top","color":"6","label":"defines"},
 		{"id":"e-prod-health","fromNode":"react-dr-prod","fromSide":"right","toNode":"react-health","toSide":"left","color":"2","label":"implements"},
-		{"id":"e-prod-agent","fromNode":"react-dr-prod","fromSide":"right","toNode":"agent-int","toSide":"left","color":"2","label":"supports"}
+		{"id":"e-prod-agent","fromNode":"react-dr-prod","fromSide":"right","toNode":"agent-int","toSide":"left","color":"2","label":"supports"},
+		{"id":"e-insforg-org","fromNode":"insf-org","fromSide":"right","toNode":"insf-src","toSide":"left","color":"4","label":"owner of"},
+		{"id":"e-insfsrc-concept","fromNode":"insf-src","fromSide":"bottom","toNode":"insf-concept","toSide":"right","color":"2","label":"defines"}
 	]
 }

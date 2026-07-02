@@ -1,3 +1,10 @@
+---
+type: entity
+title: "Decepticon"
+updated: 2026-05-14
+status: active
+---
+
 # Decepticon (PurpleAILAB)
 
 **Type**: Autonomous Red Team Framework

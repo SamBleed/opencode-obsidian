@@ -1,6 +1,23 @@
+---
+type: meta
+title: "OBSIDIAN PLUGINS"
+updated: 2026-05-14
+status: active
+---
+
 # Obsidian Plugin Setup (Bunker Edition)
 
 > Estos plugins son los que permiten que Obsidian sea el "Panel de Control" del ecosistema agéntico.
+
+## Local Config Policy
+
+These plugin state files are intentionally local and may remain in the vault:
+
+- `.obsidian/plugins/calendar/data.json`
+- `.obsidian/plugins/thino/data.json`
+- `.obsidian/plugins/obsidian-excalidraw-plugin/data.json`
+
+Never commit `.obsidian/plugins/obsidian-local-rest-api/data.json`. Use `data.example.json` and `SECURITY-NOTE.md` instead.
 
 ## 💎 1. Dataview / Obsidian Bases
 **Para qué**: Generar tablas dinámicas de tus agentes y proyectos.
