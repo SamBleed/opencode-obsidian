@@ -1,67 +1,66 @@
-# Política de Seguridad de Bunker OS
+# Security Policy for Bunker OS
 
-## Reportar Vulnerabilidades
+## Reporting Vulnerabilities
 
-Si encontrás una vulnerabilidad de seguridad, **no abras un issue público**.
+If you find a security vulnerability, **do not open a public issue**.
 
-En cambio, contactá directamente:
+Contact directly:
 - GitHub: [SamBleed](https://github.com/SamBleed)
 - Repo: [opencode-obsidian](https://github.com/SamBleed/opencode-obsidian)
 
-Las vulnerabilidades se atenderán dentro de las 48 horas hábiles.
+Vulnerabilities will be addressed within 48 business hours.
 
-## Alcance
+## Scope
 
-Esta política cubre:
-- Skills de OpenCode en `skills/`
-- Scripts en `bin/` y `scripts/`
-- Workflows n8n en `automation/n8n-lab/`
-- Hooks en `hooks/hooks.json`
-- Tests en `tests/`
-- Configuración en `opencode.json`
+This policy covers:
+- OpenCode skills in `skills/`
+- Scripts in `bin/` and `scripts/`
+- n8n workflows in `automation/n8n-lab/`
+- Hooks in `hooks/hooks.json`
+- Tests in `tests/`
 
-## Medidas de Seguridad Existentes
+## Existing Security Measures
 
-### Secretos
-- No hay API keys hardcodeadas en scripts (verificado por `make test-scripts`)
-- Las keys viven en `.env` (gitignored) o en el vault de credenciales de n8n
-- El test suite escanea patrones de secretos en cada corrida
+### Secrets
+- No hardcoded API keys in scripts (verified by `make test-scripts`)
+- Keys live in `.env` (gitignored) or in n8n credential vault
+- Test suite scans for secret patterns on every run
 
 ### n8n
-- El webhook del AOC v4 soporta `x-aoc-secret` header
-- Rate limiting por source implementado en el pipeline
-- Redacción de secrets en logs y payloads
-- Dry-run mode por defecto (`AOC_DRY_RUN=true`)
+- AOC v4 webhook supports `x-aoc-secret` header
+- Rate limiting by source implemented in the pipeline
+- Secret redaction in logs and payloads
+- Dry-run mode by default (`AOC_DRY_RUN=true`)
 
-### Red
-- Ingest server bindea a `127.0.0.1:9090` por defecto
-- n8n expone solo en localhost
-- Autoresearch valida y sanitiza URLs antes de fetch
-- Content sanitization: evita inyección de wikilinks y scripts en fuentes externas
+### Network
+- Ingest server binds to `127.0.0.1:9090` by default
+- n8n exposes only on localhost
+- Autoresearch validates and sanitizes URLs before fetch
+- Content sanitization: prevents wikilink injection and scripts in external sources
 
-### Dependencias
-- n8n container con versión pinneada
-- Escaneo de secretos en test suite
-- npm audit como práctica recomendada
+### Dependencies
+- n8n container with version pinning
+- Secret scanning in test suite
+- npm audit as recommended practice
 
-## Buenas Prácticas
+## Best Practices
 
-1. **Nunca commitees** `.env`, API keys, tokens, o credenciales
-2. **Usá variables de entorno** para configuración sensible
-3. **Corré `make test`** antes de pushear (incluye escaneo de secretos)
-4. **Mantené n8n actualizado** (docker pull regular)
-5. **No exponás n8n a internet** sin reverse proxy con SSL
-6. **Configurá `x-aoc-secret`** antes de activar el AOC v4
+1. **Never commit** `.env`, API keys, tokens, or credentials
+2. **Use environment variables** for sensitive configuration
+3. **Run `make test`** before pushing (includes secret scanning)
+4. **Keep n8n updated** (regular docker pull)
+5. **Do not expose n8n to the internet** without a reverse proxy with SSL
+6. **Configure `x-aoc-secret`** before activating the AOC v4
 
-## Entorno Seguro por Defecto
+## Secure Defaults
 
 ```bash
-# Verificar que no hay secretos en el repo
+# Verify no secrets in repo
 make test-scripts
 
-# Verificar integrity del vault
+# Verify vault integrity
 ./bin/bunker-check.sh
 
-# Verificar que n8n no está expuesto
-ss -tlnp | grep 5678  # Debería mostrar 127.0.0.1:5678 o 0.0.0.0:5678
+# Verify n8n is not exposed
+ss -tlnp | grep 5678  # Should show 127.0.0.1:5678 or 0.0.0.0:5678
 ```

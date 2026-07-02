@@ -4,12 +4,12 @@ This repository is an OpenCode agent environment and an Obsidian wiki vault.
 
 **Version:** 1.3.1  
 **Status:** Local-first operational knowledge system with n8n automation  
-**Tests:** 429 (Makefile + GitHub Actions CI)  
+**Tests:** 431 (Makefile + GitHub Actions CI)  
 **Vault path:** current repository root. Use `BUNKER_HOME` to override script resolution.
 
 ---
 
-## Core identity
+## Core Identity
 
 Bunker OS is not a traditional application. It is a local-first knowledge operating system for:
 
@@ -24,7 +24,7 @@ Bunker OS is not a traditional application. It is a local-first knowledge operat
 
 ---
 
-## Architecture layers
+## Architecture Layers
 
 ```text
 Capture       → wiki/inbox, .raw, ingest server, handovers
@@ -41,54 +41,68 @@ Visualization → dashboard, canvases, Obsidian graph
 
 ---
 
-## v1.3.1 changelog
+## v1.3.1 Changelog
 
 ### Added
-- **Autoresearch**: research loop autónomo de 3 rondas con Exa + webfetch
-- **wiki-retrieve**: BM25 index (211 chunks, 6.544 términos) + cosine rerank via ollama
-- **/think framework**: 10-principios para decisiones arquitectónicas (español)
-- **GitHub Actions CI**: 5 suites corren en cada push/PR a main
-- **Dead Letter Queue**: error trigger global para n8n
-- **AOC v4 Enterprise**: 37 nodos, AI triage, GitHub issues + 3 canales de notificación
+- **Autoresearch**: 3-round autonomous research loop with Exa + webfetch
+- **wiki-retrieve**: BM25 index (211 chunks, 6,544 terms) + cosine rerank via ollama
+- **/think framework**: 10-principle framework for architectural decisions
+- **GitHub Actions CI**: 5 suites run on every push/PR to main
+- **Dead Letter Queue**: global error trigger for n8n
+- **AOC v4 Enterprise**: 37 nodes, AI triage, GitHub issues + 3 notification channels
 
 ### Testing
-- `Makefile` con 5 targets: workflows, wiki, scripts, YAML, retrieve
-- 344 tests de conexiones n8n
-- 61 tests de scripts (sintaxis, secretos, ejecutables)
-- 21 tests de integridad del vault
-- Test de YAML (CI + docker-compose)
-- Test de BM25 + rerank
+- `Makefile` with 5 targets: workflows, wiki, scripts, YAML, retrieve
+- 344 workflow connection tests
+- 61 script tests (syntax, secrets, executables)
+- 21 vault integrity tests
+- YAML tests (CI + docker-compose)
+- BM25 + rerank tests
 
 ### Infrastructure
 - docker-compose: production tuning (concurrency, metrics, log format, data prune)
-- `.env`: vars del AOC v3, removed dead API keys
-- n8n: pin version, MCP endpoint configurado, concurrency limit
-- PostCompact hook mejorado con `cat` command
-- Stop hook con prompt auto-update hot.md
+- `.env`: AOC v3 variables, removed dead API keys
+- n8n: MCP endpoint configured, concurrency limit
+- PostCompact hook improved with `cat` command
+- Stop hook with auto-update hot.md prompt
+
+### Documentation
+- README, PROJECT, WIKI rewritten in English at claude-obsidian level
+- CONTRIBUTING.md and SECURITY.md added
 
 ---
 
 ## Skills (13)
 
-| Skill | Descripción |
+| Skill | Description |
 |-------|-------------|
-| `autoresearch` | Investigación web autónoma 3 rondas |
-| `wiki-retrieve` | BM25 + rerank semántico vía ollama |
-| `think` | Framework 10 principios para decisiones |
-| `wiki-ingest` | Ingestar fuentes en la wiki |
-| `wiki-query` | Consultar la wiki |
-| `wiki-lint` | Health check del vault |
-| `save` | Guardar conversación como nota |
-| `code-review` | Revisión de código |
-| `security-review` | Revisión de seguridad |
-| `infra-design` | Diseño de infraestructura |
-| `tdd-workflow` | Desarrollo guiado por tests |
+| `autoresearch` | 3-round autonomous web research |
+| `wiki-retrieve` | BM25 + semantic rerank via ollama |
+| `think` | 10-principle framework for decisions |
+| `wiki-ingest` | Ingest sources into wiki |
+| `wiki-query` | Query the wiki |
+| `wiki-lint` | Vault health check |
+| `save` | Save conversation as note |
+| `code-review` | Code quality review |
+| `security-review` | Security review |
+| `infra-design` | Infrastructure design |
+| `tdd-workflow` | TDD red-green-refactor |
 | `verification-loop` | Build/test/lint pre-PR |
-| `work-unit-commits` | Commits organizados |
+| `work-unit-commits` | Organized commits |
 
 ---
 
-## Operational entry points
+## The n8n Orchestrator Role
+
+n8n acts as the asynchronous execution engine and "nervous system" of the Bunker:
+
+- **Security & Decoupling**: API keys and external integrations live in n8n, keeping bash scripts clean and secure. Scripts fire webhooks to `localhost:5678`.
+- **Agentic MCP Bridge**: Gives OpenCode "hands" to trigger complex pipelines (e.g., assisted remediation) in a sandboxed manner.
+- **Complex Pipelines**: Manages retries, conditional logic, and LLM evaluations via visually orchestrated flows stored in `automation/n8n-lab`.
+
+---
+
+## Operational Entry Points
 
 | Purpose | File/Command |
 |---|---|
@@ -106,18 +120,17 @@ Visualization → dashboard, canvases, Obsidian graph
 
 ---
 
-## Safety model
+## Safety Model
 
 - Scripts resolve the vault through `BUNKER_HOME` or repository root.
 - External-effect scripts default to dry-run.
-- Obsidian Local REST API secrets stay local.
 - Ingest server binds to `127.0.0.1:9090` by default.
 - Evidence artifacts are indexed, not modified.
 - n8n secrets managed via `.env` (gitignored) + n8n credential vault.
 
 ---
 
-## Cross-project access
+## Cross-Project Access
 
 To use this brain from another project, point that project to the vault root and follow the read order:
 

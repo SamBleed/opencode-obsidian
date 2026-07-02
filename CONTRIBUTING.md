@@ -1,64 +1,59 @@
-# Contribuyendo a Bunker OS
+# Contributing to Bunker OS
 
-PRs bienvenidas. Leé esto antes de abrir una.
+PRs welcome. Please read this before opening one.
 
 ---
 
 ## Workflow
 
-1. Forkeá el repo y creá una branch desde `main`
-2. Hacé tus cambios
-3. Corré `make test` — todas las suites deben pasar
-4. Si cambiás skills, actualizá los tests correspondientes
-5. Commit con mensaje descriptivo
-6. Abrí un PR a `main`
+1. Fork the repo and create a branch from `main`
+2. Make your changes
+3. Run `make test` — all suites must pass
+4. If you changed skills, update corresponding tests
+5. Commit with descriptive message (conventional commits)
+6. Open a PR to `main`
 
-## Convenciones de Commits
+## Commit Conventions
 
-Usamos [Conventional Commits](https://www.conventionalcommits.org/):
+Use [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```
-feat: añadir /autoresearch
-fix: corregir conexión en Dead Letter Queue
-docs: actualizar README con comparativa
-test: agregar test de workflows n8n
-chore: actualizar docker-compose
+feat: add /autoresearch skill
+fix: fix Dead Letter Queue connection
+docs: update README with comparison table
+test: add n8n workflow tests
+chore: update docker-compose
 ```
 
 ## Self-Review Checklist
 
-Antes de pedir review:
+Before requesting review:
 
-- [ ] `make test` pasa (429 tests, 0 failures)
-- [ ] Si cambiás skills: actualizaste SKILL.md?
-- [ ] Si cambiás scripts: actualizaste tests?
-- [ ] Si cambiás estructura: actualizaste README.md / PROJECT.md / WIKI.md?
-- [ ] No hay secretos hardcodeados
-- [ ] Los mensajes de error son útiles en español
-- [ ] Los cambios son backward-compatible o están documentados
+- [ ] `make test` passes (431 tests, 0 failures)
+- [ ] If you changed skills: did you update SKILL.md?
+- [ ] If you changed scripts: did you update tests?
+- [ ] If you changed structure: did you update README / PROJECT / WIKI?
+- [ ] No hardcoded secrets
+- [ ] Changes are backwards-compatible or documented
 
 ## Tests
 
-Todos los PRs deben pasar `make test`. El CI lo verifica automáticamente.
+All PRs must pass `make test`. CI verifies this automatically.
 
 ```bash
 make test
 ```
 
-## Reportar Issues
+## Reporting Issues
 
-Usá GitHub Issues para:
-- Bugs en skills o scripts
-- Workflows n8n que fallan
-- Documentación faltante o incorrecta
-- Sugerencias de features
+Use GitHub Issues for:
+- Bugs in skills or scripts
+- n8n workflow failures
+- Missing or incorrect documentation
+- Feature suggestions
 
-Incluí:
-- Versión del Bunker (ver `PROJECT.md`)
+Include:
+- Bunker OS version (see `PROJECT.md`)
 - OpenCode version
-- Pasos para reproducir
-- Logs o mensajes de error relevantes
-
-## Código de Conducta
-
-Sé respetuoso. Este es un proyecto personal, no una corporación.
+- Steps to reproduce
+- Relevant error logs
