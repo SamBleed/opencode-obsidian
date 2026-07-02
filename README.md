@@ -1,61 +1,70 @@
 # 🏛️ opencode-obsidian (Bunker OS)
 
 <p align="center">
-  <img src="wiki/meta/banner-opencode-obsidian.png" alt="opencode-obsidian" width="100%" />
+  <img src="wiki/meta/banner-opencode-obsidian.png" alt="Bunker OS" width="100%" />
 </p>
 
-[![BunkerOS](https://img.shields.io/badge/BunkerOS-v3.0--Local--Knowledge--OS-purple?style=flat-square&logo=obsidian)](wiki/overview.md)
-[![AgentMemory](https://img.shields.io/badge/Memory-Active-success?style=flat-square&logo=brain)](https://github.com/rohitg00/agentmemory)
-[![Operational](https://img.shields.io/badge/Ops-Scaffolding--Ready-blue?style=flat-square&logo=go)](bin/bunker-scaffold.sh)
-[![OpenCode](https://img.shields.io/badge/OpenCode-Ready-8B5CF6?style=flat-square)](https://opencode.ai)
+**Bunker OS** es un **sistema operativo de conocimiento local-first** construido sobre Obsidian. Convierte tus sesiones con IA, investigaciones, auditorías y decisiones en un **centro de comando operativo persistente**.
 
-**opencode-obsidian** (Bunker OS) is a **local-first knowledge operating system** and OpenCode-oriented command center. It transforms AI sessions, research, audits, evidence, and decisions into persistent operational assets.
+[![Obsidian](https://img.shields.io/badge/Obsidian-Plugin_Ready-7C3AED?style=flat-square&logo=obsidian)](https://obsidian.md)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+[![Version](https://img.shields.io/badge/Version-v3.0-purple?style=flat-square)](https://github.com/SamBleed/opencode-obsidian)
 
 ---
+
+## ✨ ¿Por qué Bunker OS?
+
+- Transforma conocimiento efímero (chats con IA, notas sueltas) en **activos operativos**.
+- Combina **Obsidian + Automatización (n8n) + Agentes + Governance**.
+- Totalmente local, privado y bajo tu control.
 
 <p align="center">
-  <img src="wiki/meta/descripcion.png" alt="Bunker OS Workflow" width="100%" />
+  <img src="wiki/meta/descripcion.png" alt="Bunker OS Workflow" width="85%" />
 </p>
 
 ---
 
-## 🚀 Key Features (Bunker v3.0)
+## 🚀 Características Principales (v3.0)
 
-- **Deep Capacity Wiki**: Core tech pillars expanded to senior patterns and reusable operational notes.
-- **Async Automation Brain (n8n)**: Decouples API credentials, handles webhooks from scripts, and provides an MCP bridge for agentic execution.
-- **Operational Scaffolding**: `bin/bunker-scaffold.sh` generates production-ready projects in seconds based on Bunker Blueprints.
-- **Command Center**: `wiki/meta/dashboard.md` is the operational entry point.
-- **Evidence Vault**: `report.zip` and `security-audit-report.json` are indexed with checksums, not edited in place.
-- **Self-Healing Integrity**: `bin/wiki-integrity.sh` produces Markdown + JSON health reports.
-- **Knowledge Supply Chain**: source-to-handover workflow, agent queue, and governance notes.
+- **Deep Capacity Wiki** — Patrones avanzados y notas reutilizables
+- **Async Automation Brain (n8n)** — Webhooks + MCP bridge para ejecución agentica
+- **Operational Scaffolding** — `bunker-scaffold.sh` genera proyectos listos para producción
+- **Evidence Vault** — Evidencia inmutable con checksums
+- **Self-Healing Integrity** — Scripts automáticos de salud del vault
+- **Command Center** — Dashboard + canvases + agent queue
+
+---
+
+## 🛠️ Cómo Empezar (Installation)
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/SamBleed/opencode-obsidian.git
+   ```
+
+2. Abre la carpeta como vault en **Obsidian**
+3. (Opcional) Instala los plugins recomendados desde `.obsidian` folder
+4. Explora `wiki/meta/dashboard.md` — es tu centro de operaciones
 
 ---
 
 ## 🛠️ Power Commands
 
-| Command | Domain | Purpose |
-|---------|--------|---------|
-| `./bin/bunker-scaffold.sh` | **Ops** | Generate a new project using Bunker standards. |
-| `./bin/wiki-integrity.sh` | **Hygiene** | Scan for orphan notes and broken links. |
-| `./bin/bunker-check.sh` | **Health** | Run the local definition-of-done check. |
-| `go run bin/ingest_server.go` | **Ingest** | Start the Smart Ingest Pipe locally. |
-| `./bin/wiki-sync.sh --apply` | **Sync** | Commit reviewed knowledge changes. |
+| Comando                        | Propósito                          |
+|-------------------------------|------------------------------------|
+| `./bin/bunker-scaffold.sh`    | Generar nuevos proyectos           |
+| `./bin/wiki-integrity.sh`     | Chequear salud del vault           |
+| `./bin/bunker-check.sh`       | Definition of Done local           |
+| `go run bin/ingest_server.go` | Iniciar Smart Ingest API           |
 
 ---
 
-## ⚙️ Infrastructure & Grounding
+## 📚 Documentación
 
-- **9090**: Smart Ingest API.
-- **NotebookLM**: research grounding.
-- **Evidence index**: `wiki/meta/evidence-index.md`.
-- **Agent queue**: `wiki/meta/agent-queue.md`.
-
----
-
-## 📖 Live Documentation
-- **[[overview]]**: High-level system summary.
-- **[[BUNKER-OS.canvas]]**: Visual map of the entire architecture.
-- **[[Security-Guardrails]]**: The Bunker's technical constitution.
+- **[[overview]]** → Resumen del sistema
+- **[[BUNKER-OS.canvas]]** → Mapa visual completo
+- **wiki/meta/dashboard.md** → Command Center
 
 ---
-MIT License © 2026 | **SamBleed** & **OpenCode Architect**
+
+**MIT License © 2026** — [SamBleed](https://github.com/SamBleed) &  [opencode.ai](https://opencode.ai)
