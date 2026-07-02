@@ -33,7 +33,7 @@
 - PROJECT updated to v1.3.1, 13 skills, new architecture
 - n8n restarted with new environment configuration
 
-## v3.0 — Local Knowledge Operating System — 2026-05-14
+## v1.3.0 — Local Knowledge Operating System — 2026-05-14
 
 ### Added
 
@@ -48,20 +48,20 @@
 - Updated README and PROJECT to describe Bunker OS as a local-first knowledge operating system.
 - Dashboard now acts as command center.
 
-## v2.9 — Knowledge Supply Chain — 2026-05-14
+## v1.2.9 — Knowledge Supply Chain — 2026-05-14
 
 ### Added
 
 - Formal source-to-handover workflow.
 - Governance model for evidence, decisions, and automation.
 
-## v2.8 — Command Center Dashboard — 2026-05-14
+## v1.2.8 — Command Center Dashboard — 2026-05-14
 
 ### Changed
 
 - Rebuilt `wiki/meta/dashboard.md` around active context, health, evidence, agents, governance, and safe operations.
 
-## v2.7 — Agent Operating Layer — 2026-05-14
+## v1.2.7 — Agent Operating Layer — 2026-05-14
 
 ### Added
 
@@ -70,7 +70,7 @@
 - `commands/evidence.md`.
 - `wiki/meta/agent-queue.md`.
 
-## v2.6 — Evidence Vault — 2026-05-14
+## v1.2.6 — Evidence Vault — 2026-05-14
 
 ### Added
 
@@ -78,13 +78,13 @@
 - `wiki/meta/evidence-index.md`.
 - `wiki/meta/evidence-manifest.json`.
 
-## v2.5 — Integrity Engine — 2026-05-14
+## v1.2.5 — Integrity Engine — 2026-05-14
 
 ### Changed
 
 - Rebuilt `bin/wiki-integrity.sh` to emit Markdown and JSON health reports.
 
-## v2.4 — Hardening Release — 2026-05-14
+## v1.2.4 — Hardening Release — 2026-05-14
 
 ### Security
 
