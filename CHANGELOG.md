@@ -1,18 +1,37 @@
 # Changelog
 
-## v3.1 — Async Automation & Hard Detach — 2026-07-02
+## v1.3.1 — Feature Port desde claude-obsidian v1.9 — 2026-07-02
 
 ### Added
 
-- **n8n Automation Engine** integration (`/automation` folder).
-- `bunker-health-check.json` and `bunker-assisted-remediation.json` workflow templates.
-- Explicit `n8n MCP` documentation in architecture files.
+**Skills**
+- **Autoresearch**: Research loop autónomo de 3 rondas con Exa + webfetch + filing a wiki. Porteado de claude-obsidian v1.9.2 y adaptado a OpenCode.
+- **wiki-retrieve**: BM25 index (211 chunks, 6.544 términos) + cosine rerank vía ollama nomic-embed-text. Búsqueda híbrida por significado.
+- **/think**: Framework de 10 principios (OBSERVE-OBSERVE-LISTEN-THINK-CONNECT-CONNECT-FEEL-ACCEPT-CREATE-GROW) para decisiones arquitectónicas. En español.
+
+**Testing**
+- **Makefile** con 5 targets: workflows n8n, wiki integrity, scripts, YAML, retrieve
+- **test_workflow_connections.py**: 344 tests, valida nodos y conexiones de todos los workflows n8n
+- **test_wiki_integrity.sh**: 21 tests, archivos esenciales, frontmatter, docker status
+- **test_scripts.sh**: 61 tests, sintaxis bash, shebang, secretos hardcodeados, go vet
+- **GitHub Actions CI** (`.github/workflows/test.yml`): 5 suites en cada push/PR a main
+
+**Automatización n8n**
+- **Dead Letter Queue**: Error trigger global que atrapa errores de todos los workflows y persiste en staticData
+- **AOC v4 Enterprise**: 37 nodos con AI triage (OpenRouter/Mistral), idempotencia Redis, GitHub issues + Slack/Telegram/Discord
+- Docker tuning: `N8N_CONCURRENCY_PRODUCTION_LIMIT`, `EXECUTIONS_DATA_PRUNE`, `N8N_METRICS`, `N8N_LOG_FORMAT=json`
+- Limpieza de 5 workflows zombies del repo
+
+**Infraestructura**
+- `.env` saneado: removidas API keys muertas, agregadas vars del AOC v3, dry-run por defecto
+- docker-compose: removido `version:` deprecado, agregado production tuning
+- Hooks mejorados: PostCompact con `cat` command, Stop con prompt auto-update hot.md, PostToolUse con stage de tests
+- Token n8n actualizado, Excalidraw MCP eliminado
 
 ### Changed
-
-- **Hard Detach**: Purged legacy brand nomenclature (Claude Code) from core architectural patterns, replacing with agnostic `AGENTS.md` standards.
-- Re-aligned `WIKI.md` schema documentation from v2.3.1 to v3.0.
-- Resolved broken links and updated `testing-design.md` to `mature` status.
+- README.md actualizado con tabla de características, comparativa vs claude-obsidian, badges de CI
+- PROJECT.md actualizado a v3.1, 13 skills, nueva arquitectura
+- n8n reiniciado con nueva configuración de entorno
 
 ## v3.0 — Local Knowledge Operating System — 2026-05-14
 

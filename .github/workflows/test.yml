@@ -1,0 +1,63 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'wiki/**'
+      - '**.md'
+      - '.gitignore'
+      - 'LICENSE'
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - 'wiki/**'
+      - '**.md'
+      - '.gitignore'
+      - 'LICENSE'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Instalar dependencias Python
+        run: pip install numpy
+
+      - name: Verificar sintaxis bash
+        run: |
+          for f in bin/*.sh; do
+            bash -n "$f" && echo "  ✅ $f" || exit 1
+          done
+
+      - name: Validar workflows n8n
+        run: python3 tests/test_workflow_connections.py
+
+      - name: Validar scripts
+        run: bash tests/test_scripts.sh
+
+      - name: Verificar archivos esenciales del vault
+        run: |
+          for f in wiki/hot.md wiki/index.md wiki/log.md PROJECT.md AGENTS.md BUNKER_RULES.md; do
+            [ -f "$f" ] && echo "  ✅ $f" || { echo "  ❌ $f missing"; exit 1; }
+          done
+
+      - name: Validar JSON del docker-compose
+        run: python3 -c "import yaml; yaml.safe_load(open('automation/n8n-lab/docker-compose.yml')); print('  ✅ docker-compose.yml válido')"
+
+      - name: Build BM25 index
+        run: python3 scripts/bm25-index.py build
+
+      - name: Verificar retrieve sin ollama
+        run: python3 scripts/retrieve.py "test query" --top 2 --no-rerank

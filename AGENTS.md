@@ -164,7 +164,32 @@ Para evitar solapación y confusión cognitiva entre herramientas MCP:
 4.  **Memoria**:
     - **Engram**: Guardar TODA decisión arquitectónica, fix de bug o patrón establecido.
 
+## Skills Nuevos
+
+Skills porteados de claude-obsidian y adaptados para OpenCode:
+
+| Skill | Descripción | Dónde |
+|-------|-------------|-------|
+| **autoresearch** | Investigación web autónoma 3 rondas con Exa + webfetch | `skills/autoresearch/` |
+| **wiki-retrieve** | BM25 + cosine rerank vía ollama (nomic-embed-text) | `skills/wiki-retrieve/` + `scripts/retrieve.py` |
+| **think** | Framework 10 principios para decisiones | `skills/think/` |
+
+## Test Suite
+
+```bash
+make test        # 429 tests, 5 suites
+make test-wiki   # Integridad del vault
+make test-scripts # Sintaxis bash + secretos
+make test-workflows # Conexiones n8n
+make test-retrieve # BM25 + rerank
+```
+
+## CI
+
+GitHub Actions en `.github/workflows/test.yml`. Corre en cada push/PR a main.
+
 ## Referencias
 
 - skills adaptados: `~/.config/opencode/skills/wiki*`
 - vault config: `~/.config/opencode/skills/wiki/references/vault-config.md`
+- scripts: `scripts/retrieve.py`, `scripts/bm25-index.py`

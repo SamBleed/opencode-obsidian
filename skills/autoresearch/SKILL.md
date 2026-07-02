@@ -1,83 +1,149 @@
 ---
 name: autoresearch
 description: >
-  Autonomous iterative research loop. Takes a topic, runs web searches, fetches sources,
-  synthesizes findings, and files everything into the wiki as structured pages.
-  Based on Karpathy's autoresearch pattern: program.md configures objectives and constraints,
-  the loop runs until depth is reached, output goes directly into the knowledge base.
-  Triggers on: "/autoresearch", "autoresearch", "research [topic]", "deep dive into [topic]",
-  "investigate [topic]", "find everything about [topic]", "research and file",
-  "go research", "build a wiki on".
-allowed-tools: Read Write Edit Glob Grep WebFetch WebSearch
+  Autonomous iterative research loop for Bunker OS. Toma un tema, ejecuta
+  búsquedas web, extrae fuentes, sintetiza hallazgos y guarda todo en la wiki
+  como páginas estructuradas. Basado en el patrón Karpathy autoresearch.
+  Triggers on: "/autoresearch", "autoresearch", "research [topic]",
+  "investigar [tema]", "búscame sobre [tema]", "investiga [tema]",
+  "deep dive", "encuentra todo sobre [tema]", "research and file",
+  "go research".
 ---
 
-# autoresearch: Autonomous Research Loop
+# autoresearch: Autonomous Research Loop (Bunker OS)
 
-You are a research agent. You take a topic, run iterative web searches, synthesize findings, and file everything into the wiki. The user gets wiki pages, not a chat response.
+Eres un agente de investigación. Tomas un tema, ejecutas búsquedas web iterativas,
+sintetizas hallazgos y guardas todo en la wiki. El usuario recibe páginas wiki,
+no una respuesta de chat.
 
-This is based on Karpathy's autoresearch pattern: a configurable program defines your objectives. You run the loop until depth is reached. Output goes into the knowledge base.
+Basado en el patrón Karpathy autoresearch: un programa configurable define los
+objetivos. El loop se ejecuta hasta alcanzar profundidad. El output va directo
+a la base de conocimiento.
 
 ---
 
-## Before Starting
+## Transporte (obsidian-vault MCP)
 
-Read `references/program.md` to load the research objectives and constraints. This file is user-configurable. It defines what sources to prefer, how to score confidence, and any domain-specific constraints.
+El research loop escribe muchas páginas. Usa SIEMPRE los tools MCP del vault:
+
+| Operación | Tool MCP |
+|-----------|----------|
+| Leer nota existente | `obsidian-vault_read_note` |
+| Buscar en vault | `obsidian-vault_search_notes` |
+| Crear/Actualizar nota | `obsidian-vault_write_note` |
+| Actualizar frontmatter | `obsidian-vault_update_frontmatter` |
+| Edición quirúrgica | `obsidian-vault_patch_note` |
+| Obtener metadata | `obsidian-vault_get_notes_info` |
+
+Las búsquedas web usan `exa_web_search_exa` para search y `webfetch` para
+obtener contenido de URLs.
+
+---
+
+## Web Egress Hygiene
+
+Autoresearch fetches URLs externas. Antes de cada fetch y antes de escribir
+contenido descargado al vault, aplica estos guards:
+
+**1. Validación de URL.** Rechaza:
+- `file://`, `javascript:`, `data:` — solo `http(s)://`
+- Direcciones privadas RFC1918 y localhost
+- Hosts que no aparecieron en el paso de búsqueda previo
+
+**2. Sanitización de contenido.** Antes de escribir a cualquier página:
+- Elimina tags `<script>`, `<iframe>`, `<style>` y su contenido
+- Escapa `[[` y `]]` en el cuerpo de fuentes externas (codifica como `&#91;&#91;`)
+- Rechaza delimitadores `---` de frontmatter dentro del contenido descargado
+- Trunca cuerpos a ~50KB para evitar blowout de contexto
+
+**3. Expectativa de costo.** Un research completo puede requerir hasta
+**3 rondas × 5 fuentes × 3 ángulos ≈ 45 fetches**. Informa al usuario antes
+de empezar en temas grandes.
+
+**4. Fallo de fetch.** Si un fetch falla (timeout, 4xx/5xx, contenido muy
+grande, sanitización vacía), loguea la URL + razón en `wiki/log.md` y continúa
+el loop. NO abortes toda la ejecución. Cada fuente saltada es un dato que
+necesita ir en "Open Questions".
+
+---
+
+## Antes de Empezar
+
+Lee `references/program.md` para cargar los objetivos y constraints. Este
+archivo es configurable por el usuario.
+
+---
+
+## Selección de Tema
+
+Tres caminos para elegir el tema:
+
+### A. Tema explícito (siempre respetado)
+Cuando el usuario dice `/autoresearch [tema]`, usa ese tema textual. No
+preguntes nada, no ofrezcas opciones.
+
+### B. Frontera del vault (desactivado por ahora)
+El Bunker no tiene aún el sistema de boundary-score. Salta directo a C.
+
+### C. Preguntar al usuario
+Si el usuario invoca `/autoresearch` sin tema, preguntá:
+"¿Qué tema querés que investigue?"
 
 ---
 
 ## Research Loop
 
 ```
-Input: topic (from user command)
+Input: tema (de la selección arriba)
 
-Round 1. Broad search
-1. Decompose topic into 3-5 distinct search angles
-2. For each angle: run 2-3 WebSearch queries
-3. For top 2-3 results per angle: WebFetch the page
-4. Extract from each: key claims, entities, concepts, open questions
+Ronda 1. Búsqueda amplia
+1. Descomponé el tema en 3-5 ángulos de búsqueda distintos
+2. Por cada ángulo: ejecutá 2-3 queries con exa_web_search_exa
+3. De los top 2-3 resultados por ángulo: usá webfetch para obtener la página
+4. Extraé de cada fuente: claims clave, entidades, conceptos, preguntas abiertas
 
-Round 2. Gap fill
-5. Identify what's missing or contradicted from Round 1
-6. Run targeted searches for each gap (max 5 queries)
-7. Fetch top results for each gap
+Ronda 2. Gap fill
+5. Identificá qué falta o contradice lo de la Ronda 1
+6. Ejecutá búsquedas específicas para cada gap (máx 5 queries)
+7. Fetch de los mejores resultados por gap
 
-Round 3. Synthesis check (optional, if gaps remain)
-8. If major contradictions or missing pieces still exist: one more targeted pass
-9. Otherwise: proceed to filing
+Ronda 3. Síntesis (opcional, si persisten gaps)
+8. Si aún hay contradicciones mayores o piezas faltantes: un pase más
+9. Sino: procedé a filing
 
-Max rounds: 3 (as set in program.md). Stop when depth is reached or max rounds hit.
+Máx rondas: 3. Pará cuando se alcanzó profundidad o se llegó al máximo.
 ```
 
 ---
 
-## Filing Results
+## Filing de Resultados
 
-After research is complete, create these pages:
+Después de completar la investigación, creá estas páginas USANDO LOS TOOLS
+MCP (obsidian-vault_write_note), NO Write/Edit de archivos:
 
-**wiki/sources/**. One page per major reference found
-- Use source frontmatter (type, source_type, author, date_published, url, confidence, key_claims)
-- Body: summary of the source, what it contributes to the topic
+**wiki/sources/**. Una página por referencia importante encontrada.
+- Frontmatter: type, source_type, author, date_published, url, confidence
+- Cuerpo: resumen de la fuente, qué aporta al tema
 
-**wiki/concepts/**. One page per significant concept extracted
-- Only create a page if the concept is substantive enough to stand alone
-- Check the index first: update existing concept pages rather than creating duplicates
+**wiki/concepts/**. Una página por concepto significativo extraído.
+- Solo crear si el concepto tiene suficiente entidad como para standalone
+- Revisá el índice primero: actualizá páginas existentes en vez de duplicar
 
-**wiki/entities/**. One page per significant person, org, or product identified
-- Check the index first: update existing entity pages
+**wiki/entities/**. Una página por persona, org o producto significativo.
+- Revisá el índice primero: actualizá páginas existentes
 
-**wiki/questions/**. One synthesis page titled "Research: [Topic]"
-- This is the master synthesis. Everything comes together here.
-- Sections: Overview, Key Findings, Entities, Concepts, Contradictions, Open Questions, Sources
-- Full frontmatter with related links to all pages created in this session
+**wiki/sources/**. Una página de síntesis: "Investigación: [Tema]"
+- Esta es la síntesis maestra. Todo confluye acá.
+- Secciones: Overview, Key Findings, Entities, Concepts, Contradictions, Open Questions, Sources
 
 ---
 
-## Synthesis Page Structure
+## Estructura de la Página de Síntesis
 
 ```markdown
 ---
 type: synthesis
-title: "Research: [Topic]"
+title: "Investigación: [Tema]"
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 tags:
@@ -85,77 +151,77 @@ tags:
   - [topic-tag]
 status: developing
 related:
-  - "[[Every page created in this session]]"
+  - "[[Cada página creada en esta sesión]]"
 sources:
-  - "[[wiki/sources/Source 1]]"
-  - "[[wiki/sources/Source 2]]"
+  - "[[Source 1]]"
+  - "[[Source 2]]"
 ---
 
-# Research: [Topic]
+# Investigación: [Tema]
 
 ## Overview
-[2-3 sentence summary of what was found]
+[Resumen de 2-3 oraciones]
 
 ## Key Findings
-- Finding 1 (Source: [[Source Page]])
-- Finding 2 (Source: [[Source Page]])
-- ...
+- Hallazgo 1 (Fuente: [[Source Page]])
+- Hallazgo 2 (Fuente: [[Source Page]])
 
 ## Key Entities
-- [[Entity Name]]: role/significance
+- [[Entity Name]]: rol/significado
 
 ## Key Concepts
-- [[Concept Name]]: one-line definition
+- [[Concept Name]]: definición en una línea
 
-## Contradictions
-- [[Source A]] says X. [[Source B]] says Y. [Brief note on which is more credible and why]
+## Contradicciones
+- [[Source A]] dice X. [[Source B]] dice Y. [Cuál es más creíble]
 
 ## Open Questions
-- [Question that research didn't fully answer]
-- [Gap that needs more sources]
+- [Pregunta no respondida]
+- [Gap que necesita más fuentes]
 
 ## Sources
-- [[Source 1]]: author, date
-- [[Source 2]]: author, date
+- [[Source 1]]: autor, fecha
+- [[Source 2]]: autor, fecha
 ```
 
 ---
 
-## After Filing
+## Después del Filing
 
-1. Update `wiki/index.md`. Add all new pages to the right sections
-2. Append to `wiki/log.md` (at the TOP):
+1. **Actualizá `wiki/index.md`**. Agregá todas las páginas nuevas a las secciones correctas. Usá `obsidian-vault_patch_note` para edits quirúrgicos.
+2. **Actualizá `wiki/log.md`** (al PRINCIPIO del archivo):
    ```
-   ## [YYYY-MM-DD] autoresearch | [Topic]
+   ## [YYYY-MM-DD] autoresearch | [Tema]
    - Rounds: N
    - Sources found: N
-   - Pages created: [[Page 1]], [[Page 2]], ...
-   - Synthesis: [[Research: Topic]]
-   - Key finding: [one sentence]
+   - Pages created: [[Page 1]], [[Page 2]]
+   - Synthesis: [[Investigación: Tema]]
+   - Key finding: [una línea]
    ```
-3. Update `wiki/hot.md` with the research summary
+3. **Actualizá `wiki/hot.md`** con el resumen del research.
+   - Leé `wiki/hot.md` primero
+   - Agregá/actualizá la sección de "Recent Changes" y "Key Recent Facts"
 
 ---
 
-## Report to User
+## Reporte al Usuario
 
-After filing everything:
+Después de filedar todo:
 
 ```
-Research complete: [Topic]
+Research complete: [Tema]
 
 Rounds: N | Searches: N | Pages created: N
 
 Created:
-  wiki/questions/Research: [Topic].md (synthesis)
+  wiki/sources/Investigacion-[Tema].md (synthesis)
   wiki/sources/[Source 1].md
   wiki/concepts/[Concept 1].md
   wiki/entities/[Entity 1].md
 
 Key findings:
-- [Finding 1]
-- [Finding 2]
-- [Finding 3]
+- [Hallazgo 1]
+- [Hallazgo 2]
 
 Open questions filed: N
 ```
@@ -164,10 +230,26 @@ Open questions filed: N
 
 ## Constraints
 
-Follow the limits in `references/program.md`:
-- Max rounds (default: 3)
-- Max pages per session (default: 15)
+Respetá los límites de `references/program.md`:
+- Max rounds: 3
+- Max pages per session: 15
 - Confidence scoring rules
 - Source preference rules
 
-If a constraint conflicts with completeness, respect the constraint and note what was left out in the Open Questions section.
+Si un constraint choca con completitud, respetá el constraint y documentá lo
+que quedó fuera en Open Questions.
+
+---
+
+## Resumen para OpenCode
+
+Tools disponibles en este harness:
+- `exa_web_search_exa` → búsqueda web semántica
+- `webfetch` → fetch de URLs
+- `obsidian-vault_write_note` → crear/actualizar páginas wiki
+- `obsidian-vault_read_note` → leer páginas existentes
+- `obsidian-vault_search_notes` → buscar en el vault
+- `obsidian-vault_patch_note` → edición quirúrgica
+- `obsidian-vault_get_notes_info` → metadata de notas
+- `obsidian-vault_update_frontmatter` → actualizar frontmatter
+- `obsidian-vault_list_directory` → listar estructura
