@@ -93,5 +93,16 @@ _attachments/
 /.cocoindex_code/
 .vault-meta/
 
-# Personal vault content (not pushed)
-wiki/
+# Personal vault content — these stay local only
+wiki/projects/
+wiki/meta/handovers/
+wiki/meta/archive/
+wiki/questions/
+wiki/decisions/
+wiki/blueprints/
+wiki/canvases/
+wiki/.raw/
+wiki/meta/evidence-*
+wiki/meta/INTEGRITY-*
+wiki/meta/ingestion-log.md
+wiki/*.canvas
