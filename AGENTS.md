@@ -1,67 +1,61 @@
 # OpenCode-Bunker — Wiki Vault
 
-> [!important] INSTRUCCIONES DE INICIO (MANDATORIO)
-> Al iniciar cualquier sesión en este repositorio, el agente DEBE:
-> 1. Leer `wiki/hot.md` inmediatamente para cargar el contexto activo.
-> 2. Leer el último archivo de handover en `wiki/meta/handovers/` para entender el estado de la última sesión.
-> 3. Actuar bajo el **Protocolo de Proactividad** detallado abajo.
+This directory is the Bunker OS repository. It contains skills, scripts, automation, and a **wiki vault** that compounds knowledge across sessions.
 
-Este directorio es un vault de Obsidian con skills adaptados para OpenCode.
+> [!important] STARTUP INSTRUCTIONS
+> On every session, the agent MUST:
+> 1. Read `wiki/hot.md` for active context.
+> 2. Read the latest handover in `wiki/meta/handovers/`.
+> 3. Act under the **Proactive Protocol** below.
 
-## Vault Path
-```
-${BUNKER_HOME:-<path-to-opencode-obsidian>}
-```
+## Vault
 
-## Estructura
 ```
-.raw/           source documents — immutable, nunca modificar
-wiki/           knowledge base generado por IA
-_templates/     templates de Obsidian
-_attachments/   imágenes y PDFs
+wiki/           → Your knowledge base (entities, concepts, sources, handovers)
+skills/         → Agent skills
+scripts/        → BM25 retrieval, indexing
+hooks/          → OpenCode hooks
 ```
 
-## Comportamiento Proactivo (MANDATORIO)
+`wiki/` is gitignored — your personal content stays local and never gets pushed.
 
-Como agente de este bunker, NO esperes órdenes para tareas de mantenimiento. Debes actuar proactivamente en los siguientes casos:
+## Proactive Protocol
 
-1.  **Detección de Fuentes**: Al iniciar, revisa `.raw/`. Si hay archivos nuevos no registrados en `wiki/meta/ingestion-log.md`, ofrece procesarlos inmediatamente.
-2.  **Auto-Sincronización**: Tras completar una tarea significativa (cambio de código, nueva nota wiki), ejecuta `bin/wiki-sync.sh` sin preguntar.
-3.  **Prevención de Deriva**: Si la conversación se vuelve ambigua, re-lee `wiki/hot.md` para realinear objetivos.
-4.  **Cierre Inteligente**: Al detectar el fin de la sesión, genera el Handover y el resumen de Engram proactivamente.
-5.  **Mantenimiento de Links**: Si creas una nota, busca proactivamente otras notas relacionadas para crear vínculos `[[ ]]`.
+Do NOT wait for orders on maintenance tasks:
 
-## Workflow de Ingestión (MANDATORIO)
+1. **Source Detection**: On startup, check `wiki/.raw/`. If new files, offer to ingest.
+2. **Context Retention**: If conversation drifts, re-read `wiki/hot.md`.
+3. **Smart Close**: At session end, generate handover and Engram summary.
+4. **Link Maintenance**: After creating a note, link related notes with `[[ ]]`.
 
-Cuando recibas un recurso (URL, archivo, tema) para el vault:
+## Ingestion Workflow
 
-### Ubicación exacta por tipo
+When receiving a resource (URL, file, topic):
 
-| Tipo de recurso | Folder destino | Archivo ejemplo |
-|---------------|--------------|-----------------|
-| Entidad (persona, org, producto) | `wiki/entities/` | `wiki/entities/[name].md` |
-| Concepto técnico con código | `wiki/concepts/tech-stack/` | `wiki/concepts/tech-stack/[name].md` |
-| Concepto general | `wiki/concepts/` | `wiki/concepts/[name].md` |
-| Fuente externa | `wiki/sources/` | `wiki/sources/[slug].md` |
+### Destination by type
 
-### Pasos obligatorios
+| Resource type | Folder | Example |
+|--------------|--------|---------|
+| Entity (person, org, product) | `wiki/entities/` | `wiki/entities/[name].md` |
+| Technical concept | `wiki/concepts/tech-stack/` | `wiki/concepts/tech-stack/[name].md` |
+| General concept | `wiki/concepts/` | `wiki/concepts/[name].md` |
+| External source | `wiki/sources/` | `wiki/sources/[slug].md` |
 
-1. **Crear página source** en `wiki/sources/` (resumen del recurso)
-2. **Crear entidad** en `wiki/entities/` si es persona/org/producto
-3. **Crear concepto** en folder correcto (`tech-stack/` si tiene código/patrones)
-4. **Incluir ejemplos de código** — no solo descripción
-5. **Actualizar `wiki/index.md`** — agregar entrada en sección correspondiente
-6. **Actualizar `wiki/log.md`** — prepend operation con fecha
-7. **Agregar al Canvas** — crear nodo y edge en `wiki/Wiki Map.canvas`
+### Required steps
 
-### NO hacer
+1. Create source page in `wiki/sources/`
+2. Create entity page in `wiki/entities/`
+3. Create concept page in correct folder
+4. Update `wiki/index.md`
+5. Prepend to `wiki/log.md`
+6. Check for contradictions with existing pages
 
-- ❌ Guardar solo en Engram (`mem_save`) — eso se pierde entre sesiones
-- ❌ Crear en `wiki/concepts/` cuando corresponde `wiki/concepts/tech-stack/`
-- ⡪omitir el canvas — el grafo visual es parte del vault
-- ❌ Solo descripción — incluir código/patrones prácticos
+### DO NOT
 
-### Formato de Wiki Pages
+- ❌ Save only to Engram — wiki pages survive across sessions
+- ❌ Skip the index update — it's the vault's entry point
+
+### Page format
 
 ```markdown
 ---
@@ -79,117 +73,97 @@ sources: []
 # Title
 
 ## Definition
-[Qué es, en una línea]
+[One-line description]
 
 ## How It Works
-[Mecanismo]
+[Mechanism]
 
 ## Example
-\`\`\`lenguaje
-código aquí
-\`\`\`
-
-## Patterns
-- [Patrón 1]
-- [Patrón 2]
+```language
+code here
+```
 
 ## Source
 - URL
-- [[Context7]]
 ```
 
-### Regla de oro
+## Available Skills
 
-> NO考虑一下 si "esta página será consultable por otra sesión en 3 meses". Si la respuesta es sí, crear la wiki page correctamente.
+| Skill | Trigger | Operates on |
+|-------|---------|-------------|
+| `wiki` | Setup, scaffold | `wiki/` |
+| `ingest [file]` | Source ingestion | `wiki/` |
+| `query [question]` | Answer from wiki | `wiki/` |
+| `retrieve [query]` | BM25 search | `wiki/` |
+| `lint` | Health check | `wiki/` |
+| `save this` | Save conversation | `wiki/` |
+| `autoresearch` | Web research | `wiki/` |
+| `think` | Decision framework | Both |
 
-## Skills Disponibles
+## How to Use
 
-| Skill | Trigger |
-|-------|---------|
-| `wiki` | Setup, scaffold, verificar estado |
-| `ingest [archivo]` | Ingestión de fuentes |
-| `query [pregunta]` | Responder desde el wiki |
-| `search the wiki` | Buscar en el vault |
-| `lint` | Health check |
-| `save this` | Guardar conversación como nota |
-| `bunker init` | **Workflow Start**: Lee hot.md y handover. |
-| `bunker refresh` | **Re-align**: Re-lee pilares para evitar context drift. |
-| `bunker save` | **Checkpoint**: Commits rápidos de la wiki. |
-| `bunker close` | **Session End**: Handover, sync y push. |
+1. **Ingest**: `ingest ~/Documents/article.md`
+2. **Query**: `what do you know about X?`
+3. **Save**: `save this` or `/save`
+4. **Maintenance**: `lint the wiki`
+5. **Retrieve**: `retrieve [query]` (BM25 text search)
 
-## Cómo Usar
+## Cross-Project Access
 
-1. **Ingestión**: "ingest ~/Documents/fuente.pdf"
-2. **Consulta**: "what do you know about X?"
-3. **Guardar**: "save this" o "/save"
-4. **Mantenimiento**: "lint the wiki"
-
-## Acceso Cross-Project
-
-Para referenciar este wiki desde otro proyecto, agregar al AGENTS.md de ese proyecto:
+To reference this wiki from another OpenCode project, add to that project's `AGENTS.md`:
 
 ```markdown
 ## Wiki Knowledge Base
-Path: ${BUNKER_HOME:-<path-to-opencode-obsidian>}
+Path: /path/to/opencode-obsidian
 
-Cuando necesites contexto:
-1. Leé wiki/hot.md primero (~500 palabras)
-2. Si no alcanza, leé wiki/index.md
-3. Solo entonces leé páginas individuales
+When you need context:
+1. Read wiki/hot.md first (~500 words)
+2. If not enough, read wiki/index.md
+3. Only then read individual pages
 
-NO leer el wiki para preguntas de coding generales.
+Do NOT read the wiki for general coding questions.
 ```
 
-## MCP (Configurados)
+## MCP (Configured)
 
 1. **obsidian-vault** (`~/.config/opencode/opencode.json`):
    - `list_notes`, `read_note`, `search_notes`, `write_note`
-2. **n8n-mcp**:
-   - Expone flujos de `/automation/n8n-lab` a OpenCode para ejecución segura y asíncrona.
+   - Pointed at this repo's `wiki/`
+2. **n8n-mcp**: n8n automation workflows in `automation/n8n-lab/`
 
-## Tool Governance (MANDATORIO)
+## Tool Governance
 
-Para evitar solapación y confusión cognitiva entre herramientas MCP:
+1. **Search & Ingestion**:
+   - **Context7**: PRIMARY for library docs (React, Go, etc.)
+   - **Exa**: SECONDARY for news, trends, general topics
+2. **Action**:
+   - **GitHub MCP**: For PRs, issues, repo management
+   - **n8n MCP**: For async workflows, alerts
+3. **Memory**: Save ALL architectural decisions, bug fixes, and patterns to Engram.
 
-1.  **Búsqueda e Ingestión**:
-    - **Context7**: Fuente PRIMARIA para documentación de librerías (React, Go, etc.).
-    - **Exa**: Fuente SECUNDARIA para noticias, tendencias o conceptos genéricos.
-    - **Firecrawl** (si se instala): SOLO para extraer contenido profundo de una URL específica cuando Exa no tiene el detalle.
-2.  **Acción y Estado**:
-    - **BrowserMCP**: SOLO para interactuar con la UI (clics, formularios) o validar visualmente.
-    - **GitHub MCP**: Para gestión de repo (PRs, Issues, Estructura). No usar bash para esto si el MCP puede hacerlo.
-    - **n8n MCP**: Para disparar webhooks o flujos asíncronos (alertas, remediación asistida). NUNCA hardcodear bash scripts para tareas que n8n ya resuelve.
-3.  **Seguridad y Auditoría**:
-    - **Trivy**: Usar SOLO bajo demanda explícita de "Auditoría de Seguridad" o mediante el script `bin/audit-repo.sh`.
-4.  **Memoria**:
-    - **Engram**: Guardar TODA decisión arquitectónica, fix de bug o patrón establecido.
+## Skills (Ported from claude-obsidian)
 
-## Skills Nuevos
-
-Skills porteados de claude-obsidian y adaptados para OpenCode:
-
-| Skill | Descripción | Dónde |
-|-------|-------------|-------|
-| **autoresearch** | Investigación web autónoma 3 rondas con Exa + webfetch | `skills/autoresearch/` |
-| **wiki-retrieve** | BM25 + cosine rerank vía ollama (nomic-embed-text) | `skills/wiki-retrieve/` + `scripts/retrieve.py` |
-| **think** | Framework 10 principios para decisiones | `skills/think/` |
+| Skill | Description | Location |
+|-------|-------------|----------|
+| **autoresearch** | 3-round autonomous web research | `skills/autoresearch/` |
+| **wiki-retrieve** | BM25 text search | `skills/wiki-retrieve/` + `scripts/retrieve.py` |
+| **think** | 10-principle decision framework | `skills/think/` |
 
 ## Test Suite
 
 ```bash
-make test        # 431 tests, 5 suites
-make test-wiki   # Integridad del vault
-make test-scripts # Sintaxis bash + secretos
-make test-workflows # Conexiones n8n
-make test-retrieve # BM25 + rerank
+make test        # 430 tests, 5 suites
+make test-wiki   # Vault integrity
+make test-scripts # Bash syntax + secrets
+make test-workflows # n8n connections
+make test-retrieve # BM25 text retrieval
 ```
 
 ## CI
 
-GitHub Actions en `.github/workflows/test.yml`. Corre en cada push/PR a main.
+GitHub Actions in `.github/workflows/test.yml`. Runs on every push/PR to main.
 
-## Referencias
+## References
 
-- skills adaptados: `~/.config/opencode/skills/wiki*`
-- vault config: `~/.config/opencode/skills/wiki/references/vault-config.md`
-- scripts: `scripts/retrieve.py`, `scripts/bm25-index.py`
+- Skills: `skills/`
+- Scripts: `scripts/retrieve.py`, `scripts/bm25-index.py`

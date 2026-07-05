@@ -350,14 +350,16 @@ Do NOT use for one-line fixes or trivial lookups.
 
 ---
 
-## 9 — Hybrid Retrieval (BM25 + ollama)
+## 9 — BM25 Text Retrieval
 
 See `skills/wiki-retrieve/SKILL.md` for full instructions.
+
+BM25 is a pure text-based ranking algorithm. No embeddings, no LLM, no external services. OpenCode reads the results and synthesizes answers.
 
 ### Pipeline
 
 ```
-query → BM25 (candidates) → ollama nomic-embed-text (embeddings) → cosine rerank → top 5
+query → BM25 (wiki page chunks, ~500 tokens each) → ranked top 5 → OpenCode reads & synthesizes
 ```
 
 ### Maintenance
@@ -370,8 +372,8 @@ python3 scripts/retrieve.py "query" --top 5  # Search
 
 ### Index states
 
-- **build**: builds the index from scratch (206 pages → 211 chunks)
-- **query**: searches the index with BM25 + optional rerank
+- **build**: builds the BM25 index from scratch
+- **query**: searches the index with BM25
 - **status**: shows current index state (pages, chunks, terms)
 
 ---
@@ -436,12 +438,12 @@ Persists last 200 errors in staticData.
 ### Suites
 
 ```bash
-make test                    # 431 tests, 5 suites
+make test                    # 430 tests, 5 suites
 make test-workflows          # 344 n8n connection tests
 make test-wiki               # 21 vault integrity tests
 make test-scripts            # 61 script tests
 make test-yaml               # 2 YAML tests
-make test-retrieve           # 3 BM25 tests
+make test-retrieve           # 2 BM25 tests
 ```
 
 ### CI

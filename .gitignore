@@ -92,3 +92,6 @@ _attachments/
 # CocoIndex Code (ccc)
 /.cocoindex_code/
 .vault-meta/
+
+# Personal vault content (not pushed)
+wiki/

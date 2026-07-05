@@ -32,9 +32,6 @@ jobs:
         with:
           go-version: '1.22'
 
-      - name: Instalar dependencias Python
-        run: pip install numpy
-
       - name: Verificar sintaxis bash
         run: |
           for f in bin/*.sh; do
@@ -59,5 +56,5 @@ jobs:
       - name: Build BM25 index
         run: python3 scripts/bm25-index.py build
 
-      - name: Verificar retrieve sin ollama
-        run: python3 scripts/retrieve.py "test query" --top 2 --no-rerank
+      - name: Verificar retrieve BM25
+        run: python3 scripts/retrieve.py "test query" --top 2

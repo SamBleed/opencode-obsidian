@@ -6,13 +6,13 @@
 
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-v1.3.1-blue?style=flat-square)](PROJECT.md)
-[![Tests](https://img.shields.io/badge/Tests-431_passing-brightgreen?style=flat-square)](Makefile)
+[![Tests](https://img.shields.io/badge/Tests-430_passing-brightgreen?style=flat-square)](Makefile)
 [![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?style=flat-square&logo=githubactions)](.github/workflows/test.yml)
 [![n8n](https://img.shields.io/badge/n8n-Automation-8B5CF6?style=flat-square)](automation/n8n-lab)
 [![OpenCode](https://img.shields.io/badge/OpenCode-Ready-8B5CF6?style=flat-square)](https://opencode.ai)
 [![Obsidian](https://img.shields.io/badge/Obsidian-Vault-7C3AED?style=flat-square&logo=obsidian)](https://obsidian.md)
 
-**Bunker OS** is a local-first knowledge operating system built on Obsidian. It turns AI sessions, research, audits, evidence, and decisions into persistent operational assets. Automation via n8n, hybrid retrieval via BM25 + ollama, and a full orchestration pipeline.
+**Bunker OS** is a local-first knowledge operating system built on Obsidian. It turns AI sessions, research, audits, evidence, and decisions into persistent operational assets. Automation via n8n, text retrieval via BM25, and a full orchestration pipeline for OpenCode.
 
 Based on the [LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) by Andrej Karpathy, forked from [claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian), independently evolved into an operations-first automation system.
 
@@ -28,7 +28,7 @@ Based on the [LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf55591489
 - [Skills](#-skills)
 - [n8n Automation](#-n8n-automation)
 - [Architecture](#-architecture)
-- [Hybrid Retrieval](#-hybrid-retrieval-bm25--ollama)
+- [BM25 Text Retrieval](#-bm25-text-retrieval)
 - [Testing](#-testing)
 - [Repository Structure](#-repository-structure)
 - [FAQ](#-faq)
@@ -45,9 +45,9 @@ Based on the [LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf55591489
 | **Self-organizing wiki** | ✅ Creates entities, concepts, sources | ✅ | ❌ |
 | **n8n automation** | ✅ Async pipelines + webhooks + DLQ | ❌ | ❌ |
 | **Autoresearch** | ✅ 3-round web with gap-filling | ✅ | ❌ |
-| **Hybrid retrieval** | ✅ BM25 + cosine rerank (ollama) | ✅ BM25 + API | ❌ |
+| **Text retrieval** | ✅ BM25 (zero deps, stdlib only) | ✅ BM25 + API | ❌ |
 | **Thinking framework** | ✅ 10 principles | ✅ | ❌ |
-| **Tests + CI** | ✅ 431 tests, GitHub Actions | ✅ | ❌ |
+| **Tests + CI** | ✅ 430 tests, GitHub Actions | ✅ | ❌ |
 | **Dead Letter Queue** | ✅ Global error handler | ❌ | ❌ |
 | **Evidence vault** | ✅ SHA256 checksums | ❌ | ❌ |
 | **Multi-channel alerts** | ✅ Slack / Telegram / Discord | ❌ | ❌ |
@@ -65,7 +65,7 @@ Based on the [LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf55591489
 ### 🧠 Knowledge
 - **Persistent wiki**: 200+ pages of concepts, entities, sources, blueprints, and projects
 - **Autoresearch**: 3-round autonomous web research. Decomposes topics, searches, cross-references sources, and files everything into the wiki
-- **Hybrid Retrieval**: BM25 over 211 chunks + semantic rerank via ollama (nomic-embed-text). Search by meaning, not just exact words
+- **BM25 Text Retrieval**: Fast keyword search over 200+ wiki pages. Pure Python, zero external dependencies, no LLM needed for indexing. OpenCode reads results and synthesizes answers
 - **/think**: 10-principle decision framework for architectural decisions and audits
 - **Wiki-ingest**: Source ingestion with automatic entity and concept extraction
 - **Wiki-lint**: Health check with 8 categories (orphans, dead links, missing frontmatter)
@@ -78,7 +78,7 @@ Based on the [LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf55591489
 - **Emergency Reprocessor**: Auto-retry of failed events every 5 min
 
 ### 🛡️ Operations
-- **431 tests**: 5 suites, Makefile, GitHub Actions CI on every push/PR
+- **430 tests**: 5 suites, Makefile, GitHub Actions CI on every push/PR
 - **Evidence Vault**: report.zip and security-audit-report.json indexed with SHA256
 - **Integrity Engine**: Automated vault health scripts with Markdown + JSON reports
 - **Command Center**: Dashboard + agent queue + handovers + governance
@@ -97,8 +97,8 @@ Based on the [LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf55591489
 | **Language** | English | English |
 | **Skills** | 13 operational | 15 research |
 | **Async automation** | ✅ n8n on Docker | ❌ None |
-| **Hybrid Retrieval** | ✅ BM25 + ollama rerank | ✅ BM25 + Anthropic API + rerank |
-| **Tests** | 431 (5 suites) | ~1,240 (9 suites) |
+| **Text Retrieval** | ✅ BM25 (delegates to agent) | ✅ BM25 + Anthropic API + rerank |
+| **Tests** | 430 (5 suites) | ~1,240 (9 suites) |
 | **Evidence with checksums** | ✅ | ❌ |
 | **Dead Letter Queue** | ✅ | ❌ |
 | **Multi-channel alerts** | ✅ Slack/TG/Discord | ❌ |
@@ -145,7 +145,7 @@ When you need context:
 | Command | Action |
 |---------|--------|
 | `/autoresearch [topic]` | 3-round autonomous web research. Decomposes, searches, cross-references, files to wiki |
-| `/retrieve [query]` | Hybrid search: BM25 + semantic rerank via ollama |
+| `/retrieve [query]` | BM25 text search over wiki (no LLM needed for indexing) |
 | `/think [problem]` | 10-principle decision framework for architectural decisions |
 | `ingest [file]` | Ingest source: extract entities and concepts, create/update pages |
 | `ingest all of these` | Batch ingestion with parallel processing |
@@ -158,14 +158,14 @@ When you need context:
 ### CLI Scripts
 
 ```bash
-make test                              # 431 tests, 5 suites
+make test                              # 430 tests, 5 suites
 ./bin/bunker-check.sh                  # Local definition of done
 ./bin/wiki-integrity.sh                # Scan for orphans and broken links
 ./bin/evidence-index.sh                # Index evidence with SHA256
 ./bin/bunker.sh init                   # Vault health check
 ./bin/wiki-sync.sh --apply             # Sync + commit wiki
 python3 scripts/retrieve.py build      # Rebuild BM25 index
-python3 scripts/retrieve.py "query"    # Semantic search
+python3 scripts/retrieve.py "query"    # BM25 text retrieval
 ```
 
 ### /autoresearch: autonomous research loop
@@ -205,7 +205,7 @@ Use for non-trivial architectural decisions, audits, post-mortems.
 | Skill | Description |
 |-------|-------------|
 | `autoresearch` | 3-round web research with Exa + webfetch |
-| `wiki-retrieve` | BM25 + semantic rerank via ollama |
+| `wiki-retrieve` | BM25 text retrieval (stdlib Python, no deps) |
 | `think` | 10-principle decision framework |
 | `wiki-ingest` | Ingest sources into the wiki |
 | `wiki-query` | Query the wiki with synthesis |
@@ -316,17 +316,18 @@ wiki/ (persistent knowledge)
   └── ...       → comparisons, questions, projects
 ```
 
-### Hybrid retrieval
+### BM25 text retrieval
 
 ```
 query → scripts/retrieve.py "text"
   │
-  ├─ BM25 index (211 chunks, 6,544 terms)  → sparse candidates
-  ├─ ollama nomic-embed-text                → dense embeddings
-  ├─ cosine similarity (0.3 BM25 + 0.7 semantic) → rerank
-  │
-  ▼
-ranked results with: path, score, similarity, preview
+  └─ BM25 index (wiki pages chunked ~500 tokens)
+       │
+       ▼
+  ranked results with: path, score, preview
+       │
+       ▼
+  OpenCode reads and synthesizes
 ```
 
 ### Async automation
@@ -348,22 +349,23 @@ n8n Docker (localhost:5678)
 
 ---
 
-## 🔍 Hybrid Retrieval (BM25 + ollama)
+## 🔍 BM25 Text Retrieval
 
-The Bunker includes a hybrid retrieval system combining textual search (BM25) with semantic search (embeddings via ollama).
+The Bunker includes a fast, zero-dependency text retrieval system using BM25 — the same ranking algorithm behind Elasticsearch. No embeddings, no LLM calls, no external services.
+
+OpenCode (the agent) receives the ranked chunks and applies its own model to understand and synthesize the answer. **The agent is the only intelligence in the loop.**
 
 ### Pipeline
 
 ```
-query → BM25 sparse (10-20 candidates) → cosine rerank (nomic-embed-text) → top 5
+query → BM25 (wiki page chunks) → top 5 results → OpenCode reads & synthesizes
 ```
 
 ### Performance
 
-- **206 pages** indexed
-- **211 chunks** (~500 tokens each)
-- **6,544 terms** in vocabulary
-- **Rerank**: 0.3 BM25 + 0.7 semantic similarity
+- **8 pages** indexed (seed vault — grows with usage)
+- **~500 token chunks** at paragraph boundaries
+- **Pure Python stdlib** — no numpy, no ollama, no API keys
 
 ### Maintenance
 
@@ -390,7 +392,7 @@ python3 scripts/retrieve.py "n8n docker automation" --top 5
 | `test-wiki` | 21 | Essential files exist, valid frontmatter, docker running |
 | `test-scripts` | 61 | Bash syntax, shebang, executables, no hardcoded secrets, go vet |
 | `test-yaml` | 2 | CI and docker-compose YAML valid |
-| `test-retrieve` | 3 | BM25 index exists, search works, semantic rerank available |
+| `test-retrieve` | 2 | BM25 index exists, search returns results |
 
 ### CI
 
@@ -400,7 +402,7 @@ on: push/PR to main → 5 suites → Python + Go + bash
 ```
 
 ```bash
-make test    # 431 tests, 5 suites
+make test    # 430 tests, 5 suites
 ```
 
 ### Secrets scanned
@@ -422,7 +424,7 @@ See [SECURITY.md](SECURITY.md) for the full security policy.
 opencode-obsidian/
 ├── skills/                       # 13 repo skills + 6 ECC global (v1.3.1)
 │   ├── autoresearch/             # 3-round autonomous research
-│   ├── wiki-retrieve/            # BM25 + semantic rerank
+│   ├── wiki-retrieve/            # BM25 text retrieval
 │   ├── think/                    # 10-principle framework
 │   ├── wiki-ingest/              # Source ingestion
 │   ├── wiki-query/               # Wiki querying
@@ -442,7 +444,7 @@ opencode-obsidian/
 │   ├── bm25-index.py             # BM25 indexer
 │   ├── retrieve.py               # Search orchestrator
 │   └── ...
-├── tests/                        # 5 suites, 431 tests
+├── tests/                        # 5 suites, 430 tests
 │   ├── test_workflow_connections.py
 │   ├── test_wiki_integrity.sh
 │   ├── test_scripts.sh
@@ -512,7 +514,7 @@ python3 scripts/retrieve.py build
 
 **Where are the tests?**
 ```bash
-make test    # 431 tests
+make test    # 430 tests
 ```
 
 ---
@@ -529,7 +531,7 @@ make test    # 431 tests
 | Git | any | For vault versioning |
 
 **Optional:**
-- **ollama** + `nomic-embed-text` (for semantic rerank in retrieve)
+- **ollama** (optional, for local inference via OpenCode if configured)
 - **n8n** on Docker (for workflow automation)
 - **OpenRouter API key** (for AI triage in AOC v4)
 

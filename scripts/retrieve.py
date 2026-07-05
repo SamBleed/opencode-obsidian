@@ -1,92 +1,47 @@
 #!/usr/bin/env python3
-"""retrieve.py — Hybrid retrieval orchestrator para Bunker OS.
+"""retrieve.py — BM25 text retrieval for Bunker OS.
+
+Pure BM25 index search. No embeddings, no LLM, no external services.
+OpenCode (the agent) reads the ranked results and synthesizes answers.
 
 Pipeline:
-  query → BM25 (sparse candidates) → ollama rerank (dense cosine) → ranked results
+  query → BM25 (sparse candidates) → ranked results
 
 Uso:
-  python3 scripts/retrieve.py "texto de búsqueda" --top 5
-  python3 scripts/retrieve.py "texto" --top 10 --no-rerank
+  python3 scripts/retrieve.py "consulta" --top 5
+  python3 scripts/retrieve.py build
+  python3 scripts/retrieve.py status
 
-Requiere: numpy, ollama con nomic-embed-text
+Deps: Python 3.10+ (stdlib only — no external packages required)
 """
 
 import json
 import os
-import subprocess
 import sys
 
 SCRIPTS = os.path.dirname(os.path.abspath(__file__))
-VAULT = os.path.dirname(SCRIPTS)
 sys.path.insert(0, SCRIPTS)
 import importlib
 bm25_mod = importlib.import_module('bm25-index')
+
+# Vault path: env var overrides default (repo root)
+DEFAULT_VAULT = os.path.dirname(SCRIPTS)
+VAULT_PATH = os.environ.get('BUNKER_HOME') or os.environ.get('VAULT_PATH') or DEFAULT_VAULT
+if VAULT_PATH != DEFAULT_VAULT:
+    bm25_mod.VAULT = VAULT_PATH
+
 query_index = bm25_mod.query_index
 build_index = bm25_mod.build_index
-
-
-def embed(texts):
-    """Obtiene embeddings via ollama API."""
-    if isinstance(texts, str):
-        texts = [texts]
-
-    try:
-        import urllib.request
-        payload = json.dumps({"model": "nomic-embed-text", "input": texts}).encode()
-        req = urllib.request.Request(
-            "http://localhost:11434/api/embed",
-            data=payload,
-            headers={"Content-Type": "application/json"}
-        )
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            data = json.loads(resp.read())
-            return data.get("embeddings", [])
-    except Exception as e:
-        print(f'⚠️  Error en embed: {e}', file=sys.stderr)
-        return None
-
-
-def cosine_similarity(a, b):
-    """Producto punto normalizado."""
-    import numpy as np
-    a = np.array(a)
-    b = np.array(b)
-    return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b) + 1e-10))
-
-
-def rerank(query, candidates, top_k=5):
-    """Re-ordena candidatos por cosine similarity vía ollama."""
-    if not candidates:
-        return candidates
-
-    texts = [c['preview'] for c in candidates]
-    query_emb = embed(query)
-    doc_embs = embed(texts)
-
-    if query_emb is None or doc_embs is None:
-        print('⚠️  Rerank falló (ollama no disponible), usando scores BM25', file=sys.stderr)
-        return candidates[:top_k]
-
-    query_vec = query_emb[0] if isinstance(query_emb[0], list) else query_emb
-    doc_vecs = doc_embs
-
-    for i, c in enumerate(candidates):
-        if i < len(doc_vecs):
-            c['similarity'] = round(cosine_similarity(query_vec, doc_vecs[i]), 4)
-            c['combined'] = round(0.3 * c['score'] + 0.7 * c['similarity'], 4)
-        else:
-            c['similarity'] = 0
-            c['combined'] = c['score']
-
-    reranked = sorted(candidates, key=lambda x: -x.get('combined', x['score']))
-    return reranked[:top_k]
 
 
 def main():
     args = sys.argv[1:]
     if not args or args[0] in ('-h', '--help'):
-        print('Uso: python3 scripts/retrieve.py "query" [--top N] [--no-rerank]')
+        print('Uso: python3 scripts/retrieve.py "query" [--top N]')
         print('      python3 scripts/retrieve.py build  (construir/actualizar índice)')
+        print('      python3 scripts/retrieve.py status (estado del índice)')
+        print('')
+        print('Sin dependencias externas. BM25 puro. OpenCode sintetiza.')
         sys.exit(0)
 
     if args[0] == 'build':
@@ -97,33 +52,30 @@ def main():
         return
 
     query = args[0]
+    if not query.strip():
+        print('Error: la consulta no puede estar vacía', file=sys.stderr)
+        sys.exit(1)
+
     top_k = 5
-    use_rerank = True
 
     for i, a in enumerate(args[1:], 1):
         if a == '--top' and i + 1 < len(args):
-            top_k = int(args[i + 1])
-        elif a == '--no-rerank':
-            use_rerank = False
+            try:
+                top_k = int(args[i + 1])
+            except ValueError:
+                print(f'Error: --top debe ser un número entero, no "{args[i + 1]}"', file=sys.stderr)
+                sys.exit(1)
 
-    # Paso 1: BM25 candidates
-    candidates = query_index(query, top_k=top_k * 2)
+    candidates = query_index(query, top_k=top_k)
     if not candidates:
-        print(f'⚠️  Sin resultados para: {query}')
+        print(json.dumps({'query': query, 'strategy': 'bm25', 'top_k': 0, 'candidates': []},
+                         ensure_ascii=False, indent=2))
         return
 
-    # Paso 2: Rerank (opcional)
-    if use_rerank:
-        results = rerank(query, candidates, top_k=top_k)
-        strategy = 'bm25+rerank:cosine:nomic-embed-text'
-    else:
-        results = candidates[:top_k]
-        strategy = 'bm25+no-rerank'
-
-    # Output
+    results = candidates[:top_k]
     output = {
         'query': query,
-        'strategy': strategy,
+        'strategy': 'bm25',
         'top_k': len(results),
         'candidates': results
     }

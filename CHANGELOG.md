@@ -6,7 +6,7 @@
 
 **Skills**
 - **Autoresearch**: 3-round autonomous research loop with Exa + webfetch + wiki filing. Ported from claude-obsidian v1.9.2, adapted to OpenCode.
-- **wiki-retrieve**: BM25 index (211 chunks, 6,544 terms) + cosine rerank via ollama nomic-embed-text. Hybrid semantic search.
+- **wiki-retrieve**: BM25 text retrieval over wiki pages. Pure Python, zero deps, no embeddings needed. OpenCode reads results and synthesizes.
 - **/think**: 10-principle framework (OBSERVE-OBSERVE-LISTEN-THINK-CONNECT-CONNECT-FEEL-ACCEPT-CREATE-GROW) for architectural decisions.
 
 **Testing**

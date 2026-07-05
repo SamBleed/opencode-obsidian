@@ -8,7 +8,7 @@ help:
 	@echo "  make test-workflows   Validar JSONs de workflows n8n (conexiones, nodos)"
 	@echo "  make test-wiki        Health check del vault (archivos, frontmatter)"
 	@echo "  make test-scripts     Validar scripts (sintaxis, secretos, ejecutables)"
-	@echo "  make test-retrieve    Validar índice BM25 y retrieval híbrido"
+	@echo "  make test-retrieve    Validar índice BM25 y text retrieval"
 	@echo "  make test-yaml        Validar YAMLs (CI, compose)"
 	@echo "  make test (default)   Ejecutar todas las suites"
 	@echo "  make test-all         Alias de make test"
@@ -51,8 +51,7 @@ test-retrieve:
 	@echo "  Suite: BM25 Retrieval"
 	@echo "========================================"
 	@python3 scripts/retrieve.py status > /dev/null 2>&1 && echo "  ✅ Índice BM25 existe" || (echo "  ❌ Índice BM25 no encontrado" && exit 1)
-	@python3 scripts/retrieve.py "test query búsqueda" --top 2 --no-rerank > /dev/null 2>&1 && echo "  ✅ Búsqueda BM25 funciona" || (echo "  ❌ Búsqueda BM25 falló" && exit 1)
-	@python3 scripts/retrieve.py "test query" --top 2 > /dev/null 2>&1 && echo "  ✅ Rerank semántico funciona" || echo "  ⚠️  Rerank semántico no disponible (sin ollama)"
+	@python3 scripts/retrieve.py "test query búsqueda" --top 2 > /dev/null 2>&1 && echo "  ✅ Búsqueda BM25 funciona" || (echo "  ❌ Búsqueda BM25 falló" && exit 1)
 	@echo ""
 
 test-all: test

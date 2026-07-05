@@ -8,10 +8,10 @@ PRs welcome. Please read this before opening one.
 
 | Dependency | Required for | Notes |
 |------------|-------------|-------|
-| Python 3.10+ | BM25 index, retrieve scripts | `pip install numpy` |
+| Python 3.10+ | BM25 index, retrieve scripts | stdlib only — no pip deps needed |
 | Go 1.22+ | `ingest_server.go` | Optional |
 | Docker | n8n workflow testing | Optional |
-| ollama + nomic-embed-text | Semantic rerank in retrieve | Optional |
+| ollama (if needed) | OpenCode local inference | Not related to retrieval |
 | OpenCode | Running skills | Required |
 | ECC skill bundle | code-review, security-review, etc. | `~/.config/opencode/skills/`
 
@@ -44,7 +44,7 @@ chore: update docker-compose
 
 Before requesting review:
 
-- [ ] `make test` passes (431 tests, 0 failures)
+- [ ] `make test` passes (430 tests, 0 failures)
 - [ ] If you changed skills: did you update SKILL.md?
 - [ ] If you changed scripts: did you update tests?
 - [ ] If you changed structure: did you update README / PROJECT / WIKI?

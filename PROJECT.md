@@ -4,7 +4,7 @@ This repository is an OpenCode agent environment and an Obsidian wiki vault.
 
 **Version:** 1.3.1  
 **Status:** Local-first operational knowledge system with n8n automation  
-**Tests:** 431 (Makefile + GitHub Actions CI)  
+**Tests:** 430 (Makefile + GitHub Actions CI)  
 **Vault path:** current repository root. Use `BUNKER_HOME` to override script resolution.
 
 ---
@@ -18,7 +18,7 @@ Bunker OS is not a traditional application. It is a local-first knowledge operat
 - audit evidence preservation (**SHA256 checksums**)
 - project intelligence
 - agent-guided workflow (**n8n AOC v4**, **Dead Letter Queue**)
-- hybrid knowledge retrieval (**BM25 + ollama rerank**)
+- BM25 text retrieval (**zero-dependency, agent-synthesized**)
 - governance and decisions
 - visual command center operations
 
@@ -33,7 +33,7 @@ Classify      → wiki/sources, entities, concepts, projects, comparisons
 Evidence      → report.zip, security-audit-report.json, evidence index
 Governance    → BUNKER_RULES, ADR template, knowledge supply chain
 Automation    → bin/ (Sync ops) + n8n (Async flows, alerts, DLQ)
-Retrieval     → BM25 index + ollama nomic-embed-text (cosine rerank)
+Retrieval     → BM25 index (pure Python, zero deps) + OpenCode synthesis
 Testing       → 5 suites: workflows n8n, wiki integrity, scripts, YAML, retrieve
 Agent Runtime → agents, commands, skills (13), hooks (7)
 Visualization → dashboard, canvases, Obsidian graph
@@ -45,7 +45,7 @@ Visualization → dashboard, canvases, Obsidian graph
 
 ### Added
 - **Autoresearch**: 3-round autonomous research loop with Exa + webfetch
-- **wiki-retrieve**: BM25 index (211 chunks, 6,544 terms) + cosine rerank via ollama
+- **wiki-retrieve**: BM25 text retrieval — pure Python, zero deps, agent-synthesized
 - **/think framework**: 10-principle framework for architectural decisions
 - **GitHub Actions CI**: 5 suites run on every push/PR to main
 - **Dead Letter Queue**: global error trigger for n8n
@@ -57,7 +57,7 @@ Visualization → dashboard, canvases, Obsidian graph
 - 61 script tests (syntax, secrets, executables)
 - 21 vault integrity tests
 - YAML tests (CI + docker-compose)
-- BM25 + rerank tests
+- BM25 text retrieval tests
 
 ### Infrastructure
 - docker-compose: production tuning (concurrency, metrics, log format, data prune)
@@ -79,7 +79,7 @@ Visualization → dashboard, canvases, Obsidian graph
 | Skill | Description |
 |-------|-------------|
 | `autoresearch` | 3-round autonomous web research |
-| `wiki-retrieve` | BM25 + semantic rerank via ollama |
+| `wiki-retrieve` | BM25 text retrieval (stdlib Python) |
 | `think` | 10-principle framework for decisions |
 | `wiki-ingest` | Ingest sources into wiki |
 | `wiki-query` | Query the wiki |
@@ -127,7 +127,7 @@ n8n acts as the asynchronous execution engine and "nervous system" of the Bunker
 | Evidence indexing | `./bin/evidence-index.sh` |
 | Full local check | `./bin/bunker-check.sh` |
 | Full test suite | `make test` |
-| Hybrid search | `python3 scripts/retrieve.py "query"` |
+| BM25 text retrieval | `python3 scripts/retrieve.py "query"` |
 | Autoresearch | `/autoresearch [topic]` via OpenCode |
 | n8n status | `docker ps --filter name=n8n` |
 

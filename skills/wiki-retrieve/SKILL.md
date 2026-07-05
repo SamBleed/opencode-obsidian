@@ -1,100 +1,133 @@
 ---
 name: wiki-retrieve
 description: >
-  Hybrid retrieval para Bunker OS. BM25 + rerank semántico vía ollama
-  (nomic-embed-text). Reemplaza la búsqueda plana con retrieval híbrido
-  contextual. Triggers on: "/retrieve", "retrieve", "hybrid search",
-  "búsqueda semántica", "find relevant", "buscar en el vault",
-  "search chunks", "chunk search", "vault search".
+  BM25 text retrieval for Bunker OS. Fast local keyword search over
+  the wiki vault. No embeddings, no LLM, no external services —
+  OpenCode reads the results and synthesizes answers.
+  Triggers on: "/retrieve", "retrieve", "text search",
+  "search chunks", "chunk search", "vault search",
+  "búsqueda", "find in vault", "BM25".
 ---
 
-# wiki-retrieve: Hybrid Retrieval para Bunker OS
+# wiki-retrieve: BM25 Text Retrieval for Bunker OS
 
-Busca en el vault usando BM25 (búsqueda textual) + rerank semántico
-(cosine similarity vía nomic-embed-text en ollama). Mejor que la
-búsqueda plana porque entiende significado, no solo palabras exactas.
+Search the wiki vault using BM25 — a pure text-based ranking algorithm.
+Fast, deterministic, zero external dependencies. OpenCode reads the
+ranked chunks and synthesizes the final answer.
+
+**No embeddings. No LLM calls. No ollama. No API keys.**
+The agent (OpenCode) is the only intelligence in the loop.
+
+---
+
+## Architecture
+
+```
+QUERY:
+  query string
+       │
+       ▼
+  python3 scripts/retrieve.py "<query>" --top 5
+       │
+       ├─ bm25-index.py (pure Python, stdlib only)
+       │     tokenize → BM25 scoring → ranked results
+       │
+       └─ returns top-N with: path, score, preview
+       │
+       ▼
+  OpenCode reads the pages and synthesizes the answer
+```
+
+The index is built offline from wiki Markdown files. Each page is
+split into chunks (~500 tokens each) at paragraph boundaries. The
+BM25 algorithm ranks chunks by term frequency/inverse document
+frequency — the same foundation Elasticsearch uses.
 
 ---
 
 ## Feature Detection
 
-Antes de usar retrieve, verificá que el índice existe:
+Before using retrieve, check if the index exists:
 
 ```bash
-python3 scripts/retrieve.py build   # construir/actualizar índice
-python3 scripts/retrieve.py status  # ver estado
+python3 scripts/retrieve.py build   # build/update index
+python3 scripts/retrieve.py status  # check status
 ```
 
-Si el índice no existe, caé al flujo legacy (obsidian-vault_search_notes).
+If the index doesn't exist, fall back to `obsidian-vault_search_notes`
+or the legacy hot → index → drill read order.
 
 ---
 
-## Pipeline
+## Usage
 
-```
-query string
-     │
-     ▼
-scripts/retrieve.py "<query>" --top 5
-     │
-     ├─ bm25-index.py query "<query>"    (candidatos sparse)
-     ├─ rerank vía ollama nomic-embed-text (cosine similarity)
-     │   embeddings cacheadas en .vault-meta/embed-cache.json
-     └─ devuelve top-N con: path, score, similarity, preview
-     │
-     ▼
-el skill lee las páginas y sintetiza respuesta
-```
+| Operation | Command | Description |
+|-----------|---------|-------------|
+| **Search** | `python3 scripts/retrieve.py "query" --top 5` | BM25 ranked results |
+| **Build** | `python3 scripts/retrieve.py build` | Rebuild index from scratch |
+| **Status** | `python3 scripts/retrieve.py status` | Index stats |
+
+### Flags
+
+| Flag | Default | Description |
+|------|---------|-------------|
+| `--top N` | `5` | Max results to return |
 
 ---
 
-## Modos de Búsqueda
+## Integration with OpenCode Queries
 
-| Modo | Comando | Uso |
-|------|---------|-----|
-| **Quick** | `python3 scripts/retrieve.py "query" --top 3` | Búsqueda rápida, solo resultados |
-| **Rerank** | `python3 scripts/retrieve.py "query" --top 5` | BM25 + rerank semántico (default) |
-| **No rerank** | `python3 scripts/retrieve.py "query" --no-rerank` | Solo BM25 (más rápido) |
-| **Build** | `python3 scripts/retrieve.py build` | Reconstruir índice |
+When you receive a query:
 
----
+1. **First**: run `python3 scripts/retrieve.py status` to verify the index exists
+2. **If it exists**: run `python3 scripts/retrieve.py "consulta" --top 5`
+3. **Read the results**: each result has `path` (file path), `score` (BM25 relevance), and `preview` (text excerpt)
+4. **Read the pages**: use `obsidian-vault_read_note` on the relevant paths
+5. **Synthesize**: answer the user with citations to the wiki sources
 
-## Integración con Búsqueda
-
-Cuando recibas una consulta:
-
-1. **Primero**: intentá `python3 scripts/retrieve.py status` para ver si el índice existe
-2. **Si existe**: ejecutá `python3 scripts/retrieve.py "consulta" --top 5`
-3. **Leé los resultados**: cada resultado tiene `path` (ruta del archivo) y `preview`
-4. **Leé las páginas** más relevantes usando `obsidian-vault_read_note`
-5. **Sintetizá** la respuesta con citas a las fuentes
-
-Si el índice NO existe o el script falla:
-- Usá `obsidian-vault_search_notes` con la consulta
-- O leé `wiki/hot.md` + `wiki/index.md` + páginas relevantes (legacy)
+If the index doesn't exist or the script fails:
+- Use `obsidian-vault_search_notes` with the query
+- Or read `wiki/hot.md` + `wiki/index.md` + relevant pages (legacy path)
 
 ---
 
-## Mantenimiento del Índice
+## Index Maintenance
 
-El índice hay que rebuildearlo cuando se agreguen/modifiquen páginas wiki:
+Rebuild the index after adding or modifying wiki pages:
 
 ```bash
-# Después de ingestar fuentes nuevas:
+# After ingesting new sources:
 python3 scripts/retrieve.py build
 
-# Verificar estado:
+# Verify status:
 python3 scripts/retrieve.py status
 ```
 
-Idealmente correr `build` antes de cada sesión de búsqueda pesada.
+The build is incremental-aware but rebuilds fully from source files.
+It's fast (pure Python, no network calls). Run it before heavy
+search sessions.
 
 ---
 
-## Tools Disponibles
+## Available Tools
 
-- `python3 scripts/retrieve.py build` — construir índice BM25
-- `python3 scripts/retrieve.py status` — estado del índice
-- `python3 scripts/retrieve.py "query" --top N` — búsqueda híbrida
-- `obsidian-vault_search_notes` — fallback FTS nativo
-- `obsidian-vault_read_note` — leer páginas encontradas
+| Tool | Purpose |
+|------|---------|
+| `python3 scripts/retrieve.py build` | Build/update BM25 index |
+| `python3 scripts/retrieve.py status` | Index status and stats |
+| `python3 scripts/retrieve.py "query" --top N` | BM25 text search |
+| `obsidian-vault_search_notes` | Fallback FTS search (when BM25 not available) |
+| `obsidian-vault_read_note` | Read wiki pages from search results |
+
+---
+
+## Why BM25-only?
+
+- **Zero dependencies**: stdlib Python, no numpy, no ollama, no API keys
+- **Fast**: builds and queries in under a second for typical vaults
+- **Deterministic**: same query = same results, every time
+- **OpenCode does the synthesis**: the agent reads the chunks and
+  applies its own model (Anthropic, OpenAI, local — whatever the user
+  configured in OpenCode) to understand and answer
+- **Portable**: works in CI, air-gapped environments, anywhere with
+  Python 3.10+
