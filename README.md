@@ -16,6 +16,10 @@
 
 Based on the [LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) by Andrej Karpathy, forked from [claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian), independently evolved into an operations-first automation system.
 
+<p align="center">
+  <img src="wiki/meta/descripcion.png" alt="Bunker OS Overview" width="100%" />
+</p>
+
 ---
 
 ## Table of Contents
