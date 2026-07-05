@@ -6,7 +6,7 @@ tags: [meta, index]
 status: evergreen
 ---
 
-# Bunker OS — Wiki Index
+# opencode-obsidian — Wiki Index
 
 A local-first knowledge operating system for OpenCode.
 
@@ -15,10 +15,18 @@ A local-first knowledge operating system for OpenCode.
 - [[LLM Wiki Pattern]] — The foundation pattern behind persistent wiki vaults
 - [[Compounding Knowledge]] — How knowledge grows like compound interest
 - [[BM25-Text-Retrieval]] — Zero-dependency text search
+- [[web3-bug-bounty-methodology]] — Common vulnerability patterns in web3 protocols
 
 ## Entities
 
 - [[Andrej Karpathy]] — Creator of the LLM Wiki pattern
+- [[Trust Security]] — Leading web3 security research firm
+- [[pwning.eth]] — Million-dollar bounty hunter (Aurora, Moonbeam)
+- [[riptide]] — Security researcher (Arbitrum, Balancer, Lido)
+
+## Sources
+
+- [[immunefi-bug-bounty-writeups]] — Curated list of Immunefi web3 bug bounty reports
 
 ## About
 

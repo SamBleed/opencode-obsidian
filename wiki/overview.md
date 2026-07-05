@@ -1,11 +1,11 @@
 ---
 type: concept
-title: "Bunker OS Overview"
+title: "opencode-obsidian Overview"
 tags: [meta, overview]
 status: active
 ---
 
-# Bunker OS
+# opencode-obsidian
 
 A local-first knowledge operating system for OpenCode. BM25 text retrieval, n8n automation, 430 tests, zero external LLM dependencies.
 

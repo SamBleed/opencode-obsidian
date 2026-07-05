@@ -8,6 +8,6 @@ status: active
 
 # Andrej Karpathy
 
-AI researcher. Created the LLM Wiki Pattern that Bunker OS is based on.
+AI researcher. Created the LLM Wiki Pattern that opencode-obsidian is based on.
 
 - [Original gist](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)

@@ -6,7 +6,7 @@ tags: [meta, hot-cache, context]
 status: evergreen
 ---
 
-# Recent Context — Bunker OS
+# Recent Context — opencode-obsidian
 
 This is a seed vault. Start working and this page will update automatically.
 
